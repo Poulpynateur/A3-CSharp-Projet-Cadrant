@@ -19,6 +19,7 @@ namespace Projet_Cadrant_2019
 "                          Y8b d88P                                  \n" +
 "                           'Y88P'                                    "
                 );
+            Console.ReadKey();
         }
     }
 }
