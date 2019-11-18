@@ -6,4 +6,8 @@
     <RootNamespace>Projet_Cadrant_2019</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="config\" />
+  </ItemGroup>
+
 </Project>

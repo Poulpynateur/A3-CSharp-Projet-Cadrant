@@ -1,0 +1,12 @@
+﻿{
+  "name": "EasySave",
+  "description":  "Logiciel de sauvegarde de la suite ProSoft.",
+  "authors": [
+    "Nicolas DE GHESELLE",
+    "Alexandre HALTER",
+    "Guil DIYAN",
+    "Lucas HAAS"
+  ],
+  
+  "version": "0.0"
+}
