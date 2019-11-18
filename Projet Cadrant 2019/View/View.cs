@@ -1,8 +1,8 @@
 ﻿using System;
 
-using Projet_Cadrant_2019.Controller;
+using EasySave.Controller;
 
-namespace Projet_Cadrant_2019.View
+namespace EasySave.View
 {
     class View : IView
     {
@@ -40,7 +40,7 @@ namespace Projet_Cadrant_2019.View
         {
             string input;
 
-            Console.Write("\n>>>");
+            Console.Write("\n>>> ");
             input = Console.ReadLine();
             inputListener.notify(input);
         }

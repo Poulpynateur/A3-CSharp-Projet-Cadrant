@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Projet_Cadrant_2019.Model
+namespace EasySave.Model
 {
     class Model : IModel
     {

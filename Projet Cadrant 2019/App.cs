@@ -1,8 +1,8 @@
-﻿using Projet_Cadrant_2019.Controller;
-using Projet_Cadrant_2019.Model;
-using Projet_Cadrant_2019.View;
+﻿using EasySave.Controller;
+using EasySave.Model;
+using EasySave.View;
 
-namespace Projet_Cadrant_2019
+namespace EasySave
 {
     class App
     {

@@ -1,7 +1,7 @@
-﻿using Projet_Cadrant_2019.Model;
-using Projet_Cadrant_2019.View;
+﻿using EasySave.Model;
+using EasySave.View;
 
-namespace Projet_Cadrant_2019.Controller
+namespace EasySave.Controller
 {
     class Controller : IInputsListener
     {
