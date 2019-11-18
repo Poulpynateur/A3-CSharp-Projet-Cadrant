@@ -21,7 +21,7 @@ namespace Projet_Cadrant_2019.View
                 "8888888888'Y888888 88888P' 'Y88888 'Y8888P' 'Y888888  Y88P   'Y8888 \n" +
                 "                               888                                  \n" +
                 "                          Y8b d88P                                  \n" +
-                "                           'Y88P'                                    "
+                "                           'Y88PXDDDDDDDDDDDDD'                                    "
             );
         }
 
