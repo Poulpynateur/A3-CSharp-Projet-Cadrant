@@ -6,11 +6,9 @@ namespace EasySave.View
 {
     class View : IView
     {
-        public IInputsListener inputListener { private get; set; }
-
-        public View()
-        {
-            Console.WriteLine(
+          public View()
+          {
+                Console.WriteLine(
                 "8888888888                         .d8888b.                         \n" +
                 "888                               d88P  Y88b                        \n" +
                 "888                               Y88b.                             \n" +
@@ -22,8 +20,10 @@ namespace EasySave.View
                 "                               888                                  \n" +
                 "                          Y8b d88P                                  \n" +
                 "                           'Y88P'                                    "
-            );
-        }
+                );
+          }
+
+        public event IView.InputsEventHandler inputEvent;
 
         /// <summary>
         /// <see cref="IView.readConsoleLine">IView.readConsoleLine</see>.
@@ -42,7 +42,8 @@ namespace EasySave.View
 
             Console.Write("\n>>> ");
             input = Console.ReadLine();
-            inputListener.notify(input);
+
+            inputEvent(input);
         }
     }
 }

@@ -13,8 +13,6 @@ namespace EasySave
 
             Controller.Controller controller = new Controller.Controller(model, view);
 
-            view.inputListener = controller;
-
             controller.start();
         }
     }

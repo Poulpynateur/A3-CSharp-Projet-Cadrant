@@ -3,7 +3,7 @@ using EasySave.View;
 
 namespace EasySave.Controller
 {
-    class Controller : IInputsListener
+    class Controller
     {
         private IModel model;
         private IView view;
@@ -12,6 +12,17 @@ namespace EasySave.Controller
         {
             this.model = model;
             this.view = view;
+
+            this.handleEvents();
+        }
+
+        private void handleEvents()
+        {
+            view.inputEvent += delegate (string input)
+            {
+                view.writeConsoleLine("Your input : " + input);
+                view.readConsoleLine();
+            };
         }
 
         /// <summary>
@@ -19,15 +30,6 @@ namespace EasySave.Controller
         /// </summary>
         public void start()
         {
-            view.readConsoleLine();
-        }
-
-        /// <summary>
-        /// <see cref="IInputsListener">IInputsListener</see>.
-        /// </summary>
-        public void notify(string input)
-        {
-            view.writeConsoleLine("Your input : " + input);
             view.readConsoleLine();
         }
     }
