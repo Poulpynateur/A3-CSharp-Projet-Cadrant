@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasySave.Model.Command
+namespace EasySave.Model.Task
 {
-    class Command1 : ICommand
+    class TaskManager
     {
     }
 }
