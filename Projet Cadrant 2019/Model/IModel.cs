@@ -1,10 +1,14 @@
-﻿using System;
+﻿using EasySave.Model.Command;
+using EasySave.Model.Task;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Projet_Cadrant_2019.Model
+namespace EasySave.Model
 {
-    public interface IModel
+    public interface IModel 
     {
+        public ITaskManager TaskManager {get; }
+        public ICommandManager CommandManager { get; }
     }
 }

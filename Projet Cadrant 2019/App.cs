@@ -1,21 +1,19 @@
-﻿using Projet_Cadrant_2019.Controller;
-using Projet_Cadrant_2019.Model;
-using Projet_Cadrant_2019.View;
+﻿using EasySave.Controller;
+using EasySave.Model;
+using EasySave.View;
 
-namespace Projet_Cadrant_2019
+namespace EasySave
 {
     class App
     {
         static void Main(string[] args)
         {
-            Model.Model model = new Model.Model();
-            View.View view = new View.View();
+            Model.Model Model = new Model.Model();
+            View.View View = new View.View();
 
-            Controller.Controller controller = new Controller.Controller(model, view);
+            Controller.Controller Controller = new Controller.Controller(Model, View);
 
-            view.inputListener = controller;
-
-            controller.start();
+            Controller.Start();
         }
     }
 }

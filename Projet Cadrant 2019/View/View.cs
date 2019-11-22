@@ -1,16 +1,14 @@
 ﻿using System;
 
-using Projet_Cadrant_2019.Controller;
+using EasySave.Controller;
 
-namespace Projet_Cadrant_2019.View
+namespace EasySave.View
 {
     class View : IView
     {
-        public IInputsListener inputListener { private get; set; }
-
-        public View()
-        {
-            Console.WriteLine(
+          public View()
+          {
+                Console.WriteLine(
                 "8888888888                         .d8888b.                         \n" +
                 "888                               d88P  Y88b                        \n" +
                 "888                               Y88b.                             \n" +
@@ -21,28 +19,31 @@ namespace Projet_Cadrant_2019.View
                 "8888888888'Y888888 88888P' 'Y88888 'Y8888P' 'Y888888  Y88P   'Y8888 \n" +
                 "                               888                                  \n" +
                 "                          Y8b d88P                                  \n" +
-                "                           'Y88PXDDDDDDDDDDDDD'                                    "
-            );
+                "                           'Y88P'                                    "
+                );
+          }
+
+        public event IView.InputsEventHandler InputEvent;
+
+        /// <summary>
+        /// <see cref="IView.ReadConsoleLine">IView.readConsoleLine</see>.
+        /// </summary>
+        public void WriteConsoleLine(string Text)
+        {
+            Console.WriteLine(Text);
         }
 
         /// <summary>
-        /// <see cref="IView.readConsoleLine">IView.readConsoleLine</see>.
+        /// <see cref="IView.WriteConsoleLine(string)">IView.writeConsoleLine(string)</see>.
         /// </summary>
-        public void writeConsoleLine(string text)
+        public void ReadConsoleLine()
         {
-            Console.WriteLine(text);
-        }
+            string Input;
 
-        /// <summary>
-        /// <see cref="IView.writeConsoleLine(string)">IView.writeConsoleLine(string)</see>.
-        /// </summary>
-        public void readConsoleLine()
-        {
-            string input;
+            Console.Write("\n>>> ");
+            Input = Console.ReadLine();
 
-            Console.Write("\n>>>");
-            input = Console.ReadLine();
-            inputListener.notify(input);
+            InputEvent(Input);
         }
     }
 }
