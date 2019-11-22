@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Windows.Input;
+using EasySave.Model.Command;
 
 namespace EasySave.Model.Task
 {
     public interface ITaskManager
     {
-        void AddTask(string name, ICommand Command);
+        void AddTask(string name, Command.Command Command);
 
         void RemoveTask(string name);
     }

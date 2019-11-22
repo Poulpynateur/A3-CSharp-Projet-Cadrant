@@ -7,13 +7,20 @@ using EasySave.Model.Task;
 
 namespace EasySave.Model
 {
-    class Model : IModel
+    public class Model : IModel
     {
-        public ITaskManager TaskManager => throw new NotImplementedException();
+        public ITaskManager TaskManager { get; private set; }
 
-        public ICommandManager CommandManager => throw new NotImplementedException();
-
+        public ICommandManager CommandManager { get; private set; }
 
         private ConfigManager Config;
+
+        public Model()
+        {
+            this.TaskManager = new TaskManager();
+            this.CommandManager = new CommandManager();
+
+            this.Config = ConfigManager.Instance;
+        }
     }
 }

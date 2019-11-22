@@ -6,18 +6,13 @@ namespace EasySave.Model.Config
 {
     public sealed class ConfigManager : JsonManager
     {
+        private static readonly Lazy<ConfigManager> lazy =
+            new Lazy<ConfigManager>(() => new ConfigManager());
+
+        public static ConfigManager Instance { get { return lazy.Value; } }
+
         private ConfigManager()
         {
         }
-        private static readonly Lazy<ConfigManager> lazy = new Lazy<ConfigManager>(() => new ConfigManager());
-        public static ConfigManager Instance
-        {
-            get
-            {
-                return lazy.Value;
-            }
-        }
-
-        
     }
 }

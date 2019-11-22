@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Globalization;
-using System.Windows.Input;
+using EasySave.Model.Command;
+
 
 namespace EasySave.Model.Task
 {
     public interface ITask
     {
-        ICommand Command { get; }
+        Command.Command Command { get; }
 
         DateTime BeginAt { get; }
 

@@ -10,6 +10,5 @@ namespace EasySave.Model
     {
         public ITaskManager TaskManager {get; }
         public ICommandManager CommandManager { get; }
-
     }
 }

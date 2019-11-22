@@ -4,16 +4,24 @@ using System.Text;
 
 namespace EasySave.Model.Command
 {
-    class CommandManager : ICommandManager
+    public class CommandManager : ICommandManager
     {
-        public void ExecuteCommand(string Name, string[] Options)
+        public List<Command> Commands { get; }
+        
+        public CommandManager()
         {
-            throw new NotImplementedException();
+            Commands = new List<Command>();
+
+            //Add all commands there
+            Commands.Add(new TestCommand());
         }
 
-        public void GetCommandes()
+        public void ExecuteCommand(string name, Dictionary<string, string> options)
         {
-            throw new NotImplementedException();
+            Command command = Commands.Find(command => command.Name == name);
+            
+            if(command != null)
+                command.Execute(options);
         }
     }
 }

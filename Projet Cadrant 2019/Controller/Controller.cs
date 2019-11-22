@@ -8,29 +8,38 @@ namespace EasySave.Controller
         private IModel model;
         private IView view;
 
-        public Controller(IModel model, IView view)
-        {
-            this.model = model;
-            this.view = view;
+        private Parser parser;
 
-            this.handleEvents();
+        public Controller(IModel Model, IView View)
+        {
+            this.model = Model;
+            this.view = View;
+
+            this.parser = new Parser();
+
+            this.HandleEvents();
         }
 
-        private void handleEvents()
+        private void HandleEvents()
         {
-            view.inputEvent += delegate (string input)
+            view.InputEvent += delegate (string input)
             {
-                view.writeConsoleLine("Your input : " + input);
-                view.readConsoleLine();
+                ParsedCommand command = parser.ParseCommand(input);
+                if(model.CommandManager.Commands.Find(cmd => cmd.Name == command.Name) != null)
+                    model.CommandManager.ExecuteCommand(command.Name, command.Options);
+                else
+                    view.WriteConsoleLine("Command doesn't exist, use command help for a list of commands.");
+
+                view.ReadConsoleLine();
             };
         }
 
         /// <summary>
         /// Start the main programm..
         /// </summary>
-        public void start()
+        public void Start()
         {
-            view.readConsoleLine();
+            view.ReadConsoleLine();
         }
     }
 }

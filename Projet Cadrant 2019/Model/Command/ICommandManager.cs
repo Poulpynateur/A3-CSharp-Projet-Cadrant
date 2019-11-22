@@ -7,8 +7,8 @@ namespace EasySave.Model.Command
     public interface ICommandManager
     {
 
-        void GetCommandes();
+        List<Command> Commands { get; }
 
-        void ExecuteCommand(string Name, string[] Options);
+        void ExecuteCommand(string Name, Dictionary<string, string> Options);
     }
 }

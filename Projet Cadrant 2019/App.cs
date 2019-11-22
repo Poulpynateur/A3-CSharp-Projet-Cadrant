@@ -8,12 +8,12 @@ namespace EasySave
     {
         static void Main(string[] args)
         {
-            Model.Model model = new Model.Model();
-            View.View view = new View.View();
+            Model.Model Model = new Model.Model();
+            View.View View = new View.View();
 
-            Controller.Controller controller = new Controller.Controller(model, view);
+            Controller.Controller Controller = new Controller.Controller(Model, View);
 
-            controller.start();
+            Controller.Start();
         }
     }
 }

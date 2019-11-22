@@ -23,27 +23,27 @@ namespace EasySave.View
                 );
           }
 
-        public event IView.InputsEventHandler inputEvent;
+        public event IView.InputsEventHandler InputEvent;
 
         /// <summary>
-        /// <see cref="IView.readConsoleLine">IView.readConsoleLine</see>.
+        /// <see cref="IView.ReadConsoleLine">IView.readConsoleLine</see>.
         /// </summary>
-        public void writeConsoleLine(string text)
+        public void WriteConsoleLine(string Text)
         {
-            Console.WriteLine(text);
+            Console.WriteLine(Text);
         }
 
         /// <summary>
-        /// <see cref="IView.writeConsoleLine(string)">IView.writeConsoleLine(string)</see>.
+        /// <see cref="IView.WriteConsoleLine(string)">IView.writeConsoleLine(string)</see>.
         /// </summary>
-        public void readConsoleLine()
+        public void ReadConsoleLine()
         {
-            string input;
+            string Input;
 
             Console.Write("\n>>> ");
-            input = Console.ReadLine();
+            Input = Console.ReadLine();
 
-            inputEvent(input);
+            InputEvent(Input);
         }
     }
 }

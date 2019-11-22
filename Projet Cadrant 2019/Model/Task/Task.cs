@@ -1,23 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Windows.Input;
+using EasySave.Model.Command;
 
 namespace EasySave.Model.Task
 {
-    class Task : ITask
+    public class Task : ITask
     {
-        public DateTime BeginAt => throw new NotImplementedException();
+        public DateTime BeginAt { get; private set; }
 
-        public DateTime FinishAt => throw new NotImplementedException();
+        public DateTime FinishAt { get; private set; }
 
-        public Dictionary<string, string> Options => throw new NotImplementedException();
+        public Dictionary<string, string> Options { get; private set; }
 
-        public ICommand Command => throw new NotImplementedException();
+        public Command.Command Command { get; private set; }
+
+        public Task(Command.Command command)
+        {
+            this.Command = command;
+        }
 
         public void Execute()
         {
-            throw new NotImplementedException();
+            Command.Execute(Options);
         }
     }
 }
