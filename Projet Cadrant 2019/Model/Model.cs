@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasySave.Model.Command;
+using EasySave.Model.Job;
 using EasySave.Model.Config;
 using EasySave.Model.Task;
 
@@ -9,18 +9,18 @@ namespace EasySave.Model
 {
     public class Model : IModel
     {
-        public ITaskManager TaskManager { get; private set; }
+        public ITaskManager Tasks { get; private set; }
 
-        public ICommandManager CommandManager { get; private set; }
+        public IJobManager Jobs { get; private set; }
 
-        private ConfigManager Config;
+        private ConfigManager config;
 
         public Model()
         {
-            this.TaskManager = new TaskManager();
-            this.CommandManager = new CommandManager();
+            this.Tasks = new TaskManager();
+            this.Jobs = new JobManager();
 
-            this.Config = ConfigManager.Instance;
+            this.config = ConfigManager.Instance;
         }
     }
 }

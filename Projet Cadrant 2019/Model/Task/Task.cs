@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasySave.Model.Command;
+using EasySave.Model.Job;
 
 namespace EasySave.Model.Task
 {
@@ -13,16 +13,16 @@ namespace EasySave.Model.Task
 
         public Dictionary<string, string> Options { get; private set; }
 
-        public Command.Command Command { get; private set; }
+        public Job.Job Job { get; private set; }
 
-        public Task(Command.Command command)
+        public Task(Job.Job job)
         {
-            this.Command = command;
+            this.Job = job;
         }
 
         public void Execute()
         {
-            Command.Execute(Options);
+            Job.Execute(Options);
         }
     }
 }

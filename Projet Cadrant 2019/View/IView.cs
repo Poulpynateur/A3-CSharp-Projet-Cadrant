@@ -6,18 +6,14 @@ namespace EasySave.View
 {
     public interface IView
     {
-        public delegate void InputsEventHandler(string Input);
-        public event InputsEventHandler InputEvent;
+        delegate void InputsEventHandler(string input);
+        event InputsEventHandler InputEvent;
 
-        /// <summary>
-        /// Write some text to the console.
-        /// </summary>
-        /// <param name="Text">Text to write</param>
-        void WriteConsoleLine(string Text);
+        void Start();
 
-        /// <summary>
-        /// Read line from the console.
-        /// </summary>
-        void ReadConsoleLine();
+        void DisplayInfo(string text);
+        void DisplaySuccess(string text);
+        void DisplayWarning(string text);
+        void DisplayError(string text);
     }
 }

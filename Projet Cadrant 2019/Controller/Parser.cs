@@ -6,9 +6,16 @@ namespace EasySave.Controller
 {
     public class Parser
     {
-        public ParsedCommand ParseCommand(string input)
+        public string ParseName(string input)
         {
-            return new ParsedCommand(input, new Dictionary<string, string>());
+            return "test";
+        }
+        public Dictionary<string, string> ParseOptions(string input)
+        {
+            return new Dictionary<string, string>
+            {
+                { "o", "success" }
+            };
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using EasySave.Model;
 using EasySave.View;
+using System;
+using System.Collections.Generic;
+using static EasySave.Model.Job.Job;
 
 namespace EasySave.Controller
 {
@@ -10,27 +13,61 @@ namespace EasySave.Controller
 
         private Parser parser;
 
-        public Controller(IModel Model, IView View)
+        public Controller(IModel model, IView view)
         {
-            this.model = Model;
-            this.view = View;
+            this.model = model;
+            this.view = view;
 
             this.parser = new Parser();
 
-            this.HandleEvents();
+            this.AssignEvents();
         }
 
-        private void HandleEvents()
+        private void HandleInputs(string input)
+        {
+            string jobName = parser.ParseName(input);
+            if (model.Jobs.isJobName(jobName))
+            {
+                Dictionary<string, string> options = parser.ParseOptions(input);
+                model.Jobs.ExecuteJob(jobName, options);
+            }
+            else
+            {
+                view.DisplayError("Command not found : " + jobName);
+            }
+                
+        }
+
+        private void HandleJobState(State state, string msg)
+        {
+            switch(state)
+            {
+                case State.Error:
+                    view.DisplayError(msg);
+                    break;
+                case State.Warning:
+                    view.DisplayWarning(msg);
+                    break;
+                case State.Processing:
+                    view.DisplayInfo(msg);
+                    break;
+                case State.Success:
+                    view.DisplaySuccess(msg);
+                    break;
+            }
+        }
+
+        private void AssignEvents()
         {
             view.InputEvent += delegate (string input)
             {
-                ParsedCommand command = parser.ParseCommand(input);
-                if(model.CommandManager.Commands.Find(cmd => cmd.Name == command.Name) != null)
-                    model.CommandManager.ExecuteCommand(command.Name, command.Options);
-                else
-                    view.WriteConsoleLine("Command doesn't exist, use command help for a list of commands.");
+                HandleInputs(input);
+            };
 
-                view.ReadConsoleLine();
+            // TODO change state to a more complete type
+            model.Jobs.JobState += delegate (State state, string msg)
+            {
+                HandleJobState(state, msg);
             };
         }
 
@@ -39,7 +76,7 @@ namespace EasySave.Controller
         /// </summary>
         public void Start()
         {
-            view.ReadConsoleLine();
+            view.Start();
         }
     }
 }

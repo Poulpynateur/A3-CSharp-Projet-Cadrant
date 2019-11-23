@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using EasySave.Model.Command;
+using EasySave.Model.Job;
 
 
 namespace EasySave.Model.Task
 {
     public interface ITask
     {
-        Command.Command Command { get; }
+        Job.Job Job { get; }
 
         DateTime BeginAt { get; }
 
