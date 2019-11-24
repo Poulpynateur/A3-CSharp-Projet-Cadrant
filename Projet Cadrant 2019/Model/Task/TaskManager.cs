@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasySave.Model.Job;
+using EasySave.Model.Command;
 
 namespace EasySave.Model.Task
 {
     public class TaskManager : ITaskManager
     {
-        private List<ITask> map;
+        public  List<ITask> Map { get; }
 
         public TaskManager()
         {
-            this.map = new List<ITask>();
+            this.Map = new List<ITask>();
         }
 
-        public void AddTask(string name, Job.Job Job)
+        public void AddTask(string taskName, BaseCommand cmd)
         {
-            map.Add(new Task(Job));
+            Map.Add(new Task(taskName, cmd));
         }
 
         public void RemoveTask(string name)
         {
-            map.RemoveAll(task => task.Job.Name == name);
+            Map.RemoveAll(task => task.Job.Name == name);
         }
     }
 }

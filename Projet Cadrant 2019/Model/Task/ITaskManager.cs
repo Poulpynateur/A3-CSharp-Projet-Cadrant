@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasySave.Model.Job;
+using EasySave.Model.Command;
 
 namespace EasySave.Model.Task
 {
     public interface ITaskManager
     {
-        void AddTask(string name, Job.Job Job);
-
+        List<ITask> Map { get; }
+        void AddTask(string taskName, Command.BaseCommand cmd);
         void RemoveTask(string name);
     }
 }

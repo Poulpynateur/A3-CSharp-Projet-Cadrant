@@ -1,8 +1,8 @@
 ﻿using EasySave.Model;
+using EasySave.Model.Command;
 using EasySave.View;
-using System;
+
 using System.Collections.Generic;
-using static EasySave.Model.Job.Job;
 
 namespace EasySave.Controller
 {
@@ -26,10 +26,10 @@ namespace EasySave.Controller
         private void HandleInputs(string input)
         {
             string jobName = parser.ParseName(input);
-            if (model.Jobs.isJobName(jobName))
+            if (model.Jobs.isCmdName(jobName))
             {
                 Dictionary<string, string> options = parser.ParseOptions(input);
-                model.Jobs.ExecuteJob(jobName, options);
+                model.Jobs.getCmdByName(jobName).Execute(options);
             }
             else
             {
@@ -65,7 +65,7 @@ namespace EasySave.Controller
             };
 
             // TODO change state to a more complete type
-            model.Jobs.JobState += delegate (State state, string msg)
+            model.Jobs.CmdState += delegate (State state, string msg)
             {
                 HandleJobState(state, msg);
             };

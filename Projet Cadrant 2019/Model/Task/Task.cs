@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasySave.Model.Job;
+using EasySave.Model.Command;
 
 namespace EasySave.Model.Task
 {
     public class Task : ITask
     {
-        public DateTime BeginAt { get; private set; }
+        public string Name { get; }
 
-        public DateTime FinishAt { get; private set; }
+        public DateTime BeginAt { get; }
+        public DateTime FinishAt { get; }
+        public Dictionary<string, string> Options { get; }
+        public Command.BaseCommand Job { get; }
 
-        public Dictionary<string, string> Options { get; private set; }
-
-        public Job.Job Job { get; private set; }
-
-        public Task(Job.Job job)
+        public Task(string name, Command.BaseCommand job)
         {
+            this.Name = name;
             this.Job = job;
         }
 

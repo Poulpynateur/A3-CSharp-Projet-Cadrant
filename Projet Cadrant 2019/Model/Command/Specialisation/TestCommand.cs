@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace EasySave.Model.Job
+namespace EasySave.Model.Command
 {
-    public class TestJob : Job
+    public class TestCommand : BaseCommand
     {
-        public TestJob() : base("test", "Test command.")
+        public TestCommand() : base(Type.Standard, "test", "Test command.")
         {
             this.Options = new Dictionary<string, string>
             {
@@ -19,10 +19,10 @@ namespace EasySave.Model.Job
         {
             this.checkOptionsValidity(options);
 
-            updateJobState(State.Processing, "I am on my way ...");
-            updateJobState(State.Processing, "Hang in there ...");
+            updateCmdState(State.Processing, "I am on my way ...");
+            updateCmdState(State.Processing, "Hang in there ...");
 
-            updateJobState(State.Success, "Done.");
+            updateCmdState(State.Success, "Done.");
         }
     }
 }

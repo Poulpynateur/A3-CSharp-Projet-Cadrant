@@ -1,11 +1,9 @@
-﻿using EasySave.Model.Job;
-using EasySave.Model.Task;
+﻿using EasySave.Model.Command;
 
 namespace EasySave.Model
 {
     public interface IModel 
     {
-        public ITaskManager Tasks {get; }
-        public IJobManager Jobs { get; }
+        public ICommandManager Jobs { get; }
     }
 }

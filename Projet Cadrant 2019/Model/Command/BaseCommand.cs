@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace EasySave.Model.Job
+namespace EasySave.Model.Command
 {
-    public abstract class Job
+    public abstract class BaseCommand : ICommand
     {
-        public enum State { Error, Warning, Processing, Success };
+        public static event ICommand.CmdStateHandler CmdState;
 
-        public delegate void JobStateHandler(State state, string input);
-        static public event JobStateHandler JobState;
+        public Type Type { get; }
+        public State State { get; private set; }
 
         public string Name { get; }
         public string Description { get; }
         public Dictionary<string, string> Options { get; protected set; }
 
-        public Job(string name, string description)
+        public BaseCommand(Type type, string name, string description)
         {
+            this.Type = type;
             this.Name = name;
             this.Description = description;
         }
 
-        //Because you can't call an event from a child class
-        protected void updateJobState(State state, string input)
+        protected void updateCmdState(State state, string input)
         {
-            JobState(state, input);
+            this.State = state;
+            CmdState(state, input);
         }
 
         protected void checkOptionsValidity(Dictionary<string, string> options)
@@ -36,10 +37,10 @@ namespace EasySave.Model.Job
                 {
                     Regex regex = new Regex(this.Options[option.Key]);
                     if(!regex.IsMatch(option.Value))
-                        JobState(State.Warning, "-" + option.Key + " doesn't accept '" + option.Value + "'");
+                        updateCmdState(State.Warning, "-" + option.Key + " doesn't accept '" + option.Value + "'");
                 }
                 else
-                    JobState(State.Warning, "Option '" + option.Key + "' doesn't exist.");
+                    updateCmdState(State.Warning, "Option '" + option.Key + "' doesn't exist.");
             }
         }
 

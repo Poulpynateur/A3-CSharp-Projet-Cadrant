@@ -8,14 +8,11 @@ namespace EasySave.Controller
     {
         public string ParseName(string input)
         {
-            return "test";
+            return input;
         }
         public Dictionary<string, string> ParseOptions(string input)
         {
-            return new Dictionary<string, string>
-            {
-                { "o", "success" }
-            };
+            return new Dictionary<string, string> ();
         }
     }
 }
