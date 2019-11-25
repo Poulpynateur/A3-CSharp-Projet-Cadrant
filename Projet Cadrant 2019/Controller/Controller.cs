@@ -1,7 +1,7 @@
 ﻿using EasySave.Model;
 using EasySave.Model.Command;
 using EasySave.View;
-
+using System;
 using System.Collections.Generic;
 
 namespace EasySave.Controller
@@ -28,8 +28,15 @@ namespace EasySave.Controller
             string jobName = parser.ParseName(input);
             if (model.Jobs.isCmdName(jobName))
             {
-                Dictionary<string, string> options = parser.ParseOptions(input);
-                model.Jobs.getCmdByName(jobName).Execute(options);
+                try
+                {
+                    Dictionary<string, string> options = parser.ParseOptions(input);
+                    model.Jobs.getCmdByName(jobName).Execute(options);
+                }
+                catch (ArgumentException)
+                {
+
+                }
             }
             else
             {
