@@ -8,6 +8,9 @@ namespace Projet_Cadrant_2019
     {
         static void Main(string[] args)
         {
+            JsonManager json = new JsonManager();
+            json.WriteJsonFileHistory();
+            //json.ReadJsonFile();
             Model.Model model = new Model.Model();
             View.View view = new View.View();
 
