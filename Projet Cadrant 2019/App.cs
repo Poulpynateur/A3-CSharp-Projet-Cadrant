@@ -1,6 +1,7 @@
 ﻿using EasySave.Controller;
 using EasySave.Model;
 using EasySave.View;
+using Projet_Cadrant_2019.Model;
 
 namespace EasySave
 {

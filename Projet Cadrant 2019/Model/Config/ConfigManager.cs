@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Projet_Cadrant_2019.Model;
 
 namespace EasySave.Model.Config
 {
