@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Projet_Cadrant_2019.View
+namespace EasySave.View
 {
     public interface IView
     {
-        /// <summary>
-        /// Write some text to the console.
-        /// </summary>
-        /// <param name="text">Text to write</param>
-        void writeConsoleLine(string text);
+        delegate void InputsEventHandler(string input);
+        event InputsEventHandler InputEvent;
 
-        /// <summary>
-        /// Read line from the console.
-        /// </summary>
-        void readConsoleLine();
+        void Start();
+
+        void DisplayInfo(string text);
+        void DisplaySuccess(string text);
+        void DisplayWarning(string text);
+        void DisplayError(string text);
     }
 }

@@ -1,34 +1,82 @@
-﻿using Projet_Cadrant_2019.Model;
-using Projet_Cadrant_2019.View;
+﻿using EasySave.Model;
+using EasySave.Model.Command;
+using EasySave.View;
 
-namespace Projet_Cadrant_2019.Controller
+using System.Collections.Generic;
+
+namespace EasySave.Controller
 {
-    class Controller : IInputsListener
+    class Controller
     {
         private IModel model;
         private IView view;
+
+        private Parser parser;
 
         public Controller(IModel model, IView view)
         {
             this.model = model;
             this.view = view;
+
+            this.parser = new Parser();
+
+            this.AssignEvents();
+        }
+
+        private void HandleInputs(string input)
+        {
+            string jobName = parser.ParseName(input);
+            if (model.Jobs.isCmdName(jobName))
+            {
+                Dictionary<string, string> options = parser.ParseOptions(input);
+                model.Jobs.getCmdByName(jobName).Execute(options);
+            }
+            else
+            {
+                view.DisplayError("Command not found : " + jobName);
+            }
+                
+        }
+
+        private void HandleJobState(State state, string msg)
+        {
+            switch(state)
+            {
+                case State.Error:
+                    view.DisplayError(msg);
+                    break;
+                case State.Warning:
+                    view.DisplayWarning(msg);
+                    break;
+                case State.Processing:
+                    view.DisplayInfo(msg);
+                    break;
+                case State.Success:
+                    view.DisplaySuccess(msg);
+                    break;
+            }
+        }
+
+        private void AssignEvents()
+        {
+            view.InputEvent += delegate (string input)
+            {
+                HandleInputs(input);
+            };
+
+            // TODO change state to a more complete type
+            model.Jobs.CmdState += delegate (State state, string msg)
+            {
+                HandleJobState(state, msg);
+            };
         }
 
         /// <summary>
         /// Start the main programm..
         /// </summary>
-        public void start()
+        public void Start()
         {
-            view.readConsoleLine();
-        }
-
-        /// <summary>
-        /// <see cref="IInputsListener">IInputsListener</see>.
-        /// </summary>
-        public void notify(string input)
-        {
-            view.writeConsoleLine("Your input : " + input);
-            view.readConsoleLine();
+            view.Start();
         }
     }
 }

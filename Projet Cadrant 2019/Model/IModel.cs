@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using EasySave.Model.Command;
 
-namespace Projet_Cadrant_2019.Model
+namespace EasySave.Model
 {
-    public interface IModel
+    public interface IModel 
     {
+        public ICommandManager Jobs { get; }
     }
 }
