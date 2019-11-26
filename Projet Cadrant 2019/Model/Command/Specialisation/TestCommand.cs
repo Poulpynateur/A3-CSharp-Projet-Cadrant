@@ -6,36 +6,19 @@ using System.Threading;
 
 namespace EasySave.Model.Command.Specialisation
 {
-    public class TestCommand : ICommand
+    public class TestCommand : BaseCommand
     {
-        public string Name { get; }
-        public string Description { get; }
-        public Dictionary<string, string> Options { get; }
-
         public TestCommand()
+        : base("test", "Test function.")
         {
-            this.Name = "test";
-            this.Description = "Test function.";
-
             this.Options = new Dictionary<string, string>
             {
                 { "o", "success|error" }
             };
         }
 
-        private void CheckOptions(Dictionary<string, string> options)
-        {
-            foreach (KeyValuePair<string, string> option in this.Options)
-            {
-                Regex regex = new Regex(option.Value);
-                if (!options.ContainsKey(option.Key) || !regex.IsMatch(options[option.Key]))
-                {
-                    throw new Exception("Option missing or invalid : -" + option.Key);
-                }
-            }
-        }
 
-        public string Execute(Dictionary<string, string> options)
+        public override string Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);
 
@@ -43,11 +26,6 @@ namespace EasySave.Model.Command.Specialisation
                 throw new Exception("You ask for it.");
 
             return "Test done successfully !";
-        }
-
-        public string toString()
-        {
-            return Name;
         }
     }
 }

@@ -26,7 +26,7 @@ namespace EasySave.Controller
         private void HandleInputs(string input)
         {
             string name = parser.ParseName(input);
-            ICommand cmd = model.getCmdByName(name);
+            BaseCommand cmd = model.getCmdByName(name);
 
             try
             {
@@ -34,8 +34,6 @@ namespace EasySave.Controller
                     throw new Exception("Command not found : " + name);
 
                 Dictionary<string, string> options = parser.ParseOptions(input);
-
-                view.DisplayInfo("Starting command " + name + " ...");
                 string result = cmd.Execute(options);
 
                 view.DisplaySuccess(result);
@@ -55,7 +53,7 @@ namespace EasySave.Controller
         }
 
         /// <summary>
-        /// Start the main programm..
+        /// Start the main programm.
         /// </summary>
         public void Start()
         {

@@ -15,13 +15,18 @@ namespace EasySave.Model
 
         public Model()
         {
-            this.tasks = TaskManager.Instance;
-            this.commands = CommandManager.Instance;
-
             this.config = ConfigManager.Instance;
+
+            this.tasks = TaskManager.Instance;
+            tasks.Map = config.LoadTasks();
+            tasks.Logger = config;
+
+            this.commands = CommandManager.Instance;
+            commands.ProgressSaver = config;
+            commands.LoadCommands(tasks);
         }
 
-        public ICommand getCmdByName(string name)
+        public BaseCommand getCmdByName(string name)
         {
             return commands.getCmdByName(name);
         }
