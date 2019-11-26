@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.Json;
 
-namespace Projet_Cadrant_2019.Model
+namespace EasySave.Model.Config
 {
     public class Data
     {
@@ -31,6 +31,7 @@ namespace Projet_Cadrant_2019.Model
 
     public class JsonManager
     {
+        
         public Data data = new Data("FROM", "TO", "1288 Mo", "2080 ms");
         public Data readdata = new Data();
         public DataFiles datafiles = new DataFiles(314, 157, 2080, 1080, "test.txt");

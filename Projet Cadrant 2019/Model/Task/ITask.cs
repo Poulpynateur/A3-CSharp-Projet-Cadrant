@@ -9,14 +9,9 @@ namespace EasySave.Model.Task
     {
         string Name { get;  }
 
-        Command.BaseCommand Job { get; }
-
         DateTime BeginAt { get; }
 
-        DateTime FinishAt { get; }
-
+        string CmdName { get;  }
         Dictionary<string, string> Options { get; }
-
-        void Execute();
     }
 }

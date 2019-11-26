@@ -10,19 +10,14 @@ namespace EasySave.Model.Task
         public string Name { get; }
 
         public DateTime BeginAt { get; }
-        public DateTime FinishAt { get; }
-        public Dictionary<string, string> Options { get; }
-        public Command.BaseCommand Job { get; }
 
-        public Task(string name, Command.BaseCommand job)
+        public string CmdName { get; }
+        public Dictionary<string, string> Options { get; }
+
+        public Task(string name, string cmdName)
         {
             this.Name = name;
-            this.Job = job;
-        }
-
-        public void Execute()
-        {
-            Job.Execute(Options);
+            this.CmdName = cmdName;
         }
     }
 }

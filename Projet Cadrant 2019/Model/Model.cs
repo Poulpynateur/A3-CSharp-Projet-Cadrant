@@ -9,17 +9,21 @@ namespace EasySave.Model
 {
     public class Model : IModel
     {
-        public ICommandManager Jobs { get; private set; }
-
-        private ITaskManager task;
+        private CommandManager commands;
+        private TaskManager tasks;
         private ConfigManager config;
 
         public Model()
         {
-            this.task = new TaskManager();
-            this.Jobs = new CommandManager(task);
+            this.tasks = TaskManager.Instance;
+            this.commands = CommandManager.Instance;
 
             this.config = ConfigManager.Instance;
+        }
+
+        public ICommand getCmdByName(string name)
+        {
+            return commands.getCmdByName(name);
         }
     }
 }
