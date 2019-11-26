@@ -33,7 +33,7 @@ namespace Projet_Cadrant_2019.Model
     {
         public Data data = new Data("FROM", "TO", "1288 Mo", "2080 ms");
         public Data readdata = new Data();
-        
+        public DataFiles datafiles = new DataFiles(314, 157, 2080, 1080, "test.txt");
         public void WriteJsonFileHistory()
         {
             var options = new JsonSerializerOptions
@@ -50,7 +50,14 @@ namespace Projet_Cadrant_2019.Model
         }
         public void WriteJsonProgress()
         {
-
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+            string jsonString;
+            jsonString = JsonSerializer.Serialize(datafiles, options);
+            File.WriteAllText(Directory.GetCurrentDirectory() + "\\Journal_sav\\Progress.json", jsonString);
+            Console.WriteLine(jsonString);
         }
         /*public void ReadJsonFile()
         {
@@ -77,7 +84,8 @@ namespace Projet_Cadrant_2019.Model
             SizeTotal = sizetotal;
             SizeRemaining = sizeremaining;
             FileName = filename;
-            Progress = (sizeremaining * sizetotal)/100;
+            int Progress = sizeremaining * 100/sizetotal;
+            PercentProgress = Progress + "%";
         }
         public int FilesNbrTotal { get; set; }
         public string Date { get; set; }
@@ -85,6 +93,7 @@ namespace Projet_Cadrant_2019.Model
         public int SizeTotal { get; set; }
         public int SizeRemaining { get; set; }
         public string FileName { get; set; }
-        public int Progress { get; set; }
+        //public int Progress { get; set; }
+        public string PercentProgress { get; set; }
     }
 }
