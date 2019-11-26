@@ -1,6 +1,7 @@
 ﻿using EasySave.Controller;
 using EasySave.Model;
 using EasySave.View;
+using Projet_Cadrant_2019.Model;
 
 namespace EasySave
 {
@@ -8,6 +9,10 @@ namespace EasySave
     {
         static void Main(string[] args)
         {
+            JsonManager json = new JsonManager();
+            json.WriteJsonFileHistory();
+            json.WriteJsonProgress();
+            //json.ReadJsonFile();
             Model.Model model = new Model.Model();
             View.View view = new View.View(model);
 
