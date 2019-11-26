@@ -1,28 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace EasySave.Model.Command
+namespace EasySave.Model.Command.Specialisation
 {
-    public class TestCommand : BaseCommand
+    public class TestCommand : ICommand
     {
-        public TestCommand() : base(Type.Standard, "test", "Test command.")
+        public string Name { get; }
+        public string Description { get; }
+        public Dictionary<string, string> Options { get; }
+
+        public TestCommand()
         {
+            this.Name = "test";
+            this.Description = "Test function.";
+
             this.Options = new Dictionary<string, string>
             {
-                { "o", "success|warning|error" }
+                { "o", "success|error" }
             };
         }
 
-        public override void Execute(Dictionary<string, string> options)
+        private void CheckOptions(Dictionary<string, string> options)
         {
-            this.checkOptionsValidity(options);
+            foreach (KeyValuePair<string, string> option in this.Options)
+            {
+                Regex regex = new Regex(option.Value);
+                if (!options.ContainsKey(option.Key) || !regex.IsMatch(options[option.Key]))
+                {
+                    throw new Exception("Option missing or invalid : -" + option.Key);
+                }
+            }
+        }
 
-            updateCmdState(State.Processing, "I am on my way ...");
-            updateCmdState(State.Processing, "Hang in there ...");
+        public string Execute(Dictionary<string, string> options)
+        {
+            this.CheckOptions(options);
 
-            updateCmdState(State.Success, "Done.");
+            if (options["o"] == "error")
+                throw new Exception("You ask for it.");
+
+            return "Test done successfully !";
+        }
+
+        public string toString()
+        {
+            return Name;
         }
     }
 }

@@ -9,10 +9,6 @@ namespace EasySave
     {
         static void Main(string[] args)
         {
-            JsonManager json = new JsonManager();
-            json.WriteJsonFileHistory();
-            json.WriteJsonProgress();
-            //json.ReadJsonFile();
             Model.Model model = new Model.Model();
             View.View view = new View.View(model);
 

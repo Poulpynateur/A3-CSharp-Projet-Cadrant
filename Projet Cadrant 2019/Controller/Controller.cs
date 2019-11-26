@@ -25,42 +25,24 @@ namespace EasySave.Controller
 
         private void HandleInputs(string input)
         {
-            string jobName = parser.ParseName(input);
-            if (model.Jobs.isCmdName(jobName))
-            {
-                try
-                {
-                    Dictionary<string, string> options = parser.ParseOptions(input);
-                    model.Jobs.getCmdByName(jobName).Execute(options);
-                }
-                catch (ArgumentException)
-                {
+            string name = parser.ParseName(input);
+            ICommand cmd = model.getCmdByName(name);
 
-                }
-            }
-            else
+            try
             {
-                view.DisplayError("Command not found : " + jobName);
-            }
-                
-        }
+                if (cmd == null)
+                    throw new Exception("Command not found : " + name);
 
-        private void HandleJobState(State state, string msg)
-        {
-            switch(state)
+                Dictionary<string, string> options = parser.ParseOptions(input);
+
+                view.DisplayInfo("Starting command " + name + " ...");
+                string result = cmd.Execute(options);
+
+                view.DisplaySuccess(result);
+            }
+            catch (Exception e)
             {
-                case State.Error:
-                    view.DisplayError(msg);
-                    break;
-                case State.Warning:
-                    view.DisplayWarning(msg);
-                    break;
-                case State.Processing:
-                    view.DisplayInfo(msg);
-                    break;
-                case State.Success:
-                    view.DisplaySuccess(msg);
-                    break;
+                view.DisplayError(e.Message);
             }
         }
 
@@ -69,12 +51,6 @@ namespace EasySave.Controller
             view.InputEvent += delegate (string input)
             {
                 HandleInputs(input);
-            };
-
-            // TODO change state to a more complete type
-            model.Jobs.CmdState += delegate (State state, string msg)
-            {
-                HandleJobState(state, msg);
             };
         }
 

@@ -19,7 +19,9 @@ namespace EasySave.Controller
             input = input.Trim(trimChars);
 
             // Retrieves the first name corresponding to the name of the command and then returns it
-            input = input.Substring(0, input.IndexOf(" "));
+            if (input.Contains(" "))
+                input = input.Substring(0, input.IndexOf(" "));
+
             return input;
         }
 
@@ -32,32 +34,37 @@ namespace EasySave.Controller
         {
             Dictionary<string, string> dicoCommandOptions = new Dictionary<string, string>();
 
-            // Delete the first word (Command name)
-            input = input.Substring(input.IndexOf(" "), input.Length);
-
-            // Remove some char at the start and the end of the string
-            char[] trimChars = { ' ', ';', '\'', '*', '.' };
-            input = input.Trim(trimChars);
-
-            // Split the input with the '-' delimitor and adds the tuple to the dictionnary for option
-            string[] splits = input.Split('-');
-            foreach (string split in splits)
+            if (input.Contains(" "))
             {
-                if (split.Length > 0)
-                {
-                    // Initialize the key and value for each option in the input and add them in the dictionary
-                    string key = split.Substring(0, split.IndexOf(" "));
-                    string value = split.Substring(split.IndexOf(" "));
-                    value = value.Trim(trimChars);
-                    dicoCommandOptions.Add(key, value);
+                // Delete the first word (Command name)
+                input = input.Substring(input.IndexOf(" "));
 
-                    // Throw an exception if the key is already in the dictionary. Will be caught in the Controller
-                    if (dicoCommandOptions.ContainsKey(key))
+                // Remove some char at the start and the end of the string
+                char[] trimChars = { ' ', ';', '\'', '*', '.' };
+                input = input.Trim(trimChars);
+
+                // Split the input with the '-' delimitor and adds the tuple to the dictionnary for option
+                string[] splits = input.Split('-');
+                foreach (string split in splits)
+                {
+                    if (split.Length > 0)
                     {
-                        throw new ArgumentException("An element with the key " + key + " already exists");
+                        // Initialize the key and value for each option in the input and add them in the dictionary
+                        string key = split.Substring(0, split.IndexOf(" "));
+                        string value = split.Substring(split.IndexOf(" "));
+                        value = value.Trim(trimChars);
+                        
+                        // Throw an exception if the key is already in the dictionary. Will be caught in the Controller
+                        if (dicoCommandOptions.ContainsKey(key))
+                        {
+                            throw new ArgumentException("An element with the key " + key + " already exists");
+                        }
+
+                        dicoCommandOptions.Add(key, value);
                     }
                 }
             }
+
             return dicoCommandOptions;
         }
     }

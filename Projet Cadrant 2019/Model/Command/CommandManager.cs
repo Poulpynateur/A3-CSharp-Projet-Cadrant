@@ -1,40 +1,29 @@
-﻿using EasySave.Model.Task;
+﻿using EasySave.Model.Command.Specialisation;
+using EasySave.Model.Task;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace EasySave.Model.Command
 {
-    public class CommandManager : ICommandManager
+    public sealed class CommandManager
     {
         public List<ICommand> Map { get; }
 
-        //Bubble cmd event for controller and config
-        public event ICommand.CmdStateHandler CmdState
-        {
-            add { BaseCommand.CmdState += value; }
-            remove { BaseCommand.CmdState -= value; }
-        }
+        private static readonly Lazy<CommandManager> lazy = new Lazy<CommandManager>(() => new CommandManager());
+        public static CommandManager Instance { get { return lazy.Value; } }
 
-        public CommandManager(ITaskManager taskManager)
+        private CommandManager()
         {
             Map = new List<ICommand>()
             {
-                new TestCommand(),
-                new TaskAddCommand(taskManager),
-                new TaskShowCommand(taskManager)
+                new TestCommand()
             };
         }
 
         public ICommand getCmdByName(string name)
         {
             return Map.Find(command => command.Name == name);
-        }
-
-        public bool isCmdName(string name)
-        {
-            ICommand command = Map.Find(command => command.Name == name);
-            return (command != null) ? true : false;
         }
     }
 }
