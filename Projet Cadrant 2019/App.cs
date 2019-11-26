@@ -1,5 +1,6 @@
 ﻿using EasySave.Controller;
 using EasySave.Model;
+using EasySave.Model.Command;
 using EasySave.View;
 using Projet_Cadrant_2019.Model;
 
@@ -9,10 +10,13 @@ namespace EasySave
     {
         static void Main(string[] args)
         {
-            JsonManager json = new JsonManager();
-            json.WriteJsonFileHistory();
-            json.WriteJsonProgress();
-            //json.ReadJsonFile();
+
+            string pathfrom = "C:\\Users\\lucas\\OneDrive - Association Cesi Viacesi mail\\Documents\\Cesi";
+            string pathto = "C:\\Users\\lucas\\OneDrive - Association Cesi Viacesi mail\\Documents\\TestSav";
+            SaveMirror save = new SaveMirror(pathfrom, pathto);
+            save.ListFiles();
+            save.CopyFiles();
+
             Model.Model model = new Model.Model();
             View.View view = new View.View(model);
 
