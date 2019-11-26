@@ -5,6 +5,6 @@ namespace EasySave.Model
 {
     public interface IModel 
     {
-        ICommand getCmdByName(string name);
+        BaseCommand getCmdByName(string name);
     }
 }

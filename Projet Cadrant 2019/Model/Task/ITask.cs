@@ -9,7 +9,7 @@ namespace EasySave.Model.Task
     {
         string Name { get;  }
 
-        DateTime BeginAt { get; }
+        DateTime CreatedAt { get; }
 
         string CmdName { get;  }
         Dictionary<string, string> Options { get; }

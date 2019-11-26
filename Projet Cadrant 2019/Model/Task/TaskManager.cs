@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using EasySave.Model.Command;
+using EasySave.Model.Config;
 
 namespace EasySave.Model.Task
 {
-    public sealed class TaskManager
+    public sealed class TaskManager : ITaskManager
     {
-        public  List<ITask> Map { get; }
+        public ILogger Logger { private get; set; }
+        public  List<ITask> Map { get; set; }
 
         private static readonly Lazy<TaskManager> lazy = new Lazy<TaskManager>(() => new TaskManager());
         public static TaskManager Instance { get { return lazy.Value; } }
@@ -17,15 +19,14 @@ namespace EasySave.Model.Task
             this.Map = new List<ITask>();
         }
 
-
-        public void AddTask(string taskName, string cmdName)
+        public void AddTask(string taskName, string cmdName, Dictionary<string, string> options)
         {
-            Map.Add(new Task(taskName, cmdName));
+            Map.Add(new Task(Logger, taskName, cmdName, options));
         }
 
-        public void RemoveTask(string name)
+        public void RemoveTask(string taskName)
         {
-            Map.RemoveAll(task => task.CmdName == name);
+            Map.RemoveAll(task => task.Name == taskName);
         }
     }
 }
