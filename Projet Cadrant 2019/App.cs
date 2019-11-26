@@ -14,7 +14,6 @@ namespace EasySave
             string pathfrom = "C:\\Users\\lucas\\OneDrive - Association Cesi Viacesi mail\\Documents\\Cesi";
             string pathto = "C:\\Users\\lucas\\OneDrive - Association Cesi Viacesi mail\\Documents\\TestSav";
             SaveMirror save = new SaveMirror(pathfrom, pathto);
-            save.ListFiles();
             save.CopyFiles();
 
             Model.Model model = new Model.Model();

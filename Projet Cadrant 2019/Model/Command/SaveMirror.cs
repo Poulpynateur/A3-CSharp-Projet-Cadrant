@@ -4,11 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Projet_Cadrant_2019.Model;
+using static Projet_Cadrant_2019.Model.JsonManager;
 
 namespace EasySave.Model.Command
 {
     class SaveMirror
     {
+        delegate void DelegateJson(DataFiles data);
         private string PathFrom { get; set; }
         private string PathTo { get; set; }
         public SaveMirror(string pathfrom, string pathto)
@@ -18,7 +20,6 @@ namespace EasySave.Model.Command
         }
         public void CopyFiles()
         {
-            JsonManager json = new JsonManager();
             DateTime startdate = DateTime.Now;
             int totalnbrfiles = 0;
             string[] files = Directory.GetFiles(PathFrom, "*", SearchOption.AllDirectories);
@@ -48,12 +49,12 @@ namespace EasySave.Model.Command
                 File.Copy(file, pathdef, true);
                 nbrremainingfiles -= 1;
                 DataFiles datafiles = new DataFiles(totalnbrfiles, nbrremainingfiles, totalByteSize, totalByteSizeRemain, file);
-                json.WriteJsonProgress(datafiles);
+                WriteJsonProgress(datafiles);
             }
             TimeSpan transferetime = DateTime.Now - startdate;
             string transferetimems = ((long)transferetime.TotalMilliseconds + " ms");
-            Data data = new Data(PathFrom, PathTo, totalByteSize, transferetimems);
-            json.WriteJsonFileHistory(data);
+            DataFiles datafileshistory = new DataFiles(PathFrom, PathTo, totalByteSize, transferetimems);
+            WriteJsonFileHistory(datafileshistory);
         }
     }
 }
