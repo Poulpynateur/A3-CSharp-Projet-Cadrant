@@ -9,7 +9,7 @@ namespace EasySave.Model.Command
 {
     public sealed class CommandManager : ICommandManager
     {
-        public IProgress ProgressSaver { private get; set; }
+        public ILogger Logger { private get; set; }
         public List<BaseCommand> Map { get; }
 
         private static readonly Lazy<CommandManager> lazy = new Lazy<CommandManager>(() => new CommandManager());
@@ -23,11 +23,16 @@ namespace EasySave.Model.Command
         public void LoadCommands(ITaskManager taskManager)
         {
             Map.Add(new HelpCommand(this));
-            Map.Add(new TestCommand());
 
             //Task management
-            Map.Add(new AddTaskCommand(taskManager));
-            Map.Add(new ShowTaskCommand(taskManager));
+            Map.Add(new TaskListCommand(taskManager));
+            Map.Add(new TaskRemoveCommand(taskManager));
+            Map.Add(new TaskAddCommand(taskManager));
+            Map.Add(new TaskExecutesCommand(taskManager, this, Logger));
+
+            //Save
+            Map.Add(new SaveMirrorCommand(Logger));
+            Map.Add(new SaveDifferentialCommand(Logger));
         }
 
         public BaseCommand getCmdByName(string name)

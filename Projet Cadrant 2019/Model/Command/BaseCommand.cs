@@ -31,11 +31,15 @@ namespace EasySave.Model.Command
 
         public override string ToString()
         {
-            string str = "Name : " + Name + "\nDescription : " + Description + "\nOptions :\n";
+            string str = "Name : " + Name + "\nDescription : " + Description;
 
-            foreach (KeyValuePair<string, string> option in this.Options)
+            if (Options.Count > 0)
             {
-                str += "    -" + option.Key + " [" + option.Value + "]\n";
+                str += "\nOptions :";
+                foreach (KeyValuePair<string, string> option in this.Options)
+                {
+                    str += "\n    -" + option.Key + " [" + option.Value + "]";
+                }
             }
 
             return str;
