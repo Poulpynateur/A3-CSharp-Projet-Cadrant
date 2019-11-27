@@ -7,6 +7,13 @@ namespace EasySave.Controller
 {
     public class Parser
     {
+        private char[] trimChars;
+
+        public Parser()
+        {
+            this.trimChars = new char[]{ ' ', ';', '\'', '.', '\t' };
+        }
+
         /// <summary>
         /// Method which returns the name of the command
         /// </summary>
@@ -15,7 +22,6 @@ namespace EasySave.Controller
         public string ParseName(string input)
         {
             // Remove some char at the start and the end of the string
-            char[] trimChars = { ' ', ';', '\'', '*', '.' };
             input = input.Trim(trimChars);
 
             // Retrieves the first name corresponding to the name of the command and then returns it
@@ -40,7 +46,6 @@ namespace EasySave.Controller
                 input = input.Substring(input.IndexOf(" "));
 
                 // Remove some char at the start and the end of the string
-                char[] trimChars = { ' ', ';', '\'', '*', '.' };
                 input = input.Trim(trimChars);
 
                 // Split the input with the '-' delimitor and adds the tuple to the dictionnary for option
