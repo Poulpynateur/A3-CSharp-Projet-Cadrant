@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "differential save",
+    "CreatedAt": "2019-11-27T15:37:00.2025015+01:00",
+    "CmdName": "save-differential",
+    "Options": {
+      "source": "D:\\source",
+      "target": "D:\\target"
+    }
+  },
+  {
+    "Name": "mirror save",
+    "CreatedAt": "2019-11-27T15:37:16.100286+01:00",
+    "CmdName": "save-mirror",
+    "Options": {
+      "source": "D:\\source",
+      "target": "D:\\target"
+    }
+  }
+]
