@@ -4,8 +4,9 @@ using System.Text;
 
 namespace EasySave.Model.Command
 {
-    interface ICommandManager
+    public interface ICommandManager
     {
         List<BaseCommand> Map { get; }
+        BaseCommand getCmdByName(string name);
     }
 }

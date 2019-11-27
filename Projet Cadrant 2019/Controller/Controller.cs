@@ -42,6 +42,7 @@ namespace EasySave.Controller
             {
                 view.DisplayError(e.Message);
             }
+ 
         }
 
         private void AssignEvents()
