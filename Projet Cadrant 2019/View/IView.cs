@@ -4,6 +4,9 @@ using System.Text;
 
 namespace EasySave.View
 {
+    /// <summary>
+    /// Interface to access view.
+    /// </summary>
     public interface IView
     {
         delegate void InputsEventHandler(string input);

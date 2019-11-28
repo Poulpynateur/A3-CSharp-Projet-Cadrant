@@ -8,6 +8,9 @@ using System.Text;
 
 namespace EasySave.Model.Command.Specialisation
 {
+    /// <summary>
+    /// Create a mirror save from a source to a target folder.
+    /// </summary>
     class SaveMirrorCommand : BaseCommand
     {
         private ILogger logger;
@@ -26,6 +29,12 @@ namespace EasySave.Model.Command.Specialisation
             };
         }
 
+        /// <summary>
+        /// Save files from a source folder to a target folder.
+        /// </summary>
+        /// <param name="source">Source folder path</param>
+        /// <param name="target">Target folder path</param>
+        /// <returns>Success message, otherwise throw an error</returns>
         private string SaveFiles(string source, string target)
         {
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
@@ -50,8 +59,13 @@ namespace EasySave.Model.Command.Specialisation
             }
 
             return progress.FilesNumber + " file(s) save successfully !";
-        } 
+        }
 
+        /// <summary>
+        /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
+        /// <see cref="BaseCommand.CheckOptions(Dictionary{string, string})"/>
+        /// Launch the mirro save. Check if the folders exists beforewise.
+        /// </summary>
         public override string Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);

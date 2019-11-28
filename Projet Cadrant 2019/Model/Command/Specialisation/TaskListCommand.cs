@@ -5,6 +5,9 @@ using System.Text;
 
 namespace EasySave.Model.Command.Specialisation
 {
+    /// <summary>
+    /// Show the list of tasks.
+    /// </summary>
     class TaskListCommand : BaseCommand
     {
         private ITaskManager taskManager;
@@ -17,6 +20,10 @@ namespace EasySave.Model.Command.Specialisation
             this.Options = new Dictionary<string, string>();
         }
 
+        /// <summary>
+        /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
+        /// Show the task list.
+        /// </summary>
         public override string Execute(Dictionary<string, string> options)
         {
             string str = "";

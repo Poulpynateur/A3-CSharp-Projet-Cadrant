@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace EasySave.Model.Command
 {
+    /// <summary>
+    /// Base command class (other command must inherit from this class).
+    /// </summary>
     public abstract class BaseCommand
     {
         public string Name { get; }
@@ -17,6 +20,12 @@ namespace EasySave.Model.Command
             this.Description = description;
         }
 
+        /// <summary>
+        /// Check if options :
+        /// - are present
+        /// - are valid (regex match)
+        /// </summary>
+        /// <param name="options">Options to check</param>
         protected void CheckOptions(Dictionary<string, string> options)
         {
             foreach (KeyValuePair<string, string> option in this.Options)
@@ -29,11 +38,15 @@ namespace EasySave.Model.Command
             }
         }
 
+        /// <summary>
+        /// Display the commands informations, used by <see cref="Specialisation.HelpCommand">.
+        /// </summary>
+        /// <returns>String that describe the command and his options.</returns>
         public override string ToString()
         {
-            string str = "Name : " + Name + "\nDescription : " + Description;
+            string str = "Name : " + Name + "\nDescription : " + Description ;
 
-            if (Options.Count > 0)
+            if(Options.Count > 0)
             {
                 str += "\nOptions :";
                 foreach (KeyValuePair<string, string> option in this.Options)
@@ -45,6 +58,11 @@ namespace EasySave.Model.Command
             return str;
         }
 
+        /// <summary>
+        /// Execute the command.
+        /// </summary>
+        /// <param name="options">Options to execute from</param>
+        /// <returns>A message if success (otherwise will throw error)</returns>
         public abstract string Execute(Dictionary<string, string> options);
     }
 }

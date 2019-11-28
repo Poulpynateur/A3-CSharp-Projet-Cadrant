@@ -4,6 +4,9 @@ using System.Text;
 
 namespace EasySave.Model.Config
 {
+    /// <summary>
+    ///  Format of the progress.
+    /// </summary>
     public class Progress
     {
         public DateTime Date { get; set; }
@@ -16,6 +19,9 @@ namespace EasySave.Model.Config
 
         public string FileInProgress { get; set; }
 
+        /// <summary>
+        /// JsonSerializer doesn't permit parameterized constructor.
+        /// </summary>
         public void FeedProgress(int filesNumber, long totalFilesSize)
         {
             Date = DateTime.Now;
@@ -27,6 +33,9 @@ namespace EasySave.Model.Config
             FileInProgress = "";
         }
 
+        /// <summary>
+        /// Refresh the progress object.
+        /// </summary>
         public void RefreshProgress(string fileInProgress)
         {
             Date = DateTime.Now;

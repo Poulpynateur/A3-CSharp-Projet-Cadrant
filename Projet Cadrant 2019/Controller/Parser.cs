@@ -45,11 +45,8 @@ namespace EasySave.Controller
                 // Delete the first word (Command name)
                 input = input.Substring(input.IndexOf(" "));
 
-                // Remove some char at the start and the end of the string
-                input = input.Trim(trimChars);
-
                 // Split the input with the '-' delimitor and adds the tuple to the dictionnary for option
-                string[] splits = input.Split('-');
+                string[] splits = input.Split(" -");
                 foreach (string split in splits)
                 {
                     if (split.Length > 0)

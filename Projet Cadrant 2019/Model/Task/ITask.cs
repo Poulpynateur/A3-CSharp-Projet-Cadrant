@@ -5,13 +5,11 @@ using EasySave.Model.Command;
 
 namespace EasySave.Model.Task
 {
+    /// <summary>
+    /// Interface to access task.
+    /// </summary>
     public interface ITask
     {
-        string Name { get;  }
-
-        DateTime CreatedAt { get; }
-
-        string CmdName { get;  }
-        Dictionary<string, string> Options { get; }
+        TaskInfo Info { get; set; }
     }
 }

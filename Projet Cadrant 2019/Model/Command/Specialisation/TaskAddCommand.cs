@@ -5,6 +5,9 @@ using System.Text;
 
 namespace EasySave.Model.Command.Specialisation
 {
+    /// <summary>
+    /// Add a task.
+    /// </summary>
     class TaskAddCommand : BaseCommand
     {
         private ITaskManager taskManager;
@@ -23,6 +26,10 @@ namespace EasySave.Model.Command.Specialisation
             };
         }
 
+        /// <summary>
+        /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
+        /// Create a task with <see cref="TaskManager.AddTask(string, string, Dictionary{string, string})"/> function.
+        /// </summary>
         public override string Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);

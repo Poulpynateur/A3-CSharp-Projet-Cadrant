@@ -9,7 +9,7 @@ namespace EasySave
         static void Main(string[] args)
         {
             Model.Model model = new Model.Model();
-            View.View view = new View.View(model);
+            View.View view = new View.View();
 
             Controller.Controller controller = new Controller.Controller(model, view);
 

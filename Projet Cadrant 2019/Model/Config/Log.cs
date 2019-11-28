@@ -4,6 +4,9 @@ using System.Text;
 
 namespace EasySave.Model.Config
 {
+    /// <summary>
+    /// Format of the log to read from Json.
+    /// </summary>
     public class Log
     {
         public DateTime Date { get; set; }
@@ -13,6 +16,9 @@ namespace EasySave.Model.Config
         public long FilesSize { get; set; }
         public TimeSpan TransfertTime { get; set; }
 
+        /// <summary>
+        /// JsonSerializer doesn't permit parameterized constructor.
+        /// </summary>
         public void feedLog(string taskName, string source, string targer, long filesSize, TimeSpan transfertTime)
         {
             Date = DateTime.Now;

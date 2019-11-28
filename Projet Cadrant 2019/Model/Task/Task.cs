@@ -6,25 +6,19 @@ using EasySave.Model.Config;
 
 namespace EasySave.Model.Task
 {
+    /// <summary>
+    /// Task are entities that can be save and used to launch commands later.
+    /// </summary>
     public class Task : ITask
     {
         private ILogger logger;
 
-        public string Name { get; }
+        public TaskInfo Info { get; set; }
 
-        public DateTime CreatedAt { get; }
-        public string CmdName { get; }
-        public Dictionary<string, string> Options { get; }
-
-        public Task(ILogger logger, string name, string cmdName, Dictionary<string, string> options)
+        public Task(ILogger logger, TaskInfo info)
         {
             this.logger = logger;
-
-            this.CreatedAt = DateTime.Now;
-
-            this.Name = name;
-            this.CmdName = cmdName;
-            this.Options = options;
+            this.Info = info;
         }
     }
 }

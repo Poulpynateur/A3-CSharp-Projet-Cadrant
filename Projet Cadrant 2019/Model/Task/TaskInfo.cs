@@ -4,6 +4,9 @@ using System.Text;
 
 namespace EasySave.Model.Task
 {
+    /// <summary>
+    /// Information of a task.
+    /// </summary>
     public class TaskInfo
     {
         public string Name { get; set; }

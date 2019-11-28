@@ -1,12 +1,20 @@
-﻿using EasySave.Model.Task;
+﻿using EasySave.Helpers.Files;
+using EasySave.Model.Task;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace EasySave.Model.Config
 {
-    public sealed class ConfigManager : ILogger, IProgress
+    /// <summary>
+    /// Mangage the config and logs of the app.
+    /// </summary>
+    public sealed class ConfigManager : ILogger
     {
+        private string configPath;
+        private string logPath;
+
         private JsonManager json;
 
         private static readonly Lazy<ConfigManager> lazy =
@@ -16,22 +24,51 @@ namespace EasySave.Model.Config
 
         private ConfigManager()
         {
+            string projectDirectory = 
+                Path.GetFullPath(
+                    Path.Combine(Directory.GetCurrentDirectory(), "../../../")
+                );
+
+            this.configPath = Path.Combine(projectDirectory, "_config");
+            this.logPath = Path.Combine(projectDirectory, "_log");
+
             this.json = new JsonManager();
         }
 
-        public List<ITask> LoadTasks()
+        /// <summary>
+        /// Load all task informations from the tasks.json file.
+        /// </summary>
+        /// <returns></returns>
+        public List<TaskInfo> LoadTasksInfo()
         {
-            return new List<ITask>();
+            return json.ReadJson<List<TaskInfo>>(Path.Combine(configPath, "tasks.json")) ?? new List<TaskInfo>();
         }
 
-        public void WriteLog()
+        /// <summary>
+        /// Write task informations to tasks.json file.
+        /// </summary>
+        /// <param name="tasks">List of task informations to write</param>
+        public void WriteTasksInfo(List<TaskInfo> tasks)
         {
-            throw new NotImplementedException();
+            json.WriteJson(tasks, Path.Combine(configPath, "tasks.json"));
         }
 
-        public void WriteProgress()
+        /// <summary>
+        /// Write log to the log folder.
+        /// </summary>
+        /// <param name="log"></param>
+        public void WriteLog(Log log)
         {
-            throw new NotImplementedException();
+            json.WriteJson(log, Path.Combine(logPath, FilesManager.GetNameWithTime(log.TaskName) + ".json"));
+        }
+
+        /// <summary>
+        /// Write progress to the progress.json file.
+        /// </summary>
+        /// <param name="progress"></param>
+        public void WriteProgress(Progress progress)
+        {
+            json.WriteJson(progress, Path.Combine(logPath, "progress.json"));
         }
     }
 }

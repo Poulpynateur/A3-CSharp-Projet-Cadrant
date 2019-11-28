@@ -9,6 +9,9 @@ using System.Text;
 
 namespace EasySave.Model.Command.Specialisation
 {
+    /// <summary>
+    /// Execute a task, if argument -n is * execute every task.
+    /// </summary>
     class TaskExecutesCommand : BaseCommand
     {
         private ILogger logger;
@@ -29,6 +32,11 @@ namespace EasySave.Model.Command.Specialisation
             };
         }
 
+        /// <summary>
+        /// Execute a specific task.
+        /// </summary>
+        /// <param name="task">Task to execute</param>
+        /// <returns>Success message, otherwise throw an error</returns>
         private string ExecuteTask(ITask task)
         {
             DateTime start = DateTime.Now;
@@ -57,6 +65,10 @@ namespace EasySave.Model.Command.Specialisation
             return result;
         }
 
+        /// <summary>
+        /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
+        /// Execute one or all tasks in function of the options.
+        /// </summary>
         public override string Execute(Dictionary<string, string> options)
         {
             string result = "";

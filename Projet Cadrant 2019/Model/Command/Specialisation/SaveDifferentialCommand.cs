@@ -8,6 +8,9 @@ using System.Text;
 
 namespace EasySave.Model.Command.Specialisation
 {
+    /// <summary>
+    /// Create a differential save from a source to a target folder.
+    /// </summary>
     class SaveDifferentialCommand : BaseCommand
     {
         private ILogger logger;
@@ -26,6 +29,11 @@ namespace EasySave.Model.Command.Specialisation
             };
         }
 
+        /// <summary>
+        /// Calculate the MD5 checksum of a file.
+        /// </summary>
+        /// <param name="filename">Path to the file</param>
+        /// <returns>MD5 checksum to string format</returns>
         private string CalculateMD5(string filename)
         {
             using (var md5 = MD5.Create())
@@ -38,11 +46,17 @@ namespace EasySave.Model.Command.Specialisation
             }
         }
 
+        /// <summary>
+        /// Load the configuration file for the differential save,
+        /// if the conf.json file doesn't exist return a empty dictionnary.
+        /// </summary>
+        /// <param name="target">Path to the target folder</param>
+        /// <returns>The content of the conf file</returns>
         private Dictionary<string, string> loadDiffConfig(string target)
         {
             Dictionary<string, string> fileHistory = new Dictionary<string, string>();
-
-            if (File.Exists(target))
+            
+            if(File.Exists(target))
             {
                 fileHistory = json.ReadJson<Dictionary<string, string>>(target);
             }
@@ -50,6 +64,12 @@ namespace EasySave.Model.Command.Specialisation
             return fileHistory;
         }
 
+        /// <summary>
+        /// Save files from a source folder to a target folder.
+        /// </summary>
+        /// <param name="source">Source folder path</param>
+        /// <param name="target">Target folder path</param>
+        /// <returns>Success message, otherwise throw an error</returns>
         private string SaveFiles(string source, string target)
         {
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
@@ -85,6 +105,11 @@ namespace EasySave.Model.Command.Specialisation
             return progress.FilesNumber + " file(s) save successfully !";
         }
 
+        /// <summary>
+        /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
+        /// <see cref="BaseCommand.CheckOptions(Dictionary{string, string})"/>
+        /// Launch the differential save. Check if the folders exists beforewise.
+        /// </summary>
         public override string Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);

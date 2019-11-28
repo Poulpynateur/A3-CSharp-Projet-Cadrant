@@ -5,6 +5,9 @@ using System.Text;
 
 namespace EasySave.Model.Command.Specialisation
 {
+    /// <summary>
+    /// Remove a task.
+    /// </summary>
     class TaskRemoveCommand : BaseCommand
     {
         private ITaskManager taskManager;
@@ -20,6 +23,11 @@ namespace EasySave.Model.Command.Specialisation
             };
         }
 
+        /// <summary>
+        /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
+        /// <see cref="BaseCommand.CheckOptions(Dictionary{string, string})"/>
+        /// Remove the given task.
+        /// </summary>
         public override string Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);

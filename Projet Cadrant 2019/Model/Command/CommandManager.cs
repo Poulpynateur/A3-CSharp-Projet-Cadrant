@@ -7,6 +7,9 @@ using System.Text;
 
 namespace EasySave.Model.Command
 {
+    /// <summary>
+    /// Singleton class. Manage the differents commands and instanciate then.
+    /// </summary>
     public sealed class CommandManager : ICommandManager
     {
         public ILogger Logger { private get; set; }
@@ -20,6 +23,10 @@ namespace EasySave.Model.Command
             Map = new List<BaseCommand>();
         }
 
+        /// <summary>
+        /// Load all the commands into a list.
+        /// </summary>
+        /// <param name="taskManager">Task manager to pass to commands that interact with tasks.</param>
         public void LoadCommands(ITaskManager taskManager)
         {
             Map.Add(new HelpCommand(this));
@@ -35,6 +42,11 @@ namespace EasySave.Model.Command
             Map.Add(new SaveDifferentialCommand(Logger));
         }
 
+        /// <summary>
+        /// Get a command by its name.
+        /// </summary>
+        /// <param name="name">Command name</param>
+        /// <returns>The command if found, else return null</returns>
         public BaseCommand getCmdByName(string name)
         {
             return Map.Find(command => command.Name == name);

@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace EasySave.Controller
 {
+    /// <summary>
+    /// Manage input from view and execute commands from the model.
+    /// </summary>
     class Controller
     {
         private IModel model;
@@ -23,11 +26,16 @@ namespace EasySave.Controller
             this.AssignEvents();
         }
 
+        /// <summary>
+        /// Handle the inputs event register from the view.
+        /// </summary>
+        /// <param name="input">Input from the view</param>
         private void HandleInputs(string input)
         {
             string name = parser.ParseName(input);
             BaseCommand cmd = model.getCmdByName(name);
 
+            // Catch exception that can append during commands executions.
             try
             {
                 if (cmd == null)
@@ -45,6 +53,9 @@ namespace EasySave.Controller
  
         }
 
+        /// <summary>
+        /// Assign functions to the differents events.
+        /// </summary>
         private void AssignEvents()
         {
             view.InputEvent += delegate (string input)
