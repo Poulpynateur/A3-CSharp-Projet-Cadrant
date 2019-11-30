@@ -20,6 +20,9 @@ namespace EasySave.Model.Config
         private static readonly Lazy<ConfigManager> lazy =
             new Lazy<ConfigManager>(() => new ConfigManager());
 
+        /// <summary>
+        /// Singleton instance.
+        /// </summary>
         public static ConfigManager Instance { get { return lazy.Value; } }
 
         private ConfigManager()
@@ -59,7 +62,7 @@ namespace EasySave.Model.Config
         /// <param name="log"></param>
         public void WriteLog(Log log)
         {
-            json.WriteJson(log, Path.Combine(logPath, FilesManager.GetNameWithTime(log.TaskName) + ".json"));
+            json.WriteJson(log, Path.Combine(logPath, FilesManager.GenerateName(log.TaskName) + ".json"));
         }
 
         /// <summary>

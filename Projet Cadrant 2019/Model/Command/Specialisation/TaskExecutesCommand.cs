@@ -45,9 +45,9 @@ namespace EasySave.Model.Command.Specialisation
             {
                 string[] files = Directory.GetFiles(task.Info.Options["source"], "*", SearchOption.AllDirectories);
 
-                result += commandManager.getCmdByName(task.Info.CmdName).Execute(task.Info.Options) + "\n";
+                result += commandManager.GetCmdByName(task.Info.CmdName).Execute(task.Info.Options) + "\n";
                 Log log = new Log();
-                log.feedLog(
+                log.FeedLog(
                     task.Info.Name,
                     task.Info.Options["source"],
                     task.Info.Options["target"],

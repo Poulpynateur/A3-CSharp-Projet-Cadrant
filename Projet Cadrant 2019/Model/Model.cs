@@ -18,22 +18,21 @@ namespace EasySave.Model
             this.config = ConfigManager.Instance;
 
             this.tasks = TaskManager.Instance;
-            tasks.tasksFromInfo(config.LoadTasksInfo());
+            tasks.TasksFromInfo(config.LoadTasksInfo());
             tasks.Config = config;
 
             this.commands = CommandManager.Instance;
-            commands.Logger = config;
-            commands.LoadCommands(tasks);
+            commands.LoadCommands(tasks, config);
         }
 
         /// <summary>
-        /// Get a command by name, use <see cref="CommandManager.getCmdByName(string)"/>
+        /// Get a command by name, use <see cref="CommandManager.GetCmdByName(string)"/>
         /// </summary>
         /// <param name="name"></param>
         /// <returns>Return a <see cref="BaseCommand">BaseCommand</see></returns>
         public BaseCommand getCmdByName(string name)
         {
-            return commands.getCmdByName(name);
+            return commands.GetCmdByName(name);
         }
     }
 }

@@ -10,10 +10,26 @@ namespace EasySave.Model.Command
     /// </summary>
     public abstract class BaseCommand
     {
+        /// <summary>
+        /// Name of the command
+        /// </summary>
         public string Name { get; }
+        /// <summary>
+        /// Description of the command
+        /// </summary>
         public string Description { get; }
+        /// <summary>
+        /// Options of the command :
+        /// - Key are the option name
+        /// - Value is a regex to validate the option value
+        /// </summary>
         public Dictionary<string, string> Options { protected set; get; }
 
+        /// <summary>
+        /// BaseCommand constructor.
+        /// </summary>
+        /// <param name="name">Name of the command</param>
+        /// <param name="description">Description of the command</param>
         public BaseCommand(string name, string description)
         {
             this.Name = name;

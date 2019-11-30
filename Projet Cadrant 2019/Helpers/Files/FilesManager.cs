@@ -16,7 +16,7 @@ namespace EasySave.Helpers.Files
         /// </summary>
         /// <param name="name">Name to extend</param>
         /// <returns>Extended name with actual date.</returns>
-        public static string GetNameWithTime(string name)
+        public static string GenerateName(string name)
         {
             return name + " " + DateTime.Now.ToString().Replace('/', '_').Replace(':', '-');
         }

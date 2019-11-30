@@ -7,17 +7,21 @@ using EasySave.Model.Config;
 namespace EasySave.Model.Task
 {
     /// <summary>
-    /// Task are entities that can be save and used to launch commands later.
+    /// Task are entities that can be save and used to launch commands later. For now this class is merely useless, but let's thinks of the futur !
     /// </summary>
     public class Task : ITask
     {
-        private ILogger logger;
-
+        /// <summary>
+        /// Informations of the task.
+        /// </summary>
         public TaskInfo Info { get; set; }
 
-        public Task(ILogger logger, TaskInfo info)
+        /// <summary>
+        /// Task constructor.
+        /// </summary>
+        /// <param name="info">Information of the task</param>
+        public Task(TaskInfo info)
         {
-            this.logger = logger;
             this.Info = info;
         }
     }
