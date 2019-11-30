@@ -4,6 +4,11 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>EasySave</RootNamespace>
+    <Company>ProSoft</Company>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\EasySave.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
