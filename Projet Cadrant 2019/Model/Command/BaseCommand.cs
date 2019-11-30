@@ -39,7 +39,7 @@ namespace EasySave.Model.Command
         }
 
         /// <summary>
-        /// Display the commands informations, used by <see cref="Specialisation.HelpCommand">.
+        /// Display the commands informations, used by <see cref="Specialisation.HelpCommand"/>.
         /// </summary>
         /// <returns>String that describe the command and his options.</returns>
         public override string ToString()
