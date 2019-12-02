@@ -9,7 +9,7 @@ namespace EasySave.Controller
     /// <summary>
     /// Manage input from view and execute commands from the model.
     /// </summary>
-    class Controller
+    public class Controller
     {
         private IModel model;
         private IView view;

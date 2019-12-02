@@ -11,7 +11,7 @@ namespace EasySave.Model.Command.Specialisation
     /// <summary>
     /// Create a mirror save from a source to a target folder.
     /// </summary>
-    class SaveMirrorCommand : BaseCommand
+    public class SaveMirrorCommand : BaseCommand
     {
         private ILogger logger;
 

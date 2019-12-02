@@ -8,7 +8,7 @@ namespace EasySave.View
     /// <summary>
     /// Display text to console and get inputs.
     /// </summary>
-    class View : IView
+    public class View : IView
     {
         // This event is fired then an inputs is read from console
         public event IView.InputsEventHandler InputEvent;
