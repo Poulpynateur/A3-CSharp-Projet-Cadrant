@@ -33,7 +33,9 @@ namespace EasySave.Model.Config
                 );
 
             this.configPath = Path.Combine(projectDirectory, "_config");
+            Directory.CreateDirectory(configPath);
             this.logPath = Path.Combine(projectDirectory, "_log");
+            Directory.CreateDirectory(logPath);
 
             this.json = new JsonManager();
         }
