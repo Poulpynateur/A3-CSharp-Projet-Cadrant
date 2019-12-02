@@ -24,7 +24,7 @@ namespace EasySave.Model.Command.Specialisation
         /// </summary>
         public override string Execute(Dictionary<string, string> options)
         {
-            string str = "";
+            string str = "The command's option are describe following the format : name [validation regex]";
 
             foreach(BaseCommand command in commands.Map)
             {

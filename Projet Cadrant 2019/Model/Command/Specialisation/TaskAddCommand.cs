@@ -20,7 +20,7 @@ namespace EasySave.Model.Command.Specialisation
             this.Options = new Dictionary<string, string>
             {
                 { "t", "differential|mirror" },
-                { "n", ".*" },
+                { "name", @"^((?![\*\.\/\\\[\]:;\|,]).)*$" },
                 { "source", ".*" },
                 { "target", ".*" }
             };
@@ -36,16 +36,17 @@ namespace EasySave.Model.Command.Specialisation
 
             Dictionary<string, string> cmdOptions = new Dictionary<string, string>
             {
+                { "name", options["name"] },
                 { "source", options["source"] },
                 { "target", options["target"] }
             };
 
             if (options["t"].Equals("differential"))
-                taskManager.AddTask(options["n"], "save-differential", cmdOptions);
+                taskManager.AddTask(options["name"], "save-differential", cmdOptions);
             else
-                taskManager.AddTask(options["n"], "save-mirror", cmdOptions);
+                taskManager.AddTask(options["name"], "save-mirror", cmdOptions);
 
-            return "Task "+ options["n"] + " added !";
+            return "Task "+ options["name"] + " added !";
         }
     }
 }
