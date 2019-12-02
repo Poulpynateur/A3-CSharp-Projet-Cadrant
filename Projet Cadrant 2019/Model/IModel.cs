@@ -8,6 +8,11 @@ namespace EasySave.Model
     /// </summary>
     public interface IModel 
     {
+        /// <summary>
+        /// Get a command by its name.
+        /// </summary>
+        /// <param name="name">Name of the target</param>
+        /// <returns>A command or null</returns>
         BaseCommand getCmdByName(string name);
     }
 }

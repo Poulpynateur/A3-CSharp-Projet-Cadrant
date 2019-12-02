@@ -73,9 +73,9 @@ namespace EasySave.Model.Command.Specialisation
         private string SaveFiles(string source, string target)
         {
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-            target = Path.Combine(target, "save_differential");
+            target = Path.Combine(target, FilesManager.GenerateName("differential_save"));
             string confPath = Path.Combine(target, "conf.json");
-            target = Path.Combine(target, FilesManager.GetNameWithTime("save"));
+            target = Path.Combine(target, FilesManager.GenerateName("save"));
 
             Progress progress = new Progress();
             progress.FeedProgress(files.Length, FilesManager.GetFilesSize(files));

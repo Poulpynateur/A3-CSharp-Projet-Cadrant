@@ -10,21 +10,22 @@ namespace EasySave.Model.Config
     public class Log
     {
         public DateTime Date { get; set; }
+
         public string TaskName { get; set; }
         public string Source { get; set; }
-        public string Targer { get; set; }
+        public string Target { get; set; }
         public long FilesSize { get; set; }
         public TimeSpan TransfertTime { get; set; }
 
         /// <summary>
         /// JsonSerializer doesn't permit parameterized constructor.
         /// </summary>
-        public void feedLog(string taskName, string source, string targer, long filesSize, TimeSpan transfertTime)
+        public void FeedLog(string taskName, string source, string target, long filesSize, TimeSpan transfertTime)
         {
             Date = DateTime.Now;
             TaskName = taskName;
             Source = source;
-            Targer = targer;
+            Target = target;
             FilesSize = filesSize;
             TransfertTime = transfertTime;
         }

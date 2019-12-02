@@ -1,0 +1,443 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasySave</name>
+    </assembly>
+    <members>
+        <member name="T:EasySave.Controller.Controller">
+            <summary>
+            Manage input from view and execute commands from the model.
+            </summary>
+        </member>
+        <member name="M:EasySave.Controller.Controller.HandleInputs(System.String)">
+            <summary>
+            Handle the inputs event register from the view.
+            </summary>
+            <param name="input">Input from the view</param>
+        </member>
+        <member name="M:EasySave.Controller.Controller.AssignEvents">
+            <summary>
+            Assign functions to the differents events.
+            </summary>
+        </member>
+        <member name="M:EasySave.Controller.Controller.Start">
+            <summary>
+            Start the main programm.
+            </summary>
+        </member>
+        <member name="M:EasySave.Controller.Parser.ParseName(System.String)">
+            <summary>
+            Method which returns the name of the command
+            </summary>
+            <param name="input"></param>
+            <returns>Command Name</returns>
+        </member>
+        <member name="M:EasySave.Controller.Parser.ParseOptions(System.String)">
+            <summary>
+            Method that returns a dictionary containing the name of the option and its value
+            </summary>
+            <param name="input"></param>
+            <returns>Command Option Name and Value</returns>
+        </member>
+        <member name="T:EasySave.Helpers.Files.FilesManager">
+            <summary>
+            Functions to interact with files and folders.
+            </summary>
+        </member>
+        <member name="M:EasySave.Helpers.Files.FilesManager.GenerateName(System.String)">
+            <summary>
+            Generate a name from the actual date.
+            </summary>
+            <param name="name">Name to extend</param>
+            <returns>Extended name with actual date.</returns>
+        </member>
+        <member name="M:EasySave.Helpers.Files.FilesManager.CopyDirectoryTree(System.String,System.String)">
+            <summary>
+            Copy a directory tree from a source folder to a target folder.
+            </summary>
+            <param name="source">Source folder to copy from</param>
+            <param name="target">Target folder to copy to</param>
+        </member>
+        <member name="M:EasySave.Helpers.Files.FilesManager.GetFilesSize(System.String[])">
+            <summary>
+            Get the size of an array of files path.
+            </summary>
+            <param name="files">Array of files path</param>
+            <returns>Syze in byte</returns>
+        </member>
+        <member name="T:EasySave.Helpers.Files.JsonManager">
+            <summary>
+            Manage Json file interactions.
+            </summary>
+        </member>
+        <member name="M:EasySave.Helpers.Files.JsonManager.WriteJson(System.Object,System.String)">
+            <summary>
+            Write a Json file.
+            </summary>
+            <param name="data">Data to write</param>
+            <param name="path">Target path to write file</param>
+        </member>
+        <member name="M:EasySave.Helpers.Files.JsonManager.ReadJson``1(System.String)">
+            <summary>
+            Read a json format file and parse it.
+            </summary>
+            <typeparam name="Data">Generic type</typeparam>
+            <param name="path">Path to the file to read</param>
+            <returns>The file parsed to the Data generic.</returns>
+        </member>
+        <member name="T:EasySave.Model.Command.BaseCommand">
+            <summary>
+            Base command class (other command must inherit from this class).
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.BaseCommand.CheckOptions(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Check if options :
+            - are present
+            - are valid (regex match)
+            </summary>
+            <param name="options">Options to check</param>
+        </member>
+        <member name="M:EasySave.Model.Command.BaseCommand.ToString">
+            <summary>
+            Display the commands informations, used by <see cref="T:EasySave.Model.Command.Specialisation.HelpCommand"/>.
+            </summary>
+            <returns>String that describe the command and his options.</returns>
+        </member>
+        <member name="M:EasySave.Model.Command.BaseCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Execute the command.
+            </summary>
+            <param name="options">Options to execute from</param>
+            <returns>A message if success (otherwise will throw error)</returns>
+        </member>
+        <member name="T:EasySave.Model.Command.CommandManager">
+            <summary>
+            Singleton class. Manage the differents commands and instanciate then.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.CommandManager.LoadCommands(EasySave.Model.Task.ITaskManager,EasySave.Model.Config.ILogger)">
+            <summary>
+            Load all the commands into a list.
+            </summary>
+            <param name="taskManager">Task manager to pass to commands that interact with tasks</param>
+            <param name="logger">Used to log informations</param>
+        </member>
+        <member name="M:EasySave.Model.Command.CommandManager.GetCmdByName(System.String)">
+            <summary>
+            Get a command by its name.
+            </summary>
+            <param name="name">Command name</param>
+            <returns>The command if found, else return null</returns>
+        </member>
+        <member name="T:EasySave.Model.Command.ICommandManager">
+            <summary>
+            Interface to access command manager from commands.
+            For exemple : <see cref="T:EasySave.Model.Command.Specialisation.HelpCommand"/>
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Command.Specialisation.HelpCommand">
+            <summary>
+            Display all commands and their descriptions.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.HelpCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            <see cref="M:EasySave.Model.Command.BaseCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            Show commands informations use the <see cref="M:EasySave.Model.Command.BaseCommand.ToString"/> function of each commands.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.HelpCommand.ToString">
+            <summary>
+            <see cref="M:EasySave.Model.Command.BaseCommand.ToString"/>
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Command.Specialisation.SaveDifferentialCommand">
+            <summary>
+            Create a differential save from a source to a target folder.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.SaveDifferentialCommand.CalculateMD5(System.String)">
+            <summary>
+            Calculate the MD5 checksum of a file.
+            </summary>
+            <param name="filename">Path to the file</param>
+            <returns>MD5 checksum to string format</returns>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.SaveDifferentialCommand.loadDiffConfig(System.String)">
+            <summary>
+            Load the configuration file for the differential save,
+            if the conf.json file doesn't exist return a empty dictionnary.
+            </summary>
+            <param name="target">Path to the target folder</param>
+            <returns>The content of the conf file</returns>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.SaveDifferentialCommand.SaveFiles(System.String,System.String)">
+            <summary>
+            Save files from a source folder to a target folder.
+            </summary>
+            <param name="source">Source folder path</param>
+            <param name="target">Target folder path</param>
+            <returns>Success message, otherwise throw an error</returns>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.SaveDifferentialCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            <see cref="M:EasySave.Model.Command.BaseCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            <see cref="M:EasySave.Model.Command.BaseCommand.CheckOptions(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            Launch the differential save. Check if the folders exists beforewise.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Command.Specialisation.SaveMirrorCommand">
+            <summary>
+            Create a mirror save from a source to a target folder.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.SaveMirrorCommand.SaveFiles(System.String,System.String)">
+            <summary>
+            Save files from a source folder to a target folder.
+            </summary>
+            <param name="source">Source folder path</param>
+            <param name="target">Target folder path</param>
+            <returns>Success message, otherwise throw an error</returns>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.SaveMirrorCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            <see cref="M:EasySave.Model.Command.BaseCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            <see cref="M:EasySave.Model.Command.BaseCommand.CheckOptions(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            Launch the mirro save. Check if the folders exists beforewise.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Command.Specialisation.TaskAddCommand">
+            <summary>
+            Add a task.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.TaskAddCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            <see cref="M:EasySave.Model.Command.BaseCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            Create a task with <see cref="M:EasySave.Model.Task.TaskManager.AddTask(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})"/> function.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Command.Specialisation.TaskExecutesCommand">
+            <summary>
+            Execute a task, if argument -n is * execute every task.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.TaskExecutesCommand.ExecuteTask(EasySave.Model.Task.ITask)">
+            <summary>
+            Execute a specific task.
+            </summary>
+            <param name="task">Task to execute</param>
+            <returns>Success message, otherwise throw an error</returns>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.TaskExecutesCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            <see cref="M:EasySave.Model.Command.BaseCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            Execute one or all tasks in function of the options.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Command.Specialisation.TaskListCommand">
+            <summary>
+            Show the list of tasks.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.TaskListCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            <see cref="M:EasySave.Model.Command.BaseCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            Show the task list.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Command.Specialisation.TaskRemoveCommand">
+            <summary>
+            Remove a task.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Command.Specialisation.TaskRemoveCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            <see cref="M:EasySave.Model.Command.BaseCommand.Execute(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            <see cref="M:EasySave.Model.Command.BaseCommand.CheckOptions(System.Collections.Generic.Dictionary{System.String,System.String})"/>
+            Remove the given task.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Config.ConfigManager">
+            <summary>
+            Mangage the config and logs of the app.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Config.ConfigManager.LoadTasksInfo">
+            <summary>
+            Load all task informations from the tasks.json file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasySave.Model.Config.ConfigManager.WriteTasksInfo(System.Collections.Generic.List{EasySave.Model.Task.TaskInfo})">
+            <summary>
+            Write task informations to tasks.json file.
+            </summary>
+            <param name="tasks">List of task informations to write</param>
+        </member>
+        <member name="M:EasySave.Model.Config.ConfigManager.WriteLog(EasySave.Model.Config.Log)">
+            <summary>
+            Write log to the log folder.
+            </summary>
+            <param name="log"></param>
+        </member>
+        <member name="M:EasySave.Model.Config.ConfigManager.WriteProgress(EasySave.Model.Config.Progress)">
+            <summary>
+            Write progress to the progress.json file.
+            </summary>
+            <param name="progress"></param>
+        </member>
+        <member name="T:EasySave.Model.Config.ILogger">
+            <summary>
+            Interface used to log informations.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Config.Log">
+            <summary>
+            Format of the log to read from Json.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Config.Log.FeedLog(System.String,System.String,System.String,System.Int64,System.TimeSpan)">
+            <summary>
+            JsonSerializer doesn't permit parameterized constructor.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Config.Progress">
+            <summary>
+             Format of the progress.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Config.Progress.FeedProgress(System.Int32,System.Int64)">
+            <summary>
+            JsonSerializer doesn't permit parameterized constructor.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Config.Progress.RefreshProgress(System.String)">
+            <summary>
+            Refresh the progress object.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.IModel">
+            <summary>
+            Interface to access model.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Model">
+            <summary>
+            Define commands and how to interact with configuration.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Model.getCmdByName(System.String)">
+            <summary>
+            Get a command by name, use <see cref="M:EasySave.Model.Command.CommandManager.GetCmdByName(System.String)"/>
+            </summary>
+            <param name="name"></param>
+            <returns>Return a <see cref="T:EasySave.Model.Command.BaseCommand">BaseCommand</see></returns>
+        </member>
+        <member name="T:EasySave.Model.Task.ITask">
+            <summary>
+            Interface to access task.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Task.ITaskManager">
+            <summary>
+            Interface to access task manager.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Task.Task">
+            <summary>
+            Task are entities that can be save and used to launch commands later.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Task.TaskInfo">
+            <summary>
+            Information of a task.
+            </summary>
+        </member>
+        <member name="T:EasySave.Model.Task.TaskManager">
+            <summary>
+            Singleton class. Manage the task and instanciate then.
+            </summary>
+        </member>
+        <member name="M:EasySave.Model.Task.TaskManager.TasksFromInfo(System.Collections.Generic.List{EasySave.Model.Task.TaskInfo})">
+            <summary>
+            Create taks from task informations.
+            </summary>
+            <param name="infos">List of task informations</param>
+        </member>
+        <member name="M:EasySave.Model.Task.TaskManager.AddTask(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Add a task to the task list and the config file.
+            </summary>
+            <param name="taskName">Name of the task</param>
+            <param name="cmdName">Name of the command of the task</param>
+            <param name="options">Options of the command of the task</param>
+        </member>
+        <member name="M:EasySave.Model.Task.TaskManager.RemoveTask(System.String)">
+            <summary>
+            Remove task(s) from the task list and the config file.
+            </summary>
+            <param name="taskName">Task name to delete</param>
+            <returns>Number of task deleted</returns>
+        </member>
+        <member name="M:EasySave.Model.Task.TaskManager.GetTaskByName(System.String)">
+            <summary>
+            Get a task by it's name.
+            </summary>
+            <param name="name"></param>
+            <returns>The task if found, else return null</returns>
+        </member>
+        <member name="T:EasySave.View.IView">
+            <summary>
+            Interface to access view.
+            </summary>
+        </member>
+        <member name="T:EasySave.View.View">
+            <summary>
+            Display text to console and get inputs.
+            </summary>
+        </member>
+        <member name="M:EasySave.View.View.ReadConsoleLine">
+            <summary>
+            Read a line from the console.
+            </summary>
+        </member>
+        <member name="M:EasySave.View.View.WriteConsole(System.ConsoleColor,System.String)">
+            <summary>
+            Write text with color to console.
+            </summary>
+            <param name="color">Color of the text</param>
+            <param name="text">Text to write</param>
+        </member>
+        <member name="M:EasySave.View.View.Start">
+            <summary>
+            Start the view.
+            </summary>
+        </member>
+        <member name="M:EasySave.View.View.DisplayInfo(System.String)">
+            <summary>
+            Display info text to console.
+            </summary>
+            <param name="text">Text to write</param>
+        </member>
+        <member name="M:EasySave.View.View.DisplayWarning(System.String)">
+            <summary>
+            Display warning text to console.
+            </summary>
+            <param name="text">Text to write</param>
+        </member>
+        <member name="M:EasySave.View.View.DisplayError(System.String)">
+            <summary>
+            Display error text to console.
+            </summary>
+            <param name="text">Text to write</param>
+        </member>
+        <member name="M:EasySave.View.View.DisplaySuccess(System.String)">
+            <summary>
+            Display success text to console.
+            </summary>
+            <param name="text">Text to write</param>
+        </member>
+    </members>
+</doc>

@@ -10,6 +10,9 @@ namespace EasySave.Model.Task
     /// </summary>
     public interface ITask
     {
+        /// <summary>
+        /// Informations of a task.
+        /// </summary>
         TaskInfo Info { get; set; }
     }
 }

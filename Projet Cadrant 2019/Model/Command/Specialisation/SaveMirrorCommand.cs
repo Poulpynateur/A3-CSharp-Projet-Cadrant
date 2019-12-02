@@ -38,7 +38,7 @@ namespace EasySave.Model.Command.Specialisation
         private string SaveFiles(string source, string target)
         {
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-            target = Path.Combine(target, FilesManager.GetNameWithTime("mirror_save"));
+            target = Path.Combine(target, FilesManager.GenerateName("mirror_save"));
 
             Progress progress = new Progress();
 

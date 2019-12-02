@@ -10,7 +10,15 @@ namespace EasySave.Model.Command
     /// </summary>
     public interface ICommandManager
     {
+        /// <summary>
+        /// Map of the commands.
+        /// </summary>
         List<BaseCommand> Map { get; }
-        BaseCommand getCmdByName(string name);
+        /// <summary>
+        /// Get a command by its name.
+        /// </summary>
+        /// <param name="name">Name of the target</param>
+        /// <returns>The command or null</returns>
+        BaseCommand GetCmdByName(string name);
     }
 }

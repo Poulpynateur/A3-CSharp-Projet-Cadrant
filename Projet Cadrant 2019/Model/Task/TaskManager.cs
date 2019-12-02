@@ -27,11 +27,11 @@ namespace EasySave.Model.Task
         /// Create taks from task informations.
         /// </summary>
         /// <param name="infos">List of task informations</param>
-        public void tasksFromInfo(List<TaskInfo> infos)
+        public void TasksFromInfo(List<TaskInfo> infos)
         {
             foreach(TaskInfo info in infos)
             {
-                Map.Add(new Task(Config, info));
+                Map.Add(new Task(info));
             }
         }
 
@@ -51,7 +51,7 @@ namespace EasySave.Model.Task
                 info.CmdName = cmdName;
                 info.Options = options;
 
-                Map.Add(new Task(Config, info));
+                Map.Add(new Task(info));
 
                 //Write config
                 List<TaskInfo> infos = Map.Select(task => task.Info).ToList();

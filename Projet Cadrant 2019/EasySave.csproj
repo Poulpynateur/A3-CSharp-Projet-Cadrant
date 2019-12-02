@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\EasySave.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
