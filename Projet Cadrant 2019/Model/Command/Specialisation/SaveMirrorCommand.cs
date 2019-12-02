@@ -24,6 +24,7 @@ namespace EasySave.Model.Command.Specialisation
 
             this.Options = new Dictionary<string, string> 
             {
+                { "name", @"^((?![\*\.\/\\\[\]:;\|,]).)*$" },
                 { "source", ".*" },
                 { "target", ".*" }
             };
@@ -35,10 +36,11 @@ namespace EasySave.Model.Command.Specialisation
         /// <param name="source">Source folder path</param>
         /// <param name="target">Target folder path</param>
         /// <returns>Success message, otherwise throw an error</returns>
-        private string SaveFiles(string source, string target)
+        private string SaveFiles(string name , string source, string target)
         {
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-            target = Path.Combine(target, FilesManager.GenerateName("mirror_save"));
+            target = Path.Combine(target, name);
+            target = Path.Combine(target, FilesManager.GenerateName("save"));
 
             Progress progress = new Progress();
 
@@ -49,7 +51,7 @@ namespace EasySave.Model.Command.Specialisation
 
             foreach (string newPath in files)
             {
-                progress.RemainingFiles -= 1;
+                progress.FilesDone += 1;
                 progress.RemainingFilesSize -= new FileInfo(newPath).Length;
                 
                 File.Copy(newPath, newPath.Replace(source, target), true);
@@ -58,7 +60,7 @@ namespace EasySave.Model.Command.Specialisation
                 logger.WriteProgress(progress);
             }
 
-            return progress.FilesNumber + " file(s) save successfully !";
+            return progress.FilesDone + " file(s) save !";
         }
 
         /// <summary>
@@ -70,6 +72,7 @@ namespace EasySave.Model.Command.Specialisation
         {
             this.CheckOptions(options);
 
+            string name = options["name"];
             string source = options["source"];
             string target = options["target"];
 
@@ -78,7 +81,7 @@ namespace EasySave.Model.Command.Specialisation
             if(!Directory.Exists(target))
                 throw new Exception("Target folder doesn't exist : " + target);
 
-            return SaveFiles(source, target);
+            return SaveFiles(name, source, target);
         }
     }
 }

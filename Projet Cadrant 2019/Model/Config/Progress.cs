@@ -39,7 +39,7 @@ namespace EasySave.Model.Config
         public void RefreshProgress(string fileInProgress)
         {
             Date = DateTime.Now;
-            FilesDone = FilesNumber - RemainingFiles;
+            RemainingFiles = FilesNumber - FilesDone;
             FileInProgress = fileInProgress;
         }
     }
