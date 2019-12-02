@@ -10,9 +10,38 @@ namespace EasySave.Controller.Tests
     public class ParserTests
     {
         [TestMethod()]
-        public void ParseNameTest()
+        public void ParseNameTestEqual()
         {
-            Assert.Fail();
+            Parser parser = new Parser();
+            Assert.AreEqual(parser.ParseName("name -option value"), "name");
+        }
+
+        [TestMethod()]
+        public void ParseNameTestNotEqual()
+        {
+            Parser parser = new Parser();
+            Assert.AreNotEqual(parser.ParseName("name -option value"), "name -option");
+        }
+
+        [TestMethod()]
+        public void ParseOptionsTest()
+        {
+            Parser parser = new Parser();
+            Dictionary<string, string> result = new Dictionary<string, string>
+            {
+                { "option1", "value1" },
+                { "option2", "value2" }
+            };
+
+            Dictionary<string, string> test = parser.ParseOptions("name -option1 value1 -option2 value2");
+
+            foreach (KeyValuePair<string, string> res in result)
+            {
+                if (!test.ContainsKey(res.Key))
+                    Assert.Fail();
+
+                Assert.AreEqual(res.Value, test[res.Key]);
+            }
         }
     }
 }
