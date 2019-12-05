@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasySave.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,28 +25,7 @@ namespace EasySave.View
         /// </summary>
         void Start();
 
-        /// <summary>
-        /// Display info.
-        /// </summary>
-        /// <param name="text">Text to display</param>
-        void DisplayInfo(string text);
-
-        /// <summary>
-        /// Display success.
-        /// </summary>
-        /// <param name="text">Text to display</param>
-        void DisplaySuccess(string text);
-
-        /// <summary>
-        /// Display warning.
-        /// </summary>
-        /// <param name="text">Text to display</param>
-        void DisplayWarning(string text);
-
-        /// <summary>
-        /// Display error.
-        /// </summary>
-        /// <param name="text">Text to display</param>
-        void DisplayError(string text);
+        void ReadConsoleLine();
+        void DisplayText(Statut statut, string text);
     }
 }

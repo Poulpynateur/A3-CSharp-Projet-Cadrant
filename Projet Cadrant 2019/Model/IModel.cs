@@ -1,4 +1,5 @@
-﻿using EasySave.Model.Job;
+﻿using EasySave.Helpers;
+using EasySave.Model.Job;
 
 namespace EasySave.Model
 {
@@ -7,6 +8,7 @@ namespace EasySave.Model
     /// </summary>
     public interface IModel 
     {
+        public IDisplayable GetDisplayable();
         /// <summary>
         /// Get a command by its name.
         /// </summary>

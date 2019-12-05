@@ -21,6 +21,8 @@ namespace EasySave.Controller
             this.model = model;
             this.view = view;
 
+            this.model.GetDisplayable().DisplayUpdateEvent += this.view.DisplayText;
+
             this.parser = new Parser();
 
             this.AssignEvents();
@@ -36,20 +38,21 @@ namespace EasySave.Controller
             BaseJob job = model.GetJobByName(name);
 
             // Catch exception that can append during commands executions.
-            try
-            {
+            /*try
+            {*/
                 if (job == null)
                     throw new Exception("Command not found : " + name);
 
-                Dictionary<string, string> options = parser.ParseOptions(input);
-                string result = job.Execute(options);
-
-                view.DisplaySuccess(result);
-            }
+                job.Execute(parser.ParseOptions(input));
+            /*}
             catch (Exception e)
             {
-                view.DisplayError(e.Message);
+                view.DisplayText(Helpers.Statut.ERROR, e.Message);
             }
+            finally
+            {*/
+            view.ReadConsoleLine();
+            //}
  
         }
 

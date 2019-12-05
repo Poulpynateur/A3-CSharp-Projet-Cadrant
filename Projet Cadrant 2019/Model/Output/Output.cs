@@ -12,14 +12,14 @@ namespace EasySave.Model.Output
         public Config Config { get; }
 
         //Output to view
-        public Display Display { get; }
+        public Displayable Display { get; }
 
         public Output()
         {
             this.Logger = new Logger();
             this.Config = new Config();
 
-            this.Display = new Display();
+            this.Display = new Displayable();
         }
     }
 }

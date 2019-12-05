@@ -1,4 +1,5 @@
-﻿using EasySave.Model.Task;
+﻿using EasySave.Helpers;
+using EasySave.Model.Task;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,7 +31,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
         /// Create a task with <see cref="TaskManager.AddTask(string, string, Dictionary{string, string})"/> function.
         /// </summary>
-        public override string Execute(Dictionary<string, string> options)
+        public override void Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);
 
@@ -46,7 +47,7 @@ namespace EasySave.Model.Job.Specialisation
             else
                 taskManager.AddTask(options["name"], "save-mirror", cmdOptions);
 
-            return "Task "+ options["name"] + " added !";
+            Output.Display.DisplayText(Statut.SUCCESS, "Task "+ options["name"] + " added !");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using EasySave.Helpers.Files;
+﻿using EasySave.Helpers;
+using EasySave.Helpers.Files;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,13 +33,11 @@ namespace EasySave.Model.Job.Specialisation
         /// <param name="source">Source folder path</param>
         /// <param name="target">Target folder path</param>
         /// <returns>Success message, otherwise throw an error</returns>
-        private string SaveFiles(string name , string source, string target)
+        private int SaveFiles(string name , string source, string target)
         {
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-            string rootSavePath = Path.Combine(target, name);
-            Dictionary<string, string> fileHistory = Output.Config.LoadDiffSaveConfig(rootSavePath);
 
-            target = Path.Combine(target, name, FilesHelper.GenerateName("differential"));
+            target = Path.Combine(target, name, FilesHelper.GenerateName("mirror"));
 
             progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
             Output.Logger.WriteProgress(progress);
@@ -54,9 +53,10 @@ namespace EasySave.Model.Job.Specialisation
                 Output.Logger.WriteProgress(
                     progress.RefreshProgress(newPath)
                 );
+                Output.Display.DisplayText(Statut.INFO, newPath + " file copied.");
             }
 
-            return progress.FilesDone + " file(s) save !";
+            return progress.FilesDone;
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.CheckOptions(Dictionary{string, string})"/>
         /// Launch the mirro save. Check if the folders exists beforewise.
         /// </summary>
-        public override string Execute(Dictionary<string, string> options)
+        public override void Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);
 
@@ -77,7 +77,10 @@ namespace EasySave.Model.Job.Specialisation
             if(!Directory.Exists(target))
                 throw new Exception("Target folder doesn't exist : " + target);
 
-            return SaveFiles(name, source, target);
+            Output.Display.DisplayText(
+                Statut.SUCCESS,
+                SaveFiles(name, source, target) + " file(s) saved !"
+            );
         }
     }
 }

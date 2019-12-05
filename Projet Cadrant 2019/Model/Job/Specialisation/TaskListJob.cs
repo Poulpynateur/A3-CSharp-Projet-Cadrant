@@ -1,4 +1,5 @@
-﻿using EasySave.Model.Task;
+﻿using EasySave.Helpers;
+using EasySave.Model.Task;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,16 +23,17 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
         /// Show the task list.
         /// </summary>
-        public override string Execute(Dictionary<string, string> options)
+        public override void Execute(Dictionary<string, string> options)
         {
-            string str = "";
-
             foreach(Task.Task task in taskManager.Map)
             {
-                str += "\n" + task.Name + " : command [" + task.CmdName + "] created at " + task.CreatedAt;
+                Output.Display.DisplayText(Statut.STANDARD, task.Name + " : job [" + task.JobName + "] created at " + task.CreatedAt);
             }
 
-            return str;
+            if(taskManager.Map.Count <= 0)
+            {
+                Output.Display.DisplayText(Statut.INFO, "No task saved.");
+            }
         }
     }
 }
