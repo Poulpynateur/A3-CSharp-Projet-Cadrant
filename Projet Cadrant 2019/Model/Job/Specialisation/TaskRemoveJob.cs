@@ -1,4 +1,5 @@
-﻿using EasySave.Model.Task;
+﻿using EasySave.Helpers;
+using EasySave.Model.Task;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,13 +29,13 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.CheckOptions(Dictionary{string, string})"/>
         /// Remove the given task.
         /// </summary>
-        public override string Execute(Dictionary<string, string> options)
+        public override void Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);
 
             int numberDeleted = taskManager.RemoveTask(options["name"]);
 
-            return numberDeleted + " task(s) removed !";
+            Output.Display.DisplayText(Statut.SUCCESS, numberDeleted + " task(s) removed !");
         }
     }
 }

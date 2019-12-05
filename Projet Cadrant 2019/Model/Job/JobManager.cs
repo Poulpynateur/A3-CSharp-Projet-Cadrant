@@ -59,7 +59,7 @@ namespace EasySave.Model.Job
         /// <returns>The command if found, else return null</returns>
         public BaseJob GetJobByName(string name)
         {
-            return Map.Find(command => command.Info.Name == name);
+            return Map.Find(job => job.Info.Name == name);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using EasySave.Helpers.Files;
+﻿using EasySave.Helpers;
+using EasySave.Helpers.Files;
 using EasySave.Model.Task;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,13 @@ namespace EasySave.Model.Job.Specialisation
     class TaskExecutesJob : BaseJob
     {
         private ITaskManager taskManager;
-        private IJobManager commandManager;
+        private IJobManager jobManager;
 
-        public TaskExecutesJob(ITaskManager taskManager, IJobManager commandManager)
+        public TaskExecutesJob(ITaskManager taskManager, IJobManager jobManager)
         : base("execute-task", "Execute a task, if argument -n is * execute every task.")
         {
             this.taskManager = taskManager;
-            this.commandManager = commandManager;
+            this.jobManager = jobManager;
 
             this.Options = new List<Option>
             {
@@ -33,15 +34,15 @@ namespace EasySave.Model.Job.Specialisation
         /// </summary>
         /// <param name="task">Task to execute</param>
         /// <returns>Success message, otherwise throw an error</returns>
-        private string ExecuteTask(Task.Task task)
+        private void ExecuteTask(Task.Task task)
         {
             DateTime start = DateTime.Now;
-            string result = "";
-            try
-            {
+            Output.Display.DisplayText(Statut.STANDARD, "Execute task '" + task.Name + "' :");
+            /*try
+            {*/
                 string[] files = Directory.GetFiles(task.Options["source"], "*", SearchOption.AllDirectories);
 
-                result += commandManager.GetJobByName(task.CmdName).Execute(task.Options) + "\n";
+                jobManager.GetJobByName(task.JobName).Execute(task.Options);
                 Log log = new Log();
                 log.FeedLog(
                     task.Name,
@@ -52,36 +53,32 @@ namespace EasySave.Model.Job.Specialisation
                 );
 
                 Output.Logger.WriteLog(log);
-            }
+            /*}
             catch (Exception e)
             {
-                result += e.Message + "\n";
-            }
-
-            return result;
+                Output.Display.DisplayText(Statut.WARNING, "Task '" + task.Name + "' fail : " + e.Message);
+            }*/
         }
 
         /// <summary>
         /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
         /// Execute one or all tasks in function of the options.
         /// </summary>
-        public override string Execute(Dictionary<string, string> options)
+        public override void Execute(Dictionary<string, string> options)
         {
-            string result = "";
+            this.CheckOptions(options);
 
             if (options["name"].Equals("*"))
             {
                 foreach (Task.Task task in taskManager.Map)
                 {
-                    result += ExecuteTask(task);
+                    ExecuteTask(task);
                 }
             }
             else
             {
-                result += ExecuteTask(taskManager.GetTaskByName(options["name"]));
+                ExecuteTask(taskManager.GetTaskByName(options["name"]));
             }
-
-            return result;
         }
     }
 }

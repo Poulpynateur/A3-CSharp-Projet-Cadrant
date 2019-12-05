@@ -21,16 +21,12 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
         /// Show commands informations use the <see cref="BaseCommand.ToString"/> function of each commands.
         /// </summary>
-        public override string Execute(Dictionary<string, string> options)
+        public override void Execute(Dictionary<string, string> options)
         {
-            string str = "";
-
             foreach(BaseJob command in jobs.Map)
             {
-                str += "\n\n" + command.ToString();
+                Output.Display.DisplayText(Helpers.Statut.INFO, "\n" + command.ToString());
             }
-
-            return str;
         }
     }
 }

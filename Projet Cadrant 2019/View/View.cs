@@ -1,6 +1,7 @@
 ﻿using System;
 
 using EasySave.Controller;
+using EasySave.Helpers;
 using EasySave.Model;
 
 namespace EasySave.View
@@ -14,21 +15,7 @@ namespace EasySave.View
         public event IView.InputsEventHandler InputEvent;
 
         public View()
-        {
-        }
-
-        /// <summary>
-        /// Read a line from the console.
-        /// </summary>
-        private void ReadConsoleLine()
-        {
-            string input;
-
-            Console.Write("\n>>> ");
-            input = Console.ReadLine();
-
-            InputEvent(input);
-        }
+        {}
 
         /// <summary>
         /// Write text with color to console.
@@ -47,49 +34,48 @@ namespace EasySave.View
         /// </summary>
         public void Start()
         {
-            this.DisplayInfo("EasySave \nCopyright (C) ProSoft. All right reserved. \n\nType 'help' for commands informations.");
+            this.DisplayText(Statut.STANDARD, "EasySave \nCopyright (C) ProSoft. All right reserved. \n\nType 'help' for commands informations.");
             this.ReadConsoleLine();
         }
 
         /// <summary>
-        /// Display info text to console.
+        /// Read a line from the console.
         /// </summary>
-        /// <param name="text">Text to write</param>
-        public void DisplayInfo(string text)
+        public void ReadConsoleLine()
         {
-            Console.WriteLine(text);
+            string input;
+
+            Console.Write(">>> ");
+            input = Console.ReadLine();
+
+            InputEvent(input);
         }
 
         /// <summary>
-        /// Display warning text to console.
+        /// Display text to console.
         /// </summary>
+        /// <param name="statut">Define the color</param>
         /// <param name="text">Text to write</param>
-        public void DisplayWarning(string text)
+        public void DisplayText(Statut statut, string text)
         {
-            WriteConsole(ConsoleColor.Yellow, text);
-        }
-
-        // In case of error or success the current task
-        // is finish, and we wait for the next input
-
-        /// <summary>
-        /// Display error text to console.
-        /// </summary>
-        /// <param name="text">Text to write</param>
-        public void DisplayError(string text)
-        {
-            WriteConsole(ConsoleColor.Red, text);
-            this.ReadConsoleLine();
-        }
-
-        /// <summary>
-        /// Display success text to console.
-        /// </summary>
-        /// <param name="text">Text to write</param>
-        public void DisplaySuccess(string text)
-        {
-            WriteConsole(ConsoleColor.Green, text);
-            this.ReadConsoleLine();
+            switch (statut)
+            {
+                case Statut.INFO:
+                    WriteConsole(ConsoleColor.DarkCyan, text);
+                    break;
+                case Statut.SUCCESS:
+                    WriteConsole(ConsoleColor.Green, "\n" + text + "\n");
+                    break;
+                case Statut.WARNING:
+                    WriteConsole(ConsoleColor.Yellow, text);
+                    break;
+                case Statut.ERROR:
+                    WriteConsole(ConsoleColor.Red, "\n" + text + "\n");
+                    break;
+                default:
+                    WriteConsole(ConsoleColor.White, "\n" + text + "\n");
+                    break;
+            }
         }
     }
 }

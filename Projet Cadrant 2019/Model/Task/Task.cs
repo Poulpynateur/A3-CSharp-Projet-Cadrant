@@ -22,7 +22,7 @@ namespace EasySave.Model.Task
         /// <summary>
         /// Name of the command linked to this task.
         /// </summary>
-        public string CmdName { get; set; }
+        public string JobName { get; set; }
 
         /// <summary>
         /// List of options of the linked command.

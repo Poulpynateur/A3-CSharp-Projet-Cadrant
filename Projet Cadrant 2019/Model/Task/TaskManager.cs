@@ -38,7 +38,7 @@ namespace EasySave.Model.Task
             Task task = new Task();
             task.CreatedAt = DateTime.Now;
             task.Name = taskName;
-            task.CmdName = cmdName;
+            task.JobName = cmdName;
             task.Options = options;
             Map.Add(task);
 

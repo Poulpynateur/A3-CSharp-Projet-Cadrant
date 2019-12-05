@@ -82,6 +82,6 @@ namespace EasySave.Model.Job
         /// </summary>
         /// <param name="options">Options to execute from</param>
         /// <returns>A message if success (otherwise will throw error)</returns>
-        public abstract string Execute(Dictionary<string, string> options);
+        public abstract void Execute(Dictionary<string, string> options);
     }
 }

@@ -1,4 +1,5 @@
-﻿using EasySave.Model.Job;
+﻿using EasySave.Helpers;
+using EasySave.Model.Job;
 using EasySave.Model.Output;
 using EasySave.Model.Task;
 using System.IO;
@@ -35,6 +36,11 @@ namespace EasySave.Model
         public BaseJob GetJobByName(string name)
         {
             return jobs.GetJobByName(name);
+        }
+
+        public IDisplayable GetDisplayable()
+        {
+            return output.Display;
         }
     }
 }
