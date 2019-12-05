@@ -1,0 +1,11 @@
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\bin\Debug\netcoreapp3.0\EasySave.exe
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\bin\Debug\netcoreapp3.0\EasySave.deps.json
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\bin\Debug\netcoreapp3.0\EasySave.runtimeconfig.json
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\bin\Debug\netcoreapp3.0\EasySave.runtimeconfig.dev.json
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\bin\Debug\netcoreapp3.0\EasySave.dll
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\bin\Debug\netcoreapp3.0\EasySave.pdb
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\obj\Debug\netcoreapp3.0\EasySave.csprojAssemblyReference.cache
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\obj\Debug\netcoreapp3.0\EasySave.AssemblyInfoInputs.cache
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\obj\Debug\netcoreapp3.0\EasySave.AssemblyInfo.cs
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\obj\Debug\netcoreapp3.0\EasySave.dll
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Projet Cadrant 2019\Projet Cadrant 2019\obj\Debug\netcoreapp3.0\EasySave.pdb
