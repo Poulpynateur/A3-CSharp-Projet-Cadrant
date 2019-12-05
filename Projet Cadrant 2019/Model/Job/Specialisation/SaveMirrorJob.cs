@@ -1,32 +1,28 @@
 ﻿using EasySave.Helpers.Files;
-using EasySave.Model.Config;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 
-namespace EasySave.Model.Command.Specialisation
+namespace EasySave.Model.Job.Specialisation
 {
     /// <summary>
     /// Create a mirror save from a source to a target folder.
     /// </summary>
-    public class SaveMirrorCommand : BaseCommand
+    public class SaveMirrorJob : BaseJob
     {
-        private ILogger logger;
+        private Progress progress;
 
         public object Date { get; private set; }
 
-        public SaveMirrorCommand(ILogger logger)
+        public SaveMirrorJob()
             : base("save-mirror", "Create a mirror save from a source to a target folder.")
         {
-            this.logger = logger;
-
-            this.Options = new Dictionary<string, string> 
+            this.progress = new Progress();
+            this.Options = new List<Option>
             {
-                { "name", @"^((?![\*\.\/\\\[\]:;\|,]).)*$" },
-                { "source", ".*" },
-                { "target", ".*" }
+                new Option("name", "Name of the save", @"^((?![\*\.\/\\\[\]:;\|,]).)*$"),
+                new Option("source", "Source folder", @".*"),
+                new Option("target", "Target folder", @".*")
             };
         }
 
@@ -39,25 +35,25 @@ namespace EasySave.Model.Command.Specialisation
         private string SaveFiles(string name , string source, string target)
         {
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-            target = Path.Combine(target, name);
-            target = Path.Combine(target, FilesManager.GenerateName("save"));
+            string rootSavePath = Path.Combine(target, name);
+            Dictionary<string, string> fileHistory = Output.Config.LoadDiffSaveConfig(rootSavePath);
 
-            Progress progress = new Progress();
+            target = Path.Combine(target, name, FilesHelper.GenerateName("differential"));
 
-            progress.FeedProgress(files.Length, FilesManager.GetFilesSize(files));
-            logger.WriteProgress(progress);
+            progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
+            Output.Logger.WriteProgress(progress);
 
-            FilesManager.CopyDirectoryTree(source, target);
-
+            FilesHelper.CopyDirectoryTree(source, target);
             foreach (string newPath in files)
             {
                 progress.FilesDone += 1;
                 progress.RemainingFilesSize -= new FileInfo(newPath).Length;
-                
+
                 File.Copy(newPath, newPath.Replace(source, target), true);
-                
-                progress.RefreshProgress(newPath);
-                logger.WriteProgress(progress);
+
+                Output.Logger.WriteProgress(
+                    progress.RefreshProgress(newPath)
+                );
             }
 
             return progress.FilesDone + " file(s) save !";

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasySave.Model.Config
+namespace EasySave.Model
 {
     /// <summary>
     ///  Format of the progress.
@@ -36,11 +36,13 @@ namespace EasySave.Model.Config
         /// <summary>
         /// Refresh the progress object.
         /// </summary>
-        public void RefreshProgress(string fileInProgress)
+        public Progress RefreshProgress(string fileInProgress)
         {
             Date = DateTime.Now;
             RemainingFiles = FilesNumber - FilesDone;
             FileInProgress = fileInProgress;
+
+            return this;
         }
     }
 }

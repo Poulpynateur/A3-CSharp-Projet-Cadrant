@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasySave.Model.Config
+namespace EasySave.Model
 {
     /// <summary>
     /// Format of the log to read from Json.

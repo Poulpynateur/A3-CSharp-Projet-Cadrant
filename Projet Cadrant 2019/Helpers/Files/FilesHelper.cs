@@ -9,7 +9,7 @@ namespace EasySave.Helpers.Files
     /// <summary>
     /// Functions to interact with files and folders.
     /// </summary>
-    class FilesManager
+    static class FilesHelper
     {
         /// <summary>
         /// Generate a name from the actual date.

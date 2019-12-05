@@ -1,5 +1,4 @@
-﻿using EasySave.Model.Command;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -13,14 +12,14 @@ namespace EasySave.Model.Task
         /// <summary>
         /// Map of the tasks.
         /// </summary>
-        List<ITask> Map { get; }
+        List<Task> Map { get; }
 
         /// <summary>
         /// Get a task by its name.
         /// </summary>
         /// <param name="name">Name of the target task</param>
         /// <returns>A task or null</returns>
-        ITask GetTaskByName(string name);
+        Task GetTaskByName(string name);
 
         /// <summary>
         /// Add a task.

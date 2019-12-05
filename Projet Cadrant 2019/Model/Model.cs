@@ -1,6 +1,7 @@
-﻿using EasySave.Model.Command;
-using EasySave.Model.Config;
+﻿using EasySave.Model.Job;
+using EasySave.Model.Output;
 using EasySave.Model.Task;
+using System.IO;
 
 namespace EasySave.Model
 {
@@ -9,30 +10,31 @@ namespace EasySave.Model
     /// </summary>
     public class Model : IModel
     {
-        private CommandManager commands;
+        private Output.Output output;
+
+        private JobManager jobs;
         private TaskManager tasks;
-        private ConfigManager config;
 
         public Model()
         {
-            this.config = ConfigManager.Instance;
+            this.output = new Output.Output();
 
             this.tasks = TaskManager.Instance;
-            tasks.TasksFromInfo(config.LoadTasksInfo());
-            tasks.Config = config;
+            tasks.LoadTasks(output.Config);
 
-            this.commands = CommandManager.Instance;
-            commands.LoadCommands(tasks, config);
+            this.jobs = JobManager.Instance;
+            this.jobs.SetOutput(output);
+            jobs.LoadJobs(tasks);
         }
 
         /// <summary>
-        /// Get a command by name, use <see cref="CommandManager.GetCmdByName(string)"/>
+        /// Get a command by name, use <see cref="JobManager.GetJobByName(string)"/>
         /// </summary>
         /// <param name="name"></param>
-        /// <returns>Return a <see cref="BaseCommand">BaseCommand</see></returns>
-        public BaseCommand getCmdByName(string name)
+        /// <returns>Return a <see cref="BaseCommand"/> or null if not found</returns>
+        public BaseJob GetJobByName(string name)
         {
-            return commands.GetCmdByName(name);
+            return jobs.GetJobByName(name);
         }
     }
 }

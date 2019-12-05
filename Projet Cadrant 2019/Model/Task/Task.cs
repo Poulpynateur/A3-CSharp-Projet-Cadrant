@@ -1,28 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasySave.Model.Command;
-using EasySave.Model.Config;
 
 namespace EasySave.Model.Task
 {
     /// <summary>
     /// Task are entities that can be save and used to launch commands later. For now this class is merely useless, but let's thinks of the futur !
     /// </summary>
-    public class Task : ITask
+    public class Task
     {
         /// <summary>
-        /// Informations of the task.
+        /// Name of the task.
         /// </summary>
-        public TaskInfo Info { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// Task constructor.
+        /// Date of creation of the task.
         /// </summary>
-        /// <param name="info">Information of the task</param>
-        public Task(TaskInfo info)
-        {
-            this.Info = info;
-        }
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// Name of the command linked to this task.
+        /// </summary>
+        public string CmdName { get; set; }
+
+        /// <summary>
+        /// List of options of the linked command.
+        /// </summary>
+        public Dictionary<string, string> Options { get; set; }
     }
 }

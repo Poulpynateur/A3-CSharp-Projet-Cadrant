@@ -1,32 +1,27 @@
 ﻿using EasySave.Helpers.Files;
-using EasySave.Model.Config;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
-using System.Text;
 
-namespace EasySave.Model.Command.Specialisation
+namespace EasySave.Model.Job.Specialisation
 {
     /// <summary>
     /// Create a differential save from a source to a target folder.
     /// </summary>
-    class SaveDifferentialCommand : BaseCommand
+    class SaveDifferentialJob : BaseJob
     {
-        private ILogger logger;
-        private JsonManager json;
+        private Progress progress;
 
-        public SaveDifferentialCommand(ILogger logger)
+        public SaveDifferentialJob()
         : base("save-differential", "Create a differential save from a source to a target folder.")
         {
-            this.logger = logger;
-            this.json = new JsonManager();
-
-            this.Options = new Dictionary<string, string>
+            this.progress = new Progress();
+            this.Options = new List<Option>
             {
-                { "name", @"^((?![\*\.\/\\\[\]:;\|,]).)*$" },
-                { "source", ".*" },
-                { "target", ".*" }
+                new Option("name", "Name of the save", @"^((?![\*\.\/\\\[\]:;\|,]).)*$"),
+                new Option("source", "Source folder", @".*"),
+                new Option("target", "Target folder", @".*")
             };
         }
 
@@ -47,21 +42,6 @@ namespace EasySave.Model.Command.Specialisation
             }
         }
 
-        /// <summary>
-        /// Load the configuration file for the differential save,
-        /// if the conf.json file doesn't exist return a empty dictionnary.
-        /// </summary>
-        /// <param name="target">Path to the target folder</param>
-        /// <returns>The content of the conf file</returns>
-        private Dictionary<string, string> loadDiffConfig(string target)
-        {
-            if(File.Exists(target))
-            {
-                return json.ReadJson<Dictionary<string, string>>(target);
-            }
-
-            return null;
-        }
 
         /// <summary>
         /// Save files from a source folder to a target folder.
@@ -72,17 +52,15 @@ namespace EasySave.Model.Command.Specialisation
         private string SaveFiles(string name, string source, string target)
         {
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-            target = Path.Combine(target, name);
-            string confPath = Path.Combine(target, "conf.json");
-            target = Path.Combine(target, FilesManager.GenerateName("save"));
+            string rootSavePath = Path.Combine(target, name);
+            Dictionary<string, string> fileHistory = Output.Config.LoadDiffSaveConfig(rootSavePath);
+            
+            target = Path.Combine(target, name, FilesHelper.GenerateName("differential"));
 
-            Progress progress = new Progress();
-            progress.FeedProgress(files.Length, FilesManager.GetFilesSize(files));
-            logger.WriteProgress(progress);
+            progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
+            Output.Logger.WriteProgress(progress);
 
-            Dictionary<string, string> fileHistory = loadDiffConfig(confPath) ?? new Dictionary<string, string>();
-
-            FilesManager.CopyDirectoryTree(source, target);
+            FilesHelper.CopyDirectoryTree(source, target);
             foreach (string newPath in files)
             {
                 if (!fileHistory.ContainsKey(newPath) || fileHistory[newPath] != CalculateMD5(newPath))
@@ -94,14 +72,14 @@ namespace EasySave.Model.Command.Specialisation
                     fileHistory[newPath] = CalculateMD5(newPath);
                 }
 
-                progress.RefreshProgress(newPath);
-                logger.WriteProgress(progress);
+                Output.Logger.WriteProgress(
+                    progress.RefreshProgress(newPath)
+                );
             }
 
-            if (!File.Exists(confPath))
-                json.WriteJson(fileHistory, confPath);
+            Output.Config.SaveDiffSaveConfig(fileHistory, rootSavePath);
 
-            return progress.FilesDone + " file(s) save successfully !";
+            return progress.FilesDone + " file(s) save !";
         }
 
         /// <summary>

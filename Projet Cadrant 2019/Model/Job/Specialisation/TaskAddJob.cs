@@ -3,26 +3,26 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasySave.Model.Command.Specialisation
+namespace EasySave.Model.Job.Specialisation
 {
     /// <summary>
     /// Add a task.
     /// </summary>
-    class TaskAddCommand : BaseCommand
+    class TaskAddJob : BaseJob
     {
         private ITaskManager taskManager;
 
-        public TaskAddCommand(ITaskManager taskManager)
+        public TaskAddJob(ITaskManager taskManager)
         : base("add-task", "Add a task.")
         {
             this.taskManager = taskManager;
 
-            this.Options = new Dictionary<string, string>
+            this.Options = new List<Option>
             {
-                { "t", "differential|mirror" },
-                { "name", @"^((?![\*\.\/\\\[\]:;\|,]).)*$" },
-                { "source", ".*" },
-                { "target", ".*" }
+                new Option("t", "Type of the save", @"differential|mirror"),
+                new Option("name", "Name of the save", @"^((?![\*\.\/\\\[\]:;\|,]).)*$"),
+                new Option("source", "Source folder", @".*"),
+                new Option("target", "Target folder", @".*")
             };
         }
 

@@ -1,5 +1,4 @@
 ﻿using EasySave.Helpers.Files;
-using EasySave.Model.Config;
 using EasySave.Model.Task;
 using System;
 using System.Collections.Generic;
@@ -7,28 +6,25 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace EasySave.Model.Command.Specialisation
+namespace EasySave.Model.Job.Specialisation
 {
     /// <summary>
     /// Execute a task, if argument -n is * execute every task.
     /// </summary>
-    class TaskExecutesCommand : BaseCommand
+    class TaskExecutesJob : BaseJob
     {
-        private ILogger logger;
-
         private ITaskManager taskManager;
-        private ICommandManager commandManager;
+        private IJobManager commandManager;
 
-        public TaskExecutesCommand(ITaskManager taskManager, ICommandManager commandManager, ILogger logger)
+        public TaskExecutesJob(ITaskManager taskManager, IJobManager commandManager)
         : base("execute-task", "Execute a task, if argument -n is * execute every task.")
         {
-            this.logger = logger;
             this.taskManager = taskManager;
             this.commandManager = commandManager;
 
-            this.Options = new Dictionary<string, string>
+            this.Options = new List<Option>
             {
-                { "n", ".*" }
+                new Option("name", "Name of the task(s) to execute(s) (* for all)", ".*")
             };
         }
 
@@ -37,25 +33,25 @@ namespace EasySave.Model.Command.Specialisation
         /// </summary>
         /// <param name="task">Task to execute</param>
         /// <returns>Success message, otherwise throw an error</returns>
-        private string ExecuteTask(ITask task)
+        private string ExecuteTask(Task.Task task)
         {
             DateTime start = DateTime.Now;
             string result = "";
             try
             {
-                string[] files = Directory.GetFiles(task.Info.Options["source"], "*", SearchOption.AllDirectories);
+                string[] files = Directory.GetFiles(task.Options["source"], "*", SearchOption.AllDirectories);
 
-                result += commandManager.GetCmdByName(task.Info.CmdName).Execute(task.Info.Options) + "\n";
+                result += commandManager.GetJobByName(task.CmdName).Execute(task.Options) + "\n";
                 Log log = new Log();
                 log.FeedLog(
-                    task.Info.Name,
-                    task.Info.Options["source"],
-                    task.Info.Options["target"],
-                    FilesManager.GetFilesSize(files),
+                    task.Name,
+                    task.Options["source"],
+                    task.Options["target"],
+                    FilesHelper.GetFilesSize(files),
                     DateTime.Now - start
                 );
 
-                logger.WriteLog(log);
+                Output.Logger.WriteLog(log);
             }
             catch (Exception e)
             {
@@ -73,16 +69,16 @@ namespace EasySave.Model.Command.Specialisation
         {
             string result = "";
 
-            if (options["n"].Equals("*"))
+            if (options["name"].Equals("*"))
             {
-                foreach (ITask task in taskManager.Map)
+                foreach (Task.Task task in taskManager.Map)
                 {
                     result += ExecuteTask(task);
                 }
             }
             else
             {
-                result += ExecuteTask(taskManager.GetTaskByName(options["n"]));
+                result += ExecuteTask(taskManager.GetTaskByName(options["name"]));
             }
 
             return result;

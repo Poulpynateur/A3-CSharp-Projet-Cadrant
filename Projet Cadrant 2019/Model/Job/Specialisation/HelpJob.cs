@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasySave.Model.Command.Specialisation
+namespace EasySave.Model.Job.Specialisation
 {
     /// <summary>
     /// Display all commands and their descriptions.
     /// </summary>
-    class HelpCommand : BaseCommand
+    class HelpJob : BaseJob
     {
-        private ICommandManager commands;
+        private IJobManager jobs;
 
-        public HelpCommand(ICommandManager commands)
+        public HelpJob(IJobManager commands)
             : base("help", "Show command's descriptions and avaible options.")
         {
-            this.commands = commands;
-            this.Options = new Dictionary<string, string>();
+            this.jobs = commands;
         }
 
         /// <summary>
@@ -24,22 +23,14 @@ namespace EasySave.Model.Command.Specialisation
         /// </summary>
         public override string Execute(Dictionary<string, string> options)
         {
-            string str = "The command's option are describe following the format : name [validation regex]";
+            string str = "";
 
-            foreach(BaseCommand command in commands.Map)
+            foreach(BaseJob command in jobs.Map)
             {
                 str += "\n\n" + command.ToString();
             }
 
             return str;
-        }
-
-        /// <summary>
-        /// <see cref="BaseCommand.ToString"/>
-        /// </summary>
-        public override string ToString()
-        {
-            return "Name :" + Name + "\nDescription : " + Description;
         }
     }
 }

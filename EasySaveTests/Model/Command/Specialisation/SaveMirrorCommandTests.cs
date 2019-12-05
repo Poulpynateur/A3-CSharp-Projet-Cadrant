@@ -19,8 +19,8 @@ namespace EasySave.Model.Command.Specialisation.Tests
             keyValuePairs.Add("source", "sourcePath");
             keyValuePairs.Add("target", "C:\\tmp\\");
 
-            ConfigManager cm = ConfigManager.Instance;
-            SaveMirrorCommand mirrorCmd = new SaveMirrorCommand(cm);
+            Config.Config cm = Config.Config.Instance;
+            SaveMirrorJob mirrorCmd = new SaveMirrorJob(cm);
 
             mirrorCmd.Execute(keyValuePairs);
         }
@@ -34,8 +34,8 @@ namespace EasySave.Model.Command.Specialisation.Tests
             keyValuePairs.Add("source", "C:\\tmp\\");
             keyValuePairs.Add("target", "targetPath");
 
-            ConfigManager cm = ConfigManager.Instance;
-            SaveMirrorCommand mirrorCmd = new SaveMirrorCommand(cm);
+            Config.Config cm = Config.Config.Instance;
+            SaveMirrorJob mirrorCmd = new SaveMirrorJob(cm);
 
             mirrorCmd.Execute(keyValuePairs);
         }
@@ -49,8 +49,8 @@ namespace EasySave.Model.Command.Specialisation.Tests
             keyValuePairs.Add("", "sourcePath");
             keyValuePairs.Add("", "targetPath");
 
-            ConfigManager cm = ConfigManager.Instance;
-            SaveMirrorCommand mirrorCmd = new SaveMirrorCommand(cm);
+            Config.Config cm = Config.Config.Instance;
+            SaveMirrorJob mirrorCmd = new SaveMirrorJob(cm);
 
             mirrorCmd.Execute(keyValuePairs);
         }

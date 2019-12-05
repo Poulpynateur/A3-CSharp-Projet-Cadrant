@@ -9,14 +9,14 @@ namespace EasySave.Helpers.Files
     /// <summary>
     /// Manage Json file interactions.
     /// </summary>
-    public class JsonManager
+    public static class JsonHelper
     {
         /// <summary>
         /// Write a Json file.
         /// </summary>
         /// <param name="data">Data to write</param>
         /// <param name="path">Target path to write file</param>
-        public void WriteJson(Object data, string path)
+        public static void WriteJson(Object data, string path)
         {
             var options = new JsonSerializerOptions
             {
@@ -33,7 +33,7 @@ namespace EasySave.Helpers.Files
         /// <typeparam name="Data">Generic type</typeparam>
         /// <param name="path">Path to the file to read</param>
         /// <returns>The file parsed to the Data generic.</returns>
-        public Data ReadJson<Data>(string path)
+        public static Data ReadJson<Data>(string path)
         {
             if(File.Exists(path))
             {

@@ -1,5 +1,4 @@
-﻿using EasySave.Model.Command;
-using System.Collections.Generic;
+﻿using EasySave.Model.Job;
 
 namespace EasySave.Model
 {
@@ -13,6 +12,6 @@ namespace EasySave.Model
         /// </summary>
         /// <param name="name">Name of the target</param>
         /// <returns>A command or null</returns>
-        BaseCommand getCmdByName(string name);
+        BaseJob GetJobByName(string name);
     }
 }

@@ -1,5 +1,5 @@
 ﻿using EasySave.Model;
-using EasySave.Model.Command;
+using EasySave.Model.Job;
 using EasySave.View;
 using System;
 using System.Collections.Generic;
@@ -33,16 +33,16 @@ namespace EasySave.Controller
         private void HandleInputs(string input)
         {
             string name = parser.ParseName(input);
-            BaseCommand cmd = model.getCmdByName(name);
+            BaseJob job = model.GetJobByName(name);
 
             // Catch exception that can append during commands executions.
             try
             {
-                if (cmd == null)
+                if (job == null)
                     throw new Exception("Command not found : " + name);
 
                 Dictionary<string, string> options = parser.ParseOptions(input);
-                string result = cmd.Execute(options);
+                string result = job.Execute(options);
 
                 view.DisplaySuccess(result);
             }

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using EasySave.Model.Command;
-using EasySave.Model.Config;
 using System.Linq;
+using EasySave.Helpers.Files;
+using EasySave.Model.Output;
 
 namespace EasySave.Model.Task
 {
@@ -12,27 +11,20 @@ namespace EasySave.Model.Task
     /// </summary>
     public sealed class TaskManager : ITaskManager
     {
-        public ConfigManager Config { private get; set; }
-        public List<ITask> Map { get; set; }
+        private Config config;
+
+        public List<Task> Map { get; set; }
 
         private static readonly Lazy<TaskManager> lazy = new Lazy<TaskManager>(() => new TaskManager());
         public static TaskManager Instance { get { return lazy.Value; } }
 
         private TaskManager()
-        {
-            this.Map = new List<ITask>();
-        }
+        { }
 
-        /// <summary>
-        /// Create taks from task informations.
-        /// </summary>
-        /// <param name="infos">List of task informations</param>
-        public void TasksFromInfo(List<TaskInfo> infos)
+        public void LoadTasks(Config config)
         {
-            foreach(TaskInfo info in infos)
-            {
-                Map.Add(new Task(info));
-            }
+            this.config = config;
+            Map = config.LoadTasks();
         }
 
         /// <summary>
@@ -43,24 +35,14 @@ namespace EasySave.Model.Task
         /// <param name="options">Options of the command of the task</param>
         public void AddTask(string taskName, string cmdName, Dictionary<string, string> options)
         {
-            if(Map.Count() < 5)
-            {
-                TaskInfo info = new TaskInfo();
-                info.CreatedAt = DateTime.Now;
-                info.Name = taskName;
-                info.CmdName = cmdName;
-                info.Options = options;
+            Task task = new Task();
+            task.CreatedAt = DateTime.Now;
+            task.Name = taskName;
+            task.CmdName = cmdName;
+            task.Options = options;
+            Map.Add(task);
 
-                Map.Add(new Task(info));
-
-                //Write config
-                List<TaskInfo> infos = Map.Select(task => task.Info).ToList();
-                Config.WriteTasksInfo(infos);
-            }
-            else
-            {
-                throw new Exception("Max number of task (5) reached, remove tasks before adding new ones.");
-            }
+            config.SaveTasks(Map);
         }
 
         /// <summary>
@@ -70,11 +52,10 @@ namespace EasySave.Model.Task
         /// <returns>Number of task deleted</returns>
         public int RemoveTask(string taskName)
         {
-            int nbrRemove = Map.RemoveAll(task => task.Info.Name == taskName);
+            int nbrRemove = Map.RemoveAll(task => task.Name == taskName);
 
-            //Write config
-            List<TaskInfo> infos = Map.Select(task => task.Info).ToList();
-            Config.WriteTasksInfo(infos);
+            config.SaveTasks(Map);
+
             return nbrRemove;
         }
 
@@ -83,9 +64,9 @@ namespace EasySave.Model.Task
         /// </summary>
         /// <param name="name"></param>
         /// <returns>The task if found, else return null</returns>
-        public ITask GetTaskByName(string name)
+        public Task GetTaskByName(string name)
         {
-            return Map.Find(task => task.Info.Name == name);
+            return Map.Find(task => task.Name == name);
         }
     }
 }

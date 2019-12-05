@@ -3,37 +3,32 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace EasySave.Model.Command
+namespace EasySave.Model.Job
 {
     /// <summary>
     /// Base command class (other command must inherit from this class).
     /// </summary>
-    public abstract class BaseCommand
+    public abstract class BaseJob
     {
-        /// <summary>
-        /// Name of the command
-        /// </summary>
-        public string Name { get; }
-        /// <summary>
-        /// Description of the command
-        /// </summary>
-        public string Description { get; }
+        public static Output.Output Output { get; set; }
+
+        public Option Info { get; }
+
         /// <summary>
         /// Options of the command :
         /// - Key are the option name
         /// - Value is a regex to validate the option value
         /// </summary>
-        public Dictionary<string, string> Options { protected set; get; }
+        public List<Option> Options { protected set; get; }
 
         /// <summary>
         /// BaseCommand constructor.
         /// </summary>
         /// <param name="name">Name of the command</param>
         /// <param name="description">Description of the command</param>
-        public BaseCommand(string name, string description)
+        public BaseJob(string name, string description)
         {
-            this.Name = name;
-            this.Description = description;
+            this.Info = new Option(name, description, "");
         }
 
         /// <summary>
@@ -44,12 +39,20 @@ namespace EasySave.Model.Command
         /// <param name="options">Options to check</param>
         protected void CheckOptions(Dictionary<string, string> options)
         {
-            foreach (KeyValuePair<string, string> option in this.Options)
+            foreach (Option Option in this.Options)
             {
-                Regex regex = new Regex(option.Value);
-                if (!options.ContainsKey(option.Key) || !regex.IsMatch(options[option.Key]))
+                Regex regex = new Regex(Option.ValidationRegex);
+                
+                if(options.ContainsKey(Option.Name))
                 {
-                    throw new Exception("Option missing or invalid : -" + option.Key);
+                    if (!regex.IsMatch(options[Option.Name]))
+                    {
+                        throw new Exception("Option invalid : -" + Option.Name);
+                    }
+                }
+                else
+                {
+                    throw new Exception("Option missing : -" + Option.Name);
                 }
             }
         }
@@ -60,14 +63,14 @@ namespace EasySave.Model.Command
         /// <returns>String that describe the command and his options.</returns>
         public override string ToString()
         {
-            string str = "Name : " + Name + "\nDescription : " + Description ;
+            string str = "Name : " + Info.Name + "\nDescription : " + Info.Description ;
 
-            if(Options.Count > 0)
+            if(Options != null)
             {
                 str += "\nOptions :";
-                foreach (KeyValuePair<string, string> option in this.Options)
+                foreach (Option option in this.Options)
                 {
-                    str += "\n    -" + option.Key + " [" + option.Value + "]";
+                    str += "\n    -" + option.Name + " : " + option.Description;
                 }
             }
 
