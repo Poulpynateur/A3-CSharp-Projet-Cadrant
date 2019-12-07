@@ -24,8 +24,6 @@ namespace EasySave.View
         /// Start the view.
         /// </summary>
         void Start();
-
-        void ReadConsoleLine();
         void DisplayText(Statut statut, string text);
     }
 }

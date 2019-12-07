@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
 using System.IO;
-using System.Reflection;
-using System.Text.Json;
 
 namespace EasySave.Helpers.Files
 {
@@ -18,13 +16,11 @@ namespace EasySave.Helpers.Files
         /// <param name="path">Target path to write file</param>
         public static void WriteJson(Object data, string path)
         {
-            var options = new JsonSerializerOptions
+            using (StreamWriter file = File.CreateText(path))
             {
-                WriteIndented = true,
-            };
-
-            string jsonString = JsonSerializer.Serialize(data, options);
-            File.WriteAllText(path, jsonString);
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, data);
+            }
         }
 
         /// <summary>
@@ -37,8 +33,11 @@ namespace EasySave.Helpers.Files
         {
             if(File.Exists(path))
             {
-                string jsonString = File.ReadAllText(path);
-                return JsonSerializer.Deserialize<Data>(jsonString);
+                using (StreamReader r = new StreamReader("file.json"))
+                {
+                    string json = r.ReadToEnd();
+                    return JsonConvert.DeserializeObject<Data>(json);
+                }
             }
             else
             {

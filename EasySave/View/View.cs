@@ -35,20 +35,6 @@ namespace EasySave.View
         public void Start()
         {
             this.DisplayText(Statut.STANDARD, "EasySave \nCopyright (C) ProSoft. All right reserved. \n\nType 'help' for commands informations.");
-            this.ReadConsoleLine();
-        }
-
-        /// <summary>
-        /// Read a line from the console.
-        /// </summary>
-        public void ReadConsoleLine()
-        {
-            string input;
-
-            Console.Write(">>> ");
-            input = Console.ReadLine();
-
-            InputEvent(input);
         }
 
         /// <summary>
