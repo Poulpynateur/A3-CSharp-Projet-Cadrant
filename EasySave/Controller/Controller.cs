@@ -38,21 +38,17 @@ namespace EasySave.Controller
             BaseJob job = model.GetJobByName(name);
 
             // Catch exception that can append during commands executions.
-            /*try
-            {*/
+            try
+            {
                 if (job == null)
                     throw new Exception("Command not found : " + name);
 
                 job.Execute(parser.ParseOptions(input));
-            /*}
+            }
             catch (Exception e)
             {
                 view.DisplayText(Helpers.Statut.ERROR, e.Message);
             }
-            finally
-            {*/
-            view.ReadConsoleLine();
-            //}
  
         }
 

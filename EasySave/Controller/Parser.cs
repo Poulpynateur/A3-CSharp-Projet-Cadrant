@@ -19,7 +19,7 @@ namespace EasySave.Controller
         /// </summary>
         /// <param name="input"></param>
         /// <returns>Command Name</returns>
-        public string ParseName(string input)
+        public string ParseName(String input)
         {
             // Remove some char at the start and the end of the string
             input = input.Trim(trimChars);
@@ -39,6 +39,7 @@ namespace EasySave.Controller
         public Dictionary<string, string> ParseOptions(string input)
         {
             Dictionary<string, string> dicoCommandOptions = new Dictionary<string, string>();
+            string[] separators = { " -" };
 
             if (input.Contains(" "))
             {
@@ -46,7 +47,7 @@ namespace EasySave.Controller
                 input = input.Substring(input.IndexOf(" "));
 
                 // Split the input with the '-' delimitor and adds the tuple to the dictionnary for option
-                string[] splits = input.Split(" -");
+                string[] splits = input.Split(separators, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string split in splits)
                 {
                     if (split.Length > 0)
