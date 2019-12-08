@@ -48,6 +48,7 @@ namespace EasySave.View
             {
                 display.Text = dialog.FileName;
             }
+            this.Activate();
         }
 
         private void btnTaskSourcePath_Click(object sender, RoutedEventArgs e)

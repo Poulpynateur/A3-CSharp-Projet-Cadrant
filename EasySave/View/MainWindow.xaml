@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EasySave"
         mc:Ignorable="d"
         Title="MainWindow"
-        Closing="MainWindow_Closing" Height="552" Width="600">
+        Closing="MainWindow_Closing" Height="542" Width="600">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -19,6 +19,9 @@
         </Grid.RowDefinitions>
 
         <TextBlock HorizontalAlignment="center" Text="Easy Save" FontSize="45"/>
+        <Button x:Name="BtnParam" Click="BtnParam_Click" BorderThickness="0" Background="Transparent" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
+            <Image Source="../assets/Param.png" Height="30"></Image>
+        </Button>
 
         <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Quick Save" FontSize="25"/>
         <Grid Grid.Row="2" Margin="10,0">
@@ -81,8 +84,8 @@
             
         </Grid>
 
-        <Border Margin="0,25,0,0" Grid.Row="5" BorderBrush="Gainsboro" BorderThickness="1">
-            <ScrollViewer>
+        <Border Margin="0,25,0,0" Grid.Row="5" Background="LightGray">
+            <ScrollViewer x:Name="LogScrollViewer" ScrollChanged="ScrollViewer_ScrollChanged">
                 <StackPanel x:Name="LogTextWrapper">
                 </StackPanel>
             </ScrollViewer>

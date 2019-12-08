@@ -19,7 +19,9 @@ namespace EasySave.View
     public partial class MainWindow : Window, IWindow
     {
         private IModel model;
+
         private TaskWindow taskWindow;
+        private ParamWindow paramWindow;
         
         public event QuickSaveEventHandler QuickSaveEvent;
         //Bubble event
@@ -48,6 +50,9 @@ namespace EasySave.View
         {
             taskWindow.parentClosing = true;
             taskWindow.Close();
+
+            if (paramWindow.IsLoaded == true)
+                paramWindow.Close();
         }
 
         public void RefreshTaskList()
@@ -137,6 +142,22 @@ namespace EasySave.View
         private void BtnTaskExecute_Click(object sender, RoutedEventArgs e)
         {
             taskWindow.ExecuteTask(GetSelectedTasks());
+        }
+
+        private void ScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            if (e.ExtentHeightChange != 0)
+            {
+                LogScrollViewer.ScrollToVerticalOffset(LogScrollViewer.ExtentHeight);
+            }
+        }
+
+        private void BtnParam_Click(object sender, RoutedEventArgs e)
+        {
+            if(paramWindow.IsLoaded == false)
+                paramWindow = new ParamWindow(model);
+
+            paramWindow.Show();
         }
     }
 }

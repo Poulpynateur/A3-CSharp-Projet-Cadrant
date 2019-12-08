@@ -50,5 +50,15 @@ namespace EasySave.Model
         {
             return output.Display;
         }
+
+        public List<string> GetErpBlacklist()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> GetEncryptFormat()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
