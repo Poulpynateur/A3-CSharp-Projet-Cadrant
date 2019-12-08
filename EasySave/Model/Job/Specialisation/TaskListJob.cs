@@ -27,7 +27,7 @@ namespace EasySave.Model.Job.Specialisation
         {
             foreach(Task.Task task in taskManager.Map)
             {
-                Output.Display.DisplayText(Statut.STANDARD, task.Name + " : job [" + task.JobName + "] created at " + task.CreatedAt);
+                Output.Display.DisplayText(Statut.INFO, task.Name + " : job [" + task.JobName + "] created at " + task.CreatedAt);
             }
 
             if(taskManager.Map.Count <= 0)

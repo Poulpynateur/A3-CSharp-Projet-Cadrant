@@ -1,0 +1,91 @@
+﻿<Window x:Class="EasySave.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasySave"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Closing="MainWindow_Closing" Height="552" Width="600">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="100" MaxHeight="100"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock HorizontalAlignment="center" Text="Easy Save" FontSize="45"/>
+
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Quick Save" FontSize="25"/>
+        <Grid Grid.Row="2" Margin="10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Grid.Row="0" HorizontalAlignment="Right" Text="Save Name" VerticalAlignment="Center"/>
+            <TextBox x:Name="QuickName" Grid.Row="0" Grid.Column="1" Height="25" Margin="10,0" VerticalContentAlignment="Center"/>
+
+            <TextBlock Grid.Row="1" HorizontalAlignment="Right" Text="Source Path" VerticalAlignment="Center"/>
+            <TextBox x:Name="QuickSourcePath" Grid.Row="1" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
+            <Button x:Name="btnQuickSourcePath" Click="BtnQuickSourcePath_Click"
+                    Content="Choose" Grid.Row="1" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
+
+            <TextBlock Grid.Row="2" HorizontalAlignment="Right" Text="Target Path" VerticalAlignment="Center"/>
+            <TextBox x:Name="QuickTargetPath" Grid.Row="2" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
+            <Button x:Name="btnQuickTargetPath" Click="BtnQuickTargetPath_Click"
+                    Content="Choose" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">Mirror Save</RadioButton>
+                <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">Differencial Save</RadioButton>
+                <CheckBox VerticalAlignment="Center" Margin="10,0">Encrypt</CheckBox>
+                <Button x:Name="ExecuteQuickSave" Content="Execute quick save" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteQuickSave_Click"/>
+            </StackPanel>
+
+        </Grid>
+
+        <Label Grid.Row="3" Grid.ColumnSpan="2" Content="Task Manager" FontSize="25"/>
+        <Grid Grid.Row="4" Margin="10,0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <Border BorderBrush="Gainsboro" BorderThickness="1">
+                <ScrollViewer Padding="5">
+                    <StackPanel x:Name="TaskList">
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <StackPanel Grid.Column="1">
+                <Button x:Name="BtnTaskExecute" Content="Execute" Height="25" Padding="10,0" Margin="10,0" Click="BtnTaskExecute_Click"/>
+                <Button x:Name="BtnTaskRemove" Content="Remove" Height="25" Padding="10,0" Margin="10,5" Click="BtnTaskRemove_Click"/>
+                <Button x:Name="BtnTaskAdd" Content="Add" Height="25" Padding="10,0" Margin="10,10,10,0" Click="BtnTaskAdd_Click"/>
+            </StackPanel>
+            
+        </Grid>
+
+        <Border Margin="0,25,0,0" Grid.Row="5" BorderBrush="Gainsboro" BorderThickness="1">
+            <ScrollViewer>
+                <StackPanel x:Name="LogTextWrapper">
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>

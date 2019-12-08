@@ -33,7 +33,7 @@ namespace EasySave.Helpers.Files
         {
             if(File.Exists(path))
             {
-                using (StreamReader r = new StreamReader("file.json"))
+                using (StreamReader r = new StreamReader(path))
                 {
                     string json = r.ReadToEnd();
                     return JsonConvert.DeserializeObject<Data>(json);

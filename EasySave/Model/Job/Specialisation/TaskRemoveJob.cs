@@ -32,8 +32,15 @@ namespace EasySave.Model.Job.Specialisation
         public override void Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);
+            string[] separators = { ";" };
+            string[] tasksNames = options["name"].Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            int numberDeleted = 0;
 
-            int numberDeleted = taskManager.RemoveTask(options["name"]);
+            foreach (var task in tasksNames)
+            {
+                taskManager.RemoveTask(task);
+                numberDeleted++;
+            }
 
             Output.Display.DisplayText(Statut.SUCCESS, numberDeleted + " task(s) removed !");
         }
