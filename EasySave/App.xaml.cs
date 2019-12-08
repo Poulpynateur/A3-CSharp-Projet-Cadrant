@@ -18,7 +18,7 @@ namespace EasySave
             base.OnStartup(e);
 
             Model.Model model = new Model.Model();
-            View.View view = new View.View();
+            View.View view = new View.View(model);
 
             Controller.Controller controller = new Controller.Controller(model, view);
 

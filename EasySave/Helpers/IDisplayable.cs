@@ -6,7 +6,6 @@ namespace EasySave.Helpers
 {
     public enum Statut
     {
-        STANDARD,
         INFO,
         SUCCESS,
         ERROR,

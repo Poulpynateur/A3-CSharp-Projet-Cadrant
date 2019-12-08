@@ -92,6 +92,10 @@ namespace EasySave.Model.Job.Specialisation
         public override void Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);
+            Output.Display.DisplayText(
+                Statut.INFO,
+                "Starting the differential save ..."
+            );
 
             string name = options["name"];
             string source = options["source"];

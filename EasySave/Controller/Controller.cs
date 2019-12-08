@@ -14,42 +14,60 @@ namespace EasySave.Controller
         private IModel model;
         private IView view;
 
-        private Parser parser;
-
         public Controller(IModel model, IView view)
         {
             this.model = model;
             this.view = view;
 
-            this.model.GetDisplayable().DisplayUpdateEvent += this.view.DisplayText;
-
-            this.parser = new Parser();
-
             this.AssignEvents();
         }
 
-        /// <summary>
-        /// Handle the inputs event register from the view.
-        /// </summary>
-        /// <param name="input">Input from the view</param>
-        private void HandleInputs(string input)
+        private void ExecuteJob(BaseJob job, Dictionary<string, string> options)
         {
-            string name = parser.ParseName(input);
-            BaseJob job = model.GetJobByName(name);
-
-            // Catch exception that can append during commands executions.
             try
             {
-                if (job == null)
-                    throw new Exception("Command not found : " + name);
-
-                job.Execute(parser.ParseOptions(input));
+                job.Execute(options);
+                view.Window.RefreshTaskList();
             }
             catch (Exception e)
             {
-                view.DisplayText(Helpers.Statut.ERROR, e.Message);
+                view.Window.DisplayText(Helpers.Statut.ERROR, e.Message);
             }
- 
+        }
+
+        private void HandleQuickSave(QuickSaveAction action, Dictionary<string, string> options)
+        {
+            BaseJob job = null;
+            switch (action)
+            {
+                case QuickSaveAction.MIRROR:
+                    job = model.GetJobByName("save-mirror");
+                    break;
+                case QuickSaveAction.DIFFERENTIAL:
+                    job = model.GetJobByName("save-differential"); 
+                    break;
+            }
+
+            ExecuteJob(job, options);
+        }
+
+        private void HandleTask(TaskAction action, Dictionary<string, string> options)
+        {
+            BaseJob job = null;
+            switch (action)
+            {
+                case TaskAction.ADD:
+                    job = model.GetJobByName("add-task");
+                    break;
+                case TaskAction.REMOVE:
+                    job = model.GetJobByName("remove-task");
+                    break;
+                case TaskAction.EXECUTE:
+                    job = model.GetJobByName("execute-task");
+                    break;
+            }
+
+            ExecuteJob(job, options);
         }
 
         /// <summary>
@@ -57,10 +75,8 @@ namespace EasySave.Controller
         /// </summary>
         private void AssignEvents()
         {
-            view.InputEvent += delegate (string input)
-            {
-                HandleInputs(input);
-            };
+            view.Window.QuickSaveEvent += new QuickSaveEventHandler(HandleQuickSave);
+            view.Window.TaskEvent += new TaskEventHandler(HandleTask);
         }
 
         /// <summary>

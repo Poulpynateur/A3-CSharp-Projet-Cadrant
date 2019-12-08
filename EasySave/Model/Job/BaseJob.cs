@@ -47,12 +47,12 @@ namespace EasySave.Model.Job
                 {
                     if (!regex.IsMatch(options[Option.Name]))
                     {
-                        throw new Exception("Option invalid : -" + Option.Name);
+                        throw new Exception(Option.Name + " is not valid.");
                     }
                 }
                 else
                 {
-                    throw new Exception("Option missing : -" + Option.Name);
+                    throw new Exception(Option.Name + " is missing.");
                 }
             }
         }

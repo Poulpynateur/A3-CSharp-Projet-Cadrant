@@ -20,11 +20,25 @@ namespace EasySave.Model.Job.Specialisation
 
             this.Options = new List<Option>
             {
-                new Option("t", "Type of the save", @"differential|mirror"),
+                new Option("type", "Type of the save", @"differential|mirror"),
                 new Option("name", "Name of the save", @"^((?![\*\.\/\\\[\]:;\|,]).)*$"),
                 new Option("source", "Source folder", @".*"),
                 new Option("target", "Target folder", @".*")
             };
+        }
+
+        private string GetUniqueName(string wantedName)
+        {
+            int i = 1;
+            string name = wantedName;
+
+            while(taskManager.GetTaskByName(name) != null)
+            {
+                name = wantedName + " " + i;
+                i++;
+            }
+
+            return name;
         }
 
         /// <summary>
@@ -35,19 +49,20 @@ namespace EasySave.Model.Job.Specialisation
         {
             this.CheckOptions(options);
 
+            string name = GetUniqueName(options["name"]);
             Dictionary<string, string> cmdOptions = new Dictionary<string, string>
             {
-                { "name", options["name"] },
+                { "name", name },
                 { "source", options["source"] },
                 { "target", options["target"] }
             };
 
-            if (options["t"].Equals("differential"))
-                taskManager.AddTask(options["name"], "save-differential", cmdOptions);
+            if (options["type"].Equals("differential"))
+                taskManager.AddTask(name, "save-differential", cmdOptions);
             else
-                taskManager.AddTask(options["name"], "save-mirror", cmdOptions);
+                taskManager.AddTask(name, "save-mirror", cmdOptions);
 
-            Output.Display.DisplayText(Statut.SUCCESS, "Task "+ options["name"] + " added !");
+            Output.Display.DisplayText(Statut.SUCCESS, "Task '"+ name + "' added !");
         }
     }
 }

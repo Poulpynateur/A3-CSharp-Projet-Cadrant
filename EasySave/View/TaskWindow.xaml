@@ -1,0 +1,44 @@
+﻿<Window x:Class="EasySave.View.TaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasySave"
+        mc:Ignorable="d"
+        Title="TaskWindow" Height="200" Width="500"
+        Closing="TaskWindow_Closing">
+    <Grid Margin="10,0" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Grid.Row="0" HorizontalAlignment="Right" Text="Task Name" VerticalAlignment="Center"/>
+        <TextBox x:Name="TaskName" Grid.Row="0" Grid.Column="1" Height="25" Margin="10,0" VerticalContentAlignment="Center"/>
+
+        <TextBlock Grid.Row="1" HorizontalAlignment="Right" Text="Source Path" VerticalAlignment="Center"/>
+        <TextBox x:Name="TaskSourcePath" Grid.Row="1" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
+        <Button x:Name="btnTaskSourcePath" 
+                    Content="Choose" Grid.Row="1" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center" Click="btnTaskSourcePath_Click"/>
+
+        <TextBlock Grid.Row="2" HorizontalAlignment="Right" Text="Target Path" VerticalAlignment="Center"/>
+        <TextBox x:Name="TaskTargetPath" Grid.Row="2" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
+        <Button x:Name="btnTaskTargetPath" 
+                    Content="Choose" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center" Click="btnTaskTargetPath_Click"/>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">Mirror Save</RadioButton>
+            <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">Differencial Save</RadioButton>
+            <Button x:Name="ExecuteTaskSave" Content="Save task" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteTaskSave_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

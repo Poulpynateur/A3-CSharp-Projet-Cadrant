@@ -2,7 +2,10 @@
 using EasySave.Model.Job;
 using EasySave.Model.Output;
 using EasySave.Model.Task;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace EasySave.Model
 {
@@ -36,6 +39,11 @@ namespace EasySave.Model
         public BaseJob GetJobByName(string name)
         {
             return jobs.GetJobByName(name);
+        }
+
+        public IEnumerable<Tuple<string, string>> GetTasksNames()
+        {
+            return tasks.Map.Select(task => new Tuple<string, string>(task.Name, "Created at " + task.CreatedAt.ToString()));
         }
 
         public IDisplayable GetDisplayable()
