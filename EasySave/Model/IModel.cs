@@ -18,5 +18,8 @@ namespace EasySave.Model
         /// <returns>A command or null</returns>
         BaseJob GetJobByName(string name);
         IEnumerable<Tuple<string, string>> GetTasksNames();
+
+        List<string> GetErpBlacklist();
+        List<string> GetEncryptFormat();
     }
 }

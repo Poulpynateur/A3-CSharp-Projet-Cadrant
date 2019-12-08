@@ -19,6 +19,8 @@ namespace EasySave.Model
 
         public string FileInProgress { get; set; }
 
+        public int EncryptionTimeMs { get; set; }
+
         /// <summary>
         /// JsonSerializer doesn't permit parameterized constructor.
         /// </summary>

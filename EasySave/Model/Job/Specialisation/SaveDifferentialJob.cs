@@ -66,10 +66,18 @@ namespace EasySave.Model.Job.Specialisation
             {
                 if (!fileHistory.ContainsKey(newPath) || fileHistory[newPath] != CalculateMD5(newPath))
                 {
+                    progress.EncryptionTimeMs = 0;
                     progress.FilesDone += 1;
                     progress.RemainingFilesSize -= new FileInfo(newPath).Length;
 
                     File.Copy(newPath, newPath.Replace(source, target), true);
+                    if (Output.Encrypt.IsEncryptTarget(newPath))
+                    {
+                        progress.EncryptionTimeMs = Output.Encrypt.EncryptFileCryptoSoft(newPath, newPath.Replace(source, target));
+                        if (progress.EncryptionTimeMs < 0)
+                            throw new Exception("Encryption error on " + newPath);
+                    }
+
                     fileHistory[newPath] = CalculateMD5(newPath);
                 }
 
@@ -91,11 +99,8 @@ namespace EasySave.Model.Job.Specialisation
         /// </summary>
         public override void Execute(Dictionary<string, string> options)
         {
+            Output.CheckErpRunning();
             this.CheckOptions(options);
-            Output.Display.DisplayText(
-                Statut.INFO,
-                "Starting the differential save ..."
-            );
 
             string name = options["name"];
             string source = options["source"];

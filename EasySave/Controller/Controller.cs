@@ -24,15 +24,15 @@ namespace EasySave.Controller
 
         private void ExecuteJob(BaseJob job, Dictionary<string, string> options)
         {
-            try
-            {
+           /* try
+            {*/
                 job.Execute(options);
                 view.Window.RefreshTaskList();
-            }
+            /*}
             catch (Exception e)
             {
                 view.Window.DisplayText(Helpers.Statut.ERROR, e.Message);
-            }
+            }*/
         }
 
         private void HandleQuickSave(QuickSaveAction action, Dictionary<string, string> options)

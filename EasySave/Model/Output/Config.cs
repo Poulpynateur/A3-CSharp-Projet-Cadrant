@@ -16,7 +16,24 @@ namespace EasySave.Model.Output
             this.configPath = Directory.CreateDirectory(
                 Path.Combine(Directory.GetCurrentDirectory(), FOLDER_NAME)
             ).FullName;
-            this.configPath = Path.Combine(configPath, "tasks.json");
+        }
+
+        public List<string> LoadErpBlackList()
+        {
+            return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "ErpBlacklist.json")) ?? new List<string>();
+        }
+        public void SaveErpBlackList(List<string> erp)
+        {
+            JsonHelper.WriteJson(erp, Path.Combine(configPath, "ErpBlacklist.json"));
+        }
+
+        public List<string> LoadCryptFormat()
+        {
+            return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "CryptFormat.json")) ?? new List<string>();
+        }
+        public void SaveCryptFormat(List<string> format)
+        {
+            JsonHelper.WriteJson(format, Path.Combine(configPath, "CryptFormat.json"));
         }
 
         public Dictionary<string, string> LoadDiffSaveConfig(string path)
@@ -32,12 +49,12 @@ namespace EasySave.Model.Output
 
         public List<Task.Task> LoadTasks()
         {
-            return JsonHelper.ReadJson<List<Task.Task>>(configPath) ?? new List<Task.Task>();
+            return JsonHelper.ReadJson<List<Task.Task>>(Path.Combine(configPath, "tasks.json")) ?? new List<Task.Task>();
         }
 
         public void SaveTasks(List<Task.Task> tasks)
         {
-            JsonHelper.WriteJson(tasks, configPath);
+            JsonHelper.WriteJson(tasks, Path.Combine(configPath, "tasks.json"));
         }
     }
 }

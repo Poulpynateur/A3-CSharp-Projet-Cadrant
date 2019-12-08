@@ -15,6 +15,7 @@ namespace EasySave.Model
         public string Source { get; set; }
         public string Target { get; set; }
         public long FilesSize { get; set; }
+
         public TimeSpan TransfertTime { get; set; }
 
         /// <summary>
