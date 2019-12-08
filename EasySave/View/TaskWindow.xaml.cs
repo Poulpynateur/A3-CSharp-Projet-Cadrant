@@ -66,6 +66,7 @@ namespace EasySave.View
             Dictionary<string, string> options = new Dictionary<string, string>
             {
                 { "type", (RadioMirrorSave.IsChecked == true)? "mirror" : "differential" },
+                { "encrypt", (TaskEncrypt.IsChecked == true)? "yes" : "no" },
                 { "name",  TaskName.Text},
                 { "source",  TaskSourcePath.Text},
                 { "target",  TaskTargetPath.Text}

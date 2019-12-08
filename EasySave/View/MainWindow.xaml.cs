@@ -51,7 +51,7 @@ namespace EasySave.View
             taskWindow.parentClosing = true;
             taskWindow.Close();
 
-            if (paramWindow.IsLoaded == true)
+            if (paramWindow != null && paramWindow.IsLoaded == true)
                 paramWindow.Close();
         }
 
@@ -92,6 +92,7 @@ namespace EasySave.View
         {
             Dictionary<string, string> options = new Dictionary<string, string>
             {
+                { "encrypt", (QuickSaveEncrypt.IsChecked == true)? "yes" : "no" },
                 { "name",  QuickName.Text},
                 { "source",  QuickSourcePath.Text},
                 { "target",  QuickTargetPath.Text}
@@ -154,7 +155,7 @@ namespace EasySave.View
 
         private void BtnParam_Click(object sender, RoutedEventArgs e)
         {
-            if(paramWindow.IsLoaded == false)
+            if(paramWindow == null || paramWindow.IsLoaded == false)
                 paramWindow = new ParamWindow(model);
 
             paramWindow.Show();

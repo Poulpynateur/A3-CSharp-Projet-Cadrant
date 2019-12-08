@@ -9,7 +9,7 @@ namespace EasySave.Model.Output
 {
     public class Output
     {
-        private List<string> erpBlackList;
+        public List<string> ErpBlacklist { get; set; }
         
         //Manage Encryption (currently call to an external programm)
         public Encrypt Encrypt { get; }
@@ -29,12 +29,12 @@ namespace EasySave.Model.Output
             this.Display = new Displayable();
 
             this.Encrypt = new Encrypt(Config.LoadCryptFormat());
-            erpBlackList = Config.LoadErpBlackList();
+            ErpBlacklist = Config.LoadErpBlackList();
         }
 
         public void CheckErpRunning()
         {
-            foreach (var name in erpBlackList)
+            foreach (var name in ErpBlacklist)
             {
                 Process[] process = Process.GetProcessesByName(name);
                 if (process.Length != 0)
