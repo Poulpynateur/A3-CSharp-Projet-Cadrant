@@ -28,7 +28,7 @@ namespace EasySave.Model.Output
 
         public void WriteLog(Log log)
         {
-            JsonHelper.WriteJson(log, Path.Combine( logPath, FilesHelper.GenerateName(log.TaskName)));
+            JsonHelper.WriteJson(log, Path.Combine( logPath, FilesHelper.GenerateName(log.TaskName)) + ".json");
         }
 
         public void WriteProgress(Progress progress)
