@@ -31,7 +31,7 @@ namespace EasySave.Model.Job.Specialisation
         private string GetUniqueName(string wantedName)
         {
             int i = 1;
-            string name = wantedName;
+            string name = (String.IsNullOrEmpty(wantedName))? "Unamed" : wantedName ;
 
             while(taskManager.GetTaskByName(name) != null)
             {
