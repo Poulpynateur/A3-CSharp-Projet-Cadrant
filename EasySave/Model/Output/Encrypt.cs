@@ -15,11 +15,11 @@ namespace EasySave.Model.Output
         private const string FOLDER_NAME = "CryptoSoft";
         private string cryptosoftPath;
 
-        private List<string> cryptFormat;
+        public List<string> CryptFormat { get; set; }
 
         public Encrypt(List<string> cryptFormat)
         {
-            this.cryptFormat = cryptFormat;
+            this.CryptFormat = cryptFormat;
             this.cryptosoftPath = Path.Combine(Directory.GetCurrentDirectory(), FOLDER_NAME, "CryptoSoft.exe");
         }
 
@@ -29,7 +29,7 @@ namespace EasySave.Model.Output
             string[] splits = filePath.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             string extension = splits[splits.Length - 1];
 
-            if (cryptFormat.Find(format => format == extension) != null)
+            if (CryptFormat.Find(format => format == extension) != null)
                 return true;
             return false;
         }

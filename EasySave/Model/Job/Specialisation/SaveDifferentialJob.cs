@@ -21,6 +21,7 @@ namespace EasySave.Model.Job.Specialisation
             this.Options = new List<Option>
             {
                 new Option("name", "Name of the save", @"^((?![\*\.\/\\\[\]:;\|,]).)*$"),
+                new Option("encrypt", "Encrypt special files", @"yes|no"),
                 new Option("source", "Source folder", @".*"),
                 new Option("target", "Target folder", @".*")
             };
@@ -50,7 +51,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <param name="source">Source folder path</param>
         /// <param name="target">Target folder path</param>
         /// <returns>Success message, otherwise throw an error</returns>
-        private int SaveFiles(string name, string source, string target)
+        private int SaveFiles(string name, string source, string target, bool encrypt)
         {
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
             string rootSavePath = Path.Combine(target, name);
@@ -71,7 +72,7 @@ namespace EasySave.Model.Job.Specialisation
                     progress.RemainingFilesSize -= new FileInfo(newPath).Length;
 
                     File.Copy(newPath, newPath.Replace(source, target), true);
-                    if (Output.Encrypt.IsEncryptTarget(newPath))
+                    if (encrypt && Output.Encrypt.IsEncryptTarget(newPath))
                     {
                         progress.EncryptionTimeMs = Output.Encrypt.EncryptFileCryptoSoft(newPath, newPath.Replace(source, target));
                         if (progress.EncryptionTimeMs < 0)
@@ -103,6 +104,7 @@ namespace EasySave.Model.Job.Specialisation
             this.CheckOptions(options);
 
             string name = options["name"];
+            bool encrypt = (options["encrypt"].Equals("yes")) ? true : false;
             string source = options["source"];
             string target = options["target"];
 
@@ -113,7 +115,7 @@ namespace EasySave.Model.Job.Specialisation
 
             Output.Display.DisplayText(
                 Statut.SUCCESS,
-                SaveFiles(name, source, target) + " file(s) saved !"
+                SaveFiles(name, source, target, encrypt) + " file(s) saved !"
             );
         }
     }

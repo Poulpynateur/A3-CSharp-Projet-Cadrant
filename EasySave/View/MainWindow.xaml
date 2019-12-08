@@ -55,7 +55,7 @@
             <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
                 <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">Mirror Save</RadioButton>
                 <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">Differencial Save</RadioButton>
-                <CheckBox VerticalAlignment="Center" Margin="10,0">Encrypt</CheckBox>
+                <CheckBox x:Name="QuickSaveEncrypt" VerticalAlignment="Center" Margin="10,0">Encrypt</CheckBox>
                 <Button x:Name="ExecuteQuickSave" Content="Execute quick save" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteQuickSave_Click"/>
             </StackPanel>
 

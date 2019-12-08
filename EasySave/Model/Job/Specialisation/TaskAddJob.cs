@@ -21,6 +21,7 @@ namespace EasySave.Model.Job.Specialisation
             this.Options = new List<Option>
             {
                 new Option("type", "Type of the save", @"differential|mirror"),
+                new Option("encrypt", "Encrypt special files", @"yes|no"),
                 new Option("name", "Name of the save", @"^((?![\*\.\/\\\[\]:;\|,]).)*$"),
                 new Option("source", "Source folder", @".*"),
                 new Option("target", "Target folder", @".*")
@@ -53,6 +54,7 @@ namespace EasySave.Model.Job.Specialisation
             Dictionary<string, string> cmdOptions = new Dictionary<string, string>
             {
                 { "name", name },
+                { "encrypt", options["encrypt"] },
                 { "source", options["source"] },
                 { "target", options["target"] }
             };

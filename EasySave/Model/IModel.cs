@@ -20,6 +20,8 @@ namespace EasySave.Model
         IEnumerable<Tuple<string, string>> GetTasksNames();
 
         List<string> GetErpBlacklist();
+        void SetErpBlacklist(List<string> erp);
         List<string> GetEncryptFormat();
+        void SetEncryptFormat(List<string> format);
     }
 }

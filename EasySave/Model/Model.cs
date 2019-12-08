@@ -51,14 +51,23 @@ namespace EasySave.Model
             return output.Display;
         }
 
+        public void SetErpBlacklist(List<string> erp)
+        {
+            output.ErpBlacklist = erp;
+            output.Config.SaveErpBlackList(erp);
+        }
         public List<string> GetErpBlacklist()
         {
-            throw new NotImplementedException();
+            return output.ErpBlacklist;
         }
-
+        public void SetEncryptFormat(List<string> format)
+        {
+            output.Encrypt.CryptFormat = format;
+            output.Config.SaveCryptFormat(format);
+        }
         public List<string> GetEncryptFormat()
         {
-            throw new NotImplementedException();
+            return output.Encrypt.CryptFormat;
         }
     }
 }
