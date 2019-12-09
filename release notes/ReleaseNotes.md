@@ -59,7 +59,7 @@ Prepare the migration to WPF interface.
 
 # Release Notes - V 2.0.0
 
-[Code](https://dev.azure.com/Groupe5/_git/Projet%20Cadrant%202019?version=GC7698ba3dc59a4e184e9f2153a067201b3270a6f8)
+[Code](https://dev.azure.com/Groupe5/_git/Projet%20Cadrant%202019?version=GCac174fa51688c929a5adef32b35003928797625f)
 New modern WPF interface.
 
 ## New Features
