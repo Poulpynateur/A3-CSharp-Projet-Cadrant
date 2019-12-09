@@ -22,6 +22,10 @@ namespace EasySave.View
     {
         private IModel model;
 
+        /// <summary>
+        /// Initialize the parameters window (ERP blacklist and format of the files to encrypt)
+        /// </summary>
+        /// <param name="model"></param>
         public ParamWindow(IModel model)
         {
             this.model = model;
@@ -31,6 +35,11 @@ namespace EasySave.View
             EncryptFormat.Text = String.Join(";", model.GetEncryptFormat().ToArray());
         }
 
+        /// <summary>
+        /// Event when clicking the save button of the parameters window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             string[] separator = { ";" };

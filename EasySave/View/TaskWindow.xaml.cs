@@ -24,12 +24,20 @@ namespace EasySave.View
         public event TaskEventHandler TaskEvent;
         public bool parentClosing { private get; set; }
 
+        /// <summary>
+        /// Initialize the task window
+        /// </summary>
         public TaskWindow()
         {
             parentClosing = false;
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Event when the task window is closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TaskWindow_Closing(object sender, CancelEventArgs e)
         {
             if (!parentClosing)
@@ -39,6 +47,11 @@ namespace EasySave.View
             }
         }
 
+
+        /// <summary>
+        /// Get the path of the folder in the text box
+        /// </summary>
+        /// <param name="display"></param>
         private void GetFolderPath(TextBox display)
         {
             var dialog = new CommonOpenFileDialog();
@@ -51,16 +64,31 @@ namespace EasySave.View
             this.Activate();
         }
 
+        /// <summary>
+        /// Event when the button for choosing the source path is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTaskSourcePath_Click(object sender, RoutedEventArgs e)
         {
             GetFolderPath(TaskSourcePath);
         }
 
+        /// <summary>
+        /// Event when the button for choosing the target path is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTaskTargetPath_Click(object sender, RoutedEventArgs e)
         {
             GetFolderPath(TaskTargetPath);
         }
 
+        /// <summary>
+        /// Event when the button for executing the task save is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExecuteTaskSave_Click(object sender, RoutedEventArgs e)
         {
             Dictionary<string, string> options = new Dictionary<string, string>
@@ -74,10 +102,20 @@ namespace EasySave.View
 
             TaskEvent(TaskAction.ADD, options);
         }
+
+        /// <summary>
+        /// Remove the task 
+        /// </summary>
+        /// <param name="options"></param>
         public void RemoveTask(Dictionary<string, string> options)
         {
             TaskEvent(TaskAction.REMOVE, options);
         }
+
+        /// <summary>
+        /// Execute the task
+        /// </summary>
+        /// <param name="options"></param>
         public void ExecuteTask(Dictionary<string, string> options)
         {
             TaskEvent(TaskAction.EXECUTE, options);

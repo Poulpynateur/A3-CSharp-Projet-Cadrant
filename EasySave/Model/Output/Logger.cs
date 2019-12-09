@@ -7,6 +7,9 @@ using System.Text;
 
 namespace EasySave.Model.Output
 {
+    /// <summary>
+    /// Class used to write logs
+    /// </summary>
     public class Logger
     {
         private const string FOLDER_NAME = "log";
@@ -14,6 +17,9 @@ namespace EasySave.Model.Output
         private string logPath;
         private string progressPath;
 
+        /// <summary>
+        /// Constructor of the Logger
+        /// </summary>
         public Logger()
         {
             this.logPath = Directory.CreateDirectory(
@@ -26,11 +32,19 @@ namespace EasySave.Model.Output
             this.progressPath = Path.Combine(progressPath, "progress.json");
         }
 
+        /// <summary>
+        /// Write a Json file for the log
+        /// </summary>
+        /// <param name="log"></param>
         public void WriteLog(Log log)
         {
             JsonHelper.WriteJson(log, Path.Combine( logPath, FilesHelper.GenerateName(log.TaskName)) + ".json");
         }
 
+        /// <summary>
+        /// Write a Json File for the progress
+        /// </summary>
+        /// <param name="progress"></param>
         public void WriteProgress(Progress progress)
         {
             JsonHelper.WriteJson(progress, progressPath);

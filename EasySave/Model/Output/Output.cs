@@ -7,6 +7,9 @@ using System.Text;
 
 namespace EasySave.Model.Output
 {
+    /// <summary>
+    /// Class used to instanciate other classes that might output files
+    /// </summary>
     public class Output
     {
         public List<string> ErpBlacklist { get; set; }
@@ -21,6 +24,9 @@ namespace EasySave.Model.Output
         //Output to view
         public Displayable Display { get; }
 
+        /// <summary>
+        /// Output constructor 
+        /// </summary>
         public Output()
         {
             this.Logger = new Logger();
@@ -32,6 +38,9 @@ namespace EasySave.Model.Output
             ErpBlacklist = Config.LoadErpBlackList();
         }
 
+        /// <summary>
+        /// Check if another process is running
+        /// </summary>
         public void CheckErpRunning()
         {
             foreach (var name in ErpBlacklist)
