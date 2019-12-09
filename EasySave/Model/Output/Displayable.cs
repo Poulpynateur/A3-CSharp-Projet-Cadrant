@@ -5,6 +5,9 @@ using System.Text;
 
 namespace EasySave.Model.Output
 {
+    /// <summary>
+    /// Display the status of the job.
+    /// </summary>
     public class Displayable : IDisplayable
     {
         public event IDisplayable.DisplayUpdate DisplayUpdateEvent;

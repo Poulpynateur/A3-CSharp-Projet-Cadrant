@@ -14,6 +14,11 @@ namespace EasySave.Controller
         private IModel model;
         private IView view;
 
+        /// <summary>
+        /// Initialize a new view and a new model.
+        /// </summary>
+        /// <param name="model">Instantiate a new model/param>
+        /// <param name="view">Instantiate a new view</param>
         public Controller(IModel model, IView view)
         {
             this.model = model;
@@ -22,6 +27,11 @@ namespace EasySave.Controller
             this.AssignEvents();
         }
 
+        /// <summary>
+        /// Method in order to execute the chosen task.
+        /// </summary>
+        /// <param name="job">Instanciate a new object task/param>
+        /// <param name="options">Launch the task with his name as parameter</param>
         private void ExecuteJob(BaseJob job, Dictionary<string, string> options)
         {
             try
@@ -35,6 +45,11 @@ namespace EasySave.Controller
             }
         }
 
+        /// <summary>
+        /// Method in order to execute a quick save.
+        /// </summary>
+        /// <param name="action">The type of quick-save/param>
+        /// <param name="options">Launch the quick-save with all the options</param>
         private void HandleQuickSave(QuickSaveAction action, Dictionary<string, string> options)
         {
             BaseJob job = null;
@@ -51,6 +66,11 @@ namespace EasySave.Controller
             ExecuteJob(job, options);
         }
 
+        /// <summary>
+        /// Method managing all the tasks.
+        /// </summary>*
+        /// <param name="action">Selected action to manage the task/param>
+        /// <param name="options">Launch the task with all the saved options</param>
         private void HandleTask(TaskAction action, Dictionary<string, string> options)
         {
             BaseJob job = null;

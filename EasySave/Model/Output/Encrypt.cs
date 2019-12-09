@@ -10,6 +10,9 @@ using System.Windows;
 
 namespace EasySave.Model.Output
 {
+    /// <summary>
+    /// Encrypt the save.
+    /// </summary>
     public class Encrypt
     {
         private const string FOLDER_NAME = "CryptoSoft";
@@ -23,6 +26,11 @@ namespace EasySave.Model.Output
             this.cryptosoftPath = Path.Combine(Directory.GetCurrentDirectory(), FOLDER_NAME, "CryptoSoft.exe");
         }
 
+        /// <summary>
+        /// Check if the target need to be crypted with the given format.
+        /// </summary>
+        /// <param name="filePath">Given path by the user</param>
+        /// <returns>The file crypted format</returns>
         public bool IsEncryptTarget(string filePath)
         {
             string[] separators = { "." };
@@ -34,6 +42,11 @@ namespace EasySave.Model.Output
             return false;
         }
 
+        /// <summary>
+        /// Encrypt all the files.
+        /// </summary>
+        /// <param name="pathFrom">Entered source path from the user</param>
+        /// <param name="pathTo">Entered target path from the user</param>
         public int EncryptFileCryptoSoft(string pathFrom, string pathTo)
         {
             string password = ConfigurationManager.AppSettings["CryptoSoftPassword"];
