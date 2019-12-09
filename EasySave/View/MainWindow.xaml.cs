@@ -14,7 +14,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 namespace EasySave.View
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// MainWindow.xaml main logic
     /// </summary>
     public partial class MainWindow : Window, IWindow
     {
@@ -23,8 +23,13 @@ namespace EasySave.View
         private TaskWindow taskWindow;
         private ParamWindow paramWindow;
         
+        /// <summary>
+        /// Fired when we have quick save inputs.
+        /// </summary>
         public event QuickSaveEventHandler QuickSaveEvent;
-        //Bubble event
+        /// <summary>
+        /// Fired when we have task inputs, we pass then to the taskWindow.
+        /// </summary>
         public event TaskEventHandler TaskEvent
         {
             add { this.taskWindow.TaskEvent += value; }
@@ -46,6 +51,11 @@ namespace EasySave.View
             RefreshTaskList();
         }
 
+        /// <summary>
+        /// On close event, close the sub windows.
+        /// </summary>
+        /// <param name="sender">MainWindow</param>
+        /// <param name="e">Cancel the event</param>
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             taskWindow.parentClosing = true;
@@ -55,20 +65,8 @@ namespace EasySave.View
                 paramWindow.Close();
         }
 
-        public void RefreshTaskList()
-        {
-            TaskList.Children.Clear();
-            foreach(Tuple<string, string> task in model.GetTasksNames())
-            {
-                CheckBox checkBox = new CheckBox();
-                checkBox.Content = task.Item1;
-                checkBox.ToolTip = task.Item2;
-                TaskList.Children.Add(checkBox);
-            }
-        }
-
         /// <summary>
-        /// Display text to console.
+        /// Display log in LogTextWrapper.
         /// </summary>
         /// <param name="statut">Define the color</param>
         /// <param name="text">Text to write</param>
@@ -77,6 +75,10 @@ namespace EasySave.View
             LogTextWrapper.Children.Add(new Log(statut, text));
         }
 
+        /// <summary>
+        /// Open the "Choose folder" context window and set a TextBox with the result.
+        /// </summary>
+        /// <param name="display">Result target</param>
         private void GetFolderPath(TextBox display)
         {
             var dialog = new CommonOpenFileDialog();
@@ -88,63 +90,11 @@ namespace EasySave.View
             }
         }
 
-        private void ExecuteQuickSave_Click(object sender, RoutedEventArgs e)
-        {
-            Dictionary<string, string> options = new Dictionary<string, string>
-            {
-                { "encrypt", (QuickSaveEncrypt.IsChecked == true)? "yes" : "no" },
-                { "name",  QuickName.Text},
-                { "source",  QuickSourcePath.Text},
-                { "target",  QuickTargetPath.Text}
-            };
-
-            if(RadioMirrorSave.IsChecked == true)
-                QuickSaveEvent(QuickSaveAction.MIRROR, options);
-
-            if(RadioDifferentialSave.IsChecked == true)
-                QuickSaveEvent(QuickSaveAction.DIFFERENTIAL, options);
-        }
-
-        private void BtnQuickSourcePath_Click(object sender, RoutedEventArgs e)
-        {
-            GetFolderPath(QuickSourcePath);
-        }
-
-        private void BtnQuickTargetPath_Click(object sender, RoutedEventArgs e)
-        {
-            GetFolderPath(QuickTargetPath);
-        }
-
-        private void BtnTaskAdd_Click(object sender, RoutedEventArgs e)
-        {
-            taskWindow.Show();
-        }
-
-        private Dictionary<string, string> GetSelectedTasks()
-        {
-            Dictionary<string, string> options = new Dictionary<string, string>
-            {
-                { "name", "" }
-            };
-            var list = TaskList.Children.OfType<CheckBox>().Where(x => x.IsChecked == true);
-
-            foreach (var task in list)
-            {
-                options["name"] += task.Content.ToString() + ";";
-            }
-            return options;
-        }
-
-        private void BtnTaskRemove_Click(object sender, RoutedEventArgs e)
-        {
-            taskWindow.RemoveTask(GetSelectedTasks());
-        }
-
-        private void BtnTaskExecute_Click(object sender, RoutedEventArgs e)
-        {
-            taskWindow.ExecuteTask(GetSelectedTasks());
-        }
-
+        /// <summary>
+        /// On scroll event, auto scroll down to last log.
+        /// </summary>
+        /// <param name="sender">LogScrollViewer</param>
+        /// <param name="e">Cancel the event</param>
         private void ScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             if (e.ExtentHeightChange != 0)
@@ -153,6 +103,11 @@ namespace EasySave.View
             }
         }
 
+        /// <summary>
+        /// On click event, open the param window.
+        /// </summary>
+        /// <param name="sender">BtnParam</param>
+        /// <param name="e">Cancel the event</param>
         private void BtnParam_Click(object sender, RoutedEventArgs e)
         {
             if(paramWindow == null || paramWindow.IsLoaded == false)
