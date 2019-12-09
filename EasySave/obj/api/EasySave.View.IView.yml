@@ -1,0 +1,121 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.View.IView
+  commentId: T:EasySave.View.IView
+  id: IView
+  parent: EasySave.View
+  children:
+  - EasySave.View.IView.Start
+  - EasySave.View.IView.Window
+  langs:
+  - csharp
+  - vb
+  name: IView
+  nameWithType: IView
+  fullName: EasySave.View.IView
+  type: Interface
+  source:
+    remote:
+      path: EasySave/View/IView.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: IView
+    path: View/IView.cs
+    startLine: 10
+  assemblies:
+  - EasySave
+  namespace: EasySave.View
+  summary: "\nInterface to access view.\n"
+  example: []
+  syntax:
+    content: public interface IView
+    content.vb: Public Interface IView
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: EasySave.View.IView.Window
+  commentId: P:EasySave.View.IView.Window
+  id: Window
+  parent: EasySave.View.IView
+  langs:
+  - csharp
+  - vb
+  name: Window
+  nameWithType: IView.Window
+  fullName: EasySave.View.IView.Window
+  type: Property
+  source:
+    remote:
+      path: EasySave/View/IView.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Window
+    path: View/IView.cs
+    startLine: 12
+  assemblies:
+  - EasySave
+  namespace: EasySave.View
+  syntax:
+    content: IWindow Window { get; }
+    parameters: []
+    return:
+      type: EasySave.View.IWindow
+    content.vb: ReadOnly Property Window As IWindow
+  overload: EasySave.View.IView.Window*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: EasySave.View.IView.Start
+  commentId: M:EasySave.View.IView.Start
+  id: Start
+  parent: EasySave.View.IView
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: IView.Start()
+  fullName: EasySave.View.IView.Start()
+  type: Method
+  source:
+    remote:
+      path: EasySave/View/IView.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Start
+    path: View/IView.cs
+    startLine: 17
+  assemblies:
+  - EasySave
+  namespace: EasySave.View
+  summary: "\nStart the view.\n"
+  example: []
+  syntax:
+    content: void Start()
+    content.vb: Sub Start
+  overload: EasySave.View.IView.Start*
+references:
+- uid: EasySave.View
+  commentId: N:EasySave.View
+  name: EasySave.View
+  nameWithType: EasySave.View
+  fullName: EasySave.View
+- uid: EasySave.View.IView.Window*
+  commentId: Overload:EasySave.View.IView.Window
+  name: Window
+  nameWithType: IView.Window
+  fullName: EasySave.View.IView.Window
+- uid: EasySave.View.IWindow
+  commentId: T:EasySave.View.IWindow
+  parent: EasySave.View
+  name: IWindow
+  nameWithType: IWindow
+  fullName: EasySave.View.IWindow
+- uid: EasySave.View.IView.Start*
+  commentId: Overload:EasySave.View.IView.Start
+  name: Start
+  nameWithType: IView.Start
+  fullName: EasySave.View.IView.Start

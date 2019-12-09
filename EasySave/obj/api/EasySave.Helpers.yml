@@ -1,0 +1,42 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Helpers
+  commentId: N:EasySave.Helpers
+  id: EasySave.Helpers
+  children:
+  - EasySave.Helpers.IDisplayable
+  - EasySave.Helpers.IDisplayable.DisplayUpdate
+  - EasySave.Helpers.Statut
+  langs:
+  - csharp
+  - vb
+  name: EasySave.Helpers
+  nameWithType: EasySave.Helpers
+  fullName: EasySave.Helpers
+  type: Namespace
+  assemblies:
+  - EasySave
+references:
+- uid: EasySave.Helpers.Statut
+  commentId: T:EasySave.Helpers.Statut
+  parent: EasySave.Helpers
+  name: Statut
+  nameWithType: Statut
+  fullName: EasySave.Helpers.Statut
+- uid: EasySave.Helpers.IDisplayable
+  commentId: T:EasySave.Helpers.IDisplayable
+  parent: EasySave.Helpers
+  name: IDisplayable
+  nameWithType: IDisplayable
+  fullName: EasySave.Helpers.IDisplayable
+- uid: EasySave.Helpers.IDisplayable.DisplayUpdate
+  commentId: T:EasySave.Helpers.IDisplayable.DisplayUpdate
+  parent: EasySave.Helpers
+  name: IDisplayable.DisplayUpdate
+  nameWithType: IDisplayable.DisplayUpdate
+  fullName: EasySave.Helpers.IDisplayable.DisplayUpdate
+- uid: EasySave.Helpers
+  commentId: N:EasySave.Helpers
+  name: EasySave.Helpers
+  nameWithType: EasySave.Helpers
+  fullName: EasySave.Helpers

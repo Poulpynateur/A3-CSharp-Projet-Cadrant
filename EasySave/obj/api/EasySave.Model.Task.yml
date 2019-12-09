@@ -1,0 +1,42 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Model.Task
+  commentId: N:EasySave.Model.Task
+  id: EasySave.Model.Task
+  children:
+  - EasySave.Model.Task.ITaskManager
+  - EasySave.Model.Task.Task
+  - EasySave.Model.Task.TaskManager
+  langs:
+  - csharp
+  - vb
+  name: EasySave.Model.Task
+  nameWithType: EasySave.Model.Task
+  fullName: EasySave.Model.Task
+  type: Namespace
+  assemblies:
+  - EasySave
+references:
+- uid: EasySave.Model.Task.ITaskManager
+  commentId: T:EasySave.Model.Task.ITaskManager
+  parent: EasySave.Model.Task
+  name: ITaskManager
+  nameWithType: ITaskManager
+  fullName: EasySave.Model.Task.ITaskManager
+- uid: EasySave.Model.Task.Task
+  commentId: T:EasySave.Model.Task.Task
+  parent: EasySave.Model.Task
+  name: Task
+  nameWithType: Task
+  fullName: EasySave.Model.Task.Task
+- uid: EasySave.Model.Task.TaskManager
+  commentId: T:EasySave.Model.Task.TaskManager
+  parent: EasySave.Model.Task
+  name: TaskManager
+  nameWithType: TaskManager
+  fullName: EasySave.Model.Task.TaskManager
+- uid: EasySave.Model.Task
+  commentId: N:EasySave.Model.Task
+  name: EasySave.Model.Task
+  nameWithType: EasySave.Model.Task
+  fullName: EasySave.Model.Task

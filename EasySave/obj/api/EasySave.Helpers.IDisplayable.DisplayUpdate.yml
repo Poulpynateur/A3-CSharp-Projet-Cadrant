@@ -1,0 +1,64 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Helpers.IDisplayable.DisplayUpdate
+  commentId: T:EasySave.Helpers.IDisplayable.DisplayUpdate
+  id: IDisplayable.DisplayUpdate
+  parent: EasySave.Helpers
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IDisplayable.DisplayUpdate
+  nameWithType: IDisplayable.DisplayUpdate
+  fullName: EasySave.Helpers.IDisplayable.DisplayUpdate
+  type: Delegate
+  source:
+    remote:
+      path: EasySave/Helpers/IDisplayable.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: DisplayUpdate
+    path: Helpers/IDisplayable.cs
+    startLine: 24
+  assemblies:
+  - EasySave
+  namespace: EasySave.Helpers
+  syntax:
+    content: public delegate void DisplayUpdate(Statut statut, string text);
+    parameters:
+    - id: statut
+      type: EasySave.Helpers.Statut
+    - id: text
+      type: System.String
+    content.vb: Public Delegate Sub DisplayUpdate(statut As Statut, text As String)
+  modifiers.csharp:
+  - public
+  - delegate
+  modifiers.vb:
+  - Public
+  - Delegate
+references:
+- uid: EasySave.Helpers
+  commentId: N:EasySave.Helpers
+  name: EasySave.Helpers
+  nameWithType: EasySave.Helpers
+  fullName: EasySave.Helpers
+- uid: EasySave.Helpers.Statut
+  commentId: T:EasySave.Helpers.Statut
+  parent: EasySave.Helpers
+  name: Statut
+  nameWithType: Statut
+  fullName: EasySave.Helpers.Statut
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

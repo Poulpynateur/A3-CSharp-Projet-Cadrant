@@ -1,0 +1,28 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Controller
+  commentId: N:EasySave.Controller
+  id: EasySave.Controller
+  children:
+  - EasySave.Controller.Controller
+  - EasySave.Controller.Parser
+  langs:
+  - csharp
+  - vb
+  name: EasySave.Controller
+  nameWithType: EasySave.Controller
+  fullName: EasySave.Controller
+  type: Namespace
+  assemblies:
+  - EasySave
+references:
+- uid: EasySave.Controller.Controller
+  commentId: T:EasySave.Controller.Controller
+  name: Controller
+  nameWithType: Controller
+  fullName: EasySave.Controller.Controller
+- uid: EasySave.Controller.Parser
+  commentId: T:EasySave.Controller.Parser
+  name: Parser
+  nameWithType: Parser
+  fullName: EasySave.Controller.Parser

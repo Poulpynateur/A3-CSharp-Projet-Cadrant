@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Helpers.IDisplayable
+  commentId: T:EasySave.Helpers.IDisplayable
+  id: IDisplayable
+  parent: EasySave.Helpers
+  children:
+  - EasySave.Helpers.IDisplayable.DisplayUpdateEvent
+  langs:
+  - csharp
+  - vb
+  name: IDisplayable
+  nameWithType: IDisplayable
+  fullName: EasySave.Helpers.IDisplayable
+  type: Interface
+  source:
+    remote:
+      path: EasySave/Helpers/IDisplayable.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: IDisplayable
+    path: Helpers/IDisplayable.cs
+    startLine: 17
+  assemblies:
+  - EasySave
+  namespace: EasySave.Helpers
+  syntax:
+    content: public interface IDisplayable
+    content.vb: Public Interface IDisplayable
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: EasySave.Helpers.IDisplayable.DisplayUpdateEvent
+  commentId: E:EasySave.Helpers.IDisplayable.DisplayUpdateEvent
+  id: DisplayUpdateEvent
+  parent: EasySave.Helpers.IDisplayable
+  langs:
+  - csharp
+  - vb
+  name: DisplayUpdateEvent
+  nameWithType: IDisplayable.DisplayUpdateEvent
+  fullName: EasySave.Helpers.IDisplayable.DisplayUpdateEvent
+  type: Event
+  source:
+    remote:
+      path: EasySave/Helpers/IDisplayable.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: DisplayUpdateEvent
+    path: Helpers/IDisplayable.cs
+    startLine: 25
+  assemblies:
+  - EasySave
+  namespace: EasySave.Helpers
+  syntax:
+    content: event IDisplayable.DisplayUpdate DisplayUpdateEvent
+    return:
+      type: EasySave.Helpers.IDisplayable.DisplayUpdate
+    content.vb: Event DisplayUpdateEvent As IDisplayable.DisplayUpdate
+references:
+- uid: EasySave.Helpers
+  commentId: N:EasySave.Helpers
+  name: EasySave.Helpers
+  nameWithType: EasySave.Helpers
+  fullName: EasySave.Helpers
+- uid: EasySave.Helpers.IDisplayable.DisplayUpdate
+  commentId: T:EasySave.Helpers.IDisplayable.DisplayUpdate
+  parent: EasySave.Helpers
+  name: IDisplayable.DisplayUpdate
+  nameWithType: IDisplayable.DisplayUpdate
+  fullName: EasySave.Helpers.IDisplayable.DisplayUpdate

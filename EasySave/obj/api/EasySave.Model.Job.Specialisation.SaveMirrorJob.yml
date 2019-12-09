@@ -1,0 +1,778 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Model.Job.Specialisation.SaveMirrorJob
+  commentId: T:EasySave.Model.Job.Specialisation.SaveMirrorJob
+  id: SaveMirrorJob
+  parent: EasySave.Model.Job.Specialisation
+  children:
+  - EasySave.Model.Job.Specialisation.SaveMirrorJob.#ctor
+  - EasySave.Model.Job.Specialisation.SaveMirrorJob.Date
+  - EasySave.Model.Job.Specialisation.SaveMirrorJob.Execute(System.Collections.Generic.Dictionary{System.String,System.String})
+  langs:
+  - csharp
+  - vb
+  name: SaveMirrorJob
+  nameWithType: SaveMirrorJob
+  fullName: EasySave.Model.Job.Specialisation.SaveMirrorJob
+  type: Class
+  source:
+    remote:
+      path: EasySave/Model/Job/Specialisation/SaveMirrorJob.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: SaveMirrorJob
+    path: Model/Job/Specialisation/SaveMirrorJob.cs
+    startLine: 11
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Job.Specialisation
+  summary: "\nCreate a mirror save from a source to a target folder.\n"
+  example: []
+  syntax:
+    content: 'public class SaveMirrorJob : BaseJob'
+    content.vb: >-
+      Public Class SaveMirrorJob
+          Inherits BaseJob
+  inheritance:
+  - System.Object
+  - EasySave.Model.Job.BaseJob
+  inheritedMembers:
+  - EasySave.Model.Job.BaseJob.Output
+  - EasySave.Model.Job.BaseJob.Info
+  - EasySave.Model.Job.BaseJob.Options
+  - EasySave.Model.Job.BaseJob.CheckOptions(System.Collections.Generic.Dictionary{System.String,System.String})
+  - EasySave.Model.Job.BaseJob.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: EasySave.Model.Job.Specialisation.SaveMirrorJob.Date
+  commentId: P:EasySave.Model.Job.Specialisation.SaveMirrorJob.Date
+  id: Date
+  parent: EasySave.Model.Job.Specialisation.SaveMirrorJob
+  langs:
+  - csharp
+  - vb
+  name: Date
+  nameWithType: SaveMirrorJob.Date
+  fullName: EasySave.Model.Job.Specialisation.SaveMirrorJob.Date
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Job/Specialisation/SaveMirrorJob.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Date
+    path: Model/Job/Specialisation/SaveMirrorJob.cs
+    startLine: 15
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Job.Specialisation
+  syntax:
+    content: public object Date { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public ReadOnly Property Date As Object
+  overload: EasySave.Model.Job.Specialisation.SaveMirrorJob.Date*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: EasySave.Model.Job.Specialisation.SaveMirrorJob.#ctor
+  commentId: M:EasySave.Model.Job.Specialisation.SaveMirrorJob.#ctor
+  id: '#ctor'
+  parent: EasySave.Model.Job.Specialisation.SaveMirrorJob
+  langs:
+  - csharp
+  - vb
+  name: SaveMirrorJob()
+  nameWithType: SaveMirrorJob.SaveMirrorJob()
+  fullName: EasySave.Model.Job.Specialisation.SaveMirrorJob.SaveMirrorJob()
+  type: Constructor
+  source:
+    remote:
+      path: EasySave/Model/Job/Specialisation/SaveMirrorJob.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: .ctor
+    path: Model/Job/Specialisation/SaveMirrorJob.cs
+    startLine: 17
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Job.Specialisation
+  syntax:
+    content: public SaveMirrorJob()
+    content.vb: Public Sub New
+  overload: EasySave.Model.Job.Specialisation.SaveMirrorJob.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Job.Specialisation.SaveMirrorJob.Execute(System.Collections.Generic.Dictionary{System.String,System.String})
+  commentId: M:EasySave.Model.Job.Specialisation.SaveMirrorJob.Execute(System.Collections.Generic.Dictionary{System.String,System.String})
+  id: Execute(System.Collections.Generic.Dictionary{System.String,System.String})
+  parent: EasySave.Model.Job.Specialisation.SaveMirrorJob
+  langs:
+  - csharp
+  - vb
+  name: Execute(Dictionary<String, String>)
+  nameWithType: SaveMirrorJob.Execute(Dictionary<String, String>)
+  fullName: EasySave.Model.Job.Specialisation.SaveMirrorJob.Execute(System.Collections.Generic.Dictionary<System.String, System.String>)
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/Job/Specialisation/SaveMirrorJob.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Execute
+    path: Model/Job/Specialisation/SaveMirrorJob.cs
+    startLine: 74
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Job.Specialisation
+  summary: "\n<see cref=\"!:BaseCommand.Execute(Dictionary&lt;string, string>)\"></see>\n<see cref=\"!:BaseCommand.CheckOptions(Dictionary&lt;string, string>)\"></see>\nLaunch the mirro save. Check if the folders exists beforewise.\n"
+  example: []
+  syntax:
+    content: public override void Execute(Dictionary<string, string> options)
+    parameters:
+    - id: options
+      type: System.Collections.Generic.Dictionary{System.String,System.String}
+    content.vb: Public Overrides Sub Execute(options As Dictionary(Of String, String))
+  overridden: EasySave.Model.Job.BaseJob.Execute(System.Collections.Generic.Dictionary{System.String,System.String})
+  overload: EasySave.Model.Job.Specialisation.SaveMirrorJob.Execute*
+  nameWithType.vb: SaveMirrorJob.Execute(Dictionary(Of String, String))
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: EasySave.Model.Job.Specialisation.SaveMirrorJob.Execute(System.Collections.Generic.Dictionary(Of System.String, System.String))
+  name.vb: Execute(Dictionary(Of String, String))
+references:
+- uid: EasySave.Model.Job.Specialisation
+  commentId: N:EasySave.Model.Job.Specialisation
+  name: EasySave.Model.Job.Specialisation
+  nameWithType: EasySave.Model.Job.Specialisation
+  fullName: EasySave.Model.Job.Specialisation
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: EasySave.Model.Job.BaseJob
+  commentId: T:EasySave.Model.Job.BaseJob
+  parent: EasySave.Model.Job
+  name: BaseJob
+  nameWithType: BaseJob
+  fullName: EasySave.Model.Job.BaseJob
+- uid: EasySave.Model.Job.BaseJob.Output
+  commentId: P:EasySave.Model.Job.BaseJob.Output
+  parent: EasySave.Model.Job.BaseJob
+  name: Output
+  nameWithType: BaseJob.Output
+  fullName: EasySave.Model.Job.BaseJob.Output
+- uid: EasySave.Model.Job.BaseJob.Info
+  commentId: P:EasySave.Model.Job.BaseJob.Info
+  parent: EasySave.Model.Job.BaseJob
+  name: Info
+  nameWithType: BaseJob.Info
+  fullName: EasySave.Model.Job.BaseJob.Info
+- uid: EasySave.Model.Job.BaseJob.Options
+  commentId: P:EasySave.Model.Job.BaseJob.Options
+  parent: EasySave.Model.Job.BaseJob
+  name: Options
+  nameWithType: BaseJob.Options
+  fullName: EasySave.Model.Job.BaseJob.Options
+- uid: EasySave.Model.Job.BaseJob.CheckOptions(System.Collections.Generic.Dictionary{System.String,System.String})
+  commentId: M:EasySave.Model.Job.BaseJob.CheckOptions(System.Collections.Generic.Dictionary{System.String,System.String})
+  parent: EasySave.Model.Job.BaseJob
+  isExternal: true
+  name: CheckOptions(Dictionary<String, String>)
+  nameWithType: BaseJob.CheckOptions(Dictionary<String, String>)
+  fullName: EasySave.Model.Job.BaseJob.CheckOptions(System.Collections.Generic.Dictionary<System.String, System.String>)
+  nameWithType.vb: BaseJob.CheckOptions(Dictionary(Of String, String))
+  fullName.vb: EasySave.Model.Job.BaseJob.CheckOptions(System.Collections.Generic.Dictionary(Of System.String, System.String))
+  name.vb: CheckOptions(Dictionary(Of String, String))
+  spec.csharp:
+  - uid: EasySave.Model.Job.BaseJob.CheckOptions(System.Collections.Generic.Dictionary{System.String,System.String})
+    name: CheckOptions
+    nameWithType: BaseJob.CheckOptions
+    fullName: EasySave.Model.Job.BaseJob.CheckOptions
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: EasySave.Model.Job.BaseJob.CheckOptions(System.Collections.Generic.Dictionary{System.String,System.String})
+    name: CheckOptions
+    nameWithType: BaseJob.CheckOptions
+    fullName: EasySave.Model.Job.BaseJob.CheckOptions
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: EasySave.Model.Job.BaseJob.ToString
+  commentId: M:EasySave.Model.Job.BaseJob.ToString
+  parent: EasySave.Model.Job.BaseJob
+  name: ToString()
+  nameWithType: BaseJob.ToString()
+  fullName: EasySave.Model.Job.BaseJob.ToString()
+  spec.csharp:
+  - uid: EasySave.Model.Job.BaseJob.ToString
+    name: ToString
+    nameWithType: BaseJob.ToString
+    fullName: EasySave.Model.Job.BaseJob.ToString
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: EasySave.Model.Job.BaseJob.ToString
+    name: ToString
+    nameWithType: BaseJob.ToString
+    fullName: EasySave.Model.Job.BaseJob.ToString
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: EasySave.Model.Job
+  commentId: N:EasySave.Model.Job
+  name: EasySave.Model.Job
+  nameWithType: EasySave.Model.Job
+  fullName: EasySave.Model.Job
+- uid: EasySave.Model.Job.Specialisation.SaveMirrorJob.Date*
+  commentId: Overload:EasySave.Model.Job.Specialisation.SaveMirrorJob.Date
+  name: Date
+  nameWithType: SaveMirrorJob.Date
+  fullName: EasySave.Model.Job.Specialisation.SaveMirrorJob.Date
+- uid: EasySave.Model.Job.Specialisation.SaveMirrorJob.#ctor*
+  commentId: Overload:EasySave.Model.Job.Specialisation.SaveMirrorJob.#ctor
+  name: SaveMirrorJob
+  nameWithType: SaveMirrorJob.SaveMirrorJob
+  fullName: EasySave.Model.Job.Specialisation.SaveMirrorJob.SaveMirrorJob
+- uid: EasySave.Model.Job.BaseJob.Execute(System.Collections.Generic.Dictionary{System.String,System.String})
+  commentId: M:EasySave.Model.Job.BaseJob.Execute(System.Collections.Generic.Dictionary{System.String,System.String})
+  parent: EasySave.Model.Job.BaseJob
+  isExternal: true
+  name: Execute(Dictionary<String, String>)
+  nameWithType: BaseJob.Execute(Dictionary<String, String>)
+  fullName: EasySave.Model.Job.BaseJob.Execute(System.Collections.Generic.Dictionary<System.String, System.String>)
+  nameWithType.vb: BaseJob.Execute(Dictionary(Of String, String))
+  fullName.vb: EasySave.Model.Job.BaseJob.Execute(System.Collections.Generic.Dictionary(Of System.String, System.String))
+  name.vb: Execute(Dictionary(Of String, String))
+  spec.csharp:
+  - uid: EasySave.Model.Job.BaseJob.Execute(System.Collections.Generic.Dictionary{System.String,System.String})
+    name: Execute
+    nameWithType: BaseJob.Execute
+    fullName: EasySave.Model.Job.BaseJob.Execute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: EasySave.Model.Job.BaseJob.Execute(System.Collections.Generic.Dictionary{System.String,System.String})
+    name: Execute
+    nameWithType: BaseJob.Execute
+    fullName: EasySave.Model.Job.BaseJob.Execute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: EasySave.Model.Job.Specialisation.SaveMirrorJob.Execute*
+  commentId: Overload:EasySave.Model.Job.Specialisation.SaveMirrorJob.Execute
+  name: Execute
+  nameWithType: SaveMirrorJob.Execute
+  fullName: EasySave.Model.Job.Specialisation.SaveMirrorJob.Execute
+- uid: System.Collections.Generic.Dictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, String>
+  nameWithType: Dictionary<String, String>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.String>
+  nameWithType.vb: Dictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.String)
+  name.vb: Dictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

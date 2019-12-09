@@ -1,0 +1,540 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Model.IModel
+  commentId: T:EasySave.Model.IModel
+  id: IModel
+  parent: EasySave.Model
+  children:
+  - EasySave.Model.IModel.GetDisplayable
+  - EasySave.Model.IModel.GetEncryptFormat
+  - EasySave.Model.IModel.GetErpBlacklist
+  - EasySave.Model.IModel.GetJobByName(System.String)
+  - EasySave.Model.IModel.GetTasksNames
+  - EasySave.Model.IModel.SetEncryptFormat(System.Collections.Generic.List{System.String})
+  - EasySave.Model.IModel.SetErpBlacklist(System.Collections.Generic.List{System.String})
+  langs:
+  - csharp
+  - vb
+  name: IModel
+  nameWithType: IModel
+  fullName: EasySave.Model.IModel
+  type: Interface
+  source:
+    remote:
+      path: EasySave/Model/IModel.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: IModel
+    path: Model/IModel.cs
+    startLine: 10
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  summary: "\nInterface to access model.\n"
+  example: []
+  syntax:
+    content: public interface IModel
+    content.vb: Public Interface IModel
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: EasySave.Model.IModel.GetDisplayable
+  commentId: M:EasySave.Model.IModel.GetDisplayable
+  id: GetDisplayable
+  parent: EasySave.Model.IModel
+  langs:
+  - csharp
+  - vb
+  name: GetDisplayable()
+  nameWithType: IModel.GetDisplayable()
+  fullName: EasySave.Model.IModel.GetDisplayable()
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/IModel.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: GetDisplayable
+    path: Model/IModel.cs
+    startLine: 12
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: IDisplayable GetDisplayable()
+    return:
+      type: EasySave.Helpers.IDisplayable
+    content.vb: Function GetDisplayable As IDisplayable
+  overload: EasySave.Model.IModel.GetDisplayable*
+- uid: EasySave.Model.IModel.GetJobByName(System.String)
+  commentId: M:EasySave.Model.IModel.GetJobByName(System.String)
+  id: GetJobByName(System.String)
+  parent: EasySave.Model.IModel
+  langs:
+  - csharp
+  - vb
+  name: GetJobByName(String)
+  nameWithType: IModel.GetJobByName(String)
+  fullName: EasySave.Model.IModel.GetJobByName(System.String)
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/IModel.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: GetJobByName
+    path: Model/IModel.cs
+    startLine: 18
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  summary: "\nGet a command by its name.\n"
+  example: []
+  syntax:
+    content: BaseJob GetJobByName(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: Name of the target
+    return:
+      type: EasySave.Model.Job.BaseJob
+      description: A command or null
+    content.vb: Function GetJobByName(name As String) As BaseJob
+  overload: EasySave.Model.IModel.GetJobByName*
+- uid: EasySave.Model.IModel.GetTasksNames
+  commentId: M:EasySave.Model.IModel.GetTasksNames
+  id: GetTasksNames
+  parent: EasySave.Model.IModel
+  langs:
+  - csharp
+  - vb
+  name: GetTasksNames()
+  nameWithType: IModel.GetTasksNames()
+  fullName: EasySave.Model.IModel.GetTasksNames()
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/IModel.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: GetTasksNames
+    path: Model/IModel.cs
+    startLine: 19
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: IEnumerable<Tuple<string, string>> GetTasksNames()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.String}}
+    content.vb: Function GetTasksNames As IEnumerable(Of Tuple(Of String, String))
+  overload: EasySave.Model.IModel.GetTasksNames*
+- uid: EasySave.Model.IModel.GetErpBlacklist
+  commentId: M:EasySave.Model.IModel.GetErpBlacklist
+  id: GetErpBlacklist
+  parent: EasySave.Model.IModel
+  langs:
+  - csharp
+  - vb
+  name: GetErpBlacklist()
+  nameWithType: IModel.GetErpBlacklist()
+  fullName: EasySave.Model.IModel.GetErpBlacklist()
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/IModel.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: GetErpBlacklist
+    path: Model/IModel.cs
+    startLine: 21
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: List<string> GetErpBlacklist()
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Function GetErpBlacklist As List(Of String)
+  overload: EasySave.Model.IModel.GetErpBlacklist*
+- uid: EasySave.Model.IModel.SetErpBlacklist(System.Collections.Generic.List{System.String})
+  commentId: M:EasySave.Model.IModel.SetErpBlacklist(System.Collections.Generic.List{System.String})
+  id: SetErpBlacklist(System.Collections.Generic.List{System.String})
+  parent: EasySave.Model.IModel
+  langs:
+  - csharp
+  - vb
+  name: SetErpBlacklist(List<String>)
+  nameWithType: IModel.SetErpBlacklist(List<String>)
+  fullName: EasySave.Model.IModel.SetErpBlacklist(System.Collections.Generic.List<System.String>)
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/IModel.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: SetErpBlacklist
+    path: Model/IModel.cs
+    startLine: 22
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: void SetErpBlacklist(List<string> erp)
+    parameters:
+    - id: erp
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Sub SetErpBlacklist(erp As List(Of String))
+  overload: EasySave.Model.IModel.SetErpBlacklist*
+  nameWithType.vb: IModel.SetErpBlacklist(List(Of String))
+  fullName.vb: EasySave.Model.IModel.SetErpBlacklist(System.Collections.Generic.List(Of System.String))
+  name.vb: SetErpBlacklist(List(Of String))
+- uid: EasySave.Model.IModel.GetEncryptFormat
+  commentId: M:EasySave.Model.IModel.GetEncryptFormat
+  id: GetEncryptFormat
+  parent: EasySave.Model.IModel
+  langs:
+  - csharp
+  - vb
+  name: GetEncryptFormat()
+  nameWithType: IModel.GetEncryptFormat()
+  fullName: EasySave.Model.IModel.GetEncryptFormat()
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/IModel.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: GetEncryptFormat
+    path: Model/IModel.cs
+    startLine: 23
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: List<string> GetEncryptFormat()
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Function GetEncryptFormat As List(Of String)
+  overload: EasySave.Model.IModel.GetEncryptFormat*
+- uid: EasySave.Model.IModel.SetEncryptFormat(System.Collections.Generic.List{System.String})
+  commentId: M:EasySave.Model.IModel.SetEncryptFormat(System.Collections.Generic.List{System.String})
+  id: SetEncryptFormat(System.Collections.Generic.List{System.String})
+  parent: EasySave.Model.IModel
+  langs:
+  - csharp
+  - vb
+  name: SetEncryptFormat(List<String>)
+  nameWithType: IModel.SetEncryptFormat(List<String>)
+  fullName: EasySave.Model.IModel.SetEncryptFormat(System.Collections.Generic.List<System.String>)
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/IModel.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: SetEncryptFormat
+    path: Model/IModel.cs
+    startLine: 24
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: void SetEncryptFormat(List<string> format)
+    parameters:
+    - id: format
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Sub SetEncryptFormat(format As List(Of String))
+  overload: EasySave.Model.IModel.SetEncryptFormat*
+  nameWithType.vb: IModel.SetEncryptFormat(List(Of String))
+  fullName.vb: EasySave.Model.IModel.SetEncryptFormat(System.Collections.Generic.List(Of System.String))
+  name.vb: SetEncryptFormat(List(Of String))
+references:
+- uid: EasySave.Model
+  commentId: N:EasySave.Model
+  name: EasySave.Model
+  nameWithType: EasySave.Model
+  fullName: EasySave.Model
+- uid: EasySave.Model.IModel.GetDisplayable*
+  commentId: Overload:EasySave.Model.IModel.GetDisplayable
+  name: GetDisplayable
+  nameWithType: IModel.GetDisplayable
+  fullName: EasySave.Model.IModel.GetDisplayable
+- uid: EasySave.Helpers.IDisplayable
+  commentId: T:EasySave.Helpers.IDisplayable
+  parent: EasySave.Helpers
+  name: IDisplayable
+  nameWithType: IDisplayable
+  fullName: EasySave.Helpers.IDisplayable
+- uid: EasySave.Helpers
+  commentId: N:EasySave.Helpers
+  name: EasySave.Helpers
+  nameWithType: EasySave.Helpers
+  fullName: EasySave.Helpers
+- uid: EasySave.Model.IModel.GetJobByName*
+  commentId: Overload:EasySave.Model.IModel.GetJobByName
+  name: GetJobByName
+  nameWithType: IModel.GetJobByName
+  fullName: EasySave.Model.IModel.GetJobByName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: EasySave.Model.Job.BaseJob
+  commentId: T:EasySave.Model.Job.BaseJob
+  parent: EasySave.Model.Job
+  name: BaseJob
+  nameWithType: BaseJob
+  fullName: EasySave.Model.Job.BaseJob
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: EasySave.Model.Job
+  commentId: N:EasySave.Model.Job
+  name: EasySave.Model.Job
+  nameWithType: EasySave.Model.Job
+  fullName: EasySave.Model.Job
+- uid: EasySave.Model.IModel.GetTasksNames*
+  commentId: Overload:EasySave.Model.IModel.GetTasksNames
+  name: GetTasksNames
+  nameWithType: IModel.GetTasksNames
+  fullName: EasySave.Model.IModel.GetTasksNames
+- uid: System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.String}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Tuple<String, String>>
+  nameWithType: IEnumerable<Tuple<String, String>>
+  fullName: System.Collections.Generic.IEnumerable<System.Tuple<System.String, System.String>>
+  nameWithType.vb: IEnumerable(Of Tuple(Of String, String))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Tuple(Of System.String, System.String))
+  name.vb: IEnumerable(Of Tuple(Of String, String))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Tuple`2
+    name: Tuple
+    nameWithType: Tuple
+    fullName: System.Tuple
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Tuple`2
+    name: Tuple
+    nameWithType: Tuple
+    fullName: System.Tuple
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: EasySave.Model.IModel.GetErpBlacklist*
+  commentId: Overload:EasySave.Model.IModel.GetErpBlacklist
+  name: GetErpBlacklist
+  nameWithType: IModel.GetErpBlacklist
+  fullName: EasySave.Model.IModel.GetErpBlacklist
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: EasySave.Model.IModel.SetErpBlacklist*
+  commentId: Overload:EasySave.Model.IModel.SetErpBlacklist
+  name: SetErpBlacklist
+  nameWithType: IModel.SetErpBlacklist
+  fullName: EasySave.Model.IModel.SetErpBlacklist
+- uid: EasySave.Model.IModel.GetEncryptFormat*
+  commentId: Overload:EasySave.Model.IModel.GetEncryptFormat
+  name: GetEncryptFormat
+  nameWithType: IModel.GetEncryptFormat
+  fullName: EasySave.Model.IModel.GetEncryptFormat
+- uid: EasySave.Model.IModel.SetEncryptFormat*
+  commentId: Overload:EasySave.Model.IModel.SetEncryptFormat
+  name: SetEncryptFormat
+  nameWithType: IModel.SetEncryptFormat
+  fullName: EasySave.Model.IModel.SetEncryptFormat

@@ -1,0 +1,46 @@
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\EasySave.csprojAssemblyReference.cache
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\MainWindow.g.cs
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\App.g.cs
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\EasySave_MarkupCompile.cache
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\EasySave_MarkupCompile.lref
+D:\Perso\Informatique\C#\EasySave\EasySave\bin\Debug\EasySave.exe.config
+D:\Perso\Informatique\C#\EasySave\EasySave\bin\Debug\EasySave.exe
+D:\Perso\Informatique\C#\EasySave\EasySave\bin\Debug\EasySave.pdb
+D:\Perso\Informatique\C#\EasySave\EasySave\bin\Debug\Newtonsoft.Json.dll
+D:\Perso\Informatique\C#\EasySave\EasySave\bin\Debug\Newtonsoft.Json.xml
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\MainWindow.baml
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\EasySave.g.resources
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\EasySave.Properties.Resources.resources
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\EasySave.csproj.GenerateResource.cache
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\EasySave.csproj.CopyComplete
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\EasySave.exe
+D:\Perso\Informatique\C#\EasySave\EasySave\obj\Debug\EasySave.pdb
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave.csprojAssemblyReference.cache
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\App.g.cs
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave_MarkupCompile.cache
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave_MarkupCompile.lref
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave.exe
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave.pdb
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\EasySave.exe.config
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\EasySave.exe
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\EasySave.pdb
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\Newtonsoft.Json.dll
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\Newtonsoft.Json.xml
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave.g.resources
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave.Properties.Resources.resources
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave.csproj.GenerateResource.cache
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave.csproj.CopyComplete
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\View\MainWindow.g.cs
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\View\TaskWindow.g.cs
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\View\MainWindow.baml
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\View\TaskWindow.baml
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\Microsoft.WindowsAPICodePack.xml
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\View\Log.g.cs
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\View\Log.baml
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\View\ParamWindow.g.cs
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\View\ParamWindow.baml
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\bin\Debug\EasySave.xml
+D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\EasySave\EasySave\obj\Debug\EasySave_Content.g.cs

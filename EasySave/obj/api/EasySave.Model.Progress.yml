@@ -1,0 +1,792 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Model.Progress
+  commentId: T:EasySave.Model.Progress
+  id: Progress
+  parent: EasySave.Model
+  children:
+  - EasySave.Model.Progress.Date
+  - EasySave.Model.Progress.EncryptionTimeMs
+  - EasySave.Model.Progress.FeedProgress(System.Int32,System.Int64)
+  - EasySave.Model.Progress.FileInProgress
+  - EasySave.Model.Progress.FilesDone
+  - EasySave.Model.Progress.FilesNumber
+  - EasySave.Model.Progress.RefreshProgress(System.String)
+  - EasySave.Model.Progress.RemainingFiles
+  - EasySave.Model.Progress.RemainingFilesSize
+  - EasySave.Model.Progress.TotalFilesSize
+  langs:
+  - csharp
+  - vb
+  name: Progress
+  nameWithType: Progress
+  fullName: EasySave.Model.Progress
+  type: Class
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Progress
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 9
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  summary: "\nFormat of the progress.\n"
+  example: []
+  syntax:
+    content: public class Progress
+    content.vb: Public Class Progress
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: EasySave.Model.Progress.Date
+  commentId: P:EasySave.Model.Progress.Date
+  id: Date
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: Date
+  nameWithType: Progress.Date
+  fullName: EasySave.Model.Progress.Date
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Date
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 11
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: public DateTime Date { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Date As Date
+  overload: EasySave.Model.Progress.Date*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Progress.FilesNumber
+  commentId: P:EasySave.Model.Progress.FilesNumber
+  id: FilesNumber
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: FilesNumber
+  nameWithType: Progress.FilesNumber
+  fullName: EasySave.Model.Progress.FilesNumber
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: FilesNumber
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 12
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: public int FilesNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FilesNumber As Integer
+  overload: EasySave.Model.Progress.FilesNumber*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Progress.TotalFilesSize
+  commentId: P:EasySave.Model.Progress.TotalFilesSize
+  id: TotalFilesSize
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: TotalFilesSize
+  nameWithType: Progress.TotalFilesSize
+  fullName: EasySave.Model.Progress.TotalFilesSize
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: TotalFilesSize
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 13
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: public long TotalFilesSize { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property TotalFilesSize As Long
+  overload: EasySave.Model.Progress.TotalFilesSize*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Progress.FilesDone
+  commentId: P:EasySave.Model.Progress.FilesDone
+  id: FilesDone
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: FilesDone
+  nameWithType: Progress.FilesDone
+  fullName: EasySave.Model.Progress.FilesDone
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: FilesDone
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 15
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: public int FilesDone { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FilesDone As Integer
+  overload: EasySave.Model.Progress.FilesDone*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Progress.RemainingFiles
+  commentId: P:EasySave.Model.Progress.RemainingFiles
+  id: RemainingFiles
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: RemainingFiles
+  nameWithType: Progress.RemainingFiles
+  fullName: EasySave.Model.Progress.RemainingFiles
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: RemainingFiles
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 16
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: public int RemainingFiles { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property RemainingFiles As Integer
+  overload: EasySave.Model.Progress.RemainingFiles*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Progress.RemainingFilesSize
+  commentId: P:EasySave.Model.Progress.RemainingFilesSize
+  id: RemainingFilesSize
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: RemainingFilesSize
+  nameWithType: Progress.RemainingFilesSize
+  fullName: EasySave.Model.Progress.RemainingFilesSize
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: RemainingFilesSize
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 17
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: public long RemainingFilesSize { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property RemainingFilesSize As Long
+  overload: EasySave.Model.Progress.RemainingFilesSize*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Progress.FileInProgress
+  commentId: P:EasySave.Model.Progress.FileInProgress
+  id: FileInProgress
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: FileInProgress
+  nameWithType: Progress.FileInProgress
+  fullName: EasySave.Model.Progress.FileInProgress
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: FileInProgress
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 19
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: public string FileInProgress { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FileInProgress As String
+  overload: EasySave.Model.Progress.FileInProgress*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Progress.EncryptionTimeMs
+  commentId: P:EasySave.Model.Progress.EncryptionTimeMs
+  id: EncryptionTimeMs
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: EncryptionTimeMs
+  nameWithType: Progress.EncryptionTimeMs
+  fullName: EasySave.Model.Progress.EncryptionTimeMs
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: EncryptionTimeMs
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 21
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  syntax:
+    content: public int EncryptionTimeMs { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property EncryptionTimeMs As Integer
+  overload: EasySave.Model.Progress.EncryptionTimeMs*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Progress.FeedProgress(System.Int32,System.Int64)
+  commentId: M:EasySave.Model.Progress.FeedProgress(System.Int32,System.Int64)
+  id: FeedProgress(System.Int32,System.Int64)
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: FeedProgress(Int32, Int64)
+  nameWithType: Progress.FeedProgress(Int32, Int64)
+  fullName: EasySave.Model.Progress.FeedProgress(System.Int32, System.Int64)
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: FeedProgress
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 26
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  summary: "\nJsonSerializer doesn&apos;t permit parameterized constructor.\n"
+  example: []
+  syntax:
+    content: public void FeedProgress(int filesNumber, long totalFilesSize)
+    parameters:
+    - id: filesNumber
+      type: System.Int32
+    - id: totalFilesSize
+      type: System.Int64
+    content.vb: Public Sub FeedProgress(filesNumber As Integer, totalFilesSize As Long)
+  overload: EasySave.Model.Progress.FeedProgress*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Progress.RefreshProgress(System.String)
+  commentId: M:EasySave.Model.Progress.RefreshProgress(System.String)
+  id: RefreshProgress(System.String)
+  parent: EasySave.Model.Progress
+  langs:
+  - csharp
+  - vb
+  name: RefreshProgress(String)
+  nameWithType: Progress.RefreshProgress(String)
+  fullName: EasySave.Model.Progress.RefreshProgress(System.String)
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/Output/DataFormat/Progress.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: RefreshProgress
+    path: Model/Output/DataFormat/Progress.cs
+    startLine: 40
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model
+  summary: "\nRefresh the progress object.\n"
+  example: []
+  syntax:
+    content: public Progress RefreshProgress(string fileInProgress)
+    parameters:
+    - id: fileInProgress
+      type: System.String
+    return:
+      type: EasySave.Model.Progress
+    content.vb: Public Function RefreshProgress(fileInProgress As String) As Progress
+  overload: EasySave.Model.Progress.RefreshProgress*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: EasySave.Model
+  commentId: N:EasySave.Model
+  name: EasySave.Model
+  nameWithType: EasySave.Model
+  fullName: EasySave.Model
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: EasySave.Model.Progress.Date*
+  commentId: Overload:EasySave.Model.Progress.Date
+  name: Date
+  nameWithType: Progress.Date
+  fullName: EasySave.Model.Progress.Date
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+- uid: EasySave.Model.Progress.FilesNumber*
+  commentId: Overload:EasySave.Model.Progress.FilesNumber
+  name: FilesNumber
+  nameWithType: Progress.FilesNumber
+  fullName: EasySave.Model.Progress.FilesNumber
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: EasySave.Model.Progress.TotalFilesSize*
+  commentId: Overload:EasySave.Model.Progress.TotalFilesSize
+  name: TotalFilesSize
+  nameWithType: Progress.TotalFilesSize
+  fullName: EasySave.Model.Progress.TotalFilesSize
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  name: Int64
+  nameWithType: Int64
+  fullName: System.Int64
+- uid: EasySave.Model.Progress.FilesDone*
+  commentId: Overload:EasySave.Model.Progress.FilesDone
+  name: FilesDone
+  nameWithType: Progress.FilesDone
+  fullName: EasySave.Model.Progress.FilesDone
+- uid: EasySave.Model.Progress.RemainingFiles*
+  commentId: Overload:EasySave.Model.Progress.RemainingFiles
+  name: RemainingFiles
+  nameWithType: Progress.RemainingFiles
+  fullName: EasySave.Model.Progress.RemainingFiles
+- uid: EasySave.Model.Progress.RemainingFilesSize*
+  commentId: Overload:EasySave.Model.Progress.RemainingFilesSize
+  name: RemainingFilesSize
+  nameWithType: Progress.RemainingFilesSize
+  fullName: EasySave.Model.Progress.RemainingFilesSize
+- uid: EasySave.Model.Progress.FileInProgress*
+  commentId: Overload:EasySave.Model.Progress.FileInProgress
+  name: FileInProgress
+  nameWithType: Progress.FileInProgress
+  fullName: EasySave.Model.Progress.FileInProgress
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: EasySave.Model.Progress.EncryptionTimeMs*
+  commentId: Overload:EasySave.Model.Progress.EncryptionTimeMs
+  name: EncryptionTimeMs
+  nameWithType: Progress.EncryptionTimeMs
+  fullName: EasySave.Model.Progress.EncryptionTimeMs
+- uid: EasySave.Model.Progress.FeedProgress*
+  commentId: Overload:EasySave.Model.Progress.FeedProgress
+  name: FeedProgress
+  nameWithType: Progress.FeedProgress
+  fullName: EasySave.Model.Progress.FeedProgress
+- uid: EasySave.Model.Progress.RefreshProgress*
+  commentId: Overload:EasySave.Model.Progress.RefreshProgress
+  name: RefreshProgress
+  nameWithType: Progress.RefreshProgress
+  fullName: EasySave.Model.Progress.RefreshProgress
+- uid: EasySave.Model.Progress
+  commentId: T:EasySave.Model.Progress
+  parent: EasySave.Model
+  name: Progress
+  nameWithType: Progress
+  fullName: EasySave.Model.Progress

@@ -1,0 +1,738 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Model.Output.Output
+  commentId: T:EasySave.Model.Output.Output
+  id: Output
+  parent: EasySave.Model.Output
+  children:
+  - EasySave.Model.Output.Output.#ctor
+  - EasySave.Model.Output.Output.CheckErpRunning
+  - EasySave.Model.Output.Output.Config
+  - EasySave.Model.Output.Output.Display
+  - EasySave.Model.Output.Output.Encrypt
+  - EasySave.Model.Output.Output.ErpBlacklist
+  - EasySave.Model.Output.Output.Logger
+  langs:
+  - csharp
+  - vb
+  name: Output
+  nameWithType: Output
+  fullName: EasySave.Model.Output.Output
+  type: Class
+  source:
+    remote:
+      path: EasySave/Model/Output/Output.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Output
+    path: Model/Output/Output.cs
+    startLine: 12
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Output
+  summary: "\nClass used to instanciate other classes that might output files\n"
+  example: []
+  syntax:
+    content: public class Output
+    content.vb: Public Class Output
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: EasySave.Model.Output.Output.ErpBlacklist
+  commentId: P:EasySave.Model.Output.Output.ErpBlacklist
+  id: ErpBlacklist
+  parent: EasySave.Model.Output.Output
+  langs:
+  - csharp
+  - vb
+  name: ErpBlacklist
+  nameWithType: Output.ErpBlacklist
+  fullName: EasySave.Model.Output.Output.ErpBlacklist
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/Output.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: ErpBlacklist
+    path: Model/Output/Output.cs
+    startLine: 14
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Output
+  syntax:
+    content: public List<string> ErpBlacklist { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property ErpBlacklist As List(Of String)
+  overload: EasySave.Model.Output.Output.ErpBlacklist*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Output.Output.Encrypt
+  commentId: P:EasySave.Model.Output.Output.Encrypt
+  id: Encrypt
+  parent: EasySave.Model.Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Encrypt
+  nameWithType: Output.Encrypt
+  fullName: EasySave.Model.Output.Output.Encrypt
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/Output.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Encrypt
+    path: Model/Output/Output.cs
+    startLine: 17
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Output
+  syntax:
+    content: public Encrypt Encrypt { get; }
+    parameters: []
+    return:
+      type: EasySave.Model.Output.Encrypt
+    content.vb: Public ReadOnly Property Encrypt As Encrypt
+  overload: EasySave.Model.Output.Output.Encrypt*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: EasySave.Model.Output.Output.Logger
+  commentId: P:EasySave.Model.Output.Output.Logger
+  id: Logger
+  parent: EasySave.Model.Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Logger
+  nameWithType: Output.Logger
+  fullName: EasySave.Model.Output.Output.Logger
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/Output.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Logger
+    path: Model/Output/Output.cs
+    startLine: 20
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Output
+  syntax:
+    content: public Logger Logger { get; }
+    parameters: []
+    return:
+      type: EasySave.Model.Output.Logger
+    content.vb: Public ReadOnly Property Logger As Logger
+  overload: EasySave.Model.Output.Output.Logger*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: EasySave.Model.Output.Output.Config
+  commentId: P:EasySave.Model.Output.Output.Config
+  id: Config
+  parent: EasySave.Model.Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Config
+  nameWithType: Output.Config
+  fullName: EasySave.Model.Output.Output.Config
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/Output.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Config
+    path: Model/Output/Output.cs
+    startLine: 21
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Output
+  syntax:
+    content: public Config Config { get; }
+    parameters: []
+    return:
+      type: EasySave.Model.Output.Config
+    content.vb: Public ReadOnly Property Config As Config
+  overload: EasySave.Model.Output.Output.Config*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: EasySave.Model.Output.Output.Display
+  commentId: P:EasySave.Model.Output.Output.Display
+  id: Display
+  parent: EasySave.Model.Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Display
+  nameWithType: Output.Display
+  fullName: EasySave.Model.Output.Output.Display
+  type: Property
+  source:
+    remote:
+      path: EasySave/Model/Output/Output.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Display
+    path: Model/Output/Output.cs
+    startLine: 24
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Output
+  syntax:
+    content: public Displayable Display { get; }
+    parameters: []
+    return:
+      type: EasySave.Model.Output.Displayable
+    content.vb: Public ReadOnly Property Display As Displayable
+  overload: EasySave.Model.Output.Output.Display*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: EasySave.Model.Output.Output.#ctor
+  commentId: M:EasySave.Model.Output.Output.#ctor
+  id: '#ctor'
+  parent: EasySave.Model.Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Output()
+  nameWithType: Output.Output()
+  fullName: EasySave.Model.Output.Output.Output()
+  type: Constructor
+  source:
+    remote:
+      path: EasySave/Model/Output/Output.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: .ctor
+    path: Model/Output/Output.cs
+    startLine: 29
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Output
+  summary: "\nOutput constructor \n"
+  example: []
+  syntax:
+    content: public Output()
+    content.vb: Public Sub New
+  overload: EasySave.Model.Output.Output.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: EasySave.Model.Output.Output.CheckErpRunning
+  commentId: M:EasySave.Model.Output.Output.CheckErpRunning
+  id: CheckErpRunning
+  parent: EasySave.Model.Output.Output
+  langs:
+  - csharp
+  - vb
+  name: CheckErpRunning()
+  nameWithType: Output.CheckErpRunning()
+  fullName: EasySave.Model.Output.Output.CheckErpRunning()
+  type: Method
+  source:
+    remote:
+      path: EasySave/Model/Output/Output.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: CheckErpRunning
+    path: Model/Output/Output.cs
+    startLine: 43
+  assemblies:
+  - EasySave
+  namespace: EasySave.Model.Output
+  summary: "\nCheck if another process is running\n"
+  example: []
+  syntax:
+    content: public void CheckErpRunning()
+    content.vb: Public Sub CheckErpRunning
+  overload: EasySave.Model.Output.Output.CheckErpRunning*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: EasySave.Model.Output
+  commentId: N:EasySave.Model.Output
+  name: EasySave.Model.Output
+  nameWithType: EasySave.Model.Output
+  fullName: EasySave.Model.Output
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: EasySave.Model.Output.Output.ErpBlacklist*
+  commentId: Overload:EasySave.Model.Output.Output.ErpBlacklist
+  name: ErpBlacklist
+  nameWithType: Output.ErpBlacklist
+  fullName: EasySave.Model.Output.Output.ErpBlacklist
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: EasySave.Model.Output.Output.Encrypt*
+  commentId: Overload:EasySave.Model.Output.Output.Encrypt
+  name: Encrypt
+  nameWithType: Output.Encrypt
+  fullName: EasySave.Model.Output.Output.Encrypt
+- uid: EasySave.Model.Output.Encrypt
+  commentId: T:EasySave.Model.Output.Encrypt
+  parent: EasySave.Model.Output
+  name: Encrypt
+  nameWithType: Encrypt
+  fullName: EasySave.Model.Output.Encrypt
+- uid: EasySave.Model.Output.Output.Logger*
+  commentId: Overload:EasySave.Model.Output.Output.Logger
+  name: Logger
+  nameWithType: Output.Logger
+  fullName: EasySave.Model.Output.Output.Logger
+- uid: EasySave.Model.Output.Logger
+  commentId: T:EasySave.Model.Output.Logger
+  parent: EasySave.Model.Output
+  name: Logger
+  nameWithType: Logger
+  fullName: EasySave.Model.Output.Logger
+- uid: EasySave.Model.Output.Output.Config*
+  commentId: Overload:EasySave.Model.Output.Output.Config
+  name: Config
+  nameWithType: Output.Config
+  fullName: EasySave.Model.Output.Output.Config
+- uid: EasySave.Model.Output.Config
+  commentId: T:EasySave.Model.Output.Config
+  parent: EasySave.Model.Output
+  name: Config
+  nameWithType: Config
+  fullName: EasySave.Model.Output.Config
+- uid: EasySave.Model.Output.Output.Display*
+  commentId: Overload:EasySave.Model.Output.Output.Display
+  name: Display
+  nameWithType: Output.Display
+  fullName: EasySave.Model.Output.Output.Display
+- uid: EasySave.Model.Output.Displayable
+  commentId: T:EasySave.Model.Output.Displayable
+  parent: EasySave.Model.Output
+  name: Displayable
+  nameWithType: Displayable
+  fullName: EasySave.Model.Output.Displayable
+- uid: EasySave.Model.Output.Output.#ctor*
+  commentId: Overload:EasySave.Model.Output.Output.#ctor
+  name: Output
+  nameWithType: Output.Output
+  fullName: EasySave.Model.Output.Output.Output
+- uid: EasySave.Model.Output.Output.CheckErpRunning*
+  commentId: Overload:EasySave.Model.Output.Output.CheckErpRunning
+  name: CheckErpRunning
+  nameWithType: Output.CheckErpRunning
+  fullName: EasySave.Model.Output.Output.CheckErpRunning

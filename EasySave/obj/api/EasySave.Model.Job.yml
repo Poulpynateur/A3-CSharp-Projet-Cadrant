@@ -1,0 +1,49 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Model.Job
+  commentId: N:EasySave.Model.Job
+  id: EasySave.Model.Job
+  children:
+  - EasySave.Model.Job.BaseJob
+  - EasySave.Model.Job.IJobManager
+  - EasySave.Model.Job.JobManager
+  - EasySave.Model.Job.Option
+  langs:
+  - csharp
+  - vb
+  name: EasySave.Model.Job
+  nameWithType: EasySave.Model.Job
+  fullName: EasySave.Model.Job
+  type: Namespace
+  assemblies:
+  - EasySave
+references:
+- uid: EasySave.Model.Job.BaseJob
+  commentId: T:EasySave.Model.Job.BaseJob
+  parent: EasySave.Model.Job
+  name: BaseJob
+  nameWithType: BaseJob
+  fullName: EasySave.Model.Job.BaseJob
+- uid: EasySave.Model.Job.IJobManager
+  commentId: T:EasySave.Model.Job.IJobManager
+  parent: EasySave.Model.Job
+  name: IJobManager
+  nameWithType: IJobManager
+  fullName: EasySave.Model.Job.IJobManager
+- uid: EasySave.Model.Job.JobManager
+  commentId: T:EasySave.Model.Job.JobManager
+  parent: EasySave.Model.Job
+  name: JobManager
+  nameWithType: JobManager
+  fullName: EasySave.Model.Job.JobManager
+- uid: EasySave.Model.Job.Option
+  commentId: T:EasySave.Model.Job.Option
+  parent: EasySave.Model.Job
+  name: Option
+  nameWithType: Option
+  fullName: EasySave.Model.Job.Option
+- uid: EasySave.Model.Job
+  commentId: N:EasySave.Model.Job
+  name: EasySave.Model.Job
+  nameWithType: EasySave.Model.Job
+  fullName: EasySave.Model.Job

@@ -1,0 +1,527 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.View.View
+  commentId: T:EasySave.View.View
+  id: View
+  parent: EasySave.View
+  children:
+  - EasySave.View.View.#ctor(EasySave.Model.IModel)
+  - EasySave.View.View.Start
+  - EasySave.View.View.Window
+  langs:
+  - csharp
+  - vb
+  name: View
+  nameWithType: View
+  fullName: EasySave.View.View
+  type: Class
+  source:
+    remote:
+      path: EasySave/View/View.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: View
+    path: View/View.cs
+    startLine: 11
+  assemblies:
+  - EasySave
+  namespace: EasySave.View
+  summary: "\nDisplay text to console and get inputs.\n"
+  example: []
+  syntax:
+    content: 'public class View : IView'
+    content.vb: >-
+      Public Class View
+          Implements IView
+  inheritance:
+  - System.Object
+  implements:
+  - EasySave.View.IView
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: EasySave.View.View.Window
+  commentId: P:EasySave.View.View.Window
+  id: Window
+  parent: EasySave.View.View
+  langs:
+  - csharp
+  - vb
+  name: Window
+  nameWithType: View.Window
+  fullName: EasySave.View.View.Window
+  type: Property
+  source:
+    remote:
+      path: EasySave/View/View.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Window
+    path: View/View.cs
+    startLine: 14
+  assemblies:
+  - EasySave
+  namespace: EasySave.View
+  syntax:
+    content: public IWindow Window { get; }
+    parameters: []
+    return:
+      type: EasySave.View.IWindow
+    content.vb: Public ReadOnly Property Window As IWindow
+  overload: EasySave.View.View.Window*
+  implements:
+  - EasySave.View.IView.Window
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: EasySave.View.View.#ctor(EasySave.Model.IModel)
+  commentId: M:EasySave.View.View.#ctor(EasySave.Model.IModel)
+  id: '#ctor(EasySave.Model.IModel)'
+  parent: EasySave.View.View
+  langs:
+  - csharp
+  - vb
+  name: View(IModel)
+  nameWithType: View.View(IModel)
+  fullName: EasySave.View.View.View(EasySave.Model.IModel)
+  type: Constructor
+  source:
+    remote:
+      path: EasySave/View/View.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: .ctor
+    path: View/View.cs
+    startLine: 16
+  assemblies:
+  - EasySave
+  namespace: EasySave.View
+  syntax:
+    content: public View(IModel model)
+    parameters:
+    - id: model
+      type: EasySave.Model.IModel
+    content.vb: Public Sub New(model As IModel)
+  overload: EasySave.View.View.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: EasySave.View.View.Start
+  commentId: M:EasySave.View.View.Start
+  id: Start
+  parent: EasySave.View.View
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: View.Start()
+  fullName: EasySave.View.View.Start()
+  type: Method
+  source:
+    remote:
+      path: EasySave/View/View.cs
+      branch: master
+      repo: https://dev.azure.com/Groupe5/Projet%20Cadrant%202019/_git/Projet%20Cadrant%202019
+    id: Start
+    path: View/View.cs
+    startLine: 25
+  assemblies:
+  - EasySave
+  namespace: EasySave.View
+  summary: "\nStart the view.\n"
+  example: []
+  syntax:
+    content: public void Start()
+    content.vb: Public Sub Start
+  overload: EasySave.View.View.Start*
+  implements:
+  - EasySave.View.IView.Start
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: EasySave.View
+  commentId: N:EasySave.View
+  name: EasySave.View
+  nameWithType: EasySave.View
+  fullName: EasySave.View
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: EasySave.View.IView
+  commentId: T:EasySave.View.IView
+  parent: EasySave.View
+  name: IView
+  nameWithType: IView
+  fullName: EasySave.View.IView
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: EasySave.View.View.Window*
+  commentId: Overload:EasySave.View.View.Window
+  name: Window
+  nameWithType: View.Window
+  fullName: EasySave.View.View.Window
+- uid: EasySave.View.IView.Window
+  commentId: P:EasySave.View.IView.Window
+  parent: EasySave.View.IView
+  name: Window
+  nameWithType: IView.Window
+  fullName: EasySave.View.IView.Window
+- uid: EasySave.View.IWindow
+  commentId: T:EasySave.View.IWindow
+  parent: EasySave.View
+  name: IWindow
+  nameWithType: IWindow
+  fullName: EasySave.View.IWindow
+- uid: EasySave.View.View.#ctor*
+  commentId: Overload:EasySave.View.View.#ctor
+  name: View
+  nameWithType: View.View
+  fullName: EasySave.View.View.View
+- uid: EasySave.Model.IModel
+  commentId: T:EasySave.Model.IModel
+  parent: EasySave.Model
+  name: IModel
+  nameWithType: IModel
+  fullName: EasySave.Model.IModel
+- uid: EasySave.Model
+  commentId: N:EasySave.Model
+  name: EasySave.Model
+  nameWithType: EasySave.Model
+  fullName: EasySave.Model
+- uid: EasySave.View.View.Start*
+  commentId: Overload:EasySave.View.View.Start
+  name: Start
+  nameWithType: View.Start
+  fullName: EasySave.View.View.Start
+- uid: EasySave.View.IView.Start
+  commentId: M:EasySave.View.IView.Start
+  parent: EasySave.View.IView
+  name: Start()
+  nameWithType: IView.Start()
+  fullName: EasySave.View.IView.Start()
+  spec.csharp:
+  - uid: EasySave.View.IView.Start
+    name: Start
+    nameWithType: IView.Start
+    fullName: EasySave.View.IView.Start
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: EasySave.View.IView.Start
+    name: Start
+    nameWithType: IView.Start
+    fullName: EasySave.View.IView.Start
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )

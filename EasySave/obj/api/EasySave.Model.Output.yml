@@ -1,0 +1,56 @@
+### YamlMime:ManagedReference
+items:
+- uid: EasySave.Model.Output
+  commentId: N:EasySave.Model.Output
+  id: EasySave.Model.Output
+  children:
+  - EasySave.Model.Output.Config
+  - EasySave.Model.Output.Displayable
+  - EasySave.Model.Output.Encrypt
+  - EasySave.Model.Output.Logger
+  - EasySave.Model.Output.Output
+  langs:
+  - csharp
+  - vb
+  name: EasySave.Model.Output
+  nameWithType: EasySave.Model.Output
+  fullName: EasySave.Model.Output
+  type: Namespace
+  assemblies:
+  - EasySave
+references:
+- uid: EasySave.Model.Output.Encrypt
+  commentId: T:EasySave.Model.Output.Encrypt
+  parent: EasySave.Model.Output
+  name: Encrypt
+  nameWithType: Encrypt
+  fullName: EasySave.Model.Output.Encrypt
+- uid: EasySave.Model.Output.Config
+  commentId: T:EasySave.Model.Output.Config
+  parent: EasySave.Model.Output
+  name: Config
+  nameWithType: Config
+  fullName: EasySave.Model.Output.Config
+- uid: EasySave.Model.Output.Displayable
+  commentId: T:EasySave.Model.Output.Displayable
+  parent: EasySave.Model.Output
+  name: Displayable
+  nameWithType: Displayable
+  fullName: EasySave.Model.Output.Displayable
+- uid: EasySave.Model.Output.Logger
+  commentId: T:EasySave.Model.Output.Logger
+  parent: EasySave.Model.Output
+  name: Logger
+  nameWithType: Logger
+  fullName: EasySave.Model.Output.Logger
+- uid: EasySave.Model.Output.Output
+  commentId: T:EasySave.Model.Output.Output
+  parent: EasySave.Model.Output
+  name: Output
+  nameWithType: Output
+  fullName: EasySave.Model.Output.Output
+- uid: EasySave.Model.Output
+  commentId: N:EasySave.Model.Output
+  name: EasySave.Model.Output
+  nameWithType: EasySave.Model.Output
+  fullName: EasySave.Model.Output
