@@ -1,6 +1,7 @@
 ﻿using EasySave.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,19 +21,21 @@ namespace EasySave.View
     /// </summary>
     public partial class ParamWindow : Window
     {
-        private IModel model;
+        private IData data;
+        private ParamEventHandler paramEvent;
 
         /// <summary>
         /// Initialize the parameters window (ERP blacklist and format of the files to encrypt)
         /// </summary>
         /// <param name="model"></param>
-        public ParamWindow(IModel model)
+        public ParamWindow(IData data, ParamEventHandler paramEvent)
         {
-            this.model = model;
+            this.paramEvent = paramEvent;
+            this.data = data;
             InitializeComponent();
-          
-            ErpList.Text = String.Join(";", model.GetErpBlacklist().ToArray());
-            EncryptFormat.Text = String.Join(";", model.GetEncryptFormat().ToArray());
+
+            ErpList.Text = string.Join(";", this.data.GetErpBlacklist().ToArray());
+            EncryptFormat.Text = string.Join(";", this.data.GetEncryptFormat().ToArray());
         }
 
         /// <summary>
@@ -47,8 +50,13 @@ namespace EasySave.View
             string[] erp = ErpList.Text.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             string[] encrypt = EncryptFormat.Text.Split(separator, StringSplitOptions.RemoveEmptyEntries);
 
-            model.SetEncryptFormat(encrypt.ToList());
-            model.SetErpBlacklist(erp.ToList());
+            Dictionary<string, List<string>> parameters = new Dictionary<string, List<string>>
+            {
+                { "ERP blacklist",  encrypt.ToList()},
+                { "Encrypt extensions", encrypt.ToList()}
+            };
+
+            paramEvent(parameters);
 
             this.Close();
         }

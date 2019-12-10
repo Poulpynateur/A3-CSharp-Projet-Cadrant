@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using EasySave.Helpers;
 using EasySave.Model;
+using EasySave.View.Composants;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace EasySave.View
@@ -18,7 +19,7 @@ namespace EasySave.View
     /// </summary>
     public partial class MainWindow : Window, IWindow
     {
-        private IModel model;
+        private IData data;
 
         private TaskWindow taskWindow;
         private ParamWindow paramWindow;
@@ -28,41 +29,20 @@ namespace EasySave.View
         /// </summary>
         public event QuickSaveEventHandler QuickSaveEvent;
         /// <summary>
-        /// Fired when we have task inputs, we pass then to the taskWindow.
+        /// Fired when we have task inputs.
         /// </summary>
-        public event TaskEventHandler TaskEvent
-        {
-            add { this.taskWindow.TaskEvent += value; }
-            remove { this.taskWindow.TaskEvent -= value; }
-        }
+        public event TaskEventHandler TaskEvent;
+        /// <summary>
+        /// Fired when we change parameters.
+        /// </summary>
+        public event ParamEventHandler ParamEvent;
 
-        public MainWindow(IModel model)
+        public MainWindow(IData data)
         {
-            this.model = model;
-            this.taskWindow = new TaskWindow();
-
-            //Hide the task popup then task event are fired
-            TaskEvent += (state, options) =>
-            {
-                taskWindow.Hide();
-            };
+            this.data = data;
 
             InitializeComponent();
             RefreshTaskList();
-        }
-
-        /// <summary>
-        /// On close event, close the sub windows.
-        /// </summary>
-        /// <param name="sender">MainWindow</param>
-        /// <param name="e">Cancel the event</param>
-        private void MainWindow_Closing(object sender, CancelEventArgs e)
-        {
-            taskWindow.parentClosing = true;
-            taskWindow.Close();
-
-            if (paramWindow != null && paramWindow.IsLoaded == true)
-                paramWindow.Close();
         }
 
         /// <summary>
@@ -72,7 +52,7 @@ namespace EasySave.View
         /// <param name="text">Text to write</param>
         public void DisplayText(Statut statut, string text)
         {
-            LogTextWrapper.Children.Add(new Log(statut, text));
+            LogTextWrapper.Children.Add(new Composants.Log(statut, text));
         }
 
         /// <summary>
@@ -110,10 +90,8 @@ namespace EasySave.View
         /// <param name="e">Cancel the event</param>
         private void BtnParam_Click(object sender, RoutedEventArgs e)
         {
-            if(paramWindow == null || paramWindow.IsLoaded == false)
-                paramWindow = new ParamWindow(model);
-
-            paramWindow.Show();
+            paramWindow = new ParamWindow(data, ParamEvent);
+            paramWindow.ShowDialog();
         }
     }
 }

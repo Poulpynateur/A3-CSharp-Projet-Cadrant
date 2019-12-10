@@ -34,7 +34,7 @@ namespace EasySave.Model.Output
 
             this.Display = new Displayable();
 
-            this.Encrypt = new Encrypt(Config.LoadCryptFormat());
+            this.Encrypt = new Encrypt(Config.LoadEncryptFormat());
             ErpBlacklist = Config.LoadErpBlackList();
         }
 

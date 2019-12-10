@@ -26,7 +26,7 @@ namespace EasySave.Model.Output
         /// </summary>
         public List<string> LoadErpBlackList()
         {
-            return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "ErpBlacklist.json")) ?? new List<string>();
+            return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "ERP blacklist.json")) ?? new List<string>();
         }
 
         /// <summary>
@@ -35,24 +35,24 @@ namespace EasySave.Model.Output
         /// <param name="erp">Entered list by the user</param>
         public void SaveErpBlackList(List<string> erp)
         {
-            JsonHelper.WriteJson(erp, Path.Combine(configPath, "ErpBlacklist.json"));
+            JsonHelper.WriteJson(erp, Path.Combine(configPath, "ERP blacklist.json"));
         }
 
         /// <summary>
         /// Load the crypt format of the tasks.
         /// </summary>
-        public List<string> LoadCryptFormat()
+        public List<string> LoadEncryptFormat()
         {
-            return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "CryptFormat.json")) ?? new List<string>();
+            return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "Encrypt extensions.json")) ?? new List<string>();
         }
 
         /// <summary>
         /// Save the crypt format of the task
         /// </summary>
         /// <param name="format">Entered crypt format by the user</param>
-        public void SaveCryptFormat(List<string> format)
+        public void SaveEncryptFormat(List<string> format)
         {
-            JsonHelper.WriteJson(format, Path.Combine(configPath, "CryptFormat.json"));
+            JsonHelper.WriteJson(format, Path.Combine(configPath, "Encrypt extensions.json"));
         }
 
         /// <summary>

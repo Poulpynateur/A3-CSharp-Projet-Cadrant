@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EasySave.View"
         mc:Ignorable="d"
         Title="Param"
-        Height="150" Width="500">
+        Height="160" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

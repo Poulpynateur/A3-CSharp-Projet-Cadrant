@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EasySave"
         mc:Ignorable="d"
         Title="MainWindow"
-        Closing="MainWindow_Closing" Height="542" Width="600">
+        Height="542" Width="600">
     <Grid>
 
         <Grid.RowDefinitions>

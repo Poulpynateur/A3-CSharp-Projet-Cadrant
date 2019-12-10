@@ -3,6 +3,7 @@ using EasySave.Model.Job;
 using EasySave.View;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace EasySave.Controller
 {
@@ -90,6 +91,15 @@ namespace EasySave.Controller
             ExecuteJob(job, options);
         }
 
+        private void HandleParam(Dictionary<string, List<string>> parameters)
+        {
+            if (parameters.ContainsKey("ERP blacklist"))
+                model.SetErpBlacklist(parameters["ERP blacklist"]);
+
+            if (parameters.ContainsKey("Encrypt extensions"))
+                model.SetEncryptFormat(parameters["encrypt extensions"]);
+        }
+
         /// <summary>
         /// Assign functions to the differents events.
         /// </summary>
@@ -97,6 +107,7 @@ namespace EasySave.Controller
         {
             view.Window.QuickSaveEvent += new QuickSaveEventHandler(HandleQuickSave);
             view.Window.TaskEvent += new TaskEventHandler(HandleTask);
+            view.Window.ParamEvent += new ParamEventHandler(HandleParam);
         }
 
         /// <summary>

@@ -21,32 +21,16 @@ namespace EasySave.View
     /// </summary>
     public partial class TaskWindow : Window
     {
-        public event TaskEventHandler TaskEvent;
-        public bool parentClosing { private get; set; }
+        private TaskEventHandler TaskEvent;
 
         /// <summary>
         /// Initialize the task window
         /// </summary>
-        public TaskWindow()
+        public TaskWindow(TaskEventHandler taskEvent)
         {
-            parentClosing = false;
+            this.TaskEvent = taskEvent;
             InitializeComponent();
         }
-
-        /// <summary>
-        /// Event when the task window is closing
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TaskWindow_Closing(object sender, CancelEventArgs e)
-        {
-            if (!parentClosing)
-            {
-                e.Cancel = true;
-                this.Hide();
-            }
-        }
-
 
         /// <summary>
         /// Get the path of the folder in the text box
@@ -101,24 +85,7 @@ namespace EasySave.View
             };
 
             TaskEvent(TaskAction.ADD, options);
-        }
-
-        /// <summary>
-        /// Remove the task 
-        /// </summary>
-        /// <param name="options"></param>
-        public void RemoveTask(Dictionary<string, string> options)
-        {
-            TaskEvent(TaskAction.REMOVE, options);
-        }
-
-        /// <summary>
-        /// Execute the task
-        /// </summary>
-        /// <param name="options"></param>
-        public void ExecuteTask(Dictionary<string, string> options)
-        {
-            TaskEvent(TaskAction.EXECUTE, options);
+            this.Close();
         }
     }
 

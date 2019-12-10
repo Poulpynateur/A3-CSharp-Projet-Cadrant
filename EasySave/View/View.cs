@@ -11,13 +11,13 @@ namespace EasySave.View
     /// </summary>
     public class View : IView
     {
-        private IModel model;
+        private IData data;
         public IWindow Window { get; private set; }
 
-        public View(IModel model)
+        public View(IData data)
         {
-            this.model = model;
-            Window = new MainWindow(model);
+            this.data = data;
+            Window = new MainWindow(data);
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace EasySave.View
         /// </summary>
         public void Start()
         {
-            this.model.GetDisplayable().DisplayUpdateEvent += Window.DisplayText;
+            this.data.GetDisplayable().DisplayUpdateEvent += Window.DisplayText;
             this.Window.Show();
         }
     }

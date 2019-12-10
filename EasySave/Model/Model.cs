@@ -63,7 +63,7 @@ namespace EasySave.Model
         public void SetEncryptFormat(List<string> format)
         {
             output.Encrypt.CryptFormat = format;
-            output.Config.SaveCryptFormat(format);
+            output.Config.SaveEncryptFormat(format);
         }
         public List<string> GetEncryptFormat()
         {

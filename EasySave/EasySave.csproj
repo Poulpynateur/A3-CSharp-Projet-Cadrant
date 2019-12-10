@@ -72,8 +72,9 @@
     <Compile Include="Helpers\Files\FilesHelper.cs" />
     <Compile Include="Helpers\Files\JsonHelper.cs" />
     <Compile Include="Helpers\IDisplayable.cs" />
+    <Compile Include="Model\IData.cs" />
     <Compile Include="Model\Output\Encrypt.cs" />
-    <Compile Include="View\Log.xaml.cs">
+    <Compile Include="View\Composants\Log.xaml.cs">
       <DependentUpon>Log.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\IModel.cs" />
@@ -109,7 +110,7 @@
     <Compile Include="View\TaskWindow.xaml.cs">
       <DependentUpon>TaskWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Log.xaml">
+    <Page Include="View\Composants\Log.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

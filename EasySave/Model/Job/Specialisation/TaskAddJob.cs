@@ -28,10 +28,6 @@ namespace EasySave.Model.Job.Specialisation
             };
         }
 
-        /// <summary>
-        /// Method checking the name when creating a task (can't be blank).
-        /// </summary>*
-        /// <param name="wantedName">Nammed task/param>
         private string GetUniqueName(string wantedName)
         {
             int i = 1;

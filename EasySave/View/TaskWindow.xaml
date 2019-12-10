@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasySave"
         mc:Ignorable="d"
-        Title="TaskWindow" Height="200" Width="500"
-        Closing="TaskWindow_Closing">
+        Title="TaskWindow" Height="200" Width="500">
     <Grid Margin="10,0" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>

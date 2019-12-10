@@ -15,7 +15,8 @@ namespace EasySave.View
     {
         private void BtnTaskAdd_Click(object sender, RoutedEventArgs e)
         {
-            taskWindow.Show();
+            taskWindow = new TaskWindow(TaskEvent);
+            taskWindow.ShowDialog();
         }
 
         /// <summary>
@@ -59,7 +60,7 @@ namespace EasySave.View
         /// <param name="e">Cancel the event</param>
         private void BtnTaskRemove_Click(object sender, RoutedEventArgs e)
         {
-            taskWindow.RemoveTask(GetSelectedTasks());
+            TaskEvent(TaskAction.REMOVE, GetSelectedTasks());
         }
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace EasySave.View
         /// <param name="e">Cancel the event</param>
         private void BtnTaskExecute_Click(object sender, RoutedEventArgs e)
         {
-            taskWindow.ExecuteTask(GetSelectedTasks());
+            TaskEvent(TaskAction.EXECUTE, GetSelectedTasks());
         }
     }
 }

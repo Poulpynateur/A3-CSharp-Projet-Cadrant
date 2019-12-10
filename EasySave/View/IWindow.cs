@@ -28,6 +28,7 @@ namespace EasySave.View
 
     public delegate void QuickSaveEventHandler(QuickSaveAction action, Dictionary<string, string> options);
     public delegate void TaskEventHandler(TaskAction action, Dictionary<string, string> options);
+    public delegate void ParamEventHandler(Dictionary<string, List<string>> parameters);
 
     /// <summary>
     /// Interface of the main window
@@ -36,6 +37,7 @@ namespace EasySave.View
     {
         event QuickSaveEventHandler QuickSaveEvent;
         event TaskEventHandler TaskEvent;
+        event ParamEventHandler ParamEvent;
 
         void Show();
         void DisplayText(Statut statut, string text);
