@@ -3,6 +3,7 @@ using EasySave.Model.Job;
 using EasySave.View;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 
 namespace EasySave.Controller
@@ -111,11 +112,23 @@ namespace EasySave.Controller
         }
 
         /// <summary>
-        /// Start the main programm.
+        /// Start the main programm. And check if another instance is up.
         /// </summary>
         public void Start()
         {
-            view.Start();
+            // Get the name of the current process and the array which contains the processes with the same name as the current process
+            string activeProcess = Process.GetCurrentProcess().ProcessName;
+            Process[] processes = Process.GetProcessesByName(activeProcess);
+            // Display a messagebox and exit the new app instance if there are multiple processes that goes with the same name as the current one
+            if (processes.Length > 1)
+            {
+                MessageBox.Show("Another instance of the app running", "Warning App Running", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Environment.Exit(0);
+            }
+            else
+            {
+                view.Start();
+            }
         }
     }
 }

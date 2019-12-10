@@ -25,7 +25,7 @@ namespace EasySave.View
         public void RefreshTaskList()
         {
             TaskList.Children.Clear();
-            foreach (Tuple<string, string> task in model.GetTasksNames())
+            foreach (Tuple<string, string> task in data.GetTasksNames())
             {
                 CheckBox checkBox = new CheckBox();
                 checkBox.Content = task.Item1;

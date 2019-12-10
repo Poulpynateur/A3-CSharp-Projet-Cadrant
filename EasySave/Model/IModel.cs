@@ -15,7 +15,6 @@ namespace EasySave.Model
         /// <param name="name">Name of the target</param>
         /// <returns>A command or null</returns>
         BaseJob GetJobByName(string name);
-        IEnumerable<Tuple<string, string>> GetTasksNames();
 
         void SetErpBlacklist(List<string> erp);
         void SetEncryptFormat(List<string> format);
