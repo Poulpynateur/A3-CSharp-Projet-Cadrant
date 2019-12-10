@@ -12,6 +12,9 @@ namespace EasySave.Model.Output
     /// </summary>
     public class Output
     {
+        private static readonly Lazy<Output> lazy = new Lazy<Output>(() => new Output());
+        public static Output Instance { get { return lazy.Value; } }
+
         public List<string> ErpBlacklist { get; set; }
         
         //Manage Encryption (currently call to an external programm)
@@ -27,7 +30,7 @@ namespace EasySave.Model.Output
         /// <summary>
         /// Output constructor 
         /// </summary>
-        public Output()
+        private Output()
         {
             this.Logger = new Logger();
             this.Config = new Config();

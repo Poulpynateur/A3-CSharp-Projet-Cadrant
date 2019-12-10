@@ -15,15 +15,9 @@ namespace EasySave.Model.Task
 
         public List<Task> Map { get; set; }
 
-        private static readonly Lazy<TaskManager> lazy = new Lazy<TaskManager>(() => new TaskManager());
-        public static TaskManager Instance { get { return lazy.Value; } }
-
-        private TaskManager()
-        { }
-
-        public void LoadTasks(Config config)
+        public TaskManager()
         {
-            this.config = config;
+            this.config = Output.Output.Instance.Config;
             Map = config.LoadTasks();
         }
 

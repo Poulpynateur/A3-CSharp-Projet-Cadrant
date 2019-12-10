@@ -41,7 +41,7 @@ namespace EasySave.Model.Job.Specialisation
             target = Path.Combine(target, name, FilesHelper.GenerateName("mirror"));
 
             progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
-            Output.Logger.WriteProgress(progress);
+            output.Logger.WriteProgress(progress);
 
             FilesHelper.CopyDirectoryTree(source, target);
             foreach (string newPath in files)
@@ -51,17 +51,17 @@ namespace EasySave.Model.Job.Specialisation
                 progress.RemainingFilesSize -= new FileInfo(newPath).Length;
 
                 File.Copy(newPath, newPath.Replace(source, target), true);
-                if (encrypt && Output.Encrypt.IsEncryptTarget(newPath))
+                if (encrypt && output.Encrypt.IsEncryptTarget(newPath))
                 {
-                    progress.EncryptionTimeMs = Output.Encrypt.EncryptFileCryptoSoft(newPath, newPath.Replace(source, target));
+                    progress.EncryptionTimeMs = output.Encrypt.EncryptFileCryptoSoft(newPath, newPath.Replace(source, target));
                     if (progress.EncryptionTimeMs < 0)
                         throw new Exception("Encryption error on " + newPath);
                 }
 
-                Output.Logger.WriteProgress(
+                output.Logger.WriteProgress(
                     progress.RefreshProgress(newPath)
                 );
-                Output.Display.DisplayText(Statut.INFO, newPath + " file copied.");
+                output.Display.DisplayText(Statut.INFO, newPath + " file copied.");
             }
 
             return progress.FilesDone;
@@ -74,7 +74,7 @@ namespace EasySave.Model.Job.Specialisation
         /// </summary>
         public override void Execute(Dictionary<string, string> options)
         {
-            Output.CheckErpRunning();
+            output.CheckErpRunning();
             this.CheckOptions(options);
 
             string name = options["name"];
@@ -87,7 +87,7 @@ namespace EasySave.Model.Job.Specialisation
             if(!Directory.Exists(target))
                 throw new Exception("Target folder doesn't exist : " + target);
 
-            Output.Display.DisplayText(
+            output.Display.DisplayText(
                 Statut.SUCCESS,
                 SaveFiles(name, source, target, encrypt) + " file(s) saved !"
             );

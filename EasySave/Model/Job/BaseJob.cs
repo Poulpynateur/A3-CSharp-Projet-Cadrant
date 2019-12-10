@@ -10,7 +10,7 @@ namespace EasySave.Model.Job
     /// </summary>
     public abstract class BaseJob
     {
-        public static Output.Output Output { get; set; }
+        protected Output.Output output;
 
         public Option Info { get; }
 
@@ -28,6 +28,7 @@ namespace EasySave.Model.Job
         /// <param name="description">Description of the command</param>
         public BaseJob(string name, string description)
         {
+            this.output = Output.Output.Instance;
             this.Info = new Option(name, description, "");
         }
 
