@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -41,6 +42,7 @@ namespace EasySave.View
 
         public MainWindow(IData data)
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.multilang = new Multilang();
             this.data = data;
 
@@ -59,6 +61,7 @@ namespace EasySave.View
             multilang.RefreshControlText(this, data);
         }
 
+
         /// <summary>
         /// Display log in LogTextWrapper.
         /// </summary>
@@ -66,7 +69,10 @@ namespace EasySave.View
         /// <param name="text">Text to write</param>
         public void DisplayText(Statut statut, string text)
         {
-            LogTextWrapper.Children.Add(new Composants.Log(statut, text));
+            Dispatcher.BeginInvoke(new ThreadStart(()=>
+            {
+                LogTextWrapper.Children.Add(new Composants.Log(statut, text));
+            }));
         }
 
         /// <summary>
@@ -104,16 +110,18 @@ namespace EasySave.View
         /// <param name="e">Cancel the event</param>
         private void BtnParam_Click(object sender, RoutedEventArgs e)
         {
+            this.IsEnabled = false;
             paramWindow = new ParamWindow(data, ParamEvent);
             multilang.RefreshControlText(paramWindow, data);
-            paramWindow.ShowDialog();
+            this.IsEnabled = true;
         }
 
         private void BtnTaskAdd_Click(object sender, RoutedEventArgs e)
         {
+            this.IsEnabled = false;
             taskWindow = new TaskWindow(TaskEvent);
             multilang.RefreshControlText(taskWindow, data);
-            taskWindow.ShowDialog();
+            this.IsEnabled = true;
         }
     }
 }

@@ -32,6 +32,7 @@ namespace EasySave.Model
         /// </summary>
         public void FeedProgress(int filesNumber, long totalFilesSize)
         {
+            EncryptionTimeMs = 0;
             Date = DateTime.Now;
             FilesNumber = filesNumber;
             TotalFilesSize = totalFilesSize;
@@ -44,11 +45,13 @@ namespace EasySave.Model
         /// <summary>
         /// Refresh the progress object.
         /// </summary>
-        public Progress RefreshProgress(string fileInProgress)
+        public Progress RefreshFileProgress(string fileInProgress, long fileSize)
         {
             Date = DateTime.Now;
+            FilesDone += 1;
             RemainingFiles = FilesNumber - FilesDone;
             FileInProgress = fileInProgress;
+            RemainingFilesSize -= fileSize;
 
             return this;
         }

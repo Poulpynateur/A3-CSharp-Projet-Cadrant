@@ -30,6 +30,8 @@ namespace EasySave.View
         {
             this.TaskEvent = taskEvent;
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            ShowDialog();
         }
 
         /// <summary>

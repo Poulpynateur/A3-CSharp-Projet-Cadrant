@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasySave"
         mc:Ignorable="d"
-        Title="TaskWindow" Height="200" Width="500">
+        Height="200" Width="500">
     <Grid Margin="10,0" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -35,15 +35,13 @@
                     Content="Choose" Tag="translatable" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center" Click="btnTaskTargetPath_Click"/>
 
         <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <RadioButton x:Name="RadioMirrorSave" IsChecked="True" VerticalAlignment="Center" Margin="10,8">
-                <Label Content="Mirror Save" Tag="translatable" />
-            </RadioButton>
-            <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">
-                <Label Content="Differencial Save" Tag="translatable" />
-            </RadioButton>
-            <CheckBox x:Name="TaskEncrypt" VerticalAlignment="Center" Margin="10,0">
-                <Label Content="Encrypt" Tag="translatable" />
-            </CheckBox>
+            <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4"  Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <Label VerticalAlignment="Center" Content="Mirror Save" Tag="translatable"/>
+
+            <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <Label VerticalAlignment="Center" Content="Differential Save" Tag="translatable"/>
+
+            <CheckBox x:Name="TaskEncrypt" VerticalAlignment="Center" Margin="10,0" Content="Encrypt" Tag="translatable"/>
             <Button x:Name="ExecuteTaskSave" Content="Save task" Tag="translatable" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteTaskSave_Click" />
         </StackPanel>
     </Grid>

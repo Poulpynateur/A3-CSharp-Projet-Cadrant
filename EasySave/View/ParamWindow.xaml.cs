@@ -33,6 +33,7 @@ namespace EasySave.View
         /// <param name="model"></param>
         public ParamWindow(IData data, ParamEventHandler paramEvent)
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.paramEvent = paramEvent;
             this.data = data;
             InitializeComponent();
@@ -48,6 +49,7 @@ namespace EasySave.View
                     IsSelected = (item == data.GetLang().LangActual)? true : false
                 });
             }
+            ShowDialog();
         }
 
         /// <summary>
@@ -79,12 +81,13 @@ namespace EasySave.View
 
         private void ErpBlacklistModify_Click(object sender, RoutedEventArgs e)
         {
+            this.IsEnabled = false;
             ParamContexteWindow param = new ParamContexteWindow(erpBlacklist, (result) =>
             {
                 BtnSave.IsEnabled = true;
                 erpBlacklist = result;
             });
-            param.ShowDialog();
+            this.IsEnabled = true;
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
