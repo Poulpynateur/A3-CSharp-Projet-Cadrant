@@ -21,30 +21,30 @@
         </Grid.RowDefinitions>
 
 
-        <Label Grid.Row="0" HorizontalAlignment="Right" Content="Task Name" Tag="translatable" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" HorizontalAlignment="Right" Content="Task Name" Tag="Task Name" VerticalAlignment="Center"/>
         <TextBox x:Name="TaskName" Grid.Row="0" Grid.Column="1" Height="25" Margin="10,0" VerticalContentAlignment="Center"/>
 
-        <Label Grid.Row="1" HorizontalAlignment="Right" Content="Source Path" Tag="translatable" VerticalAlignment="Center"/>
+        <Label Grid.Row="1" HorizontalAlignment="Right" Content="Source Path" Tag="Source Path" VerticalAlignment="Center"/>
         <TextBox x:Name="TaskSourcePath" Grid.Row="1" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
         <Button x:Name="btnTaskSourcePath" 
-                    Content="Choose" Tag="translatable" Grid.Row="1" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center" Click="btnTaskSourcePath_Click"/>
+                    Content="Choose" Tag="Choose" Grid.Row="1" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center" Click="btnTaskSourcePath_Click"/>
 
-        <Label Grid.Row="2" HorizontalAlignment="Right" Content="Target Path" Tag="translatable" VerticalAlignment="Center"/>
+        <Label Grid.Row="2" HorizontalAlignment="Right" Content="Target Path" Tag="Target Path" VerticalAlignment="Center"/>
         <TextBox x:Name="TaskTargetPath" Grid.Row="2" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
         <Button x:Name="btnTaskTargetPath" 
-                    Content="Choose" Tag="translatable" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center" Click="btnTaskTargetPath_Click"/>
+                    Content="Choose" Tag="Choose" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center" Click="btnTaskTargetPath_Click"/>
 
         <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
             <RadioButton x:Name="RadioMirrorSave" IsChecked="True" VerticalAlignment="Center" Margin="10,8">
-                <Label Content="Mirror Save" Tag="translatable" />
+                <Label Content="Mirror Save" Tag="Mirror Save" />
             </RadioButton>
             <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">
-                <Label Content="Differencial Save" Tag="translatable" />
+                <Label Content="Differencial Save" Tag="Differencial Save" />
             </RadioButton>
             <CheckBox x:Name="TaskEncrypt" VerticalAlignment="Center" Margin="10,0">
-                <Label Content="Encrypt" Tag="translatable" />
+                <Label Content="Encrypt" Tag="Encrypt" />
             </CheckBox>
-            <Button x:Name="ExecuteTaskSave" Content="Save task" Tag="translatable" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteTaskSave_Click" />
+            <Button x:Name="ExecuteTaskSave" Content="Save task" Tag="Save task" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteTaskSave_Click" />
         </StackPanel>
     </Grid>
 </Window>

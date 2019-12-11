@@ -19,12 +19,12 @@
             <RowDefinition Height="100" MaxHeight="100"/>
         </Grid.RowDefinitions>
 
-        <Label HorizontalAlignment="center" Content="EasySave" Tag="translatable" FontSize="45"/>
+        <Label HorizontalAlignment="center" Content="EasySave" Tag="EasySave" FontSize="45"/>
         <Button x:Name="BtnParam" Click="BtnParam_Click" BorderThickness="0" Background="Transparent" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
             <Image Source="../assets/Param.png" Height="30"></Image>
         </Button>
 
-        <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Quick Save" Tag="translatable" FontSize="25"/>
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Quick Save" Tag="Quick Save" FontSize="25"/>
         <Grid Grid.Row="2" Margin="10,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -40,32 +40,32 @@
             </Grid.RowDefinitions>
 
 
-            <Label Grid.Row="0" HorizontalAlignment="Right" Content="Save Name" Tag="translatable" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" HorizontalAlignment="Right" Content="Save Name" Tag="Save Name" VerticalAlignment="Center"/>
             <TextBox x:Name="QuickName" Grid.Row="0" Grid.Column="1" Height="25" Margin="10,0" VerticalContentAlignment="Center"/>
 
-            <Label Grid.Row="1" HorizontalAlignment="Right" Content="Source Path" Tag="translatable" VerticalAlignment="Center"/>
+            <Label Grid.Row="1" HorizontalAlignment="Right" Content="Source Path" Tag="Source Path" VerticalAlignment="Center"/>
             <TextBox x:Name="QuickSourcePath" Grid.Row="1" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
             <Button x:Name="btnQuickSourcePath" Click="BtnQuickSourcePath_Click"
-                    Content="Choose" Tag="translatable" Grid.Row="1" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
+                    Content="Choose" Tag="Choose" Grid.Row="1" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
 
-            <Label Grid.Row="2" HorizontalAlignment="Right" Content="Target Path" Tag="translatable" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" HorizontalAlignment="Right" Content="Target Path" Tag="Target Path" VerticalAlignment="Center"/>
             <TextBox x:Name="QuickTargetPath" Grid.Row="2" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
             <Button x:Name="btnQuickTargetPath" Click="BtnQuickTargetPath_Click"
-                    Content="Choose" Tag="translatable" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
+                    Content="Choose" Tag="Choose" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
                 <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">
-                    <Label Content="Mirror Save" Tag="translatable"/> </RadioButton>
+                    <Label Content="Mirror Save" Tag="Mirror save"/> </RadioButton>
                 <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">
-                    <Label Content="Differencial Save" Tag="translatable"/>
+                    <Label Content="Differencial Save" Tag="Differencial Save"/>
                 </RadioButton>
-                <CheckBox x:Name="QuickSaveEncrypt" VerticalAlignment="Center" Margin="10,0" Content="Encrypt" Tag="translatable"></CheckBox>
-                <Button x:Name="ExecuteQuickSave" Content="Execute quick save" Tag="translatable" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteQuickSave_Click"/>
+                <CheckBox x:Name="QuickSaveEncrypt" VerticalAlignment="Center" Margin="10,0" Content="Encrypt" Tag="Encrypt"></CheckBox>
+                <Button x:Name="ExecuteQuickSave" Content="Execute quick save" Tag="Execute quick save" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteQuickSave_Click"/>
             </StackPanel>
 
         </Grid>
 
-        <Label Grid.Row="3" Grid.ColumnSpan="2" Content="Task Manager" Tag="translatable" FontSize="25"/>
+        <Label Grid.Row="3" Grid.ColumnSpan="2" Content="Task Manager" Tag="Task Manager" FontSize="25"/>
         <Grid Grid.Row="4" Margin="10,0">
 
             <Grid.ColumnDefinitions>
@@ -81,9 +81,9 @@
             </Border>
 
             <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                <Button x:Name="BtnTaskExecute" Content="Execute" Tag="translatable" Height="25" Padding="10,0" Margin="0,0" Click="BtnTaskExecute_Click"/>
-                <Button x:Name="BtnTaskRemove" Content="Remove" Tag="translatable" Height="25" Padding="10,0" Margin="0,5" Click="BtnTaskRemove_Click"/>
-                <Button x:Name="BtnTaskAdd" Content="Add" Tag="translatable" Height="25" Padding="10,0" Click="BtnTaskAdd_Click"/>
+                <Button x:Name="BtnTaskExecute" Content="Execute" Tag="Execute" Height="25" Padding="10,0" Margin="0,0" Click="BtnTaskExecute_Click"/>
+                <Button x:Name="BtnTaskRemove" Content="Remove" Tag="Remove" Height="25" Padding="10,0" Margin="0,5" Click="BtnTaskRemove_Click"/>
+                <Button x:Name="BtnTaskAdd" Content="Add" Tag="Add" Height="25" Padding="10,0" Click="BtnTaskAdd_Click"/>
             </StackPanel>
             
         </Grid>
