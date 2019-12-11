@@ -74,7 +74,7 @@
     <Compile Include="Helpers\IDisplayable.cs" />
     <Compile Include="Model\IData.cs" />
     <Compile Include="Model\Output\Encrypt.cs" />
-    <Compile Include="Model\Output\Lang.cs" />
+    <Compile Include="Model\Output\ProgressSocket.cs" />
     <Compile Include="View\Composants\Log.xaml.cs">
       <DependentUpon>Log.xaml</DependentUpon>
     </Compile>
@@ -100,10 +100,6 @@
     <Compile Include="Model\Task\ITaskManager.cs" />
     <Compile Include="Model\Task\Task.cs" />
     <Compile Include="Model\Task\TaskManager.cs" />
-    <Compile Include="View\Composants\Multilang.cs" />
-    <Compile Include="View\Composants\ParamContexteWindow.xaml.cs">
-      <DependentUpon>ParamContexteWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\IView.cs" />
     <Compile Include="View\IWindow.cs" />
     <Compile Include="View\MainWindow.quicksave.xaml.cs" />
@@ -116,10 +112,6 @@
       <DependentUpon>TaskWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Composants\Log.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Composants\ParamContexteWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

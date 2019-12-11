@@ -13,7 +13,7 @@ namespace EasySave.Model.Output
     public class Logger
     {
         private const string FOLDER_NAME = "log";
-
+        private ProgressSocket progressSocket;
         private string logPath;
         private string progressPath;
 
