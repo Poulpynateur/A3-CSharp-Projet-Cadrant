@@ -31,12 +31,13 @@ namespace EasySave.View
         /// Initialize the parameters window (ERP blacklist and format of the files to encrypt)
         /// </summary>
         /// <param name="model"></param>
-        public ParamWindow(IData data, ParamEventHandler paramEvent)
+        public ParamWindow(IData data, Multilang multilang, ParamEventHandler paramEvent)
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            InitializeComponent();
+
             this.paramEvent = paramEvent;
             this.data = data;
-            InitializeComponent();
 
             erpBlacklist = this.data.GetErpBlacklist();
             encryptExtension = this.data.GetEncryptFormat();
@@ -49,7 +50,9 @@ namespace EasySave.View
                     IsSelected = (item == data.GetLang().LangActual)? true : false
                 });
             }
+
             ShowDialog();
+            multilang.RefreshControlText(this, data);
         }
 
         /// <summary>

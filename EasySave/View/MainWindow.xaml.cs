@@ -111,7 +111,7 @@ namespace EasySave.View
         private void BtnParam_Click(object sender, RoutedEventArgs e)
         {
             this.IsEnabled = false;
-            paramWindow = new ParamWindow(data, ParamEvent);
+            paramWindow = new ParamWindow(data, multilang, ParamEvent);
             multilang.RefreshControlText(paramWindow, data);
             this.IsEnabled = true;
         }
@@ -119,7 +119,7 @@ namespace EasySave.View
         private void BtnTaskAdd_Click(object sender, RoutedEventArgs e)
         {
             this.IsEnabled = false;
-            taskWindow = new TaskWindow(TaskEvent);
+            taskWindow = new TaskWindow(data, multilang, TaskEvent);
             multilang.RefreshControlText(taskWindow, data);
             this.IsEnabled = true;
         }

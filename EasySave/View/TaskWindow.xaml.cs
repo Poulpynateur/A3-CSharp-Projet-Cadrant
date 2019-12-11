@@ -1,4 +1,6 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
+﻿using EasySave.Model;
+using EasySave.View.Composants;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,12 +28,14 @@ namespace EasySave.View
         /// <summary>
         /// Initialize the task window
         /// </summary>
-        public TaskWindow(TaskEventHandler taskEvent)
+        public TaskWindow(IData data, Multilang multilang, TaskEventHandler taskEvent)
         {
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             this.TaskEvent = taskEvent;
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
             ShowDialog();
+            multilang.RefreshControlText(this, data);
         }
 
         /// <summary>
