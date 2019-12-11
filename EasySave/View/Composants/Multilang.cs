@@ -37,8 +37,7 @@ namespace EasySave.View.Composants
 
         public void RefreshControlText(DependencyObject target, IData data)
         {
-            string tagName = "translatable";
-            IEnumerable<ContentControl> elements = FindLogicalChildren<ContentControl>(target).Where(x => x.Tag != null && x.Tag.ToString() == tagName);
+            IEnumerable<ContentControl> elements = FindLogicalChildren<ContentControl>(target).Where(x => x.Tag != null);
 
             foreach (var element in elements)
             {

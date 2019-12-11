@@ -26,11 +26,13 @@ namespace EasySave.View.Composants
 
         public ParamContexteWindow(List<string> parameters, ResultParam result)
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.result = result;
             paramList = parameters;
             InitializeComponent();
 
             RefreshParam();
+            ShowDialog();
         }
         private void RefreshParam()
         {

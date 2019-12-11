@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EasySave.Model.Output
 {
@@ -19,7 +20,7 @@ namespace EasySave.Model.Output
             string[] separator = { ";" };
 
             this.text = text;
-           LangChoice = text["lang_parameters"]["avaible"].Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            LangChoice = text["lang_parameters"]["avaible"].Split(separator, StringSplitOptions.RemoveEmptyEntries);
             LangActual = LangChoice[0];
         }
 
@@ -28,9 +29,12 @@ namespace EasySave.Model.Output
             if (LangActual.Equals("eng"))
                 return target;
 
-            try {
+            try
+            {
                 return text[target][LangActual];
-            } catch {
+            }
+            catch
+            {
                 return target;
             }
         }

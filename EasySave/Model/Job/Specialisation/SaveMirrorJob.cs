@@ -28,6 +28,35 @@ namespace EasySave.Model.Job.Specialisation
             };
         }
 
+        private string[] InitiSave(string source)
+        {
+            string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
+
+            progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
+            output.Logger.WriteProgress(progress);
+
+            return files;
+        }
+
+        private void OutputDisplayAndLog(string newPath)
+        {
+            output.Logger.WriteProgress(
+                progress.RefreshFileProgress(newPath, new FileInfo(newPath).Length)
+            );
+            output.Display.DisplayText(Statut.INFO, newPath + " file copied.");
+        }
+
+        private void CopyTargetFile(string path, string newPath, bool encrypt)
+        {
+            File.Copy(path, newPath, true);
+            if (encrypt && output.Encrypt.IsEncryptTarget(path))
+            {
+                progress.EncryptionTimeMs = output.Encrypt.EncryptFileCryptoSoft(path, newPath);
+                if (progress.EncryptionTimeMs < 0)
+                    throw new Exception("Encryption error on " + path);
+            }
+        }
+
         /// <summary>
         /// Save files from a source folder to a target folder.
         /// </summary>
@@ -36,32 +65,19 @@ namespace EasySave.Model.Job.Specialisation
         /// <returns>Success message, otherwise throw an error</returns>
         private int SaveFiles(string name , string source, string target, bool encrypt)
         {
-            string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-
+            string[] files = InitiSave(source);
             target = Path.Combine(target, name, FilesHelper.GenerateName("mirror"));
 
-            progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
-            output.Logger.WriteProgress(progress);
+            //Boucle to check priority + progress here
+            //Barrier there
 
             FilesHelper.CopyDirectoryTree(source, target);
-            foreach (string newPath in files)
+            foreach (string path in files)
             {
-                progress.EncryptionTimeMs = 0;
-                progress.FilesDone += 1;
-                progress.RemainingFilesSize -= new FileInfo(newPath).Length;
-
-                File.Copy(newPath, newPath.Replace(source, target), true);
-                if (encrypt && output.Encrypt.IsEncryptTarget(newPath))
-                {
-                    progress.EncryptionTimeMs = output.Encrypt.EncryptFileCryptoSoft(newPath, newPath.Replace(source, target));
-                    if (progress.EncryptionTimeMs < 0)
-                        throw new Exception("Encryption error on " + newPath);
-                }
-
-                output.Logger.WriteProgress(
-                    progress.RefreshProgress(newPath)
-                );
-                output.Display.DisplayText(Statut.INFO, newPath + " file copied.");
+                //Monitor for disk
+                CopyTargetFile(path, path.Replace(source, target), encrypt);
+                //Monitor for output
+                OutputDisplayAndLog(path);
             }
 
             return progress.FilesDone;
