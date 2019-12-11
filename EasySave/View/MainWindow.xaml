@@ -40,24 +40,27 @@
             </Grid.RowDefinitions>
 
 
-            <TextBlock Grid.Row="0" HorizontalAlignment="Right" Text="Save Name" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" HorizontalAlignment="Right" Content="Save Name" Tag="translatable" VerticalAlignment="Center"/>
             <TextBox x:Name="QuickName" Grid.Row="0" Grid.Column="1" Height="25" Margin="10,0" VerticalContentAlignment="Center"/>
 
-            <TextBlock Grid.Row="1" HorizontalAlignment="Right" Text="Source Path" VerticalAlignment="Center"/>
+            <Label Grid.Row="1" HorizontalAlignment="Right" Content="Source Path" Tag="translatable" VerticalAlignment="Center"/>
             <TextBox x:Name="QuickSourcePath" Grid.Row="1" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
             <Button x:Name="btnQuickSourcePath" Click="BtnQuickSourcePath_Click"
-                    Content="Choose" Grid.Row="1" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
+                    Content="Choose" Tag="translatable" Grid.Row="1" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
 
-            <TextBlock Grid.Row="2" HorizontalAlignment="Right" Text="Target Path" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" HorizontalAlignment="Right" Content="Target Path" Tag="translatable" VerticalAlignment="Center"/>
             <TextBox x:Name="QuickTargetPath" Grid.Row="2" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
             <Button x:Name="btnQuickTargetPath" Click="BtnQuickTargetPath_Click"
-                    Content="Choose" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
+                    Content="Choose" Tag="translatable" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">Mirror Save</RadioButton>
-                <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">Differencial Save</RadioButton>
+                <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">
+                    <Label Content=" Mirror Save" Tag="translatable"/> </RadioButton>
+                <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">
+                    <Label Content="Differencial Save" Tag="translatable"/>
+                </RadioButton>
                 <CheckBox x:Name="QuickSaveEncrypt" VerticalAlignment="Center" Margin="10,0">Encrypt</CheckBox>
-                <Button x:Name="ExecuteQuickSave" Content="Execute quick save" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteQuickSave_Click"/>
+                <Button x:Name="ExecuteQuickSave" Content="Execute quick save" Tag="translatable" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteQuickSave_Click"/>
             </StackPanel>
 
         </Grid>
@@ -78,9 +81,9 @@
             </Border>
 
             <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                <Button x:Name="BtnTaskExecute" Content="Execute" Height="25" Padding="10,0" Margin="0,0" Click="BtnTaskExecute_Click"/>
-                <Button x:Name="BtnTaskRemove" Content="Remove" Height="25" Padding="10,0" Margin="0,5" Click="BtnTaskRemove_Click"/>
-                <Button x:Name="BtnTaskAdd" Content="Add" Height="25" Padding="10,0" Click="BtnTaskAdd_Click"/>
+                <Button x:Name="BtnTaskExecute" Content="Execute" Tag="translatable" Height="25" Padding="10,0" Margin="0,0" Click="BtnTaskExecute_Click"/>
+                <Button x:Name="BtnTaskRemove" Content="Remove" Tag="translatable" Height="25" Padding="10,0" Margin="0,5" Click="BtnTaskRemove_Click"/>
+                <Button x:Name="BtnTaskAdd" Content="Add" Tag="translatable" Height="25" Padding="10,0" Click="BtnTaskAdd_Click"/>
             </StackPanel>
             
         </Grid>
