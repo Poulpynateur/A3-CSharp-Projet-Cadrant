@@ -27,9 +27,11 @@ namespace EasySave.View
             TaskList.Children.Clear();
             foreach (Tuple<string, string> task in data.GetTasksNames())
             {
-                CheckBox checkBox = new CheckBox();
-                checkBox.Content = task.Item1;
-                checkBox.ToolTip = task.Item2;
+                CheckBox checkBox = new CheckBox
+                {
+                    Content = task.Item1,
+                    ToolTip = task.Item2
+                };
                 TaskList.Children.Add(checkBox);
             }
         }

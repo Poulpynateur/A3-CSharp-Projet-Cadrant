@@ -64,5 +64,10 @@ namespace EasySave.Model
         {
             return output.Encrypt.CryptFormat;
         }
+
+        public Lang GetLang()
+        {
+            return output.Lang;
+        }
     }
 }

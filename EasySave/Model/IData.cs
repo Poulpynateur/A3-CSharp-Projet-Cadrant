@@ -1,4 +1,5 @@
 ﻿using EasySave.Helpers;
+using EasySave.Model.Output;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace EasySave.Model
         IEnumerable<Tuple<string, string>> GetTasksNames();
         List<string> GetErpBlacklist();
         List<string> GetEncryptFormat();
+
+        Lang GetLang();
     }
 }

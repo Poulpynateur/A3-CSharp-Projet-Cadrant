@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:EasySave"
         mc:Ignorable="d"
         Title="MainWindow"
+        Loaded="OnLoad"
         Height="542" Width="600">
     <Grid>
 
@@ -18,12 +19,12 @@
             <RowDefinition Height="100" MaxHeight="100"/>
         </Grid.RowDefinitions>
 
-        <TextBlock HorizontalAlignment="center" Text="Easy Save" FontSize="45"/>
+        <Label HorizontalAlignment="center" Content="EasySave" Tag="translatable" FontSize="45"/>
         <Button x:Name="BtnParam" Click="BtnParam_Click" BorderThickness="0" Background="Transparent" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
             <Image Source="../assets/Param.png" Height="30"></Image>
         </Button>
 
-        <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Quick Save" FontSize="25"/>
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Quick Save" Tag="translatable" FontSize="25"/>
         <Grid Grid.Row="2" Margin="10,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>

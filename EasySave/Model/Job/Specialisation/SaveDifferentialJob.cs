@@ -44,7 +44,6 @@ namespace EasySave.Model.Job.Specialisation
             }
         }
 
-
         /// <summary>
         /// Save files from a source folder to a target folder.
         /// </summary>
@@ -76,7 +75,7 @@ namespace EasySave.Model.Job.Specialisation
                     {
                         progress.EncryptionTimeMs = output.Encrypt.EncryptFileCryptoSoft(newPath, newPath.Replace(source, target));
                         if (progress.EncryptionTimeMs < 0)
-                            throw new Exception("Encryption error on " + newPath);
+                            throw new Exception(output.Lang.Translate("Encryption error on ") + newPath);
                     }
 
                     fileHistory[newPath] = CalculateMD5(newPath);
@@ -85,7 +84,7 @@ namespace EasySave.Model.Job.Specialisation
                 output.Logger.WriteProgress(
                     progress.RefreshProgress(newPath)
                 );
-                output.Display.DisplayText(Statut.INFO, newPath + " file copied.");
+                output.Display.DisplayText(Statut.INFO, output.Lang.Translate("File copied : ") + newPath);
             }
 
             output.Config.SaveDiffSaveConfig(fileHistory, rootSavePath);
@@ -109,13 +108,13 @@ namespace EasySave.Model.Job.Specialisation
             string target = options["target"];
 
             if (!Directory.Exists(source))
-                throw new Exception("Source folder doesn't exist : " + source);
+                throw new Exception(output.Lang.Translate("Source folder doesn't exist : ") + source);
             if (!Directory.Exists(target))
-                throw new Exception("Target folder doesn't exist : " + target);
+                throw new Exception(output.Lang.Translate("Target folder doesn't exist : ") + target);
 
             output.Display.DisplayText(
                 Statut.SUCCESS,
-                SaveFiles(name, source, target, encrypt) + " file(s) saved !"
+                output.Lang.Translate("Number of saved file(s) : ") + SaveFiles(name, source, target, encrypt)
             );
         }
     }

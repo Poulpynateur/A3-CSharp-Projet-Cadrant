@@ -16,7 +16,10 @@ namespace EasySave.Model.Output
         public static Output Instance { get { return lazy.Value; } }
 
         public List<string> ErpBlacklist { get; set; }
-        
+
+        //Manage Lang
+        public Lang Lang { get; }
+
         //Manage Encryption (currently call to an external programm)
         public Encrypt Encrypt { get; }
 
@@ -34,6 +37,8 @@ namespace EasySave.Model.Output
         {
             this.Logger = new Logger();
             this.Config = new Config();
+
+            this.Lang = new Lang(Config.LoadLang());
 
             this.Display = new Displayable();
 

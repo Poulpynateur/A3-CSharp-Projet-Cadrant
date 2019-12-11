@@ -42,7 +42,49 @@ namespace EasySave.View
             this.data = data;
 
             InitializeComponent();
+
             RefreshTaskList();
+        }
+
+        private void OnLoad(object sender, RoutedEventArgs e)
+        {
+            RefreshControlText();
+        }
+
+        // https://stackoverflow.com/questions/974598/find-all-controls-in-wpf-window-by-type
+        public static IEnumerable<T> FindLogicalChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                foreach (object rawChild in LogicalTreeHelper.GetChildren(depObj))
+                {
+                    if (rawChild is DependencyObject)
+                    {
+                        DependencyObject child = (DependencyObject)rawChild;
+                        if (child is T)
+                        {
+                            yield return (T)child;
+                        }
+
+                        foreach (T childOfChild in FindLogicalChildren<T>(child))
+                        {
+                            yield return childOfChild;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        public void RefreshControlText()
+        {
+            string tagName = "translatable";
+            IEnumerable<ContentControl> elements = FindLogicalChildren<ContentControl>(this).Where(x => x.Tag != null && x.Tag.ToString() == tagName);
+
+            foreach (var element in elements)
+            {
+                element.Content = data.GetLang().Translate(element.Content.ToString());
+            }
         }
 
         /// <summary>
