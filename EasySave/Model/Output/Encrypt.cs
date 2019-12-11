@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasySave.Helpers.Files;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
@@ -33,9 +34,7 @@ namespace EasySave.Model.Output
         /// <returns>The file crypted format</returns>
         public bool IsEncryptTarget(string filePath)
         {
-            string[] separators = { "." };
-            string[] splits = filePath.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            string extension = splits[splits.Length - 1];
+            string extension = FilesHelper.GetFileExtension(filePath);
 
             if (CryptFormat.Find(format => format == extension) != null)
                 return true;

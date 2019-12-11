@@ -3,6 +3,7 @@ using EasySave.Helpers.Files;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 
 namespace EasySave.Model.Job.Specialisation
 {
@@ -90,6 +91,8 @@ namespace EasySave.Model.Job.Specialisation
         /// </summary>
         public override void Execute(Dictionary<string, string> options)
         {
+            //ThreadPool.
+
             output.CheckErpRunning();
             this.CheckOptions(options);
 

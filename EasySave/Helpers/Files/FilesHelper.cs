@@ -42,5 +42,12 @@ namespace EasySave.Helpers.Files
         {
             return files.Sum(f => new FileInfo(f).Length);
         }
+
+        public static string GetFileExtension(string path)
+        {
+            string[] separators = { "." };
+            string[] splits = path.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            return splits[splits.Length - 1];
+        }
     }
 }

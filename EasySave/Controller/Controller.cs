@@ -38,16 +38,14 @@ namespace EasySave.Controller
         /// <param name="options">Launch the task with his name as parameter</param>
         private void ExecuteJob(BaseJob job, Dictionary<string, string> options)
         {
-            ThreadPool.QueueUserWorkItem((jobLaunch) => {
-                try
-                {
-                    job.Execute(options);
-                }
-                catch (Exception e)
-                {
-                    view.Window.DisplayText(Helpers.Statut.ERROR, e.Message);
-                }
-            });
+            try
+            {
+                job.Execute(options);
+            }
+            catch (Exception e)
+            {
+                view.Window.DisplayText(Helpers.Statut.ERROR, e.Message);
+            }
         }
 
         /// <summary>

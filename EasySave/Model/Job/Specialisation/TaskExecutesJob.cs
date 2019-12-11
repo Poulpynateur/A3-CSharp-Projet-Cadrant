@@ -68,23 +68,14 @@ namespace EasySave.Model.Job.Specialisation
         {
             this.CheckOptions(options);
 
-            if (options["name"].Equals("*"))
-            {
-                foreach (Task.Task task in taskManager.Map)
-                {
-                    ExecuteTask(task);
-                }
-            }
-            else
-            {
-                string[] separators = { ";" };
-                string[] tasksNames = options["name"].Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            string[] separators = { ";" };
+            string[] tasksNames = options["name"].Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
-                foreach (var task in tasksNames)
-                {
-                    ExecuteTask(taskManager.GetTaskByName(task));
-                }
+            foreach (var task in tasksNames)
+            {
+                 ExecuteTask(taskManager.GetTaskByName(task));
             }
+            
         }
     }
 }

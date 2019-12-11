@@ -76,17 +76,18 @@ namespace EasySave.View
 
         private void EncryptFileModify_Click(object sender, RoutedEventArgs e)
         {
-            ParamContexteWindow param = new ParamContexteWindow(encryptExtension, (result)=>
+            this.IsEnabled = false;
+            new ParamContexteWindow(encryptExtension, (result)=>
             {
                 encryptExtension = result;
             });
-            param.ShowDialog();
+            this.IsEnabled = true;
         }
 
         private void ErpBlacklistModify_Click(object sender, RoutedEventArgs e)
         {
             this.IsEnabled = false;
-            ParamContexteWindow param = new ParamContexteWindow(erpBlacklist, (result) =>
+            new ParamContexteWindow(erpBlacklist, (result) =>
             {
                 BtnSave.IsEnabled = true;
                 erpBlacklist = result;
