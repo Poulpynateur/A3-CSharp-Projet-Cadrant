@@ -21,18 +21,18 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Encrypt file extension" Tag="translatable" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-        <Button x:Name="EncryptFileModify" Grid.Column="1" Margin="10,5" Padding="10,0" Click="EncryptFileModify_Click">Modify</Button>
+        <Button x:Name="EncryptFileModify" Grid.Column="1" Margin="10,5" Content="Modify" Tag="translatable" Padding="10,0" Click="EncryptFileModify_Click"></Button>
 
         <Label Grid.Row="1" Content="ERP blacklist" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-        <Button x:Name="ErpBlacklistModify" Grid.Row="1" Grid.Column="1" Margin="10,5" Padding="10,0" Click="ErpBlacklistModify_Click">Modify</Button>
+        <Button x:Name="ErpBlacklistModify" Grid.Row="1" Grid.Column="1" Margin="10,5" Content="Modify" Tag="translatable" Padding="10,0" Click="ErpBlacklistModify_Click"></Button>
 
-        <Label Grid.Row="2" Content="Language" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
+        <Label Grid.Row="2" Content="Language" Tag="translatable" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
         <ComboBox x:Name="LangChoice" Grid.Row="2" Grid.Column="1" Margin="10,5">
         </ComboBox>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
-            <Button x:Name="BtnSave" Margin="10,5" Width="60" Click="BtnSave_Click">Save</Button>
-            <Button x:Name="BtnCancel" Margin="10,5" Width="60" Click="BtnCancel_Click" >Cancel</Button>
+            <Button x:Name="BtnSave" Margin="10,5" Width="60" Content="Save" Tag="translatable" Click="BtnSave_Click"></Button>
+            <Button x:Name="BtnCancel" Margin="10,5" Width="60" Content="Cancel" Tag="translatable" Click="BtnCancel_Click" ></Button>
         </StackPanel>
         
     </Grid>

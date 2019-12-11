@@ -19,7 +19,7 @@ namespace EasySave.Model.Output
             string[] separator = { ";" };
 
             this.text = text;
-            LangChoice = text["lang_parameters"]["avaible"].Split(separator, StringSplitOptions.RemoveEmptyEntries);
+           LangChoice = text["lang_parameters"]["avaible"].Split(separator, StringSplitOptions.RemoveEmptyEntries);
             LangActual = LangChoice[0];
         }
 
