@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow"
         Loaded="OnLoad"
-        Height="542" Width="600">
+        Height="542" Width="700">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -54,11 +54,11 @@
                     Content="Choose" Tag="Choose" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">
-                    <Label Content="Mirror Save" Tag="Mirror save"/> </RadioButton>
-                <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0">
-                    <Label Content="Differencial Save" Tag="Differencial Save"/>
-                </RadioButton>
+                <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0,0,0"></RadioButton>
+                    <Label Content="Mirror Save" VerticalAlignment="Center" Tag="Mirror save"/>
+                <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0,0,0"></RadioButton>
+                <Label Content="Differencial Save" VerticalAlignment="Center" Tag="Differencial Save"/>
+                
                 <CheckBox x:Name="QuickSaveEncrypt" VerticalAlignment="Center" Margin="10,0" Content="Encrypt" Tag="Encrypt"></CheckBox>
                 <Button x:Name="ExecuteQuickSave" Content="Execute quick save" Tag="Execute quick save" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteQuickSave_Click"/>
             </StackPanel>

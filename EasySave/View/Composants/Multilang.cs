@@ -41,7 +41,7 @@ namespace EasySave.View.Composants
 
             foreach (var element in elements)
             {
-                element.Content = data.GetLang().Translate(element.Content.ToString());
+                element.Content = data.GetLang().Translate(element.Tag.ToString());
             }
         }
     }

@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:EasySave.View"
         mc:Ignorable="d"
         Title="Param"
-        Height="160" Width="320
-        ">
+        Height="160" Width="320"
+        Loaded="Window_Loaded">
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition/>

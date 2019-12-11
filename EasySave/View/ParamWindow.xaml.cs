@@ -23,6 +23,7 @@ namespace EasySave.View
     public partial class ParamWindow : Window
     {
         private IData data;
+        private Multilang multilang;
         private ParamEventHandler paramEvent;
 
         private List<string> erpBlacklist;
@@ -36,6 +37,7 @@ namespace EasySave.View
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
+            this.multilang = multilang;
             this.paramEvent = paramEvent;
             this.data = data;
 
@@ -52,7 +54,6 @@ namespace EasySave.View
             }
 
             ShowDialog();
-            multilang.RefreshControlText(this, data);
         }
 
         /// <summary>
@@ -96,6 +97,11 @@ namespace EasySave.View
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            multilang.RefreshControlText(this, data);
         }
     }
 }

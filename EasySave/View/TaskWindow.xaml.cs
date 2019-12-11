@@ -23,6 +23,8 @@ namespace EasySave.View
     /// </summary>
     public partial class TaskWindow : Window
     {
+        private IData data;
+        private Multilang multilang;
         private TaskEventHandler TaskEvent;
 
         /// <summary>
@@ -31,11 +33,12 @@ namespace EasySave.View
         public TaskWindow(IData data, Multilang multilang, TaskEventHandler taskEvent)
         {
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            this.data = data;
+            this.multilang = multilang;
             this.TaskEvent = taskEvent;
             InitializeComponent();
 
             ShowDialog();
-            multilang.RefreshControlText(this, data);
         }
 
         /// <summary>
@@ -92,6 +95,11 @@ namespace EasySave.View
 
             TaskEvent(TaskAction.ADD, options);
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            multilang.RefreshControlText(this, data);
         }
     }
 
