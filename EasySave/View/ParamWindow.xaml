@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:EasySave.View"
         mc:Ignorable="d"
         Title="Param"
-        Height="160" Width="500">
-    <Grid>
+        Height="160" Width="320
+        ">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -16,17 +17,23 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Content="List the parameters separated by ';' without space" FontSize="14" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Foreground="Gray" HorizontalAlignment="Right" Margin="10,0"/>
+        <Label Content="Encrypt file extension" Tag="translatable" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
+        <Button x:Name="EncryptFileModify" Grid.Column="1" Margin="10,5" Padding="10,0" Click="EncryptFileModify_Click">Modify</Button>
+
+        <Label Grid.Row="1" Content="ERP blacklist" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
+        <Button x:Name="ErpBlacklistModify" Grid.Row="1" Grid.Column="1" Margin="10,5" Padding="10,0" Click="ErpBlacklistModify_Click">Modify</Button>
+
+        <Label Grid.Row="2" Content="Language" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
+        <ComboBox x:Name="LangChoice" Grid.Row="2" Grid.Column="1" Margin="10,5">
+        </ComboBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Button x:Name="BtnSave" Margin="10,5" Width="60" Click="BtnSave_Click">Save</Button>
+            <Button x:Name="BtnCancel" Margin="10,5" Width="60" Click="BtnCancel_Click" >Cancel</Button>
+        </StackPanel>
         
-        <Label Grid.Row="1" Content="Encrypt file extension" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox x:Name="EncryptFormat" Grid.Row="1" Grid.Column="1" Height="25" Margin="10,0" VerticalContentAlignment="Center"/>
-
-        <Label Grid.Row="2" Content="ERP programs blacklist" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox x:Name="ErpList" Grid.Row="2" Grid.Column="1" Height="25" Margin="10,0" VerticalContentAlignment="Center"/>
-
-        <Button x:Name="BtnSave" Grid.Row="3" Grid.ColumnSpan="2" Margin="10,5" Width="60" HorizontalAlignment="Right" Click="BtnSave_Click">Save</Button>
     </Grid>
 </Window>

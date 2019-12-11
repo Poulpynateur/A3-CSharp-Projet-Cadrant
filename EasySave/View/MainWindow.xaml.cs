@@ -21,6 +21,8 @@ namespace EasySave.View
     {
         private IData data;
 
+        private Multilang multilang;
+
         private TaskWindow taskWindow;
         private ParamWindow paramWindow;
         
@@ -39,6 +41,7 @@ namespace EasySave.View
 
         public MainWindow(IData data)
         {
+            this.multilang = new Multilang();
             this.data = data;
 
             InitializeComponent();
@@ -48,43 +51,12 @@ namespace EasySave.View
 
         private void OnLoad(object sender, RoutedEventArgs e)
         {
-            RefreshControlText();
+            multilang.RefreshControlText(this, data);
         }
-
-        // https://stackoverflow.com/questions/974598/find-all-controls-in-wpf-window-by-type
-        public static IEnumerable<T> FindLogicalChildren<T>(DependencyObject depObj) where T : DependencyObject
-        {
-            if (depObj != null)
-            {
-                foreach (object rawChild in LogicalTreeHelper.GetChildren(depObj))
-                {
-                    if (rawChild is DependencyObject)
-                    {
-                        DependencyObject child = (DependencyObject)rawChild;
-                        if (child is T)
-                        {
-                            yield return (T)child;
-                        }
-
-                        foreach (T childOfChild in FindLogicalChildren<T>(child))
-                        {
-                            yield return childOfChild;
-                        }
-                    }
-                }
-            }
-        }
-
 
         public void RefreshControlText()
         {
-            string tagName = "translatable";
-            IEnumerable<ContentControl> elements = FindLogicalChildren<ContentControl>(this).Where(x => x.Tag != null && x.Tag.ToString() == tagName);
-
-            foreach (var element in elements)
-            {
-                element.Content = data.GetLang().Translate(element.Content.ToString());
-            }
+            multilang.RefreshControlText(this, data);
         }
 
         /// <summary>
@@ -133,7 +105,15 @@ namespace EasySave.View
         private void BtnParam_Click(object sender, RoutedEventArgs e)
         {
             paramWindow = new ParamWindow(data, ParamEvent);
+            multilang.RefreshControlText(paramWindow, data);
             paramWindow.ShowDialog();
+        }
+
+        private void BtnTaskAdd_Click(object sender, RoutedEventArgs e)
+        {
+            taskWindow = new TaskWindow(TaskEvent);
+            multilang.RefreshControlText(taskWindow, data);
+            taskWindow.ShowDialog();
         }
     }
 }

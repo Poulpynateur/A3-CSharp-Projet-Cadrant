@@ -13,12 +13,6 @@ namespace EasySave.View
     /// </summary>
     public partial class MainWindow
     {
-        private void BtnTaskAdd_Click(object sender, RoutedEventArgs e)
-        {
-            taskWindow = new TaskWindow(TaskEvent);
-            taskWindow.ShowDialog();
-        }
-
         /// <summary>
         /// Get the list of task from model and display then.
         /// </summary>

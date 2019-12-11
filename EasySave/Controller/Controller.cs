@@ -4,6 +4,7 @@ using EasySave.View;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 
 namespace EasySave.Controller
@@ -98,7 +99,13 @@ namespace EasySave.Controller
                 model.SetErpBlacklist(parameters["ERP blacklist"]);
 
             if (parameters.ContainsKey("Encrypt extensions"))
-                model.SetEncryptFormat(parameters["encrypt extensions"]);
+                model.SetEncryptFormat(parameters["Encrypt extensions"]);
+
+            if (parameters.ContainsKey("Language"))
+            {
+                model.GetLang().LangActual = parameters["Language"].First();
+                view.Window.RefreshControlText();
+            }
         }
 
         /// <summary>
