@@ -12,9 +12,13 @@ namespace EasySave.Model.Output
     /// </summary>
     public class Output
     {
+        private static readonly Lazy<Output> lazy = new Lazy<Output>(() => new Output());
+        public static Output Instance { get { return lazy.Value; } }
+
         public List<string> ErpBlacklist { get; set; }
-        
-        public ProgressSocket ProgressSocket { get; }
+
+        //Manage Lang
+        public Lang Lang { get; }
 
         //Manage Encryption (currently call to an external programm)
         public Encrypt Encrypt { get; }
@@ -29,10 +33,12 @@ namespace EasySave.Model.Output
         /// <summary>
         /// Output constructor 
         /// </summary>
-        public Output()
+        private Output()
         {
             this.Logger = new Logger();
             this.Config = new Config();
+
+            this.Lang = new Lang(Config.LoadLang());
 
             this.Display = new Displayable();
 

@@ -2,7 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Windows;
+
+
 
 namespace EasySave.Model.Output
 {
@@ -11,6 +15,7 @@ namespace EasySave.Model.Output
     /// </summary>
     public class Config
     {
+
         private const string FOLDER_NAME = "config";
         private string configPath;
 
@@ -91,6 +96,11 @@ namespace EasySave.Model.Output
         public void SaveTasks(List<Task.Task> tasks)
         {
             JsonHelper.WriteJson(tasks, Path.Combine(configPath, "tasks.json"));
+        }
+
+        public LangFormat LoadLang()
+        {
+            return JsonHelper.ReadJson<LangFormat>(Path.Combine(configPath, "lang.json")) ?? new LangFormat();
         }
     }
 }

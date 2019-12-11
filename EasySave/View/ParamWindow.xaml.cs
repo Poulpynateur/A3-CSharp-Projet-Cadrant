@@ -1,4 +1,5 @@
 ﻿using EasySave.Model;
+using EasySave.View.Composants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,8 @@ namespace EasySave.View
         private IData data;
         private ParamEventHandler paramEvent;
 
+        private List<string> erpBlacklist;
+        private List<string> encryptExtension;
         /// <summary>
         /// Initialize the parameters window (ERP blacklist and format of the files to encrypt)
         /// </summary>
@@ -34,8 +37,17 @@ namespace EasySave.View
             this.data = data;
             InitializeComponent();
 
-            ErpList.Text = string.Join(";", this.data.GetErpBlacklist().ToArray());
-            EncryptFormat.Text = string.Join(";", this.data.GetEncryptFormat().ToArray());
+            erpBlacklist = this.data.GetErpBlacklist();
+            encryptExtension = this.data.GetEncryptFormat();
+
+            foreach (var item in data.GetLang().LangChoice)
+            {
+                LangChoice.Items.Add(new ComboBoxItem
+                {
+                    Content = item,
+                    IsSelected = (item == data.GetLang().LangActual)? true : false
+                });
+            }
         }
 
         /// <summary>
@@ -45,19 +57,38 @@ namespace EasySave.View
         /// <param name="e"></param>
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            string[] separator = { ";" };
+            paramEvent(new Dictionary<string, List<string>>
+                {
+                    {"ERP blacklist", erpBlacklist },
+                    {"Encrypt extensions", encryptExtension },
+                    {"Language", new List<string> {
+                        LangChoice.Text
+                    }}
+                });
+            this.Close();
+        }
 
-            string[] erp = ErpList.Text.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            string[] encrypt = EncryptFormat.Text.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-
-            Dictionary<string, List<string>> parameters = new Dictionary<string, List<string>>
+        private void EncryptFileModify_Click(object sender, RoutedEventArgs e)
+        {
+            ParamContexteWindow param = new ParamContexteWindow(encryptExtension, (result)=>
             {
-                { "ERP blacklist",  encrypt.ToList()},
-                { "Encrypt extensions", encrypt.ToList()}
-            };
+                encryptExtension = result;
+            });
+            param.ShowDialog();
+        }
 
-            paramEvent(parameters);
+        private void ErpBlacklistModify_Click(object sender, RoutedEventArgs e)
+        {
+            ParamContexteWindow param = new ParamContexteWindow(erpBlacklist, (result) =>
+            {
+                BtnSave.IsEnabled = true;
+                erpBlacklist = result;
+            });
+            param.ShowDialog();
+        }
 
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

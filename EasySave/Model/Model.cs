@@ -15,20 +15,15 @@ namespace EasySave.Model
     public class Model : IModel
     {
         private Output.Output output;
-
         private JobManager jobs;
         private TaskManager tasks;
 
         public Model()
         {
-            this.output = new Output.Output();
+            this.output = Output.Output.Instance;
 
-            this.tasks = TaskManager.Instance;
-            tasks.LoadTasks(output.Config);
-
-            this.jobs = JobManager.Instance;
-            this.jobs.SetOutput(output);
-            jobs.LoadJobs(tasks);
+            this.tasks = new TaskManager();
+            this.jobs = new JobManager(tasks);
         }
 
         /// <summary>
@@ -68,6 +63,11 @@ namespace EasySave.Model
         public List<string> GetEncryptFormat()
         {
             return output.Encrypt.CryptFormat;
+        }
+
+        public Lang GetLang()
+        {
+            return output.Lang;
         }
     }
 }

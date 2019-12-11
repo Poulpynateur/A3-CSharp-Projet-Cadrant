@@ -16,29 +16,10 @@ namespace EasySave.Model.Job
         /// </summary>
         public List<BaseJob> Map { get; }
 
-        private static readonly Lazy<JobManager> lazy = new Lazy<JobManager>(() => new JobManager());
-        /// <summary>
-        /// Singleton instance.
-        /// </summary>
-        public static JobManager Instance { get { return lazy.Value; } }
+        public JobManager(ITaskManager taskManager)
+        {
+            this.Map = new List<BaseJob>();
 
-        private JobManager()
-        {
-            Map = new List<BaseJob>();
-        }
-
-        public void SetOutput(Output.Output output)
-        {
-            BaseJob.Output = output;
-        }
-        
-        /// <summary>
-        /// Load all the commands into a list.
-        /// </summary>
-        /// <param name="taskManager">Task manager to pass to commands that interact with tasks</param>
-        /// <param name="logger">Used to log informations</param>
-        public void LoadJobs(ITaskManager taskManager)
-        {
             Map.Add(new HelpJob(this));
 
             //Task management

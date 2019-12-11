@@ -15,15 +15,9 @@ namespace EasySave.Model.Task
 
         public List<Task> Map { get; set; }
 
-        private static readonly Lazy<TaskManager> lazy = new Lazy<TaskManager>(() => new TaskManager());
-        public static TaskManager Instance { get { return lazy.Value; } }
-
-        private TaskManager()
-        { }
-
-        public void LoadTasks(Config config)
+        public TaskManager()
         {
-            this.config = config;
+            this.config = Output.Output.Instance.Config;
             Map = config.LoadTasks();
         }
 
@@ -35,11 +29,13 @@ namespace EasySave.Model.Task
         /// <param name="options">Options of the command of the task</param>
         public void AddTask(string taskName, string cmdName, Dictionary<string, string> options)
         {
-            Task task = new Task();
-            task.CreatedAt = DateTime.Now;
-            task.Name = taskName;
-            task.JobName = cmdName;
-            task.Options = options;
+            Task task = new Task
+            {
+                CreatedAt = DateTime.Now,
+                Name = taskName,
+                JobName = cmdName,
+                Options = options
+            };
             Map.Add(task);
 
             config.SaveTasks(Map);

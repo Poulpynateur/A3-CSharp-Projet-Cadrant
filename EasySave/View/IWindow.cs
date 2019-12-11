@@ -41,6 +41,7 @@ namespace EasySave.View
 
         void Show();
         void DisplayText(Statut statut, string text);
+        void RefreshControlText();
         void RefreshTaskList();
     }
 }

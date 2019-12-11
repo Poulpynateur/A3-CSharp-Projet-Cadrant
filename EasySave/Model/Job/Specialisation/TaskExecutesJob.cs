@@ -37,7 +37,7 @@ namespace EasySave.Model.Job.Specialisation
         private void ExecuteTask(Task.Task task)
         {
             DateTime start = DateTime.Now;
-            Output.Display.DisplayText(Statut.INFO, "Execute task '" + task.Name + "' :");
+            output.Display.DisplayText(Statut.INFO, "Execute task '" + task.Name + "' :");
             try
             {
                 string[] files = Directory.GetFiles(task.Options["source"], "*", SearchOption.AllDirectories);
@@ -52,11 +52,11 @@ namespace EasySave.Model.Job.Specialisation
                     DateTime.Now - start
                 );
 
-                Output.Logger.WriteLog(log);
+                output.Logger.WriteLog(log);
             }
             catch (Exception e)
             {
-                Output.Display.DisplayText(Statut.WARNING, "Task '" + task.Name + "' fail : " + e.Message);
+                output.Display.DisplayText(Statut.WARNING, "Task '" + task.Name + "' fail : " + e.Message);
             }
         }
 

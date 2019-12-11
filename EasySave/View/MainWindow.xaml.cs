@@ -21,6 +21,8 @@ namespace EasySave.View
     {
         private IData data;
 
+        private Multilang multilang;
+
         private TaskWindow taskWindow;
         private ParamWindow paramWindow;
         
@@ -39,10 +41,22 @@ namespace EasySave.View
 
         public MainWindow(IData data)
         {
+            this.multilang = new Multilang();
             this.data = data;
 
             InitializeComponent();
+
             RefreshTaskList();
+        }
+
+        private void OnLoad(object sender, RoutedEventArgs e)
+        {
+            multilang.RefreshControlText(this, data);
+        }
+
+        public void RefreshControlText()
+        {
+            multilang.RefreshControlText(this, data);
         }
 
         /// <summary>
@@ -91,7 +105,15 @@ namespace EasySave.View
         private void BtnParam_Click(object sender, RoutedEventArgs e)
         {
             paramWindow = new ParamWindow(data, ParamEvent);
+            multilang.RefreshControlText(paramWindow, data);
             paramWindow.ShowDialog();
+        }
+
+        private void BtnTaskAdd_Click(object sender, RoutedEventArgs e)
+        {
+            taskWindow = new TaskWindow(TaskEvent);
+            multilang.RefreshControlText(taskWindow, data);
+            taskWindow.ShowDialog();
         }
     }
 }

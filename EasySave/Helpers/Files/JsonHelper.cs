@@ -19,6 +19,7 @@ namespace EasySave.Helpers.Files
             using (StreamWriter file = File.CreateText(path))
             {
                 JsonSerializer serializer = new JsonSerializer();
+                serializer.Formatting = Formatting.Indented;
                 serializer.Serialize(file, data);
             }
         }
@@ -41,7 +42,7 @@ namespace EasySave.Helpers.Files
             }
             else
             {
-                return default(Data);
+                return default;
             }
         }
     }
