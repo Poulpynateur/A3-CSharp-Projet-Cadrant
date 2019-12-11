@@ -74,6 +74,7 @@
     <Compile Include="Helpers\IDisplayable.cs" />
     <Compile Include="Model\IData.cs" />
     <Compile Include="Model\Output\Encrypt.cs" />
+    <Compile Include="Model\Output\ProgressSocket.cs" />
     <Compile Include="View\Composants\Log.xaml.cs">
       <DependentUpon>Log.xaml</DependentUpon>
     </Compile>

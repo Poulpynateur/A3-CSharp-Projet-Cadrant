@@ -10,9 +10,15 @@ namespace EasySave.Model
     public class Progress
     {
         public DateTime Date { get; set; }
+        /// <summary>
+        /// Total files
+        /// </summary>
         public int FilesNumber { get; set; }
         public long TotalFilesSize { get; set; }
 
+        /// <summary>
+        /// Already done files
+        /// </summary>
         public int FilesDone { get; set; }
         public int RemainingFiles { get; set; }
         public long RemainingFilesSize { get; set; }

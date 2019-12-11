@@ -14,6 +14,8 @@ namespace EasySave.Model.Output
     {
         public List<string> ErpBlacklist { get; set; }
         
+        public ProgressSocket ProgressSocket { get; }
+
         //Manage Encryption (currently call to an external programm)
         public Encrypt Encrypt { get; }
 
