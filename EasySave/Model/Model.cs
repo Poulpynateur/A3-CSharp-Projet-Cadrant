@@ -1,6 +1,6 @@
 ﻿using EasySave.Helpers;
 using EasySave.Model.Job;
-using EasySave.Model.Output;
+using EasySave.Model.Management;
 using EasySave.Model.Task;
 using System;
 using System.Collections.Generic;
@@ -14,13 +14,13 @@ namespace EasySave.Model
     /// </summary>
     public class Model : IModel
     {
-        private Output.Output output;
+        private Management.Management management;
         private JobManager jobs;
         private TaskManager tasks;
 
         public Model()
         {
-            this.output = Output.Output.Instance;
+            this.management = Management.Management.Instance;
 
             this.tasks = new TaskManager();
             this.jobs = new JobManager(tasks);
@@ -36,38 +36,43 @@ namespace EasySave.Model
             return jobs.GetJobByName(name);
         }
 
-        public IEnumerable<Tuple<string, string>> GetTasksNames()
+        public List<Task.Task> GetTasks()
         {
-            return tasks.Map.Select(task => new Tuple<string, string>(task.Name, "Created at " + task.CreatedAt.ToString()));
+            return tasks.Map;
         }
 
         public IDisplayable GetDisplayable()
         {
-            return output.Display;
+            return management.Display;
         }
 
         public void SetErpBlacklist(List<string> erp)
         {
-            output.ErpBlacklist = erp;
-            output.Config.SaveErpBlackList(erp);
+            management.ErpBlacklist = erp;
+            management.Config.SaveErpBlackList(erp);
         }
         public List<string> GetErpBlacklist()
         {
-            return output.ErpBlacklist;
+            return management.ErpBlacklist;
         }
         public void SetEncryptFormat(List<string> format)
         {
-            output.Encrypt.CryptFormat = format;
-            output.Config.SaveEncryptFormat(format);
+            management.Encrypt.CryptFormat = format;
+            management.Config.SaveEncryptFormat(format);
         }
         public List<string> GetEncryptFormat()
         {
-            return output.Encrypt.CryptFormat;
+            return management.Encrypt.CryptFormat;
         }
 
         public Lang GetLang()
         {
-            return output.Lang;
+            return management.Lang;
+        }
+
+        public Threads GetThreads()
+        {
+            return management.Threads;
         }
     }
 }

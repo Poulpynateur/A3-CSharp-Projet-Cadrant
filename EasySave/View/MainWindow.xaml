@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:EasySave"
         mc:Ignorable="d"
         Title="MainWindow"
+        Closing="Window_Closing"
         Loaded="OnLoad"
-        Height="542" Width="700">
+        Height="auto" Width="700">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -69,26 +70,26 @@
         <Grid Grid.Row="4" Margin="10,0">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            <Border BorderBrush="Gainsboro" BorderThickness="1">
-                <ScrollViewer Padding="5">
+
+            <Border Grid.Column="1" BorderBrush="Gainsboro" BorderThickness="1">
+                <ScrollViewer Padding="5" MaxHeight="200" Height="200">
                     <StackPanel x:Name="TaskList">
                     </StackPanel>
                 </ScrollViewer>
             </Border>
 
-            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+            <StackPanel Grid.Column="0" Margin="0,0,10,0">
                 <Button x:Name="BtnTaskExecute" Content="Execute" Tag="Execute" Height="25" Padding="10,0" Margin="0,0" Click="BtnTaskExecute_Click"/>
                 <Button x:Name="BtnTaskRemove" Content="Remove" Tag="Remove" Height="25" Padding="10,0" Margin="0,5" Click="BtnTaskRemove_Click"/>
                 <Button x:Name="BtnTaskAdd" Content="Add" Tag="Add" Height="25" Padding="10,0" Click="BtnTaskAdd_Click"/>
             </StackPanel>
-            
+
         </Grid>
 
-        <Border Margin="0,25,0,0" Grid.Row="5" Background="LightGray">
+        <Border Grid.Row="5" Margin="10,0,10,0" Background="LightGray">
             <ScrollViewer x:Name="LogScrollViewer" ScrollChanged="ScrollViewer_ScrollChanged">
                 <StackPanel x:Name="LogTextWrapper">
                 </StackPanel>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace EasySave.Model.Output
+namespace EasySave.Model.Management
 {
     public class LangFormat : Dictionary<string, Dictionary<string, string>> { }
 

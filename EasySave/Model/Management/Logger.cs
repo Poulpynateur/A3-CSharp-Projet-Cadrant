@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace EasySave.Model.Output
+namespace EasySave.Model.Management
 {
     /// <summary>
     /// Class used to write logs

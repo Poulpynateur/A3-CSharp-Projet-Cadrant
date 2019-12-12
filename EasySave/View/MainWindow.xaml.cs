@@ -47,8 +47,13 @@ namespace EasySave.View
             this.data = data;
 
             InitializeComponent();
+        }
 
-            RefreshTaskList();
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            ParamEvent(new Dictionary<string, List<string>>() {
+                { "Close", null }
+            });
         }
 
         private void OnLoad(object sender, RoutedEventArgs e)
@@ -72,6 +77,17 @@ namespace EasySave.View
             Dispatcher.BeginInvoke(new ThreadStart(()=>
             {
                 LogTextWrapper.Children.Add(new Composants.Log(statut, text));
+            }));
+        }
+
+        public void DisplayProgress(string name, Progress progress)
+        {
+            Dispatcher.BeginInvoke(new ThreadStart(() =>
+            {
+                TaskInfo info = TaskList.Children.OfType<TaskInfo>().Where((x => x.Name.Content.ToString() == name)).First();
+
+                if(info!=null)
+                    info.Refresh(progress);
             }));
         }
 

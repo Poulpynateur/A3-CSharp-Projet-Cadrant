@@ -18,6 +18,8 @@ namespace EasySave.Controller
         private IModel model;
         private IView view;
 
+        private ThreadsManagement threadsManagement;
+
         /// <summary>
         /// Initialize a new view and a new model.
         /// </summary>
@@ -27,8 +29,10 @@ namespace EasySave.Controller
         {
             this.model = model;
             this.view = view;
+            this.threadsManagement = new ThreadsManagement(model.GetThreads());
 
             this.AssignEvents();
+            this.view.Window.RefreshTaskList();
         }
 
         /// <summary>
@@ -38,14 +42,14 @@ namespace EasySave.Controller
         /// <param name="options">Launch the task with his name as parameter</param>
         private void ExecuteJob(BaseJob job, Dictionary<string, string> options)
         {
-            try
-            {
+            /*try
+            {*/
                 job.Execute(options);
-            }
+            /*}
             catch (Exception e)
             {
                 view.Window.DisplayText(Helpers.Statut.ERROR, e.Message);
-            }
+            }*/
         }
 
         /// <summary>
@@ -81,17 +85,28 @@ namespace EasySave.Controller
             {
                 case TaskAction.ADD:
                     job = model.GetJobByName("add-task");
+                    ExecuteJob(job, options);
+                    view.Window.RefreshTaskList();
                     break;
                 case TaskAction.REMOVE:
                     job = model.GetJobByName("remove-task");
+                    ExecuteJob(job, options);
+                    view.Window.RefreshTaskList();
                     break;
                 case TaskAction.EXECUTE:
                     job = model.GetJobByName("execute-task");
+                    ExecuteJob(job, options);
+                    break;
+                case TaskAction.PAUSE:
+                    threadsManagement.PauseThread(options["name"], true);
+                    break;
+                case TaskAction.RESTART:
+                    threadsManagement.PauseThread(options["name"], false);
+                    break;
+                case TaskAction.STOP:
+                    threadsManagement.StopThread(options["name"]);
                     break;
             }
-
-            view.Window.RefreshTaskList();
-            ExecuteJob(job, options);
         }
 
         private void HandleParam(Dictionary<string, List<string>> parameters)
@@ -107,6 +122,9 @@ namespace EasySave.Controller
                 model.GetLang().LangActual = parameters["Language"].First();
                 view.Window.RefreshControlText();
             }
+
+            if (parameters.ContainsKey("Close"))
+                threadsManagement.StopAllThread();
         }
 
         /// <summary>

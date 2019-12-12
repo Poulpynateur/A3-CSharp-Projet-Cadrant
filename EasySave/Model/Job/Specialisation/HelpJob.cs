@@ -25,7 +25,7 @@ namespace EasySave.Model.Job.Specialisation
         {
             foreach(BaseJob command in jobs.Map)
             {
-                output.Display.DisplayText(Helpers.Statut.INFO, "\n" + command.ToString());
+                management.Display.DisplayText(Helpers.Statut.INFO, "\n" + command.ToString());
             }
         }
     }

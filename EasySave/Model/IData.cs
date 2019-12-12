@@ -1,5 +1,5 @@
 ﻿using EasySave.Helpers;
-using EasySave.Model.Output;
+using EasySave.Model.Management;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace EasySave.Model
     {
         IDisplayable GetDisplayable();
 
-        IEnumerable<Tuple<string, string>> GetTasksNames();
+        List<Task.Task> GetTasks();
         List<string> GetErpBlacklist();
         List<string> GetEncryptFormat();
 

@@ -5,19 +5,22 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Text;
 
-namespace EasySave.Model.Output
+namespace EasySave.Model.Management
 {
     /// <summary>
     /// Class used to instanciate other classes that might output files
     /// </summary>
-    public class Output
+    public class Management
     {
-        private static readonly Lazy<Output> lazy = new Lazy<Output>(() => new Output());
-        public static Output Instance { get { return lazy.Value; } }
+        private static readonly Lazy<Management> lazy = new Lazy<Management>(() => new Management());
+        public static Management Instance { get { return lazy.Value; } }
 
         public List<string> ErpBlacklist { get; set; }
 
-        //Manage Lang
+        //Management of threads
+        public Threads Threads { get; }
+
+        //Manage Language
         public Lang Lang { get; }
 
         //Manage Encryption (currently call to an external programm)
@@ -33,8 +36,10 @@ namespace EasySave.Model.Output
         /// <summary>
         /// Output constructor 
         /// </summary>
-        private Output()
+        private Management()
         {
+            this.Threads = new Threads();
+
             this.Logger = new Logger();
             this.Config = new Config();
 

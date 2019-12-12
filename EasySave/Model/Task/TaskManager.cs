@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EasySave.Helpers.Files;
-using EasySave.Model.Output;
+using EasySave.Model.Management;
 
 namespace EasySave.Model.Task
 {
@@ -17,7 +17,7 @@ namespace EasySave.Model.Task
 
         public TaskManager()
         {
-            this.config = Output.Output.Instance.Config;
+            this.config = Management.Management.Instance.Config;
             Map = config.LoadTasks();
         }
 

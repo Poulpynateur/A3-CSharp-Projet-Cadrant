@@ -8,7 +8,7 @@ using System.Windows;
 
 
 
-namespace EasySave.Model.Output
+namespace EasySave.Model.Management
 {
     /// <summary>
     /// Load the configuration.

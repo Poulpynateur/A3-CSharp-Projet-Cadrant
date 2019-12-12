@@ -1,4 +1,5 @@
 ﻿using EasySave.Helpers;
+using EasySave.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,11 @@ namespace EasySave.View
     {
         REMOVE,
         EXECUTE,
-        ADD
+        ADD,
+        STOP,
+
+        PAUSE,
+        RESTART
     }
 
     public delegate void QuickSaveEventHandler(QuickSaveAction action, Dictionary<string, string> options);
@@ -41,6 +46,7 @@ namespace EasySave.View
 
         void Show();
         void DisplayText(Statut statut, string text);
+        void DisplayProgress(string name, Progress progress);
         void RefreshControlText();
         void RefreshTaskList();
     }

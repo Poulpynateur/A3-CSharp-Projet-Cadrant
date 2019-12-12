@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasySave.View.Composants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,10 @@ namespace EasySave.View
         public void RefreshTaskList()
         {
             TaskList.Children.Clear();
-            foreach (Tuple<string, string> task in data.GetTasksNames())
+            foreach (var task in data.GetTasks())
             {
-                CheckBox checkBox = new CheckBox
-                {
-                    Content = task.Item1,
-                    ToolTip = task.Item2
-                };
-                TaskList.Children.Add(checkBox);
+                TaskInfo taskInfo = new TaskInfo(task, TaskEvent);
+                TaskList.Children.Add(taskInfo);
             }
         }
 
@@ -40,11 +37,11 @@ namespace EasySave.View
             {
                 { "name", "" }
             };
-            var list = TaskList.Children.OfType<CheckBox>().Where(x => x.IsChecked == true);
+            var list = TaskList.Children.OfType<TaskInfo>().Where(x => x.Select.IsChecked == true);
 
             foreach (var task in list)
             {
-                options["name"] += task.Content.ToString() + ";";
+                options["name"] += task.Name.Content.ToString() + ";";
             }
             return options;
         }

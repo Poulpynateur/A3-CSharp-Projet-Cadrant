@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace EasySave.Model.Output
+namespace EasySave.Model.Management
 {
     /// <summary>
     /// Encrypt the save.

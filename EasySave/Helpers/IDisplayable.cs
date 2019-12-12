@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasySave.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -23,6 +24,9 @@ namespace EasySave.Helpers
         /// <param name="statut">Actual status of the selected job/param>
         /// <param name="text">Message text according to the status</param>
         delegate void DisplayUpdate(Statut statut, string text);
+        delegate void TaskProgressUpdate(string name, Progress progress);
+
         event DisplayUpdate DisplayUpdateEvent;
+        event TaskProgressUpdate TaskProgressUpdateEvent;
     }
 }

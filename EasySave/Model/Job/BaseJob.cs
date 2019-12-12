@@ -10,7 +10,7 @@ namespace EasySave.Model.Job
     /// </summary>
     public abstract class BaseJob
     {
-        protected Output.Output output;
+        protected Management.Management management;
 
         public Option Info { get; }
 
@@ -28,7 +28,7 @@ namespace EasySave.Model.Job
         /// <param name="description">Description of the command</param>
         public BaseJob(string name, string description)
         {
-            this.output = Output.Output.Instance;
+            this.management = Management.Management.Instance;
             this.Info = new Option(name, description, "");
         }
 
@@ -48,12 +48,12 @@ namespace EasySave.Model.Job
                 {
                     if (!regex.IsMatch(options[Option.Name]))
                     {
-                        throw new Exception(output.Lang.Translate("Field not valid : ") + Option.Name);
+                        throw new Exception(management.Lang.Translate("Field not valid : ") + Option.Name);
                     }
                 }
                 else
                 {
-                    throw new Exception(output.Lang.Translate("Field missing : ") + Option.Name);
+                    throw new Exception(management.Lang.Translate("Field missing : ") + Option.Name);
                 }
             }
         }

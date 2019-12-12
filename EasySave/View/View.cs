@@ -26,6 +26,7 @@ namespace EasySave.View
         public void Start()
         {
             this.data.GetDisplayable().DisplayUpdateEvent += Window.DisplayText;
+            this.data.GetDisplayable().TaskProgressUpdateEvent += Window.DisplayProgress;
             this.Window.Show();
         }
     }

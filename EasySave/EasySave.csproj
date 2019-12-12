@@ -69,13 +69,16 @@
     </ApplicationDefinition>
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\Parser.cs" />
+    <Compile Include="Controller\ThreadsManagement.cs" />
     <Compile Include="Helpers\Files\FilesHelper.cs" />
     <Compile Include="Helpers\Files\JsonHelper.cs" />
     <Compile Include="Helpers\IDisplayable.cs" />
     <Compile Include="Model\IData.cs" />
-    <Compile Include="Model\Output\Encrypt.cs" />
-    <Compile Include="Model\Output\Lang.cs" />
-    <Compile Include="Model\Output\ProgressSocket.cs" />
+    <Compile Include="Model\Management\DataFormat\ThreadInfo.cs" />
+    <Compile Include="Model\Management\Encrypt.cs" />
+    <Compile Include="Model\Management\Lang.cs" />
+    <Compile Include="Model\Management\ProgressSocket.cs" />
+    <Compile Include="Model\Management\Threads.cs" />
     <Compile Include="View\Composants\Log.xaml.cs">
       <DependentUpon>Log.xaml</DependentUpon>
     </Compile>
@@ -92,12 +95,12 @@
     <Compile Include="Model\Job\Specialisation\TaskListJob.cs" />
     <Compile Include="Model\Job\Specialisation\TaskRemoveJob.cs" />
     <Compile Include="Model\Model.cs" />
-    <Compile Include="Model\Output\Config.cs" />
-    <Compile Include="Model\Output\DataFormat\Log.cs" />
-    <Compile Include="Model\Output\DataFormat\Progress.cs" />
-    <Compile Include="Model\Output\Displayable.cs" />
-    <Compile Include="Model\Output\Logger.cs" />
-    <Compile Include="Model\Output\Output.cs" />
+    <Compile Include="Model\Management\Config.cs" />
+    <Compile Include="Model\Management\DataFormat\Log.cs" />
+    <Compile Include="Model\Management\DataFormat\Progress.cs" />
+    <Compile Include="Model\Management\Displayable.cs" />
+    <Compile Include="Model\Management\Logger.cs" />
+    <Compile Include="Model\Management\Management.cs" />
     <Compile Include="Model\Task\ITaskManager.cs" />
     <Compile Include="Model\Task\Task.cs" />
     <Compile Include="Model\Task\TaskManager.cs" />
@@ -105,8 +108,12 @@
     <Compile Include="View\Composants\ParamContexteWindow.xaml.cs">
       <DependentUpon>ParamContexteWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Composants\TaskInfo.xaml.cs">
+      <DependentUpon>TaskInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\IView.cs" />
     <Compile Include="View\IWindow.cs" />
+    <Compile Include="View\MainWindow.info.xaml.cs" />
     <Compile Include="View\MainWindow.quicksave.xaml.cs" />
     <Compile Include="View\MainWindow.tasks.xaml.cs" />
     <Compile Include="View\ParamWindow.xaml.cs">
@@ -123,6 +130,10 @@
     <Page Include="View\Composants\ParamContexteWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Composants\TaskInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +198,11 @@
   <ItemGroup>
     <Resource Include="assets\Add.png" />
     <Resource Include="assets\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Pause.png" />
+    <Resource Include="assets\Start.png" />
+    <Resource Include="assets\Stop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,9 +6,9 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Net;
 using EasySave.Helpers.Files;
-using EasySave.Model.Output;
+using EasySave.Model.Management;
 
-namespace EasySave.Model.Output
+namespace EasySave.Model.Management
 {
     class ProgressSocket
     {

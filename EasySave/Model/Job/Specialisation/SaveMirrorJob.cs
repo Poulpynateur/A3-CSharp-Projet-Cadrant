@@ -12,7 +12,10 @@ namespace EasySave.Model.Job.Specialisation
     /// </summary>
     public class SaveMirrorJob : BaseJob
     {
+        private string name;
         private Progress progress;
+
+        private ManualResetEvent pauseEvent;
 
         public object Date { get; private set; }
 
@@ -34,28 +37,40 @@ namespace EasySave.Model.Job.Specialisation
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
 
             progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
-            output.Logger.WriteProgress(progress);
+            management.Logger.WriteProgress(progress);
 
             return files;
         }
 
-        private void OutputDisplayAndLog(string newPath)
+        private void OutputDisplayAndLog(string name, string newPath)
         {
-            output.Logger.WriteProgress(
+            management.Logger.WriteProgress(
                 progress.RefreshFileProgress(newPath, new FileInfo(newPath).Length)
             );
-            output.Display.DisplayText(Statut.INFO, newPath + " file copied.");
+            
+            management.Display.DisplayProgress(name, progress);
         }
 
         private void CopyTargetFile(string path, string newPath, bool encrypt)
         {
+            Thread.Sleep(1000);
             File.Copy(path, newPath, true);
-            if (encrypt && output.Encrypt.IsEncryptTarget(path))
+            if (encrypt && management.Encrypt.IsEncryptTarget(path))
             {
-                progress.EncryptionTimeMs = output.Encrypt.EncryptFileCryptoSoft(path, newPath);
+                progress.EncryptionTimeMs = management.Encrypt.EncryptFileCryptoSoft(path, newPath);
                 if (progress.EncryptionTimeMs < 0)
                     throw new Exception("Encryption error on " + path);
             }
+        }
+
+        private bool CheckIfStopped()
+        {
+            if(management.Threads.Map[name].IsStoped)
+            {
+                management.Threads.Map.Remove(name);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -75,10 +90,16 @@ namespace EasySave.Model.Job.Specialisation
             FilesHelper.CopyDirectoryTree(source, target);
             foreach (string path in files)
             {
+                pauseEvent.WaitOne();
+                Thread.Sleep(500);
+
                 //Monitor for disk
                 CopyTargetFile(path, path.Replace(source, target), encrypt);
                 //Monitor for output
-                OutputDisplayAndLog(path);
+                if (CheckIfStopped())
+                    return -1;
+                else
+                    OutputDisplayAndLog(name, path);
             }
 
             return progress.FilesDone;
@@ -91,25 +112,35 @@ namespace EasySave.Model.Job.Specialisation
         /// </summary>
         public override void Execute(Dictionary<string, string> options)
         {
-            //ThreadPool.
+            name = options["name"];
+            Thread thread = new Thread(new ThreadStart(() =>
+            {
+                management.CheckErpRunning();
+                this.CheckOptions(options);
 
-            output.CheckErpRunning();
-            this.CheckOptions(options);
+                bool encrypt = (options["encrypt"].Equals("yes")) ? true : false;
+                string source = options["source"];
+                string target = options["target"];
 
-            string name = options["name"];
-            bool encrypt = (options["encrypt"].Equals("yes")) ? true : false;
-            string source = options["source"];
-            string target = options["target"];
+                if (!Directory.Exists(source))
+                    throw new Exception("Source folder doesn't exist : " + source);
+                if (!Directory.Exists(target))
+                    throw new Exception("Target folder doesn't exist : " + target);
 
-            if(!Directory.Exists(source))
-                throw new Exception("Source folder doesn't exist : " + source );
-            if(!Directory.Exists(target))
-                throw new Exception("Target folder doesn't exist : " + target);
+                int nbrCopied = SaveFiles(name, source, target, encrypt);
 
-            output.Display.DisplayText(
-                Statut.SUCCESS,
-                SaveFiles(name, source, target, encrypt) + " file(s) saved !"
-            );
+                if (nbrCopied < 0)
+                    management.Display.DisplayText(Statut.INFO, name + " stopped.");
+                else
+                    management.Display.DisplayText(Statut.SUCCESS, nbrCopied + " file(s) saved !");
+            }));
+
+            pauseEvent = management.Threads.AddThread(name, thread);
+
+            if(pauseEvent != null)
+                thread.Start();
+            else
+                management.Display.DisplayText(Statut.INFO, name + " is already started.");
         }
     }
 }

@@ -64,7 +64,7 @@ namespace EasySave.Model.Job.Specialisation
             else
                 taskManager.AddTask(name, "save-mirror", cmdOptions);
 
-            output.Display.DisplayText(Statut.SUCCESS, "Task '"+ name + "' added !");
+            management.Display.DisplayText(Statut.SUCCESS, "Task '"+ name + "' added !");
         }
     }
 }

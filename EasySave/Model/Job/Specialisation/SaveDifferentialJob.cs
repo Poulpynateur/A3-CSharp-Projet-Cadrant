@@ -49,25 +49,25 @@ namespace EasySave.Model.Job.Specialisation
             string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
 
             progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
-            output.Logger.WriteProgress(progress);
+            management.Logger.WriteProgress(progress);
 
             return files;
         }
 
         private void OutputDisplayAndLog(string newPath)
         {
-            output.Logger.WriteProgress(
+            management.Logger.WriteProgress(
                 progress.RefreshFileProgress(newPath, new FileInfo(newPath).Length)
             );
-            output.Display.DisplayText(Statut.INFO, newPath + " file copied.");
+            management.Display.DisplayText(Statut.INFO, newPath + " file copied.");
         }
 
         private void CopyTargetFile(string path, string newPath, bool encrypt)
         {
             File.Copy(path, newPath, true);
-            if (encrypt && output.Encrypt.IsEncryptTarget(path))
+            if (encrypt && management.Encrypt.IsEncryptTarget(path))
             {
-                progress.EncryptionTimeMs = output.Encrypt.EncryptFileCryptoSoft(path, newPath);
+                progress.EncryptionTimeMs = management.Encrypt.EncryptFileCryptoSoft(path, newPath);
                 if (progress.EncryptionTimeMs < 0)
                     throw new Exception("Encryption error on " + path);
             }
@@ -84,7 +84,7 @@ namespace EasySave.Model.Job.Specialisation
             string[] files = InitiSave(source);
 
             string rootSavePath = Path.Combine(target, name);
-            Dictionary<string, string> fileHistory = output.Config.LoadDiffSaveConfig(rootSavePath);
+            Dictionary<string, string> fileHistory = management.Config.LoadDiffSaveConfig(rootSavePath);
             
             target = Path.Combine(target, name, FilesHelper.GenerateName("differential"));
 
@@ -103,7 +103,7 @@ namespace EasySave.Model.Job.Specialisation
                 }
             }
 
-            output.Config.SaveDiffSaveConfig(fileHistory, rootSavePath);
+            management.Config.SaveDiffSaveConfig(fileHistory, rootSavePath);
 
             return progress.FilesDone;
         }
@@ -115,7 +115,7 @@ namespace EasySave.Model.Job.Specialisation
         /// </summary>
         public override void Execute(Dictionary<string, string> options)
         {
-            output.CheckErpRunning();
+            management.CheckErpRunning();
             this.CheckOptions(options);
 
             string name = options["name"];
@@ -124,13 +124,13 @@ namespace EasySave.Model.Job.Specialisation
             string target = options["target"];
 
             if (!Directory.Exists(source))
-                throw new Exception(output.Lang.Translate("Source folder doesn't exist : ") + source);
+                throw new Exception(management.Lang.Translate("Source folder doesn't exist : ") + source);
             if (!Directory.Exists(target))
-                throw new Exception(output.Lang.Translate("Target folder doesn't exist : ") + target);
+                throw new Exception(management.Lang.Translate("Target folder doesn't exist : ") + target);
 
-            output.Display.DisplayText(
+            management.Display.DisplayText(
                 Statut.SUCCESS,
-                output.Lang.Translate("Number of saved file(s) : ") + SaveFiles(name, source, target, encrypt)
+                management.Lang.Translate("Number of saved file(s) : ") + SaveFiles(name, source, target, encrypt)
             );
         }
     }
