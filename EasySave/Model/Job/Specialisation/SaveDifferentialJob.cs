@@ -26,6 +26,21 @@ namespace EasySave.Model.Job.Specialisation
         }
 
         /// <summary>
+        /// Get the number of files to modify
+        /// </summary>
+        /// <returns>Count of the number of files to modifiy</returns>
+        private int GetNbDiffFiles(string[] files, Dictionary<string, string> fileHistory)
+        {
+            int count = 0;
+            foreach (string file in files)
+            {
+                if (!fileHistory.ContainsKey(file) || fileHistory[file] != FilesHelper.CalculateMD5(file))
+                    count++;
+            }
+            return count;
+        }
+
+        /// <summary>
         /// Save files from a source folder to a target folder.
         /// </summary>
         /// <param name="source">Source folder path</param>
@@ -39,6 +54,7 @@ namespace EasySave.Model.Job.Specialisation
             Dictionary<string, string> fileHistory = management.Config.LoadDiffSaveConfig(rootSavePath);
 
             saveJob.Target = Path.Combine(saveJob.Target, saveJob.Name, FilesHelper.GenerateName("differential"));
+            saveJob.Progress.FilesNumber = GetNbDiffFiles(files, fileHistory);
 
             FilesHelper.CopyDirectoryTree(saveJob.Source, saveJob.Target);
             foreach (string path in files)
@@ -58,32 +74,6 @@ namespace EasySave.Model.Job.Specialisation
             management.Config.SaveDiffSaveConfig(fileHistory, rootSavePath);
 
             return saveJob.Progress.FilesDone;
-        }
-
-        /// <summary>
-        /// Get the number of files to modify
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="source">Source path folder</param>
-        /// <param name="target">Target file folder</param>
-        /// <param name="encrypt"></param>
-        /// <returns>Count of the number of files to modifiy</returns>
-        public int GetNbDiffFiles(string name, string source, string target, bool encrypt)
-        {
-            int count = 0;
-            string[] files = InitiSave(source);
-            string rootSavePath = Path.Combine(target, name);
-            Dictionary<string, string> history = management.Config.LoadDiffSaveConfig(rootSavePath);
-
-            foreach (string file in files)
-            {
-                if (!history.ContainsKey(file) || history[file] != CalculateMD5(file))
-                {
-                    count++;
-                }
-            }
-            Console.WriteLine(count);
-            return count++;
         }
 
         /// <summary>
