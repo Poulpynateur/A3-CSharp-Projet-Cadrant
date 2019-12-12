@@ -84,5 +84,15 @@ namespace EasySave.Model
         {
             return management.PriorityExtension;
         }
+
+        public void SetMaxFileSize(long bytes)
+        {
+            management.MaxBytesFileSize = bytes;
+        }
+
+        public long GetMaxFileSize()
+        {
+            return management.MaxBytesFileSize;
+        }
     }
 }

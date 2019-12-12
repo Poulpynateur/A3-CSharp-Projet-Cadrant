@@ -93,8 +93,7 @@ namespace EasySave.Model.Job.Specialisation
 
             Thread thread = new Thread(new ThreadStart(() =>
             {
-                management.CheckErpRunning();
-                this.CheckOptions(options);
+                CheckOptions(options);
 
                 saveJob.CheckIfFoldersExist();
                 saveJob.SaveEnd(SaveFiles(saveJob));

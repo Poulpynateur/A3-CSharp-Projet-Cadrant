@@ -34,16 +34,18 @@ namespace EasySave.Model.Job.Specialisation
             {
                 management.Threads.Map[saveJob.Name].ManualResetEvent.WaitOne();
 
-                saveJob.CopyTargetFile(path);
+                saveJob.CheckAndCopy(path);
                 if (saveJob.CheckIfStopped(path))
                 {
                     management.Threads.SetThreadPriority(saveJob.Name, false);
                     return -1;
                 }
+                saveJob.CheckERP();
             }
             management.Threads.SetThreadPriority(saveJob.Name, false);
             return 0;
         }
+
         private int SaveFilesOthers(SaveJob saveJob, List<string> others)
         {
             foreach (string path in others)
@@ -52,9 +54,11 @@ namespace EasySave.Model.Job.Specialisation
                 //Pause
                 management.Threads.Map[saveJob.Name].ManualResetEvent.WaitOne();
 
-                saveJob.CopyTargetFile(path);
+                saveJob.CheckAndCopy(path);
                 if (saveJob.CheckIfStopped(path))
                     return -1;
+
+                saveJob.CheckERP();
             }
             return 0;
         }
@@ -102,7 +106,6 @@ namespace EasySave.Model.Job.Specialisation
 
             Thread thread = new Thread(new ThreadStart(() =>
             {
-                management.CheckErpRunning();
                 CheckOptions(options);
 
                 saveJob.CheckIfFoldersExist();

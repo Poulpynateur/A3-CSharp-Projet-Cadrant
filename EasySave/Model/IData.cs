@@ -16,7 +16,7 @@ namespace EasySave.Model
         List<string> GetErpBlacklist();
         List<string> GetEncryptExtensions();
         List<string> GetPriorityExtensions();
-
+        long GetMaxFileSize();
         Lang GetLang();
     }
 }

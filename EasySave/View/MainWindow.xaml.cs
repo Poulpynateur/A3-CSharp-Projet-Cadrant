@@ -86,7 +86,13 @@ namespace EasySave.View
             {
                 TaskInfo info = TaskList.Children.OfType<TaskInfo>().Where((x => x.Name.Content.ToString() == name)).First();
 
-                if(info!=null)
+                if (progress.IsPaused)
+                {
+                    foreach (var task in TaskList.Children.OfType<TaskInfo>())
+                        task.PauseTask();
+                }
+
+                if (info!=null)
                     info.Refresh(progress);
             }));
         }

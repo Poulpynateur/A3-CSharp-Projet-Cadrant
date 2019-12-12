@@ -49,6 +49,29 @@ namespace EasySave.Model.Job.Specialisation
             }
         }
 
+        public void CheckERP()
+        {
+            if (management.CheckErpRunning())
+            {
+                Progress.IsPaused = true;
+                management.Display.DisplayProgress(Name, Progress);
+            }
+        }
+
+        public void CheckAndCopy(string path)
+        {
+            management.Threads.FileSizeLimit.WaitOne();
+            long fileSize = new FileInfo(path).Length;
+
+            if (fileSize > management.MaxBytesFileSize)
+                management.Threads.FileSizeLimit.Reset();
+
+            this.CopyTargetFile(path);
+
+            if (fileSize > management.MaxBytesFileSize)
+                management.Threads.FileSizeLimit.Set();
+        }
+
         public string[] GetFiles()
         {
             string[] files = Directory.GetFiles(Source, "*", SearchOption.AllDirectories);
@@ -73,7 +96,6 @@ namespace EasySave.Model.Job.Specialisation
                 );              
             }
             management.Display.DisplayProgress(Name, Progress);
-
         }
 
         public bool CheckIfStopped(string path)
@@ -101,6 +123,8 @@ namespace EasySave.Model.Job.Specialisation
                 management.Display.DisplayText(Statut.INFO, Name + " stopped.");
             else
                 management.Display.DisplayText(Statut.SUCCESS, Name + " finish successfully.");
+
+            management.Threads.Map.Remove(Name);
         }
 
         public Tuple<string[], string[]> GetPriorityFiles(string[] files, List<string> priority, List<string> others)

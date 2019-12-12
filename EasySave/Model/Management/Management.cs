@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Text;
+using System.Windows;
 
 namespace EasySave.Model.Management
 {
@@ -16,8 +17,8 @@ namespace EasySave.Model.Management
         public static Management Instance { get { return lazy.Value; } }
 
         public List<string> ErpBlacklist { get; set; }
-
         public List<string> PriorityExtension { get; set; }
+        public long MaxBytesFileSize { get; set; }
 
         //Management of threads
         public Threads Threads { get; }
@@ -40,6 +41,7 @@ namespace EasySave.Model.Management
         /// </summary>
         private Management()
         {
+            this.MaxBytesFileSize = 2048;
             this.Threads = new Threads();
 
             this.Logger = new Logger();
@@ -57,16 +59,19 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Check if another process is running
         /// </summary>
-        public void CheckErpRunning()
+        public bool CheckErpRunning()
         {
             foreach (var name in ErpBlacklist)
             {
                 Process[] process = Process.GetProcessesByName(name);
                 if (process.Length != 0)
                 {
-                    throw new Exception("ERP detected, close it before saving : " + name);
+                    Threads.PauseAll();
+                    MessageBox.Show("ERP softaware detected, close it : " + name, "", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    return true;
                 }
             }
+            return false;
         }
     }
 }

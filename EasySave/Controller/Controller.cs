@@ -120,6 +120,9 @@ namespace EasySave.Controller
             if (parameters.ContainsKey("Priority extensions"))
                 model.SetPriorityExtensions(parameters["Priority extensions"]);
 
+            if (parameters.ContainsKey("MaxFileSize"))
+                model.SetMaxFileSize(Convert.ToInt64(parameters["MaxFileSize"].First()));
+
             if (parameters.ContainsKey("Language"))
             {
                 model.GetLang().LangActual = parameters["Language"].First();

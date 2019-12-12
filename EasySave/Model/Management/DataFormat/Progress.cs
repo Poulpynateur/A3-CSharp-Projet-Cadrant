@@ -9,6 +9,7 @@ namespace EasySave.Model
     /// </summary>
     public class Progress
     {
+        public bool IsPaused { get; set; }
         public DateTime Date { get; set; }
         /// <summary>
         /// Total files
@@ -32,6 +33,7 @@ namespace EasySave.Model
         /// </summary>
         public void FeedProgress(int filesNumber, long totalFilesSize)
         {
+            IsPaused = false;
             EncryptionTimeMs = 0;
             Date = DateTime.Now;
             FilesNumber = filesNumber;
@@ -47,6 +49,7 @@ namespace EasySave.Model
         /// </summary>
         public Progress RefreshFileProgress(string fileInProgress, long fileSize)
         {
+            IsPaused = false;
             Date = DateTime.Now;
             FilesDone += 1;
             RemainingFiles = FilesNumber - FilesDone;

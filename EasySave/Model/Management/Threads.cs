@@ -11,11 +11,13 @@ namespace EasySave.Model.Management
     public class Threads
     {
         public ManualResetEvent Priority { get; }
+        public ManualResetEvent FileSizeLimit { get; }
         public Dictionary<string, ThreadInfo> Map { get; }
 
         public Threads()
         {
             Priority = new ManualResetEvent(true);
+            FileSizeLimit = new ManualResetEvent(true);
             Map = new Dictionary<string, ThreadInfo>();
         }
 
@@ -27,6 +29,14 @@ namespace EasySave.Model.Management
                 return true;
             }
             return false;
+        }
+
+        public void PauseAll()
+        {
+            foreach (var thread in Map)
+            {
+                thread.Value.ManualResetEvent.Reset();
+            }
         }
 
         public void SetThreadPriority(string name, bool priority)

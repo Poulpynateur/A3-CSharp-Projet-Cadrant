@@ -45,6 +45,7 @@ namespace EasySave.View
             erpBlacklist = this.data.GetErpBlacklist();
             encryptExtension = this.data.GetEncryptExtensions();
             priorityExtension = this.data.GetPriorityExtensions();
+            MaxSizeByte.Text = this.data.GetMaxFileSize().ToString();
 
             foreach (var item in data.GetLang().LangChoice)
             {
@@ -70,6 +71,9 @@ namespace EasySave.View
                     {"ERP blacklist", erpBlacklist },
                     {"Encrypt extensions", encryptExtension },
                     {"Priority extensions", priorityExtension },
+                    {"MaxFileSize" , new List<string> {
+                        MaxSizeByte.Text
+                    }},
                     {"Language", new List<string> {
                         LangChoice.Text
                     }}

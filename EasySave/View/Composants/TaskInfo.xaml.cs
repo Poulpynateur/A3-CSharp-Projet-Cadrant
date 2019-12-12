@@ -24,7 +24,7 @@ namespace EasySave.View.Composants
         private TaskEventHandler TaskEvent;
         private bool pause;
 
-        public TaskInfo(Task task,TaskEventHandler taskEvent)
+        public TaskInfo(Task task, TaskEventHandler taskEvent)
         {
             this.pause = false;
             this.TaskEvent = taskEvent;
@@ -42,11 +42,12 @@ namespace EasySave.View.Composants
         {
             if(pause == false)
             {
+                ProgressBar.Foreground = Brushes.SteelBlue;
                 ProgressWrapper.Visibility = Visibility.Visible;
                 IsProgressSuccess.Visibility = Visibility.Collapsed;
 
-                ProgressBar.Content = progress.FilesDone + "/" + progress.FilesNumber;
-                ProgressBar.ToolTip = progress.FileInProgress;
+                ProgressBar.Value = progress.FilesDone;
+                ProgressBar.Maximum = progress.FilesNumber;
 
                 if (progress.FilesNumber == progress.FilesDone)
                 {
@@ -54,6 +55,21 @@ namespace EasySave.View.Composants
                     IsProgressSuccess.Visibility = Visibility.Visible;
                 }
             }
+        }
+
+        private void StartTask()
+        {
+            BtnPausePause.Visibility = Visibility.Visible;
+            BtnPauseStart.Visibility = Visibility.Collapsed;
+            ProgressBar.Foreground = Brushes.SteelBlue;
+            pause = false;
+        }
+        public void PauseTask()
+        {
+            BtnPausePause.Visibility = Visibility.Collapsed;
+            BtnPauseStart.Visibility = Visibility.Visible;
+            ProgressBar.Foreground = Brushes.Gray;
+            pause = true;
         }
 
         private void BtnPause_Click(object sender, RoutedEventArgs e)
@@ -64,10 +80,7 @@ namespace EasySave.View.Composants
                 {
                     {"name", Name.Content.ToString()}
                 });
-                BtnPausePause.Visibility = Visibility.Visible;
-                BtnPauseStart.Visibility = Visibility.Collapsed;
-                ProgressBar.Content = "Starting ...";
-                pause = false;
+                StartTask();
             }  
             else
             {
@@ -75,10 +88,7 @@ namespace EasySave.View.Composants
                 {
                     {"name", Name.Content.ToString()}
                 });
-                BtnPausePause.Visibility = Visibility.Collapsed;
-                BtnPauseStart.Visibility = Visibility.Visible;
-                ProgressBar.Content = "Paused";
-                pause = true;
+                PauseTask();
             }
         }
 
