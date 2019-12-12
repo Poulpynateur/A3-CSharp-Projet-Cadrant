@@ -45,18 +45,22 @@ namespace EasySave.Model.Management
         public ProgressSocket()
         {
             _sendBuffer = new byte[1024];
-            string host = Dns.GetHostName();
-            _address = Dns.GetHostEntry(host).AddressList[1].ToString();
+
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    _address = ip.ToString();
+                }
+            }
             _port = 50000;
-            try
-            {
-                _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                _socket.Bind(new IPEndPoint(IPAddress.Parse(_address), _port));
-            }
-            catch(Exception e)
-            {
-                throw new Exception("Error initializing socket");
-            }
+
+            _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            _socket.Bind(new IPEndPoint(IPAddress.Parse(_address), _port));
+            _socket.Listen(100);
+
+            this.ListenClient();
         }
 
         /// <summary>
