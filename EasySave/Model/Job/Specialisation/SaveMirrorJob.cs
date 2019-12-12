@@ -24,6 +24,41 @@ namespace EasySave.Model.Job.Specialisation
             };
         }
 
+        private int SaveFilesPriority(SaveJob saveJob, List<string> priority)
+        {
+            if (priority.Count > 0)
+                management.Threads.SetThreadPriority(saveJob.Name, true);
+
+            FilesHelper.CopyDirectoryTree(saveJob.Source, saveJob.Target);
+            foreach (string path in priority)
+            {
+                management.Threads.Map[saveJob.Name].ManualResetEvent.WaitOne();
+
+                saveJob.CopyTargetFile(path);
+                if (saveJob.CheckIfStopped(path))
+                {
+                    management.Threads.SetThreadPriority(saveJob.Name, false);
+                    return -1;
+                }
+            }
+            management.Threads.SetThreadPriority(saveJob.Name, false);
+            return 0;
+        }
+        private int SaveFilesOthers(SaveJob saveJob, List<string> others)
+        {
+            foreach (string path in others)
+            {
+                management.Threads.Priority.WaitOne();
+                //Pause
+                management.Threads.Map[saveJob.Name].ManualResetEvent.WaitOne();
+
+                saveJob.CopyTargetFile(path);
+                if (saveJob.CheckIfStopped(path))
+                    return -1;
+            }
+            return 0;
+        }
+
         /// <summary>
         /// Save files from a source folder to a target folder.
         /// </summary>
@@ -33,23 +68,19 @@ namespace EasySave.Model.Job.Specialisation
         private int SaveFiles(SaveJob saveJob)
         {
             string[] files = saveJob.GetFiles();
+
+            List<string> priority = new List<string>();
+            List<string> others = new List<string>();
+            saveJob.GetPriorityFiles(files, priority, others);
+
             saveJob.Target = Path.Combine(saveJob.Target, saveJob.Name, FilesHelper.GenerateName("mirror"));
+            FilesHelper.CopyDirectoryTree(saveJob.Source, saveJob.Target);
 
-            //Boucle to check priority + progress here
-            //Barrier there
+            if (SaveFilesPriority(saveJob, priority) < 0)
+                return -1;
 
-            FilesHelper.CopyDirectoryTree(saveJob.Name, saveJob.Target);
-            foreach (string path in files)
-            {
-                //Pause
-                management.Threads.Map[saveJob.Name].ManualResetEvent.WaitOne();
-
-                //Monitor for disk
-                saveJob.CopyTargetFile(path);
-                //Monitor for output
-                if (saveJob.CheckIfStopped(path))
-                    return -1;
-            }
+            if (SaveFilesOthers(saveJob, others) < 0)
+                return -1;
 
             return saveJob.Progress.FilesDone;
         }
@@ -72,7 +103,7 @@ namespace EasySave.Model.Job.Specialisation
             Thread thread = new Thread(new ThreadStart(() =>
             {
                 management.CheckErpRunning();
-                this.CheckOptions(options);
+                CheckOptions(options);
 
                 saveJob.CheckIfFoldersExist();
                 saveJob.SaveEnd(SaveFiles(saveJob));

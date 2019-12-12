@@ -75,7 +75,7 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="1" BorderBrush="Gainsboro" BorderThickness="1">
-                <ScrollViewer Padding="5" MaxHeight="200" Height="200">
+                <ScrollViewer MaxHeight="200" Height="200">
                     <StackPanel x:Name="TaskList">
                     </StackPanel>
                 </ScrollViewer>

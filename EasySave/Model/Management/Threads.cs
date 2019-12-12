@@ -10,10 +10,12 @@ namespace EasySave.Model.Management
 {
     public class Threads
     {
+        public ManualResetEvent Priority { get; }
         public Dictionary<string, ThreadInfo> Map { get; }
 
         public Threads()
         {
+            Priority = new ManualResetEvent(true);
             Map = new Dictionary<string, ThreadInfo>();
         }
 
@@ -25,6 +27,18 @@ namespace EasySave.Model.Management
                 return true;
             }
             return false;
+        }
+
+        public void SetThreadPriority(string name, bool priority)
+        {
+            Map[name].IsPriority = priority;
+
+            if (priority)
+                Priority.Reset();
+
+            //Is last priority thread then free others 
+            if (priority == false && !Map.Where(thread => thread.Value.IsPriority == true).Any())
+                Priority.Set();
         }
     }
 }

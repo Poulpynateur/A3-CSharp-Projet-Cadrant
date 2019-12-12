@@ -37,6 +37,8 @@ namespace EasySave.Model.Job.Specialisation
 
         public void CopyTargetFile(string path)
         {
+            Thread.Sleep(500);
+
             string newPath = path.Replace(Source, Target);
             File.Copy(path, newPath, true);
             if (Encrypt && management.Encrypt.IsEncryptTarget(path))
@@ -64,11 +66,14 @@ namespace EasySave.Model.Job.Specialisation
 
         private void OutputProgress(string newPath)
         {
-            management.Logger.WriteProgress(
-                Progress.RefreshFileProgress(newPath, new FileInfo(newPath).Length)
-            );
-
+            lock(management.Logger)
+            {
+                management.Logger.WriteProgress(
+                    Progress.RefreshFileProgress(newPath, new FileInfo(newPath).Length)
+                );              
+            }
             management.Display.DisplayProgress(Name, Progress);
+
         }
 
         public bool CheckIfStopped(string path)
@@ -96,6 +101,18 @@ namespace EasySave.Model.Job.Specialisation
                 management.Display.DisplayText(Statut.INFO, Name + " stopped.");
             else
                 management.Display.DisplayText(Statut.SUCCESS, Name + " finish successfully.");
+        }
+
+        public Tuple<string[], string[]> GetPriorityFiles(string[] files, List<string> priority, List<string> others)
+        {
+            foreach (var file in files)
+            {
+                if (management.PriorityExtension.Find(x => x == FilesHelper.GetFileExtension(file)) != null)
+                    priority.Add(file);
+                else
+                    others.Add(file);
+            }
+            return new Tuple<string[], string[]>(priority.ToArray(), others.ToArray());
         }
     }
 }
