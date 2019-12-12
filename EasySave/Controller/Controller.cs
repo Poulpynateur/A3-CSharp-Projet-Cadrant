@@ -130,7 +130,10 @@ namespace EasySave.Controller
             }
 
             if (parameters.ContainsKey("Close"))
+            {
                 threadsManagement.StopAllThread();
+                model.Close();
+            }
         }
 
         /// <summary>

@@ -24,6 +24,12 @@ namespace EasySave.Model.Job.Specialisation
             };
         }
 
+        /// <summary>
+        /// Save the priority files
+        /// </summary>
+        /// <param name="saveJob">SaveJob ovject <see cref="SaveJob"/></param>
+        /// <param name="priority">List of path to priority files</param>
+        /// <returns>Number of file copied or -1 if error</returns>
         private int SaveFilesPriority(SaveJob saveJob, List<string> priority)
         {
             if (priority.Count > 0)
@@ -32,7 +38,7 @@ namespace EasySave.Model.Job.Specialisation
             FilesHelper.CopyDirectoryTree(saveJob.Source, saveJob.Target);
             foreach (string path in priority)
             {
-                management.Threads.Map[saveJob.Name].ManualResetEvent.WaitOne();
+                management.Threads.Map[saveJob.Name].Pause.WaitOne();
 
                 saveJob.CheckAndCopy(path);
                 if (saveJob.CheckIfStopped(path))
@@ -46,13 +52,19 @@ namespace EasySave.Model.Job.Specialisation
             return 0;
         }
 
+        /// <summary>
+        /// Save the files that are not prioritary
+        /// </summary>
+        /// <param name="saveJob">SaveJob ovject <see cref="SaveJob"/></param>
+        /// <param name="priority">List of path to non prioritary files</param>
+        /// <returns>Number of file copied or -1 if error</returns>
         private int SaveFilesOthers(SaveJob saveJob, List<string> others)
         {
             foreach (string path in others)
             {
                 management.Threads.Priority.WaitOne();
                 //Pause
-                management.Threads.Map[saveJob.Name].ManualResetEvent.WaitOne();
+                management.Threads.Map[saveJob.Name].Pause.WaitOne();
 
                 saveJob.CheckAndCopy(path);
                 if (saveJob.CheckIfStopped(path))

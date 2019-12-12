@@ -94,5 +94,10 @@ namespace EasySave.Model
         {
             return management.MaxBytesFileSize;
         }
+
+        public void Close()
+        {
+            management.Logger.Close();
+        }
     }
 }

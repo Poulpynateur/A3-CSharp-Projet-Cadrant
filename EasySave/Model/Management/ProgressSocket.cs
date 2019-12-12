@@ -30,12 +30,12 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Socket of the app (server)
         /// </summary>
-        private Socket _socket { get; set; }
+        public Socket _socket { get; private set; }
 
         /// <summary>
         /// List of the sockets of the clients
         /// </summary>
-        private Socket _client { get; set; }
+        public Socket _client { get; private set; }
 
         /// <summary>
         /// Constructor 
@@ -65,12 +65,15 @@ namespace EasySave.Model.Management
         /// <param name="objet"></param>
         public void ListenClient()
         {
-            while (true)
+            ThreadPool.QueueUserWorkItem((state)=>
             {
-                Socket clientSocket = _socket.Accept();
-                int receive = clientSocket.Receive(_sendBuffer);
-                _client = clientSocket;
-            }
+                while (true)
+                {
+                    Socket clientSocket = _socket.Accept();
+                    int receive = clientSocket.Receive(_sendBuffer);
+                    _client = clientSocket;
+                }
+            });
         }
 
         /// <summary>
@@ -100,7 +103,8 @@ namespace EasySave.Model.Management
         /// </summary>
         public void SendProgress(byte[] progressBuffer)
         {
-            _client.Send(progressBuffer);
+            if(_client != null)
+                _client.Send(progressBuffer);
         }
     }
 }

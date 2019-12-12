@@ -35,7 +35,7 @@ namespace EasySave.Model.Management
         {
             foreach (var thread in Map)
             {
-                thread.Value.ManualResetEvent.Reset();
+                thread.Value.Pause.Reset();
             }
         }
 

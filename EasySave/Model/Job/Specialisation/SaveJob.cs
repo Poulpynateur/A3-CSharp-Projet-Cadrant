@@ -121,7 +121,7 @@ namespace EasySave.Model.Job.Specialisation
         public string[] GetFiles()
         {
             string[] files = Directory.GetFiles(Source, "*", SearchOption.AllDirectories);
-            Progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
+            Progress.FeedProgress(Name, files.Length, FilesHelper.GetFilesSize(files));
             return files;
         }
 

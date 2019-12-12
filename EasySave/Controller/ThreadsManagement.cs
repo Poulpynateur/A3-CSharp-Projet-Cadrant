@@ -19,9 +19,9 @@ namespace EasySave.Controller
         public void PauseThread(string name, bool pause)
         {
             if (pause)
-                threads.Map[name].ManualResetEvent.Reset();
+                threads.Map[name].Pause.Reset();
             else
-                threads.Map[name].ManualResetEvent.Set();
+                threads.Map[name].Pause.Set();
         }
 
         public void StopThread(string name)

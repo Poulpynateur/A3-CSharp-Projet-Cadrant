@@ -29,15 +29,68 @@ namespace EasySave.Model.Job.Specialisation
         /// Get the number of files to modify
         /// </summary>
         /// <returns>Count of the number of files to modifiy</returns>
-        private int GetNbDiffFiles(string[] files, Dictionary<string, string> fileHistory)
+        private string[] GetDiffFiles(string[] files, Dictionary<string, string> fileHistory)
         {
-            int count = 0;
+            List<string> diffFiles = new List<string>();
             foreach (string file in files)
             {
                 if (!fileHistory.ContainsKey(file) || fileHistory[file] != FilesHelper.CalculateMD5(file))
-                    count++;
+                    diffFiles.Add(file);
             }
-            return count;
+            return diffFiles.ToArray();
+        }
+
+        /// <summary>
+        /// Save the priority files
+        /// </summary>
+        /// <param name="saveJob">SaveJob ovject <see cref="SaveJob"/></param>
+        /// <param name="priority">List of path to priority files</param>
+        /// <returns>Number of file copied or -1 if error</returns>
+        private int SaveFilesPriority(SaveJob saveJob, List<string> priority, Dictionary<string, string> fileHistory)
+        {
+            if (priority.Count > 0)
+                management.Threads.SetThreadPriority(saveJob.Name, true);
+
+            FilesHelper.CopyDirectoryTree(saveJob.Source, saveJob.Target);
+            foreach (string path in priority)
+            {
+                management.Threads.Map[saveJob.Name].Pause.WaitOne();
+
+                saveJob.CheckAndCopy(path);
+                fileHistory[path] = FilesHelper.CalculateMD5(path);
+                if (saveJob.CheckIfStopped(path))
+                {
+                    management.Threads.SetThreadPriority(saveJob.Name, false);
+                    return -1;
+                }
+                saveJob.CheckERP();
+            }
+            management.Threads.SetThreadPriority(saveJob.Name, false);
+            return 0;
+        }
+
+        /// <summary>
+        /// Save the files that are not prioritary
+        /// </summary>
+        /// <param name="saveJob">SaveJob ovject <see cref="SaveJob"/></param>
+        /// <param name="priority">List of path to non prioritary files</param>
+        /// <returns>Number of file copied or -1 if error</returns>
+        private int SaveFilesOthers(SaveJob saveJob, List<string> others, Dictionary<string, string> fileHistory)
+        {
+            foreach (string path in others)
+            {
+                management.Threads.Priority.WaitOne();
+                //Pause
+                management.Threads.Map[saveJob.Name].Pause.WaitOne();
+
+                saveJob.CheckAndCopy(path);
+                fileHistory[path] = FilesHelper.CalculateMD5(path);
+                if (saveJob.CheckIfStopped(path))
+                    return -1;
+
+                saveJob.CheckERP();
+            }
+            return 0;
         }
 
         /// <summary>
@@ -48,29 +101,26 @@ namespace EasySave.Model.Job.Specialisation
         /// <returns>Success message, otherwise throw an error</returns>
         private int SaveFiles(SaveJob saveJob)
         {
-            string[] files = saveJob.GetFiles();
-
             string rootSavePath = Path.Combine(saveJob.Target, saveJob.Name);
             Dictionary<string, string> fileHistory = management.Config.LoadDiffSaveConfig(rootSavePath);
 
+            string[] files = GetDiffFiles(saveJob.GetFiles(), fileHistory);
+
+            List<string> priority = new List<string>();
+            List<string> others = new List<string>();
+            saveJob.GetPriorityFiles(files, priority, others);
+
             saveJob.Target = Path.Combine(saveJob.Target, saveJob.Name, FilesHelper.GenerateName("differential"));
-            saveJob.Progress.FilesNumber = GetNbDiffFiles(files, fileHistory);
+            saveJob.Progress.FilesNumber = files.Length;
 
             FilesHelper.CopyDirectoryTree(saveJob.Source, saveJob.Target);
-            foreach (string path in files)
-            {
-                //Pause
-                management.Threads.Map[saveJob.Name].ManualResetEvent.WaitOne();
 
-                if (!fileHistory.ContainsKey(path) || fileHistory[path] != FilesHelper.CalculateMD5(path))
-                {
-                    saveJob.CopyTargetFile(path);
-                    fileHistory[path] = FilesHelper.CalculateMD5(path);
-                }
+            if (SaveFilesPriority(saveJob, priority, fileHistory) < 0)
+                return -1;
 
-                if (saveJob.CheckIfStopped(path))
-                    return -1;
-            }
+            if (SaveFilesOthers(saveJob, others, fileHistory) < 0)
+                return -1;
+
             management.Config.SaveDiffSaveConfig(fileHistory, rootSavePath);
 
             return saveJob.Progress.FilesDone;

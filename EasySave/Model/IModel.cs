@@ -23,5 +23,7 @@ namespace EasySave.Model
         void SetEncryptExtensions(List<string> format);
         void SetPriorityExtensions(List<string> priority);
         void SetMaxFileSize(long bytes);
+
+        void Close();
     }
 }

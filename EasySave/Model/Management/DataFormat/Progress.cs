@@ -9,6 +9,8 @@ namespace EasySave.Model
     /// </summary>
     public class Progress
     {
+        public string Name { get; set; }
+
         public bool IsPaused { get; set; }
         public DateTime Date { get; set; }
         /// <summary>
@@ -31,8 +33,9 @@ namespace EasySave.Model
         /// <summary>
         /// JsonSerializer doesn't permit parameterized constructor.
         /// </summary>
-        public void FeedProgress(int filesNumber, long totalFilesSize)
+        public void FeedProgress(string name, int filesNumber, long totalFilesSize)
         {
+            Name = name;
             IsPaused = false;
             EncryptionTimeMs = 0;
             Date = DateTime.Now;

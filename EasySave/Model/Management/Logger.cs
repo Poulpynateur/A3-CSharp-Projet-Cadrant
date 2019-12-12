@@ -22,6 +22,7 @@ namespace EasySave.Model.Management
         /// </summary>
         public Logger()
         {
+            progressSocket = new ProgressSocket();
             this.logPath = Directory.CreateDirectory(
                 Path.Combine(Directory.GetCurrentDirectory(), FOLDER_NAME)
             ).FullName;
@@ -30,6 +31,12 @@ namespace EasySave.Model.Management
                 Path.Combine(Directory.GetCurrentDirectory(), FOLDER_NAME)
             ).FullName;
             this.progressPath = Path.Combine(progressPath, "progress.json");
+        }
+
+        public void Close()
+        {
+            progressSocket._client.Dispose();
+            progressSocket._socket.Dispose();
         }
 
         /// <summary>
@@ -48,6 +55,14 @@ namespace EasySave.Model.Management
         public void WriteProgress(Progress progress)
         {
             JsonHelper.WriteJson(progress, progressPath);
+            progressSocket.SendProgress(
+                progressSocket.ConvertProgressToBuffer(
+                    progress.Name,
+                    progress.FilesNumber,
+                    progress.FilesNumber,
+                    progress.FileInProgress
+                )
+            );
         }
     }
 }
