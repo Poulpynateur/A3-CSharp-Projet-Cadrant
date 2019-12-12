@@ -17,15 +17,14 @@ namespace EasySave.Model.Management
             Map = new Dictionary<string, ThreadInfo>();
         }
 
-        public ManualResetEvent AddThread(string name, Thread thread)
+        public bool AddThread(string name, Thread thread)
         {
             if(!Map.ContainsKey(name))
             {
-                ManualResetEvent pauseEvent = new ManualResetEvent(true);
-                Map.Add(name, new ThreadInfo(thread, pauseEvent));
-                return pauseEvent;
+                Map.Add(name, new ThreadInfo(thread, new ManualResetEvent(true)));
+                return true;
             }
-            return null;
+            return false;
         }
     }
 }

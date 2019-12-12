@@ -74,6 +74,7 @@
     <Compile Include="Helpers\Files\JsonHelper.cs" />
     <Compile Include="Helpers\IDisplayable.cs" />
     <Compile Include="Model\IData.cs" />
+    <Compile Include="Model\Job\Specialisation\SaveJob.cs" />
     <Compile Include="Model\Management\DataFormat\ThreadInfo.cs" />
     <Compile Include="Model\Management\Encrypt.cs" />
     <Compile Include="Model\Management\Lang.cs" />
@@ -113,7 +114,6 @@
     </Compile>
     <Compile Include="View\IView.cs" />
     <Compile Include="View\IWindow.cs" />
-    <Compile Include="View\MainWindow.info.xaml.cs" />
     <Compile Include="View\MainWindow.quicksave.xaml.cs" />
     <Compile Include="View\MainWindow.tasks.xaml.cs" />
     <Compile Include="View\ParamWindow.xaml.cs">

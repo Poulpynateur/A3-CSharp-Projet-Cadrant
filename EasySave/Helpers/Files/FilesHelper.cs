@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace EasySave.Helpers.Files
@@ -48,6 +49,23 @@ namespace EasySave.Helpers.Files
             string[] separators = { "." };
             string[] splits = path.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             return splits[splits.Length - 1];
+        }
+
+        /// <summary>
+        /// Calculate the MD5 checksum of a file.
+        /// </summary>
+        /// <param name="filename">Path to the file</param>
+        /// <returns>MD5 checksum to string format</returns>
+        public static string CalculateMD5(string filename)
+        {
+            using (var md5 = MD5.Create())
+            {
+                using (var stream = File.OpenRead(filename))
+                {
+                    var hash = md5.ComputeHash(stream);
+                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                }
+            }
         }
     }
 }

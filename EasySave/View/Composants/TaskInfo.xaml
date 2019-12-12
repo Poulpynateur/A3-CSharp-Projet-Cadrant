@@ -8,28 +8,37 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            
+
             <CheckBox x:Name="Select" VerticalAlignment="Center"></CheckBox>
-            <Label Grid.Column="1"  x:Name="Name"  VerticalAlignment="Center">Name</Label>
-            <StackPanel x:Name="ProgressWrapper" Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <Label x:Name="ProgressFile"></Label>
-                <ProgressBar x:Name="ProgressBar" Minimum="0" Maximum="0" Value="0"/>
-                <Button x:Name="BtnPause" Click="BtnPause_Click">Pause</Button>
-                <Button x:Name="BtnStop" Click="BtnStop_Click">Stop</Button>
+            <Button Height="30" Grid.Column="1" x:Name="Name"  VerticalAlignment="Center" BorderThickness="0" Background="Transparent" Click="Name_Click" HorizontalContentAlignment="Left"></Button>
+            <StackPanel x:Name="ProgressWrapper" Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="Collapsed">
+                <Label x:Name="ProgressBar" VerticalAlignment="Center"/>
+                <Button x:Name="BtnPause" Click="BtnPause_Click" BorderThickness="0" Background="Transparent" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="BtnPausePause" Source="../../assets/Pause.png" Height="20"></Image>
+                        <Image x:Name="BtnPauseStart" Source="../../assets/Start.png" Height="20" Visibility="Collapsed"></Image>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="BtnStop" Click="BtnStop_Click" VerticalAlignment="Center" BorderThickness="0" Background="Transparent" Width="30" Height="30">
+                    <Image Source="../../assets/Stop.png" Height="20"></Image>
+                </Button>
             </StackPanel>
+            <Image x:Name="IsProgressSuccess" Grid.Column="3" Source="../../assets/Success.png" Height="20" VerticalAlignment="Center" Visibility="Collapsed"></Image>
         </Grid>
 
-        <StackPanel Grid.Row="1">
+        <StackPanel x:Name="TaskDetails" Grid.Row="1" Visibility="Collapsed">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -48,8 +57,8 @@
                 <Label Grid.Column="1">-></Label>
                 <Label Grid.Column="2" x:Name="Target" HorizontalAlignment="Center"></Label>
             </Grid>
-            <Separator/>
+            
         </StackPanel>
-
+        <Separator Grid.Row="2"/>
     </Grid>
 </UserControl>

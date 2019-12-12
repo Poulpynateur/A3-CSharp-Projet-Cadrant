@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
+using System.Threading;
 
 namespace EasySave.Model.Job.Specialisation
 {
@@ -12,12 +13,9 @@ namespace EasySave.Model.Job.Specialisation
     /// </summary>
     class SaveDifferentialJob : BaseJob
     {
-        private Progress progress;
-
         public SaveDifferentialJob()
         : base("save-differential", "Create a differential save from a source to a target folder.")
         {
-            this.progress = new Progress();
             this.Options = new List<Option>
             {
                 new Option("name", "Name of the save", @"^((?![\*\.\/\\\[\]:;\|,]).)*$"),
@@ -28,84 +26,38 @@ namespace EasySave.Model.Job.Specialisation
         }
 
         /// <summary>
-        /// Calculate the MD5 checksum of a file.
-        /// </summary>
-        /// <param name="filename">Path to the file</param>
-        /// <returns>MD5 checksum to string format</returns>
-        private string CalculateMD5(string filename)
-        {
-            using (var md5 = MD5.Create())
-            {
-                using (var stream = File.OpenRead(filename))
-                {
-                    var hash = md5.ComputeHash(stream);
-                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
-                }
-            }
-        }
-
-        private string[] InitiSave(string source)
-        {
-            string[] files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-
-            progress.FeedProgress(files.Length, FilesHelper.GetFilesSize(files));
-            management.Logger.WriteProgress(progress);
-
-            return files;
-        }
-
-        private void OutputDisplayAndLog(string newPath)
-        {
-            management.Logger.WriteProgress(
-                progress.RefreshFileProgress(newPath, new FileInfo(newPath).Length)
-            );
-            management.Display.DisplayText(Statut.INFO, newPath + " file copied.");
-        }
-
-        private void CopyTargetFile(string path, string newPath, bool encrypt)
-        {
-            File.Copy(path, newPath, true);
-            if (encrypt && management.Encrypt.IsEncryptTarget(path))
-            {
-                progress.EncryptionTimeMs = management.Encrypt.EncryptFileCryptoSoft(path, newPath);
-                if (progress.EncryptionTimeMs < 0)
-                    throw new Exception("Encryption error on " + path);
-            }
-        }
-
-        /// <summary>
         /// Save files from a source folder to a target folder.
         /// </summary>
         /// <param name="source">Source folder path</param>
         /// <param name="target">Target folder path</param>
         /// <returns>Success message, otherwise throw an error</returns>
-        private int SaveFiles(string name, string source, string target, bool encrypt)
+        private int SaveFiles(SaveJob saveJob)
         {
-            string[] files = InitiSave(source);
+            string[] files = saveJob.GetFiles();
 
-            string rootSavePath = Path.Combine(target, name);
+            string rootSavePath = Path.Combine(saveJob.Target, saveJob.Name);
             Dictionary<string, string> fileHistory = management.Config.LoadDiffSaveConfig(rootSavePath);
-            
-            target = Path.Combine(target, name, FilesHelper.GenerateName("differential"));
 
-            FilesHelper.CopyDirectoryTree(source, target);
+            saveJob.Target = Path.Combine(saveJob.Target, saveJob.Name, FilesHelper.GenerateName("differential"));
+
+            FilesHelper.CopyDirectoryTree(saveJob.Source, saveJob.Target);
             foreach (string path in files)
             {
-                if (!fileHistory.ContainsKey(path) || fileHistory[path] != CalculateMD5(path))
+                //Pause
+                management.Threads.Map[saveJob.Name].ManualResetEvent.WaitOne();
+
+                if (!fileHistory.ContainsKey(path) || fileHistory[path] != FilesHelper.CalculateMD5(path))
                 {
-                    //Monitor for disk
-                    CopyTargetFile(path, path.Replace(source, target), encrypt);
-
-                    //Monitor for output
-                    OutputDisplayAndLog(path);
-
-                    fileHistory[path] = CalculateMD5(path);
+                    saveJob.CopyTargetFile(path);
+                    fileHistory[path] = FilesHelper.CalculateMD5(path);
                 }
-            }
 
+                if (saveJob.CheckIfStopped(path))
+                    return -1;
+            }
             management.Config.SaveDiffSaveConfig(fileHistory, rootSavePath);
 
-            return progress.FilesDone;
+            return saveJob.Progress.FilesDone;
         }
 
         /// <summary>
@@ -141,23 +93,24 @@ namespace EasySave.Model.Job.Specialisation
         /// </summary>
         public override void Execute(Dictionary<string, string> options)
         {
-            management.CheckErpRunning();
-            this.CheckOptions(options);
-
-            string name = options["name"];
-            bool encrypt = (options["encrypt"].Equals("yes")) ? true : false;
-            string source = options["source"];
-            string target = options["target"];
-
-            if (!Directory.Exists(source))
-                throw new Exception(management.Lang.Translate("Source folder doesn't exist : ") + source);
-            if (!Directory.Exists(target))
-                throw new Exception(management.Lang.Translate("Target folder doesn't exist : ") + target);
-
-            management.Display.DisplayText(
-                Statut.SUCCESS,
-                management.Lang.Translate("Number of saved file(s) : ") + SaveFiles(name, source, target, encrypt)
+            SaveJob saveJob = new SaveJob(
+                management,
+                options["name"],
+                options["source"],
+                options["target"],
+                (options["encrypt"].Equals("yes")) ? true : false
             );
+
+            Thread thread = new Thread(new ThreadStart(() =>
+            {
+                management.CheckErpRunning();
+                this.CheckOptions(options);
+
+                saveJob.CheckIfFoldersExist();
+                saveJob.SaveEnd(SaveFiles(saveJob));
+            }));
+
+            saveJob.StartIfNotExist(thread);
         }
     }
 }

@@ -40,14 +40,20 @@ namespace EasySave.View.Composants
 
         public void Refresh(Progress progress)
         {
-            ProgressWrapper.Visibility = Visibility.Visible;
+            if(pause == false)
+            {
+                ProgressWrapper.Visibility = Visibility.Visible;
+                IsProgressSuccess.Visibility = Visibility.Collapsed;
 
-            ProgressFile.Content = progress.FileInProgress;
-            ProgressBar.Maximum = progress.FilesNumber;
-            ProgressBar.Value = progress.FilesDone;
+                ProgressBar.Content = progress.FilesDone + "/" + progress.FilesNumber;
+                ProgressBar.ToolTip = progress.FileInProgress;
 
-            if (progress.FilesNumber == progress.FilesDone)
-                ProgressWrapper.Visibility = Visibility.Collapsed;
+                if (progress.FilesNumber == progress.FilesDone)
+                {
+                    ProgressWrapper.Visibility = Visibility.Collapsed;
+                    IsProgressSuccess.Visibility = Visibility.Visible;
+                }
+            }
         }
 
         private void BtnPause_Click(object sender, RoutedEventArgs e)
@@ -58,7 +64,9 @@ namespace EasySave.View.Composants
                 {
                     {"name", Name.Content.ToString()}
                 });
-                BtnPause.Content = "Pause";
+                BtnPausePause.Visibility = Visibility.Visible;
+                BtnPauseStart.Visibility = Visibility.Collapsed;
+                ProgressBar.Content = "Starting ...";
                 pause = false;
             }  
             else
@@ -67,7 +75,9 @@ namespace EasySave.View.Composants
                 {
                     {"name", Name.Content.ToString()}
                 });
-                BtnPause.Content = "Restart";
+                BtnPausePause.Visibility = Visibility.Collapsed;
+                BtnPauseStart.Visibility = Visibility.Visible;
+                ProgressBar.Content = "Paused";
                 pause = true;
             }
         }
@@ -79,6 +89,14 @@ namespace EasySave.View.Composants
                     {"name", Name.Content.ToString()}
                 });
             ProgressWrapper.Visibility = Visibility.Collapsed;
+        }
+
+        private void Name_Click(object sender, RoutedEventArgs e)
+        {
+            if(TaskDetails.Visibility == Visibility.Collapsed)
+                TaskDetails.Visibility = Visibility.Visible;
+            else
+                TaskDetails.Visibility = Visibility.Collapsed;
         }
     }
 }
