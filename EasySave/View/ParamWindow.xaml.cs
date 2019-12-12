@@ -28,6 +28,7 @@ namespace EasySave.View
 
         private List<string> erpBlacklist;
         private List<string> encryptExtension;
+        private List<string> priorityExtension;
         /// <summary>
         /// Initialize the parameters window (ERP blacklist and format of the files to encrypt)
         /// </summary>
@@ -42,7 +43,8 @@ namespace EasySave.View
             this.data = data;
 
             erpBlacklist = this.data.GetErpBlacklist();
-            encryptExtension = this.data.GetEncryptFormat();
+            encryptExtension = this.data.GetEncryptExtensions();
+            priorityExtension = this.data.GetPriorityExtensions();
 
             foreach (var item in data.GetLang().LangChoice)
             {
@@ -67,6 +69,7 @@ namespace EasySave.View
                 {
                     {"ERP blacklist", erpBlacklist },
                     {"Encrypt extensions", encryptExtension },
+                    {"Priority extensions", priorityExtension },
                     {"Language", new List<string> {
                         LangChoice.Text
                     }}
@@ -89,7 +92,6 @@ namespace EasySave.View
             this.IsEnabled = false;
             new ParamContexteWindow(erpBlacklist, (result) =>
             {
-                BtnSave.IsEnabled = true;
                 erpBlacklist = result;
             });
             this.IsEnabled = true;
@@ -103,6 +105,16 @@ namespace EasySave.View
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             multilang.RefreshControlText(this, data);
+        }
+
+        private void PriorityExtensionsModify_Click(object sender, RoutedEventArgs e)
+        {
+            this.IsEnabled = false;
+            new ParamContexteWindow(priorityExtension, (result) =>
+            {
+                priorityExtension = result;
+            });
+            this.IsEnabled = true;
         }
     }
 }

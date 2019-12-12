@@ -55,12 +55,12 @@ namespace EasySave.Model
         {
             return management.ErpBlacklist;
         }
-        public void SetEncryptFormat(List<string> format)
+        public void SetEncryptExtensions(List<string> format)
         {
             management.Encrypt.CryptFormat = format;
             management.Config.SaveEncryptFormat(format);
         }
-        public List<string> GetEncryptFormat()
+        public List<string> GetEncryptExtensions()
         {
             return management.Encrypt.CryptFormat;
         }
@@ -73,6 +73,16 @@ namespace EasySave.Model
         public Threads GetThreads()
         {
             return management.Threads;
+        }
+
+        public void SetPriorityExtensions(List<string> priority)
+        {
+            management.PriorityExtension = priority;
+            management.Config.SavePriorityExtension(priority);
+        }
+        public List<string> GetPriorityExtensions()
+        {
+            return management.PriorityExtension;
         }
     }
 }

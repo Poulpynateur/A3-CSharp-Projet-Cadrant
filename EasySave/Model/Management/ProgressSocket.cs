@@ -60,15 +60,6 @@ namespace EasySave.Model.Management
         }
 
         /// <summary>
-        /// Start a thread that allows to listen to clients
-        /// </summary>
-        public void StartListening()
-        {
-            Thread myThread = new Thread(ListenClient);
-            myThread.Start();
-        }
-
-        /// <summary>
         /// Accept the clients
         /// </summary>
         /// <param name="objet"></param>

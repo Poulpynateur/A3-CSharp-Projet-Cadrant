@@ -20,6 +20,7 @@ namespace EasySave.Model
         Threads GetThreads();
 
         void SetErpBlacklist(List<string> erp);
-        void SetEncryptFormat(List<string> format);
+        void SetEncryptExtensions(List<string> format);
+        void SetPriorityExtensions(List<string> priority);
     }
 }

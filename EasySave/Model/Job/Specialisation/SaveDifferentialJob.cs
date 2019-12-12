@@ -109,6 +109,32 @@ namespace EasySave.Model.Job.Specialisation
         }
 
         /// <summary>
+        /// Get the number of files to modify
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="source">Source path folder</param>
+        /// <param name="target">Target file folder</param>
+        /// <param name="encrypt"></param>
+        /// <returns>Count of the number of files to modifiy</returns>
+        public int GetNbDiffFiles(string name, string source, string target, bool encrypt)
+        {
+            int count = 0;
+            string[] files = InitiSave(source);
+            string rootSavePath = Path.Combine(target, name);
+            Dictionary<string, string> history = management.Config.LoadDiffSaveConfig(rootSavePath);
+
+            foreach (string file in files)
+            {
+                if (!history.ContainsKey(file) || history[file] != CalculateMD5(file))
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count);
+            return count++;
+        }
+
+        /// <summary>
         /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
         /// <see cref="BaseCommand.CheckOptions(Dictionary{string, string})"/>
         /// Launch the differential save. Check if the folders exists beforewise.

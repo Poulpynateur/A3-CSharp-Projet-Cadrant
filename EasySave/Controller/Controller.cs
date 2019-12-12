@@ -115,7 +115,10 @@ namespace EasySave.Controller
                 model.SetErpBlacklist(parameters["ERP blacklist"]);
 
             if (parameters.ContainsKey("Encrypt extensions"))
-                model.SetEncryptFormat(parameters["Encrypt extensions"]);
+                model.SetEncryptExtensions(parameters["Encrypt extensions"]);
+
+            if (parameters.ContainsKey("Priority extensions"))
+                model.SetPriorityExtensions(parameters["Priority extensions"]);
 
             if (parameters.ContainsKey("Language"))
             {

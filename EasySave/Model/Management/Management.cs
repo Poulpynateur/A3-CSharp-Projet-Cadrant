@@ -17,6 +17,8 @@ namespace EasySave.Model.Management
 
         public List<string> ErpBlacklist { get; set; }
 
+        public List<string> PriorityExtension { get; set; }
+
         //Management of threads
         public Threads Threads { get; }
 
@@ -48,7 +50,8 @@ namespace EasySave.Model.Management
             this.Display = new Displayable();
 
             this.Encrypt = new Encrypt(Config.LoadEncryptFormat());
-            ErpBlacklist = Config.LoadErpBlackList();
+            this.ErpBlacklist = Config.LoadErpBlackList();
+            this.PriorityExtension = Config.LoadPriorityFormat();
         }
 
         /// <summary>

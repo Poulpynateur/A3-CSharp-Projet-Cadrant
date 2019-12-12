@@ -14,7 +14,8 @@ namespace EasySave.Model
 
         List<Task.Task> GetTasks();
         List<string> GetErpBlacklist();
-        List<string> GetEncryptFormat();
+        List<string> GetEncryptExtensions();
+        List<string> GetPriorityExtensions();
 
         Lang GetLang();
     }
