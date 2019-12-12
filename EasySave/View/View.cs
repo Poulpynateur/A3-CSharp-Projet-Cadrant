@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Threading;
 using EasySave.Controller;
 using EasySave.Helpers;
 using EasySave.Model;
@@ -28,6 +28,8 @@ namespace EasySave.View
             this.data.GetDisplayable().DisplayUpdateEvent += Window.DisplayText;
             this.data.GetDisplayable().TaskProgressUpdateEvent += Window.DisplayProgress;
             this.Window.Show();
+            Thread oui = new Thread(new ThreadStart(Model.Management.ProgressSocket.ExecuteServer));
+            oui.Start();
         }
     }
 }
