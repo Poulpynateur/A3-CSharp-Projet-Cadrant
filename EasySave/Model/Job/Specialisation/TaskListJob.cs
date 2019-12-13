@@ -13,6 +13,10 @@ namespace EasySave.Model.Job.Specialisation
     {
         private ITaskManager taskManager;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="taskManager">ITaskManager object</param>
         public TaskListJob(ITaskManager taskManager)
         : base("list-tasks", "Show the list of tasks.")
         {
@@ -23,6 +27,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
         /// Show the task list.
         /// </summary>
+        /// <param name="options">Dictionary of options needed to execute the tasks</param>
         public override void Execute(Dictionary<string, string> options)
         {
             foreach(Task.Task task in taskManager.Map)

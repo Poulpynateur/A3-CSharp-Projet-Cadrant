@@ -13,6 +13,9 @@ namespace EasySave.Model.Job.Specialisation
     /// </summary>
     class SaveDifferentialJob : BaseJob
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public SaveDifferentialJob()
         : base("save-differential", "Create a differential save from a source to a target folder.")
         {
@@ -28,7 +31,9 @@ namespace EasySave.Model.Job.Specialisation
         /// <summary>
         /// Get the number of files to modify
         /// </summary>
-        /// <returns>Count of the number of files to modifiy</returns>
+        /// <param name="files">Array of files</param>
+        /// <param name="fileHistory">Dictionary of the config of the differential save</param>
+        /// <returns>Array of the files to modifiy</returns>
         private string[] GetDiffFiles(string[] files, Dictionary<string, string> fileHistory)
         {
             List<string> diffFiles = new List<string>();
@@ -43,8 +48,9 @@ namespace EasySave.Model.Job.Specialisation
         /// <summary>
         /// Save the priority files
         /// </summary>
-        /// <param name="saveJob">SaveJob ovject <see cref="SaveJob"/></param>
+        /// <param name="saveJob">SaveJob object <see cref="SaveJob"/></param>
         /// <param name="priority">List of path to priority files</param>
+        /// <param name="fileHistory">Dictionary of the config of the differential save</param>
         /// <returns>Number of file copied or -1 if error</returns>
         private int SaveFilesPriority(SaveJob saveJob, List<string> priority, Dictionary<string, string> fileHistory)
         {
@@ -72,8 +78,9 @@ namespace EasySave.Model.Job.Specialisation
         /// <summary>
         /// Save the files that are not prioritary
         /// </summary>
-        /// <param name="saveJob">SaveJob ovject <see cref="SaveJob"/></param>
-        /// <param name="priority">List of path to non prioritary files</param>
+        /// <param name="saveJob">SaveJob object <see cref="SaveJob"/></param>
+        /// <param name="others">List of path to non prioritary files</param>
+        /// <param name="fileHistory">Dictionary of the config of the differential save</param>
         /// <returns>Number of file copied or -1 if error</returns>
         private int SaveFilesOthers(SaveJob saveJob, List<string> others, Dictionary<string, string> fileHistory)
         {
@@ -96,8 +103,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <summary>
         /// Save files from a source folder to a target folder.
         /// </summary>
-        /// <param name="source">Source folder path</param>
-        /// <param name="target">Target folder path</param>
+        /// <param name="saveJob">SaveJob object</param>
         /// <returns>Success message, otherwise throw an error</returns>
         private int SaveFiles(SaveJob saveJob)
         {
@@ -131,6 +137,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.CheckOptions(Dictionary{string, string})"/>
         /// Launch the differential save. Check if the folders exists beforewise.
         /// </summary>
+        /// <param name="options">Dictionary of options needed to execute the differential job</param>
         public override void Execute(Dictionary<string, string> options)
         {
             SaveJob saveJob = new SaveJob(

@@ -12,6 +12,9 @@ namespace EasySave.Model.Job
     {
         protected Management.Management management;
 
+        /// <summary>
+        /// Information about an option
+        /// </summary>
         public Option Info { get; }
 
         /// <summary>

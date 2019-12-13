@@ -12,6 +12,9 @@ namespace EasySave.Model.Job.Specialisation
     /// </summary>
     public class SaveMirrorJob : BaseJob
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public SaveMirrorJob()
             : base("save-mirror", "Create a mirror save from a source to a target folder.")
         {
@@ -27,7 +30,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <summary>
         /// Save the priority files
         /// </summary>
-        /// <param name="saveJob">SaveJob ovject <see cref="SaveJob"/></param>
+        /// <param name="saveJob">SaveJob object <see cref="SaveJob"/></param>
         /// <param name="priority">List of path to priority files</param>
         /// <returns>Number of file copied or -1 if error</returns>
         private int SaveFilesPriority(SaveJob saveJob, List<string> priority)
@@ -55,7 +58,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <summary>
         /// Save the files that are not prioritary
         /// </summary>
-        /// <param name="saveJob">SaveJob ovject <see cref="SaveJob"/></param>
+        /// <param name="saveJob">SaveJob object <see cref="SaveJob"/></param>
         /// <param name="priority">List of path to non prioritary files</param>
         /// <returns>Number of file copied or -1 if error</returns>
         private int SaveFilesOthers(SaveJob saveJob, List<string> others)
@@ -78,8 +81,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <summary>
         /// Save files from a source folder to a target folder.
         /// </summary>
-        /// <param name="source">Source folder path</param>
-        /// <param name="target">Target folder path</param>
+        /// <param name="saveJob">SaveJob object</param>
         /// <returns>Success message, otherwise throw an error</returns>
         private int SaveFiles(SaveJob saveJob)
         {
@@ -106,6 +108,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.CheckOptions(Dictionary{string, string})"/>
         /// Launch the mirro save. Check if the folders exists beforewise.
         /// </summary>
+        /// <param name="options">Dictionary of options needed to execute the mirror job</param>
         public override void Execute(Dictionary<string, string> options)
         {
             SaveJob saveJob = new SaveJob(

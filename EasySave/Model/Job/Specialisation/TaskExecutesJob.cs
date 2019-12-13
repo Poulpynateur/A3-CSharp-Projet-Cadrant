@@ -17,6 +17,11 @@ namespace EasySave.Model.Job.Specialisation
         private ITaskManager taskManager;
         private IJobManager jobManager;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="taskManager">ITaskManager object</param>
+        /// <param name="jobManager">IJobManager</param>
         public TaskExecutesJob(ITaskManager taskManager, IJobManager jobManager)
         : base("execute-task", "Execute a task, if argument -n is * execute every task.")
         {
@@ -64,6 +69,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
         /// Execute one or all tasks in function of the options.
         /// </summary>
+        /// <param name="options">Dictionary of options needed to execute the job</param>
         public override void Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);
@@ -71,6 +77,7 @@ namespace EasySave.Model.Job.Specialisation
             string[] separators = { ";" };
             string[] tasksNames = options["name"].Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
+            // Execute the job for each task
             foreach (var task in tasksNames)
             {
                  ExecuteTask(taskManager.GetTaskByName(task));

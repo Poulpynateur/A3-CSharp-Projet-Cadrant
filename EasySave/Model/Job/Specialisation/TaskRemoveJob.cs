@@ -13,6 +13,10 @@ namespace EasySave.Model.Job.Specialisation
     {
         private ITaskManager taskManager;
 
+        /// <summary>
+        /// Constructor 
+        /// </summary>
+        /// <param name="taskManager">ITaskManager</param>
         public TaskRemoveJob(ITaskManager taskManager)
         : base("remove-task", "Remove a task.")
         {
@@ -29,6 +33,7 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.CheckOptions(Dictionary{string, string})"/>
         /// Remove the given task.
         /// </summary>
+        /// <param name="options">Dictionary of options needed to remove the task</param>
         public override void Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);

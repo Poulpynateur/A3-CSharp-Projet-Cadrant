@@ -13,6 +13,10 @@ namespace EasySave.Model.Job.Specialisation
     {
         private ITaskManager taskManager;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="taskManager">ITaskManager object</param>
         public TaskAddJob(ITaskManager taskManager)
         : base("add-task", "Add a task.")
         {
@@ -28,6 +32,11 @@ namespace EasySave.Model.Job.Specialisation
             };
         }
 
+        /// <summary>
+        /// Get unique name for task
+        /// </summary>
+        /// <param name="wantedName">Wanted name</param>
+        /// <returns></returns>
         private string GetUniqueName(string wantedName)
         {
             int i = 1;
@@ -46,10 +55,12 @@ namespace EasySave.Model.Job.Specialisation
         /// <see cref="BaseCommand.Execute(Dictionary{string, string})"/>
         /// Create a task with <see cref="TaskManager.AddTask(string, string, Dictionary{string, string})"/> function.
         /// </summary>
+        /// <param name="options">Dictionary of options needed to execute the job</param>
         public override void Execute(Dictionary<string, string> options)
         {
             this.CheckOptions(options);
 
+            // Defines the new dictionary used during the adding of the task
             string name = GetUniqueName(options["name"]);
             Dictionary<string, string> cmdOptions = new Dictionary<string, string>
             {
@@ -59,6 +70,7 @@ namespace EasySave.Model.Job.Specialisation
                 { "target", options["target"] }
             };
 
+            // Add task depending on the type of save
             if (options["type"].Equals("differential"))
                 taskManager.AddTask(name, "save-differential", cmdOptions);
             else

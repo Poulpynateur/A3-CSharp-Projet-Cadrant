@@ -109,6 +109,10 @@ namespace EasySave.Controller
             }
         }
 
+        /// <summary>
+        /// Handle the different parameters (blacklist, encrypting, priority, max file size and language)
+        /// </summary>
+        /// <param name="parameters">Dictionnary containing the type of parameters and its list of parameters</param>
         private void HandleParam(Dictionary<string, List<string>> parameters)
         {
             if (parameters.ContainsKey("ERP blacklist"))

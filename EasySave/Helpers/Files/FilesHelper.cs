@@ -44,6 +44,11 @@ namespace EasySave.Helpers.Files
             return files.Sum(f => new FileInfo(f).Length);
         }
 
+        /// <summary>
+        /// Get the extension of a file passed in parameter
+        /// </summary>
+        /// <param name="path">Path of the file to get its extension</param>
+        /// <returns>String corresponding to the extension of the path</returns>
         public static string GetFileExtension(string path)
         {
             string[] separators = { "." };
