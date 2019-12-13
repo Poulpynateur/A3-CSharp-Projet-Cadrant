@@ -27,12 +27,12 @@ namespace EasySave.Model.Job.Specialisation
         {
             foreach(Task.Task task in taskManager.Map)
             {
-                management.Display.DisplayText(Statut.INFO, task.Name + " : job [" + task.JobName + "] created at " + task.CreatedAt);
+                management.Display.DisplayText(Statut.INFO, task.Name + management.Lang.Translate(" : job [") + task.JobName + management.Lang.Translate("] created at ") + task.CreatedAt);
             }
 
             if(taskManager.Map.Count <= 0)
             {
-                management.Display.DisplayText(Statut.INFO, "No task saved.");
+                management.Display.DisplayText(Statut.INFO, management.Lang.Translate("No task saved."));
             }
         }
     }
