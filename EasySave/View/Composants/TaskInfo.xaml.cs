@@ -94,6 +94,10 @@ namespace EasySave.View.Composants
 
         private void BtnStop_Click(object sender, RoutedEventArgs e)
         {
+            TaskEvent(TaskAction.RESTART, new Dictionary<string, string>
+                {
+                    {"name", Name.Content.ToString()}
+                });
             TaskEvent(TaskAction.STOP, new Dictionary<string, string>
                 {
                     {"name", Name.Content.ToString()}

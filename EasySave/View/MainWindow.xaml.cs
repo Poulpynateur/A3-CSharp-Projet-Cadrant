@@ -84,16 +84,20 @@ namespace EasySave.View
         {
             Dispatcher.BeginInvoke(new ThreadStart(() =>
             {
-                TaskInfo info = TaskList.Children.OfType<TaskInfo>().Where((x => x.Name.Content.ToString() == name)).First();
-
-                if (progress.IsPaused)
+                if(TaskList.Children.Count > 0)
                 {
-                    foreach (var task in TaskList.Children.OfType<TaskInfo>())
-                        task.PauseTask();
-                }
+                    TaskInfo info = TaskList.Children.OfType<TaskInfo>().Where((x => x.Name.Content.ToString() == name)).First();
 
-                if (info!=null)
-                    info.Refresh(progress);
+                    if (progress.IsPaused)
+                    {
+                        foreach (var task in TaskList.Children.OfType<TaskInfo>())
+                            task.PauseTask();
+                    }
+
+                    if (info != null)
+                        info.Refresh(progress);
+                }
+                
             }));
         }
 

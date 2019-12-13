@@ -78,7 +78,7 @@ namespace EasySave.Model.Job.Specialisation
             {
                 Progress.EncryptionTimeMs = management.Encrypt.EncryptFileCryptoSoft(path, newPath);
                 if (Progress.EncryptionTimeMs < 0)
-                    throw new Exception("Encryption error on " + path);
+                    throw new Exception(management.Lang.Translate("Encryption error on ") + path);
             }
         }
 
@@ -131,9 +131,9 @@ namespace EasySave.Model.Job.Specialisation
         public void CheckIfFoldersExist()
         {
             if (!Directory.Exists(Source))
-                throw new Exception("Source folder doesn't exist : " + Source);
+                throw new Exception(management.Lang.Translate("Source folder doesn't exist : ") + Source);
             if (!Directory.Exists(Target))
-                throw new Exception("Target folder doesn't exist : " + Target);
+                throw new Exception(management.Lang.Translate("Target folder doesn't exist : ") + Target);
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace EasySave.Model.Job.Specialisation
             if (management.Threads.AddThread(Name, thread))
                 thread.Start();
             else
-                management.Display.DisplayText(Statut.WARNING, Name + " is already started.");
+                management.Display.DisplayText(Statut.WARNING, Name + management.Lang.Translate(" is already started."));
         }
 
         /// <summary>
@@ -186,9 +186,9 @@ namespace EasySave.Model.Job.Specialisation
         public void SaveEnd(int result)
         {
             if (result < 0)
-                management.Display.DisplayText(Statut.INFO, Name + " stopped.");
+                management.Display.DisplayText(Statut.INFO, Name + management.Lang.Translate(" stopped."));
             else
-                management.Display.DisplayText(Statut.SUCCESS, Name + " finish successfully.");
+                management.Display.DisplayText(Statut.SUCCESS, Name + management.Lang.Translate(" finish successfully."));
 
             management.Threads.Map.Remove(Name);
         }

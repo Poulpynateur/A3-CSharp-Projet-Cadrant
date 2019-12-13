@@ -106,7 +106,7 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Load the crypt format of the tasks.
         /// </summary>
-        public List<string> LoadPriorityFormat()
+        public List<string> LoadPriorityExtension()
         {
             return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "Priority extensions.json")) ?? new List<string>();
         }
@@ -114,10 +114,10 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Save the crypt format of the task
         /// </summary>
-        /// <param name="format">Entered crypt format by the user</param>
-        public void SavePriorityExtension(List<string> format)
+        /// <param name="extension">Entered crypt format by the user</param>
+        public void SavePriorityExtension(List<string> extension)
         {
-            JsonHelper.WriteJson(format, Path.Combine(configPath, "Priority extensions.json"));
+            JsonHelper.WriteJson(extension, Path.Combine(configPath, "Priority extensions.json"));
         }
     }
 }
