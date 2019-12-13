@@ -78,7 +78,7 @@ namespace EasySave.Model.Job.Specialisation
             {
                 Progress.EncryptionTimeMs = management.Encrypt.EncryptFileCryptoSoft(path, newPath);
                 if (Progress.EncryptionTimeMs < 0)
-                    throw new Exception("Encryption error on " + path);
+                    throw new Exception(management.Lang.Translate("Encryption error on ") + path);
             }
         }
 
@@ -131,9 +131,9 @@ namespace EasySave.Model.Job.Specialisation
         public void CheckIfFoldersExist()
         {
             if (!Directory.Exists(Source))
-                throw new Exception("Source folder doesn't exist : " + Source);
+                throw new Exception(management.Lang.Translate("Source folder doesn't exist : ") + Source);
             if (!Directory.Exists(Target))
-                throw new Exception("Target folder doesn't exist : " + Target);
+                throw new Exception(management.Lang.Translate("Target folder doesn't exist : ") + Target);
         }
 
         /// <summary>
