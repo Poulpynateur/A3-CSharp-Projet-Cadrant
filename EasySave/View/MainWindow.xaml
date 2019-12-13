@@ -56,7 +56,7 @@
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
                 <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0,0,0"></RadioButton>
-                    <Label Content="Mirror Save" VerticalAlignment="Center" Tag="Mirror save"/>
+                    <Label Content="Mirror Save" VerticalAlignment="Center" Tag="Mirror Save"/>
                 <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0,0,0"></RadioButton>
                 <Label Content="Differencial Save" VerticalAlignment="Center" Tag="Differencial Save"/>
                 

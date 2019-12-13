@@ -116,6 +116,8 @@ namespace EasySave.Model.Job.Specialisation
                 (options["encrypt"].Equals("yes")) ? true : false
             );
 
+            management.Display.DisplayText(Statut.INFO, management.Lang.Translate("Job started : ") + saveJob.Name + " ...");
+
             Thread thread = new Thread(new ThreadStart(() =>
             {
                 CheckOptions(options);

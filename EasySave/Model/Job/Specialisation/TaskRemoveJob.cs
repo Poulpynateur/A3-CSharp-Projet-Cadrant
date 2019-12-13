@@ -42,7 +42,7 @@ namespace EasySave.Model.Job.Specialisation
                 numberDeleted++;
             }
 
-            management.Display.DisplayText(Statut.SUCCESS, numberDeleted + " task(s) removed !");
+            management.Display.DisplayText(Statut.SUCCESS, numberDeleted + management.Lang.Translate(" task(s) removed !"));
         }
     }
 }
