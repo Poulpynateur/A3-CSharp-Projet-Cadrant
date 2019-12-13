@@ -9,9 +9,17 @@ using System.Windows.Controls;
 
 namespace EasySave.View.Composants
 {
+    /// <summary>
+    /// Used to refresh the components that can be translated
+    /// </summary>
     public class Multilang
     {
-        // https://stackoverflow.com/questions/974598/find-all-controls-in-wpf-window-by-type
+        /// <summary>
+        /// Find all the components in a recursive way
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="depObj"></param>
+        /// <returns></returns>
         private IEnumerable<T> FindLogicalChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj != null)
@@ -35,6 +43,11 @@ namespace EasySave.View.Composants
             }
         }
 
+        /// <summary>
+        /// Translate the texts of the components that can be translated and found in the FindLogicalChildren
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="data"></param>
         public void RefreshControlText(DependencyObject target, IData data)
         {
             IEnumerable<ContentControl> elements = FindLogicalChildren<ContentControl>(target).Where(x => x.Tag != null);

@@ -13,31 +13,63 @@ namespace EasySave.Model.Management
     /// </summary>
     public class Management
     {
+        /// <summary>
+        /// Lazy class used for thread-safe
+        /// </summary>
         private static readonly Lazy<Management> lazy = new Lazy<Management>(() => new Management());
+
+        /// <summary>
+        /// Instance for the singleton
+        /// </summary>
         public static Management Instance { get { return lazy.Value; } }
 
+        /// <summary>
+        /// List of the blacklisted ERP
+        /// </summary>
         public List<string> ErpBlacklist { get; set; }
+
+        /// <summary>
+        /// List of the priority extensions
+        /// </summary>
         public List<string> PriorityExtension { get; set; }
+
+        /// <summary>
+        /// Maximum size of files to transfer in byte
+        /// </summary>
         public long MaxBytesFileSize { get; set; }
 
-        //Management of threads
+        /// <summary>
+        /// Management of threads
+        /// </summary>
         public Threads Threads { get; }
 
-        //Manage Language
+        /// <summary>
+        /// Manage Language
+        /// </summary>
         public Lang Lang { get; }
 
-        //Manage Encryption (currently call to an external programm)
+        /// <summary>
+        /// Manage Encryption (currently call to an external programm)
+        /// </summary>
         public Encrypt Encrypt { get; }
 
-        //Output to file (managed by model)
+        /// <summary>
+        /// Output to file (managed by model)
+        /// </summary>
         public Logger Logger { get; }
+
+        /// <summary>
+        /// Configuration to get
+        /// </summary>
         public Config Config { get; }
 
-        //Output to view
+        /// <summary>
+        /// Output to view
+        /// </summary>
         public Displayable Display { get; }
 
         /// <summary>
-        /// Output constructor 
+        /// Constructor 
         /// </summary>
         private Management()
         {
@@ -59,6 +91,7 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Check if another process is running
         /// </summary>
+        /// <returns>Boolean returning true if an ERP is running, false if not</returns>
         public bool CheckErpRunning()
         {
             foreach (var name in ErpBlacklist)

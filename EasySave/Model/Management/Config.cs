@@ -15,10 +15,19 @@ namespace EasySave.Model.Management
     /// </summary>
     public class Config
     {
-
+        /// <summary>
+        /// Folder name where to store the multiple configuration files
+        /// </summary>
         private const string FOLDER_NAME = "config";
+
+        /// <summary>
+        /// Path where to store the folder name "config"
+        /// </summary>
         private string configPath;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Config()
         {
             this.configPath = Directory.CreateDirectory(
@@ -29,6 +38,7 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Load ERP blacklist.
         /// </summary>
+        /// <returns>List of the blacklisted ERP</returns>
         public List<string> LoadErpBlackList()
         {
             return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "ERP blacklist.json")) ?? new List<string>();
@@ -46,6 +56,7 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Load the crypt format of the tasks.
         /// </summary>
+        /// <returns>List of the file extensions to encrypt</returns>
         public List<string> LoadEncryptFormat()
         {
             return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "Encrypt extensions.json")) ?? new List<string>();
@@ -64,6 +75,7 @@ namespace EasySave.Model.Management
         /// Load the config of the differential save.
         /// </summary>
         /// <param name="path">Entered path by the user</param>
+        /// <returns>Dictionary of config needed for the differential save</returns>
         public Dictionary<string, string> LoadDiffSaveConfig(string path)
         {
             return JsonHelper.ReadJson<Dictionary<string, string>>(Path.Combine(path, "conf.json")) ?? new Dictionary<string, string>();
@@ -84,6 +96,7 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Load all the tasks.
         /// </summary>
+        /// <returns>List of the tasks</returns>
         public List<Task.Task> LoadTasks()
         {
             return JsonHelper.ReadJson<List<Task.Task>>(Path.Combine(configPath, "tasks.json")) ?? new List<Task.Task>();
@@ -98,23 +111,28 @@ namespace EasySave.Model.Management
             JsonHelper.WriteJson(tasks, Path.Combine(configPath, "tasks.json"));
         }
 
+        /// <summary>
+        /// Load the language
+        /// </summary>
+        /// <returns>LangFormat object</returns>
         public LangFormat LoadLang()
         {
             return JsonHelper.ReadJson<LangFormat>(Path.Combine(configPath, "lang.json")) ?? new LangFormat();
         }
 
         /// <summary>
-        /// Load the crypt format of the tasks.
+        /// Load the priority extensions of the tasks.
         /// </summary>
+        /// <returns>List of the extension priorities</returns>
         public List<string> LoadPriorityFormat()
         {
             return JsonHelper.ReadJson<List<string>>(Path.Combine(configPath, "Priority extensions.json")) ?? new List<string>();
         }
 
         /// <summary>
-        /// Save the crypt format of the task
+        /// Save the priority extensions of the tasks
         /// </summary>
-        /// <param name="format">Entered crypt format by the user</param>
+        /// <param name="format">Entered priority extension by the user</param>
         public void SavePriorityExtension(List<string> format)
         {
             JsonHelper.WriteJson(format, Path.Combine(configPath, "Priority extensions.json"));

@@ -16,11 +16,25 @@ namespace EasySave.Model.Management
     /// </summary>
     public class Encrypt
     {
+        /// <summary>
+        /// Folder name
+        /// </summary>
         private const string FOLDER_NAME = "CryptoSoft";
+
+        /// <summary>
+        /// Path where is stored the folder name
+        /// </summary>
         private string cryptosoftPath;
 
+        /// <summary>
+        /// List containing the file formats to encrypt
+        /// </summary>
         public List<string> CryptFormat { get; set; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="cryptFormat">List which contains the file formats to encrypt</param>
         public Encrypt(List<string> cryptFormat)
         {
             this.CryptFormat = cryptFormat;
@@ -28,7 +42,7 @@ namespace EasySave.Model.Management
         }
 
         /// <summary>
-        /// Check if the target need to be crypted with the given format.
+        /// Check if the target need to be encrypted with the given format.
         /// </summary>
         /// <param name="filePath">Given path by the user</param>
         /// <returns>The file crypted format</returns>
@@ -46,6 +60,7 @@ namespace EasySave.Model.Management
         /// </summary>
         /// <param name="pathFrom">Entered source path from the user</param>
         /// <param name="pathTo">Entered target path from the user</param>
+        /// <returns>The exit code of the process</returns>
         public int EncryptFileCryptoSoft(string pathFrom, string pathTo)
         {
             string password = ConfigurationManager.AppSettings["CryptoSoftPassword"];

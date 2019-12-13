@@ -49,6 +49,11 @@ namespace EasySave.View
             InitializeComponent();
         }
 
+        /// <summary>
+        /// When the main window is closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             ParamEvent(new Dictionary<string, List<string>>() {
@@ -56,11 +61,19 @@ namespace EasySave.View
             });
         }
 
+        /// <summary>
+        /// When the main window is loading
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnLoad(object sender, RoutedEventArgs e)
         {
             multilang.RefreshControlText(this, data);
         }
 
+        /// <summary>
+        /// Refresh the text controls for the multilanguage 
+        /// </summary>
         public void RefreshControlText()
         {
             multilang.RefreshControlText(this, data);
@@ -80,6 +93,11 @@ namespace EasySave.View
             }));
         }
 
+        /// <summary>
+        /// Display the progress of a task
+        /// </summary>
+        /// <param name="name">Name of the task</param>
+        /// <param name="progress">Progress object</param>
         public void DisplayProgress(string name, Progress progress)
         {
             Dispatcher.BeginInvoke(new ThreadStart(() =>
@@ -138,6 +156,11 @@ namespace EasySave.View
             this.IsEnabled = true;
         }
 
+        /// <summary>
+        /// On click event, open the add task window and gray out the main window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnTaskAdd_Click(object sender, RoutedEventArgs e)
         {
             this.IsEnabled = false;

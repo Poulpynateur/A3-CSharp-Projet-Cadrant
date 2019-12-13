@@ -21,6 +21,11 @@ namespace EasySave.View.Composants
     /// </summary>
     public partial class Log : UserControl
     {
+        /// <summary>
+        /// Change statut and text of the log
+        /// </summary>
+        /// <param name="statut">Statut of the log</param>
+        /// <param name="text">Text of the log depending of the statut</param>
         public Log(Statut statut, string text)
         {
             InitializeComponent();

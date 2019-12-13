@@ -7,14 +7,35 @@ using System.Windows;
 
 namespace EasySave.Model.Management
 {
+    /// <summary>
+    /// Class implementing the Dictionary
+    /// </summary>
     public class LangFormat : Dictionary<string, Dictionary<string, string>> { }
 
+    /// <summary>
+    /// Class used to manage the language of the application
+    /// </summary>
     public class Lang
     {
+        /// <summary>
+        /// Actual language
+        /// </summary>
         public string LangActual { get; set; }
+
+        /// <summary>
+        /// Language choosen to change to.
+        /// </summary>
         public string[] LangChoice { get; }
+
+        /// <summary>
+        /// Dictionary
+        /// </summary>
         private LangFormat text;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="text">LangFormat object</param>
         public Lang(LangFormat text)
         {
             string[] separator = { ";" };
@@ -24,6 +45,11 @@ namespace EasySave.Model.Management
             LangActual = LangChoice[0];
         }
 
+        /// <summary>
+        /// Translate from the actual language to the choosen one
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public string Translate(string target)
         {
             if (LangActual.Equals("eng"))

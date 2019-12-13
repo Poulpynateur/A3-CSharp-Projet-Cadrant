@@ -97,6 +97,11 @@ namespace EasySave.View
             this.Close();
         }
 
+        /// <summary>
+        /// Once the window is loaded, refresh the control texts
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             multilang.RefreshControlText(this, data);

@@ -28,6 +28,7 @@ namespace EasySave.Model.Task
         /// <param name="cmdName">Command linked to the task</param>
         /// <param name="options">Options of the linked command</param>
         void AddTask(string taskName, string cmdName, Dictionary<string, string> options);
+
         /// <summary>
         /// Remove a task
         /// </summary>
