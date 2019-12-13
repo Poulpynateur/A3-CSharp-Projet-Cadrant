@@ -1,0 +1,2 @@
+MainPackage=D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\ARM\Release\Deported Console_3.0.1.0_ARM.appx
+SymbolPackage=D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\ARM\Release\Symbols\Deported Console_3.0.1.0_ARM.appxsym

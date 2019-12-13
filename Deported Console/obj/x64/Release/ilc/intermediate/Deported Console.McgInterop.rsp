@@ -1,0 +1,47 @@
+ /debug:pdbonly
+ /nowarn:0436;0618;1668;1685;1701;1702
+ /debug+
+ /nostdlib+
+ /optimize+
+ /out:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop.dll"
+ /pdb:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop.pdb"
+ /platform:x64
+ /warnaserror+
+ /unsafe
+ /nologo
+ /target:library
+ /define:MCG_PRE_BUILD
+ /define:WIN64
+ /define:AMD64
+ /define:ALIGN_ACCESS
+ /r:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\x64\ilc\lib\Private\System.Private.CoreLib.dll"
+ /r:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\x64\ilc\lib\Private\System.Private.CoreLib.InteropServices.dll"
+ /r:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\x64\ilc\lib\Private\System.Private.Interop.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Private.Uri.dll"
+ /r:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\x64\ilc\lib\Private\System.Private.CompilerServices.ICastable.dll"
+ /r:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\x64\ilc\lib\Private\System.Private.Reflection.dll"
+ /r:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\x64\ilc\lib\Private\System.Private.DispatchProxy.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Reflection.DispatchProxy.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Reflection.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Runtime.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Runtime.InteropServices.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Runtime.InteropServices.WindowsRuntime.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Numerics.Vectors.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Threading.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Diagnostics.Debug.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Runtime.WindowsRuntime.UI.Xaml.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\TransformedSRWR\System.Runtime.WindowsRuntime.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Dynamic.Runtime.dll"
+ /r:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\x64\ilc\lib\Private\System.Private.CoreLib.Augments.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Runtime.Extensions.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.Collections.dll"
+ /r:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\in\System.ObjectModel.dll"
+ /r:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.sharedlibrary-x64\1.7.3\tools\SharedLibrary\ret\AnalysisILToc\System.Private.SharedLibrary.Interop.Generated.iltoc"
+ "D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop\Adapters.g.cs"
+ "D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop\AssemblyInfo.g.cs"
+ "D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop\Data.g.cs"
+ "D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop\Helpers.g.cs"
+ "D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop\ImplTypes.g.cs"
+ "D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop\PInvoke.g.cs"
+ "D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop\SafeTypes.g.cs"
+ "D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x64\Release\ilc\intermediate\Deported Console.McgInterop\SharedStubs.g.cs"

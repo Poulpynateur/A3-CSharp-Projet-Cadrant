@@ -33,12 +33,14 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+    <Capability Name="privateNetworkClientServer" />
   </Capabilities>
   <build:Metadata>
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="16.0" />
-    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Enterprise 2019" />
-    <build:Item Name="OperatingSystem" Version="10.0.17134.829 (WinBuild.160101.0800)" />
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2019" />
+    <build:Item Name="OperatingSystem" Version="10.0.18362.476 (WinBuild.160101.0800)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="16.0.29311.281" />
     <build:Item Name="ProjectGUID" Value="{D11F88E0-2F90-4BCE-AE24-7F3D73245ABA}" />
     <build:Item Name="ilc.exe" Version="1.7.27420.00 built by: PROJECTNGDR2" />

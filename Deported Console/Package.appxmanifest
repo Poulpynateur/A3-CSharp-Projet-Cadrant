@@ -8,14 +8,14 @@
 
   <Identity
     Name="d11a1980-5547-47f0-83e6-6a080ad974a8"
-    Publisher="CN=alexa"
-    Version="1.0.0.0" />
+    Publisher="CN=ProSoft"
+    Version="3.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="d11a1980-5547-47f0-83e6-6a080ad974a8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Deported Console</DisplayName>
-    <PublisherDisplayName>alexa</PublisherDisplayName>
+    <PublisherDisplayName>ProSoft</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

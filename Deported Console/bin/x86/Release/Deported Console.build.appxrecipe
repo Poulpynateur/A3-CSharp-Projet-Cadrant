@@ -1,70 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-FP0NE1I</Machine>
-    <WindowsUser>alexa</WindowsUser>
+    <Machine>DESKTOP-OT2S0FM</Machine>
+    <WindowsUser>TheUser</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
     <SolutionConfiguration>Release|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>d11a1980-5547-47f0-83e6-6a080ad974a8</PackageIdentityName>
-    <PackageIdentityPublisher>CN=alexa</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\alexa\source\repos\Deported Console\Deported Console\obj\x86\Release\</IntermediateOutputPath>
+    <PackageIdentityPublisher>CN=ProSoft</PackageIdentityPublisher>
+    <IntermediateOutputPath>D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\x86\Release\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\AppX</LayoutDir>
+    <LayoutDir>D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\AppxManifest.xml">
+    <AppXManifest Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\clrcompression.dll">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Deported Console.dll">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Deported Console.dll">
       <PackagePath>Deported Console.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Deported Console.exe">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Deported Console.exe">
       <PackagePath>Deported Console.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\Deported Console.pdb">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\Deported Console.pdb">
       <PackagePath>Deported Console.pdb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\alexa\source\repos\Deported Console\Deported Console\bin\x86\Release\ilc\resources.pri">
+    <AppxPackagedFile Include="D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\bin\x86\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

@@ -1,0 +1,11 @@
+/out:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\ARM\Release\ilc\intermediate\SgGenerated\\"
+/int:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\ARM\Release\ilc\intermediate\\"
+/ref:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\ARM\Release\ilc\intermediate\PreMergeILTransformed"
+/ref:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\ARM\Release\ilc\intermediate\TransformedSRWR"
+/ref:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\ARM\Release\ilc\in"
+/ref:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\ARM\Release\ilc\in\\"
+/ref:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\ARM\Release\ilc\in\\"
+/ref:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\ARM\ilc\lib\Private\\"
+/ref:"D:\Cesi\Annee 3\Long terme\Projet\Projet 2 - Cadrant 2019\Deported Console\Deported Console\obj\ARM\Release\ilc\in\WinMetadata"
+/ca:System.Private.CoreLib
+/cscpath:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\ARM\ilc\csc"

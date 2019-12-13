@@ -737,13 +737,22 @@ namespace __Interop
 		internal static int StdCall__8(
 					global::System.IntPtr pfn, 
 					void* pthis, 
+					int arg0)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__9(
+					global::System.IntPtr pfn, 
+					void* pthis, 
 					global::System.Runtime.InteropServices.WindowsRuntime.EventRegistrationToken arg0)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
 		}
 
-		internal static void HasThisCall__9<TArg0>(
+		internal static void HasThisCall__10<TArg0>(
 					object __this, 
 					global::System.IntPtr pfn, 
 					object arg0, 
@@ -752,7 +761,7 @@ namespace __Interop
 			// This method is implemented elsewhere in the toolchain
 		}
 
-		internal static int StdCall__10(
+		internal static int StdCall__11(
 					global::System.IntPtr pfn, 
 					void* pthis)
 		{
@@ -760,7 +769,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__11(
+		internal static int StdCall__12(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::Windows.Foundation.Point arg0, 
@@ -771,7 +780,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__12(
+		internal static int StdCall__13(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					int arg0, 
@@ -781,7 +790,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__13(
+		internal static int StdCall__14(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::Windows.Foundation.Point arg0, 
@@ -791,7 +800,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__14(
+		internal static int StdCall__15(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					uint arg0, 
@@ -802,7 +811,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static void HasThisCall__15<TArg0, TArg1>(
+		internal static void HasThisCall__16<TArg0, TArg1>(
 					object __this, 
 					global::System.IntPtr pfn, 
 					TArg0 arg0, 
@@ -811,19 +820,10 @@ namespace __Interop
 			// This method is implemented elsewhere in the toolchain
 		}
 
-		internal static int StdCall__16(
-					global::System.IntPtr pfn, 
-					void* pthis, 
-					double arg0)
-		{
-			// This method is implemented elsewhere in the toolchain
-			return 0;
-		}
-
 		internal static int StdCall__17(
 					global::System.IntPtr pfn, 
 					void* pthis, 
-					int arg0)
+					double arg0)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
@@ -873,8 +873,7 @@ namespace __Interop
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
-					void* arg1, 
-					void* arg2)
+					int arg1)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
@@ -883,13 +882,43 @@ namespace __Interop
 		internal static int StdCall__23(
 					global::System.IntPtr pfn, 
 					void* pthis, 
-					global::System.Runtime.InteropServices.HSTRING arg0)
+					global::Windows.UI.Xaml.GridLength arg0)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
 		}
 
 		internal static int StdCall__24(
+					global::System.IntPtr pfn, 
+					void* pthis, 
+					global::System.Runtime.InteropServices.HSTRING arg0)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__25(
+					global::System.IntPtr pfn, 
+					void* pthis, 
+					void* arg0, 
+					void* arg1, 
+					void* arg2)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__26(
+					global::System.IntPtr pfn, 
+					void* pthis, 
+					double arg0, 
+					double arg1)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__27(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -900,7 +929,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static void HasThisCall__25<TArg0>(
+		internal static void HasThisCall__28<TArg0>(
 					object __this, 
 					global::System.IntPtr pfn, 
 					TArg0 arg0)
@@ -908,7 +937,7 @@ namespace __Interop
 			// This method is implemented elsewhere in the toolchain
 		}
 
-		internal static TResult HasThisCall__26<TResult>(
+		internal static TResult HasThisCall__29<TResult>(
 					object __this, 
 					global::System.IntPtr pfn, 
 					string arg0)
@@ -917,7 +946,7 @@ namespace __Interop
 			return default(TResult);
 		}
 
-		internal static TResult HasThisCall__27<TResult>(
+		internal static TResult HasThisCall__30<TResult>(
 					object __this, 
 					global::System.IntPtr pfn)
 		{
@@ -925,7 +954,7 @@ namespace __Interop
 			return default(TResult);
 		}
 
-		internal static bool HasThisCall__28(
+		internal static bool HasThisCall__31(
 					object __this, 
 					global::System.IntPtr pfn)
 		{
@@ -933,14 +962,14 @@ namespace __Interop
 			return default(bool);
 		}
 
-		internal static void HasThisCall__29(
+		internal static void HasThisCall__32(
 					object __this, 
 					global::System.IntPtr pfn)
 		{
 			// This method is implemented elsewhere in the toolchain
 		}
 
-		internal static int StdCall__30(
+		internal static int StdCall__33(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -951,7 +980,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__31(
+		internal static int StdCall__34(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					int arg0, 
@@ -962,7 +991,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__32(
+		internal static int StdCall__35(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::System.Runtime.InteropServices.HSTRING arg0, 
@@ -973,17 +1002,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__33(
-					global::System.IntPtr pfn, 
-					void* pthis, 
-					void* arg0, 
-					int arg1)
-		{
-			// This method is implemented elsewhere in the toolchain
-			return 0;
-		}
-
-		internal static int StdCall__34(
+		internal static int StdCall__36(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::System.Type__Impl.UnsafeType arg0, 
@@ -994,53 +1013,18 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__35(
+		internal static int StdCall__37(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
-					int arg1, 
-					global::Windows.System.Threading.WorkItemOptions arg2, 
-					void* arg3)
+					global::System.Runtime.InteropServices.HSTRING arg1, 
+					void* arg2)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
 		}
 
-		internal static int StdCall__36(
-					global::System.IntPtr pfn, 
-					void* pthis, 
-					uint arg0)
-		{
-			// This method is implemented elsewhere in the toolchain
-			return 0;
-		}
-
-		internal static uint HasThisCall__37(
-					object __this, 
-					global::System.IntPtr pfn)
-		{
-			// This method is implemented elsewhere in the toolchain
-			return 0;
-		}
-
-		internal static void HasThisCall__38(
-					object __this, 
-					global::System.IntPtr pfn, 
-					uint arg0)
-		{
-			// This method is implemented elsewhere in the toolchain
-		}
-
-		internal static int StdCall__39(
-					global::System.IntPtr pfn, 
-					void* pthis, 
-					ulong arg0)
-		{
-			// This method is implemented elsewhere in the toolchain
-			return 0;
-		}
-
-		internal static int StdCall__40(
+		internal static int StdCall__38(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1052,7 +1036,32 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__41(
+		internal static int StdCall__39(
+					global::System.IntPtr pfn, 
+					void* pthis, 
+					uint arg0)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static uint HasThisCall__40(
+					object __this, 
+					global::System.IntPtr pfn)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static void HasThisCall__41(
+					object __this, 
+					global::System.IntPtr pfn, 
+					uint arg0)
+		{
+			// This method is implemented elsewhere in the toolchain
+		}
+
+		internal static int StdCall__42(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1062,7 +1071,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static void HasThisCall__42<TArg0>(
+		internal static void HasThisCall__43<TArg0>(
 					object __this, 
 					global::System.IntPtr pfn, 
 					TArg0 arg0, 
@@ -1071,7 +1080,7 @@ namespace __Interop
 			// This method is implemented elsewhere in the toolchain
 		}
 
-		internal static void HasThisCall__43<TArg0>(
+		internal static void HasThisCall__44<TArg0>(
 					object __this, 
 					global::System.IntPtr pfn, 
 					TArg0 arg0, 
@@ -1080,7 +1089,28 @@ namespace __Interop
 			// This method is implemented elsewhere in the toolchain
 		}
 
-		internal static int StdCall__44(
+		internal static int StdCall__45(
+					global::System.IntPtr pfn, 
+					void* pthis, 
+					void* arg0, 
+					int arg1, 
+					global::Windows.System.Threading.WorkItemOptions arg2, 
+					void* arg3)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__46(
+					global::System.IntPtr pfn, 
+					void* pthis, 
+					ulong arg0)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__47(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					int arg0, 
@@ -1094,7 +1124,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__45(
+		internal static int StdCall__48(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					int arg0, 
@@ -1107,7 +1137,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__46(
+		internal static int StdCall__49(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					int arg0, 
@@ -1118,7 +1148,16 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__47(
+		internal static int StdCall__50(
+					global::System.IntPtr pfn, 
+					void* pthis, 
+					global::Windows.Foundation.Size arg0)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__51(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1132,7 +1171,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__48(
+		internal static int StdCall__52(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::System.IntPtr arg0, 
@@ -1146,7 +1185,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__49(
+		internal static int StdCall__53(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::System.IntPtr arg0)
@@ -1155,7 +1194,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__50(
+		internal static int StdCall__54(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					int arg0, 
@@ -1167,7 +1206,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__51(
+		internal static int StdCall__55(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1178,7 +1217,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__52(
+		internal static int StdCall__56(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1193,7 +1232,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__53(
+		internal static int StdCall__57(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					int arg0, 
@@ -1206,7 +1245,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__54(
+		internal static int StdCall__58(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					int arg0, 
@@ -1219,7 +1258,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__55(
+		internal static int StdCall__59(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					int arg0, 
@@ -1230,7 +1269,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static void StdCall__56(
+		internal static void StdCall__60(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::System.IntPtr arg0)
@@ -1238,7 +1277,7 @@ namespace __Interop
 			// This method is implemented elsewhere in the toolchain
 		}
 
-		internal static int StdCall__57(
+		internal static int StdCall__61(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1252,7 +1291,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__58(
+		internal static int StdCall__62(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1264,7 +1303,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__59(
+		internal static int StdCall__63(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1584,233 +1623,226 @@ namespace __Interop
 
 		public delegate void AddrOfTarget59(
 					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.TextChangedEventArgs a2);
+					global::Windows.UI.Xaml.Documents.TextElement a1, 
+					global::Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs a2);
 
 		public delegate void AddrOfTarget60(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Documents.TextElement a1, 
+					global::Windows.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs a2);
+
+		public delegate void AddrOfTarget61(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Documents.TextElement a1, 
+					global::Windows.UI.Xaml.Input.AccessKeyInvokedEventArgs a2);
+
+		public delegate void AddrOfTarget62(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Xaml.Controls.ContextMenuEventArgs a2);
 
-		public delegate void AddrOfTarget61(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.TextControlPasteEventArgs a2);
-
-		public delegate void AddrOfTarget62(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextCompositionStartedEventArgs a2);
-
 		public delegate void AddrOfTarget63(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextCompositionChangedEventArgs a2);
-
-		public delegate void AddrOfTarget64(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextCompositionEndedEventArgs a2);
-
-		public delegate void AddrOfTarget65(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.CandidateWindowBoundsChangedEventArgs a2);
-
-		public delegate void AddrOfTarget66(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextBoxTextChangingEventArgs a2);
-
-		public delegate void AddrOfTarget67(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextControlCopyingToClipboardEventArgs a2);
-
-		public delegate void AddrOfTarget68(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextControlCuttingToClipboardEventArgs a2);
-
-		public delegate void AddrOfTarget69(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextBoxBeforeTextChangingEventArgs a2);
-
-		public delegate void AddrOfTarget70(
 					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.Controls.TextBlock a1, 
 					global::Windows.UI.Xaml.Controls.IsTextTrimmedChangedEventArgs a2);
 
+		public delegate void AddrOfTarget64(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.TextChangedEventArgs a2);
+
+		public delegate void AddrOfTarget65(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.TextControlPasteEventArgs a2);
+
+		public delegate void AddrOfTarget66(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextCompositionStartedEventArgs a2);
+
+		public delegate void AddrOfTarget67(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextCompositionChangedEventArgs a2);
+
+		public delegate void AddrOfTarget68(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextCompositionEndedEventArgs a2);
+
+		public delegate void AddrOfTarget69(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.CandidateWindowBoundsChangedEventArgs a2);
+
+		public delegate void AddrOfTarget70(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextBoxTextChangingEventArgs a2);
+
 		public delegate void AddrOfTarget71(
 					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.ApplicationInitializationCallbackParams a1);
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextControlCopyingToClipboardEventArgs a2);
 
 		public delegate void AddrOfTarget72(
 					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.UnhandledExceptionEventArgs a2);
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextControlCuttingToClipboardEventArgs a2);
 
 		public delegate void AddrOfTarget73(
 					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.ApplicationModel.SuspendingEventArgs a2);
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextBoxBeforeTextChangingEventArgs a2);
 
 		public delegate void AddrOfTarget74(
 					global::System.__ComObject a0, 
 					object a1, 
-					global::Windows.ApplicationModel.LeavingBackgroundEventArgs a2);
+					global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs a2);
 
 		public delegate void AddrOfTarget75(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.ApplicationInitializationCallbackParams a1);
+
+		public delegate void AddrOfTarget76(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.UnhandledExceptionEventArgs a2);
+
+		public delegate void AddrOfTarget77(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.ApplicationModel.SuspendingEventArgs a2);
+
+		public delegate void AddrOfTarget78(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.ApplicationModel.LeavingBackgroundEventArgs a2);
+
+		public delegate void AddrOfTarget79(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.ApplicationModel.EnteredBackgroundEventArgs a2);
 
-		public delegate void AddrOfTarget76(
+		public delegate void AddrOfTarget80(
 					global::System.__ComObject a0, 
 					global::Windows.Foundation.Collections.IObservableMap<string, string> a1, 
 					global::Windows.Foundation.Collections.IMapChangedEventArgs<string> a2);
 
-		public delegate void AddrOfTarget77(
+		public delegate void AddrOfTarget81(
 					global::System.__ComObject a0, 
 					global::Windows.Foundation.IAsyncAction a1);
 
-		public delegate void AddrOfTarget78(
+		public delegate void AddrOfTarget82(
 					global::System.__ComObject a0, 
 					global::Windows.System.Threading.ThreadPoolTimer a1);
 
-		public delegate void AddrOfTarget79(global::System.__ComObject a0);
+		public delegate void AddrOfTarget83(global::System.__ComObject a0);
 
-		public delegate int AddrOfTarget80<T>(
+		public delegate int AddrOfTarget84<T>(
 					global::Windows.Foundation.AsyncOperationCompletedHandler<T> a0, 
 					global::Windows.Foundation.IAsyncOperation<T> a1, 
 					global::Windows.Foundation.AsyncStatus a2);
 
-		public delegate void AddrOfTarget81(
+		public delegate void AddrOfTarget85(
 					global::System.__ComObject a0, 
 					global::Windows.Foundation.IAsyncOperation<global::Windows.Storage.IStorageItem> a1, 
 					global::Windows.Foundation.AsyncStatus a2);
 
-		public delegate void AddrOfTarget82(
+		public delegate void AddrOfTarget86(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs a2);
 
-		public delegate void AddrOfTarget83(
+		public delegate void AddrOfTarget87(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Xaml.Navigation.NavigationEventArgs a2);
 
-		public delegate void AddrOfTarget84(
+		public delegate void AddrOfTarget88(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs a2);
 
-		public delegate void AddrOfTarget85(
+		public delegate void AddrOfTarget89(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Xaml.Navigation.NavigationFailedEventArgs a2);
 
-		public delegate void AddrOfTarget86(
-					global::System.__ComObject a0, 
-					global::Windows.Foundation.IAsyncOperationWithProgress<global::Windows.Storage.Streams.IBuffer, uint> a1, 
-					uint a2);
-
-		public delegate void AddrOfTarget87(
-					global::System.__ComObject a0, 
-					global::Windows.Foundation.IAsyncOperationWithProgress<global::Windows.Storage.Streams.IBuffer, uint> a1, 
-					global::Windows.Foundation.AsyncStatus a2);
-
-		public delegate void AddrOfTarget88(
-					global::System.__ComObject a0, 
-					global::Windows.Foundation.IAsyncOperationWithProgress<uint, uint> a1, 
-					uint a2);
-
-		public delegate void AddrOfTarget89(
-					global::System.__ComObject a0, 
-					global::Windows.Foundation.IAsyncOperationWithProgress<uint, uint> a1, 
-					global::Windows.Foundation.AsyncStatus a2);
-
 		public delegate void AddrOfTarget90(
 					global::System.__ComObject a0, 
-					global::Windows.Foundation.IAsyncOperation<bool> a1, 
-					global::Windows.Foundation.AsyncStatus a2);
+					global::Windows.Foundation.IAsyncOperationWithProgress<global::Windows.Storage.Streams.IBuffer, uint> a1, 
+					uint a2);
 
 		public delegate void AddrOfTarget91(
 					global::System.__ComObject a0, 
-					global::Windows.Foundation.IAsyncOperation<global::Windows.Storage.Streams.IRandomAccessStream> a1, 
+					global::Windows.Foundation.IAsyncOperationWithProgress<global::Windows.Storage.Streams.IBuffer, uint> a1, 
 					global::Windows.Foundation.AsyncStatus a2);
 
 		public delegate void AddrOfTarget92(
 					global::System.__ComObject a0, 
-					global::Windows.Foundation.IAsyncOperation<global::Windows.Storage.StorageFile> a1, 
+					global::Windows.Foundation.IAsyncOperation<global::Windows.UI.Popups.IUICommand> a1, 
 					global::Windows.Foundation.AsyncStatus a2);
 
 		public delegate void AddrOfTarget93(
 					global::System.__ComObject a0, 
+					global::Windows.Foundation.IAsyncOperationWithProgress<uint, uint> a1, 
+					uint a2);
+
+		public delegate void AddrOfTarget94(
+					global::System.__ComObject a0, 
+					global::Windows.Foundation.IAsyncOperationWithProgress<uint, uint> a1, 
+					global::Windows.Foundation.AsyncStatus a2);
+
+		public delegate void AddrOfTarget95(
+					global::System.__ComObject a0, 
+					global::Windows.Foundation.IAsyncOperation<bool> a1, 
+					global::Windows.Foundation.AsyncStatus a2);
+
+		public delegate void AddrOfTarget96(
+					global::System.__ComObject a0, 
+					global::Windows.Foundation.IAsyncOperation<global::Windows.Storage.Streams.IRandomAccessStream> a1, 
+					global::Windows.Foundation.AsyncStatus a2);
+
+		public delegate void AddrOfTarget97(
+					global::System.__ComObject a0, 
+					global::Windows.Foundation.IAsyncOperation<global::Windows.Storage.StorageFile> a1, 
+					global::Windows.Foundation.AsyncStatus a2);
+
+		public delegate void AddrOfTarget98(
+					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Core.WindowActivatedEventArgs a2);
 
-		public delegate void AddrOfTarget94(
+		public delegate void AddrOfTarget99(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Core.CoreWindowEventArgs a2);
 
-		public delegate void AddrOfTarget95(
+		public delegate void AddrOfTarget100(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Core.WindowSizeChangedEventArgs a2);
 
-		public delegate void AddrOfTarget96(
+		public delegate void AddrOfTarget101(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Core.VisibilityChangedEventArgs a2);
 
-		public delegate object AddrOfTarget97(global::System.__ComObject a0);
+		public delegate object AddrOfTarget102(global::System.__ComObject a0);
 
-		public delegate object AddrOfTarget98(object a0);
+		public delegate object AddrOfTarget103(object a0);
 
-		public delegate int AddrOfTarget99(
+		public delegate int AddrOfTarget104(
 					ref global::Windows.UI.Xaml.Markup.XmlnsDefinition a0, 
 					out global::Windows.UI.Xaml.Markup.XmlnsDefinition__Impl.UnsafeType a1);
 
-		public delegate int AddrOfTarget100(
+		public delegate int AddrOfTarget105(
 					ref global::Windows.UI.Xaml.Markup.XmlnsDefinition__Impl.UnsafeType a0, 
 					out global::Windows.UI.Xaml.Markup.XmlnsDefinition a1);
 
-		public delegate void AddrOfTarget101(ref global::Windows.UI.Xaml.Markup.XmlnsDefinition__Impl.UnsafeType a0);
-
-		public delegate int AddrOfTarget102(
-					ref global::Interop_Winsock_WSAData__System_Net_NameResolution a0, 
-					out global::Interop_Winsock_WSAData__System_Net_NameResolution__Impl.UnsafeType a1);
-
-		public delegate int AddrOfTarget103(
-					ref global::Interop_Winsock_WSAData__System_Net_NameResolution__Impl.UnsafeType a0, 
-					out global::Interop_Winsock_WSAData__System_Net_NameResolution a1);
-
-		public delegate int AddrOfTarget104(
-					ref global::Interop_Winsock_IPv6MulticastRequest__System_Net_Sockets a0, 
-					out global::Interop_Winsock_IPv6MulticastRequest__System_Net_Sockets__Impl.UnsafeType a1);
-
-		public delegate int AddrOfTarget105(
-					ref global::Interop_Winsock_IPv6MulticastRequest__System_Net_Sockets__Impl.UnsafeType a0, 
-					out global::Interop_Winsock_IPv6MulticastRequest__System_Net_Sockets a1);
-
-		public delegate int AddrOfTarget106(
-					ref global::Interop_Winsock_WSAPROTOCOL_INFO__System_Net_Sockets a0, 
-					out global::Interop_Winsock_WSAPROTOCOL_INFO__System_Net_Sockets__Impl.UnsafeType a1);
-
-		public delegate int AddrOfTarget107(
-					ref global::Interop_Winsock_WSAPROTOCOL_INFO__System_Net_Sockets__Impl.UnsafeType a0, 
-					out global::Interop_Winsock_WSAPROTOCOL_INFO__System_Net_Sockets a1);
-
-		public delegate int AddrOfTarget108(
-					ref global::Interop_Winsock_WSAPROTOCOLCHAIN__System_Net_Sockets a0, 
-					out global::Interop_Winsock_WSAPROTOCOLCHAIN__System_Net_Sockets__Impl.UnsafeType a1);
-
-		public delegate int AddrOfTarget109(
-					ref global::Interop_Winsock_WSAPROTOCOLCHAIN__System_Net_Sockets__Impl.UnsafeType a0, 
-					out global::Interop_Winsock_WSAPROTOCOLCHAIN__System_Net_Sockets a1);
+		public delegate void AddrOfTarget106(ref global::Windows.UI.Xaml.Markup.XmlnsDefinition__Impl.UnsafeType a0);
 	}
 }
 
