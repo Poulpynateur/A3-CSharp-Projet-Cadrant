@@ -35,8 +35,10 @@ namespace EasySave.Model.Management
 
         public void Close()
         {
-            progressSocket._client.Dispose();
-            progressSocket._socket.Dispose();
+            if(progressSocket._client != null)
+                progressSocket._client.Dispose();
+            if (progressSocket._socket != null)
+                progressSocket._socket.Dispose();
         }
 
         /// <summary>
@@ -59,7 +61,7 @@ namespace EasySave.Model.Management
                 progressSocket.ConvertProgressToBuffer(
                     progress.Name,
                     progress.FilesNumber,
-                    progress.FilesNumber,
+                    progress.FilesDone,
                     progress.FileInProgress
                 )
             );

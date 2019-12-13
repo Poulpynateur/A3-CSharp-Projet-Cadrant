@@ -7,16 +7,12 @@ using System.Net.Sockets;
 using System.Net;
 using EasySave.Helpers.Files;
 using EasySave.Model.Management;
+using System.Windows;
 
 namespace EasySave.Model.Management
 {
     class ProgressSocket
     {
-        /// <summary>
-        /// Buffer used to send name of the task and its progress
-        /// </summary>
-        private byte[] _sendBuffer { get; set; }
-
         /// <summary>
         /// Port used for the socket
         /// </summary>
@@ -44,8 +40,6 @@ namespace EasySave.Model.Management
         /// <param name="port">Port</param>
         public ProgressSocket()
         {
-            _sendBuffer = new byte[1024];
-
             var host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (var ip in host.AddressList)
             {
@@ -71,11 +65,13 @@ namespace EasySave.Model.Management
         {
             ThreadPool.QueueUserWorkItem((state)=>
             {
-                while (true)
+                while(true)
                 {
-                    Socket clientSocket = _socket.Accept();
-                    int receive = clientSocket.Receive(_sendBuffer);
-                    _client = clientSocket;
+                    try
+                    {
+                        _client = _socket.Accept();
+                    } catch
+                    {}
                 }
             });
         }
@@ -89,17 +85,10 @@ namespace EasySave.Model.Management
         /// <returns></returns>
         public byte[] ConvertProgressToBuffer(string nameTask, int totalFiles, int doneFiles, string fileInProgress)
         {
-            // Create all the byte arrays to store the data
-            byte[] nameTaskBuffer = Encoding.UTF8.GetBytes(nameTask);
-            byte[] fileInProgressBuffer = Encoding.UTF8.GetBytes(fileInProgress);
-            float ratioProgress = (float)totalFiles / (float)doneFiles;
-            byte[] ratioProgressBuffer = BitConverter.GetBytes(ratioProgress);
+            int ratioProgress = doneFiles * 100 / totalFiles;
+            string str = ratioProgress + ";" + nameTask + ";" + fileInProgress + "\n";
 
-            // Copy the previously arrays to a common array to store everything
-            nameTaskBuffer.CopyTo(_sendBuffer, 0);
-            fileInProgressBuffer.CopyTo(_sendBuffer, 60);
-            ratioProgressBuffer.CopyTo(_sendBuffer, 572);
-            return _sendBuffer;
+            return Encoding.UTF8.GetBytes(str);
         }
 
         /// <summary>
