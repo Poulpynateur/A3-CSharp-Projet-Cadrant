@@ -67,9 +67,6 @@ namespace EasySave.Model.Job.Specialisation
         /// <param name="path">Path of the file to copy</param>
         public void CopyTargetFile(string path)
         {
-            //To make pause easier during test
-            Thread.Sleep(500);
-
             string newPath = path.Replace(Source, Target);
             File.Copy(path, newPath, true);
 
@@ -78,7 +75,7 @@ namespace EasySave.Model.Job.Specialisation
             {
                 Progress.EncryptionTimeMs = management.Encrypt.EncryptFileCryptoSoft(path, newPath);
                 if (Progress.EncryptionTimeMs < 0)
-                    throw new Exception(management.Lang.Translate("Encryption error on ") + path);
+                    throw new Exception(management.Lang.Translate("ErrorEncryption") + " : " + path);
             }
         }
 
@@ -131,9 +128,9 @@ namespace EasySave.Model.Job.Specialisation
         public void CheckIfFoldersExist()
         {
             if (!Directory.Exists(Source))
-                throw new Exception(management.Lang.Translate("Source folder doesn't exist : ") + Source);
+                throw new Exception(management.Lang.Translate("ErrorFolder") +" : "+ Source);
             if (!Directory.Exists(Target))
-                throw new Exception(management.Lang.Translate("Target folder doesn't exist : ") + Target);
+                throw new Exception(management.Lang.Translate("ErrorFolder") +" : "+ Target);
         }
 
         /// <summary>
@@ -176,7 +173,7 @@ namespace EasySave.Model.Job.Specialisation
             if (management.Threads.AddThread(Name, thread))
                 thread.Start();
             else
-                management.Display.DisplayText(Statut.WARNING, Name + management.Lang.Translate(" is already started."));
+                management.Display.DisplayText(Statut.WARNING, Name + management.Lang.Translate(" AlreadyStarted"));
         }
 
         /// <summary>
@@ -186,9 +183,9 @@ namespace EasySave.Model.Job.Specialisation
         public void SaveEnd(int result)
         {
             if (result < 0)
-                management.Display.DisplayText(Statut.INFO, Name + management.Lang.Translate(" stopped."));
+                management.Display.DisplayText(Statut.INFO, Name + management.Lang.Translate("Stop"));
             else
-                management.Display.DisplayText(Statut.SUCCESS, Name + management.Lang.Translate(" finish successfully."));
+                management.Display.DisplayText(Statut.SUCCESS, Name + management.Lang.Translate("IsSuccess"));
 
             management.Threads.Map.Remove(Name);
         }

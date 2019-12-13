@@ -102,9 +102,10 @@ namespace EasySave.View
         {
             Dispatcher.BeginInvoke(new ThreadStart(() =>
             {
-                if(TaskList.Children.Count > 0)
+                var findName = TaskList.Children.OfType<TaskInfo>().Where((x => x.Name.Content.ToString() == name));
+                if (TaskList.Children.Count > 0 && findName.Any())
                 {
-                    TaskInfo info = TaskList.Children.OfType<TaskInfo>().Where((x => x.Name.Content.ToString() == name)).First();
+                    TaskInfo info = findName.First();
 
                     if (progress.IsPaused)
                     {

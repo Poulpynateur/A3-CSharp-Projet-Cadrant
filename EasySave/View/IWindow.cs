@@ -28,6 +28,7 @@ namespace EasySave.View
         STOP,
 
         PAUSE,
+        PAUSE_ALL,
         RESTART
     }
 

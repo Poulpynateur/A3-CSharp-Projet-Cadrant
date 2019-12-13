@@ -53,10 +53,19 @@ namespace EasySave.Controller
         /// </summary>
         public void StopAllThread()
         {
-            foreach(var thread in threads.Map)
+            foreach (var thread in threads.Map)
             {
                 thread.Value.IsStoped = true;
             }
+            threads.UnpauseAllThread();
+        }
+
+        /// <summary>
+        /// Stop all the threads in the Dictionnary of the Threads field
+        /// </summary>
+        public void PauseAllThread()
+        {
+            threads.PauseAll();
         }
     }
 }

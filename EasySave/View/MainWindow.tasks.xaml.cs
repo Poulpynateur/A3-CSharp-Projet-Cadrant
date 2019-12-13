@@ -65,5 +65,15 @@ namespace EasySave.View
         {
             TaskEvent(TaskAction.EXECUTE, GetSelectedTasks());
         }
+
+        private void BtnTaskPause_Click(object sender, RoutedEventArgs e)
+        {
+            TaskEvent(TaskAction.PAUSE_ALL, null);
+            var list = TaskList.Children.OfType<TaskInfo>();
+            foreach (var task in list)
+            {
+                task.PauseTask();
+            }
+        }
     }
 }

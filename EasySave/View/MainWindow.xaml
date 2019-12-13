@@ -8,8 +8,12 @@
         Title="MainWindow"
         Closing="Window_Closing"
         Loaded="OnLoad"
-        Height="auto" Width="700">
+        Height="665" Width="700">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="145"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -20,13 +24,13 @@
             <RowDefinition Height="100" MaxHeight="100"/>
         </Grid.RowDefinitions>
 
-        <Label HorizontalAlignment="center" Content="EasySave" Tag="EasySave" FontSize="45"/>
-        <Button x:Name="BtnParam" Click="BtnParam_Click" BorderThickness="0" Background="Transparent" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
+        <Label HorizontalAlignment="center" Content="EasySave" Tag="Title" FontSize="45" Grid.Column="1" Margin="107,0,252,0"/>
+        <Button x:Name="BtnParam" Click="BtnParam_Click" BorderThickness="0" Background="Transparent" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Grid.Column="1">
             <Image Source="../assets/Param.png" Height="30"></Image>
         </Button>
 
-        <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Quick Save" Tag="Quick Save" FontSize="25"/>
-        <Grid Grid.Row="2" Margin="10,0">
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Content="Quick Save" Tag="QuickSaveTitle" FontSize="25"/>
+        <Grid Grid.Row="2" Margin="10,0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
@@ -41,33 +45,33 @@
             </Grid.RowDefinitions>
 
 
-            <Label Grid.Row="0" HorizontalAlignment="Right" Content="Save Name" Tag="Save Name" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" HorizontalAlignment="Right" Content="Save Name" Tag="Name" VerticalAlignment="Center"/>
             <TextBox x:Name="QuickName" Grid.Row="0" Grid.Column="1" Height="25" Margin="10,0" VerticalContentAlignment="Center"/>
 
-            <Label Grid.Row="1" HorizontalAlignment="Right" Content="Source Path" Tag="Source Path" VerticalAlignment="Center"/>
+            <Label Grid.Row="1" HorizontalAlignment="Right" Content="Source Path" Tag="SourcePath" VerticalAlignment="Center"/>
             <TextBox x:Name="QuickSourcePath" Grid.Row="1" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
             <Button x:Name="btnQuickSourcePath" Click="BtnQuickSourcePath_Click"
                     Content="Choose" Tag="Choose" Grid.Row="1" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
 
-            <Label Grid.Row="2" HorizontalAlignment="Right" Content="Target Path" Tag="Target Path" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" HorizontalAlignment="Right" Content="Target Path" Tag="TargetPath" VerticalAlignment="Center"/>
             <TextBox x:Name="QuickTargetPath" Grid.Row="2" Grid.Column="1" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0"/>
             <Button x:Name="btnQuickTargetPath" Click="BtnQuickTargetPath_Click"
                     Content="Choose" Tag="Choose" Grid.Row="2" Grid.Column="2" Padding="10,0" Height="25" VerticalAlignment="Center"/>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
                 <RadioButton x:Name="RadioMirrorSave" IsChecked="True" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0,0,0"></RadioButton>
-                    <Label Content="Mirror Save" VerticalAlignment="Center" Tag="Mirror Save"/>
+                <Label Content="Mirror Save" VerticalAlignment="Center" Tag="MirrorSave"/>
                 <RadioButton x:Name="RadioDifferentialSave" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="10,0,0,0"></RadioButton>
-                <Label Content="Differencial Save" VerticalAlignment="Center" Tag="Differencial Save"/>
-                
+                <Label Content="Differencial Save" VerticalAlignment="Center" Tag="DifferencialSave"/>
+
                 <CheckBox x:Name="QuickSaveEncrypt" VerticalAlignment="Center" Margin="10,0" Content="Encrypt" Tag="Encrypt"></CheckBox>
-                <Button x:Name="ExecuteQuickSave" Content="Execute quick save" Tag="Execute quick save" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteQuickSave_Click"/>
+                <Button x:Name="ExecuteQuickSave" Content="Execute" Tag="Execute" Height="25" Padding="10,0" Margin="10,0" VerticalAlignment="Center" Click="ExecuteQuickSave_Click"/>
             </StackPanel>
 
         </Grid>
 
-        <Label Grid.Row="3" Grid.ColumnSpan="2" Content="Task Manager" Tag="Task Manager" FontSize="25"/>
-        <Grid Grid.Row="4" Margin="10,0">
+        <Label Grid.Row="3" Grid.ColumnSpan="2" Content="Task Manager" Tag="TaskManager" FontSize="25"/>
+        <Grid Grid.Row="4" Margin="10,0" Grid.ColumnSpan="2">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -83,13 +87,14 @@
 
             <StackPanel Grid.Column="0" Margin="0,0,10,0">
                 <Button x:Name="BtnTaskExecute" Content="Execute" Tag="Execute" Height="25" Padding="10,0" Margin="0,0" Click="BtnTaskExecute_Click"/>
+                <Button x:Name="BtnTaskPause" Content="PauseAll" Tag="PauseAll" Height="25" Padding="10,0" Margin="0,5" Click="BtnTaskPause_Click" />
                 <Button x:Name="BtnTaskRemove" Content="Remove" Tag="Remove" Height="25" Padding="10,0" Margin="0,5" Click="BtnTaskRemove_Click"/>
                 <Button x:Name="BtnTaskAdd" Content="Add" Tag="Add" Height="25" Padding="10,0" Click="BtnTaskAdd_Click"/>
             </StackPanel>
 
         </Grid>
 
-        <Border Grid.Row="5" Margin="10,0,10,0" Background="LightGray">
+        <Border Grid.Row="5" Margin="10,0,10,0" Background="LightGray" Grid.ColumnSpan="2">
             <ScrollViewer x:Name="LogScrollViewer" ScrollChanged="ScrollViewer_ScrollChanged">
                 <StackPanel x:Name="LogTextWrapper">
                 </StackPanel>

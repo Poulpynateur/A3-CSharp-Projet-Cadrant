@@ -52,9 +52,6 @@ namespace EasySave.Model.Management
         /// <returns></returns>
         public string Translate(string target)
         {
-            if (LangActual.Equals("eng"))
-                return target;
-
             try
             {
                 return text[target][LangActual];

@@ -64,6 +64,16 @@ namespace EasySave.Model.Management
                 thread.Value.Pause.Reset();
             }
         }
+        /// <summary>
+        /// Pause all the threads in the dictionary
+        /// </summary>
+        public void UnpauseAllThread()
+        {
+            foreach (var thread in Map)
+            {
+                thread.Value.Pause.Set();
+            }
+        }
 
         /// <summary>
         /// Set the thread priority

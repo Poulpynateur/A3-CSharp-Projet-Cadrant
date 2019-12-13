@@ -51,12 +51,12 @@ namespace EasySave.Model.Job
                 {
                     if (!regex.IsMatch(options[Option.Name]))
                     {
-                        throw new Exception(management.Lang.Translate("Field not valid : ") + Option.Name);
+                        throw new Exception(management.Lang.Translate("ErrorField") + " : " + Option.Name);
                     }
                 }
                 else
                 {
-                    throw new Exception(management.Lang.Translate("Field missing : ") + Option.Name);
+                    throw new Exception(management.Lang.Translate("ErrorField") + Option.Name);
                 }
             }
         }

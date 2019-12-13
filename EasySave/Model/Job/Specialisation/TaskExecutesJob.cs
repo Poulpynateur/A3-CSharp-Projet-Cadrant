@@ -61,7 +61,7 @@ namespace EasySave.Model.Job.Specialisation
             }
             catch (Exception e)
             {
-                management.Display.DisplayText(Statut.WARNING, management.Lang.Translate("Task '")  + task.Name + management.Lang.Translate("' fail : ") + e.Message);
+                management.Display.DisplayText(Statut.WARNING, management.Lang.Translate("Error") + task.Name + " " + e.Message);
             }
         }
 
