@@ -1,0 +1,189 @@
+﻿{
+  "lang_parameters": {
+    "avaible": "eng;fr;рус"
+  },
+
+  "EasySave": {
+    "fr": "EasySave",
+    "рус": "EasySave"
+  },
+  "Quick Save": {
+    "fr": "Sauvegarde rapide",
+    "рус": "Быстрая копировка "
+  },
+  "Encrypt file extension": {
+    "fr": "Extension des fichiers a encrypter",
+    "рус": "Шифрования файлов"
+  },
+
+
+  "Field not valid : ": {
+    "fr": "Le champ n'est pas valide : ",
+    "рус": "Поле неверное : "
+  },
+  "Field missing : ": {
+    "fr": "Le champ est manquante : ",
+    "рус": "Поле не хвотает : "
+  },
+  "Source folder doesn't exist : ": {
+    "fr": "Le dossier source n'existe pas : ",
+    "рус": "Файл не бывает : "
+  },
+  "Target folder doesn't exist : ": {
+    "fr": "Le dossier cible n'existe pas : ",
+    "рус": "Файл не бывает : "
+  },
+  "File copied : ": {
+    "fr": "Fichier copié : ",
+    "рус": "Файл копирован : "
+  },
+  "Number of saved file(s) : ": {
+    "fr": "Nombre de fichier(s) copié(s) : ",
+    "рус": "Копированов файлов : "
+  },
+  "Encryption error on ": {
+    "fr": "Erreur d'encryption sur : ",
+    "рус": "Ошибка шифрования на : "
+  },
+  "Modify": {
+    "fr": "Modifier",
+    "рус": "Помеиять"
+  },
+  "Language": {
+    "fr": "Langue",
+    "рус": "Язык"
+  },
+  "Ok": {
+    "fr": "Ok",
+    "рус": "Ок"
+  },
+  "Cancel": {
+    "fr": "Annuler",
+    "рус": "Отменить"
+  },
+  "Task Name": {
+    "fr": "Nom de la tâche",
+    "рус": "Имя задачи"
+  },
+  "Source Path": {
+    "fr": "Dossier Source",
+    "рус": "Файл источник"
+  },
+  "Choose": {
+    "fr": "Choisir",
+    "рус": "Выбрать"
+  },
+  "Target Path": {
+    "fr": "Dossier Cible",
+    "рус": "Файл цель"
+  },
+  "Mirror Save": {
+    "fr": "Sauvegarde Miroir",
+    "рус": "Целая копировка"
+  },
+  "Differencial Save": {
+    "fr": "Sauvegarde Différentielle",
+    "рус": "Дифференциалная копировка"
+  },
+  "Encrypt": {
+    "fr": "Encrypter",
+    "рус": "Шифровать"
+  },
+  "Save task": {
+    "fr": "Sauvegarder",
+    "рус": "Сохранить"
+  },
+  "Execute quick save": {
+    "fr": "Exécuter la sauvegarde rapide",
+    "рус": "Запустить быструю копировку"
+  },
+  "Execute": {
+    "fr": "Exécuter",
+    "рус": "Запустить"
+  },
+  "Remove": {
+    "fr": "Supprimer",
+    "рус": "Удалить"
+  },
+  "Add": {
+    "fr": "Ajouter",
+    "рус": "Пребавить"
+  },
+  "Task Manager": {
+    "fr": "Contrôleur de tâches",
+    "рус": "Контроллер задач"
+  },
+  "ERP blacklist": {
+    "fr": "Liste noire ERP",
+    "рус": "ERP черный список"
+  },
+  "Priority extensions": {
+    "fr": "Priorité des extensions",
+    "рус": "Приоритетные расширения"
+  },
+  "Large transfert size (Byte)": {
+    "fr": "Taille de transfert (Octet)",
+    "рус": "Размер передачи (Байт)"
+  },
+  "Job started : ": {
+    "fr": "Travail commencé : ",
+    "рус": "Работа началась : "
+  },
+  "Execute task : ": {
+    "fr": "Tâche executée : ",
+    "рус": "Выполните задачу : "
+  },
+  "Task '": {
+    "fr": "La tâche '",
+    "рус": "Задача '"
+  },
+  "' fail : ": {
+    "fr": "' a échoué : ",
+    "рус": "' банкрот : "
+  },
+  "' added !": {
+    "fr": "' ajouté !",
+    "рус": "' добавлено !"
+  },
+  " stopped.": {
+    "fr": " s'est arrêté.",
+    "рус": " остановился."
+  },
+  " finish successfully.": {
+    "fr": " s'est terminée avec succès.",
+    "рус": " закончилась успешно."
+  },
+  " : job [": {
+    "fr": " : travail [",
+    "рус": " : работы ["
+  },
+  "] created at ": {
+    "fr": "] créé à  ",
+    "рус": "] создано в "
+  },
+  "No task saved.": {
+    "fr": "Pas de tâches sauvegardées.",
+    "рус": "Нет сохраненных задач."
+  },
+  " task(s) removed !": {
+    "fr": " tâche(s) supprimée(s) !",
+    "рус": " удаленные задачи !"
+  },
+  " is already started.": {
+    "fr": " a déjà commencé.",
+    "рус": " уже началось."
+  },
+  "Encryption error on ": {
+    "fr": "Erreur d'encryption sur ",
+    "рус": "Ошибка шифрования при "
+  },
+  "Source folder doesn't exist : ": {
+    "fr": "Le dossier source n'existe pas : ",
+    "рус": "Исходная папка не существует : "
+  },
+  "Target folder doesn't exist : ": {
+    "fr": "Le dossier cible n'existe pas : ",
+    "рус": "Целевая папка не существует : "
+  }
+
+}

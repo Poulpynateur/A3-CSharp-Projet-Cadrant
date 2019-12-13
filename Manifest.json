@@ -10,8 +10,9 @@
   
   "code_versions": {
   	"1.0.2": "https://dev.azure.com/Groupe5/_git/Projet%20Cadrant%202019?version=GC83a00ada35391e64ca5eea4a0e4d66b1f3449dca",
-  	"2.0.0": "https://dev.azure.com/Groupe5/_git/Projet%20Cadrant%202019?version=GCac174fa51688c929a5adef32b35003928797625f"
+  	"2.0.0": "https://dev.azure.com/Groupe5/_git/Projet%20Cadrant%202019?version=GCac174fa51688c929a5adef32b35003928797625f",
+  	"3.0.0": "https://dev.azure.com/Groupe5/_git/Projet%20Cadrant%202019?version=GCbe8253d96a3ccebad70193d9cde7b4ceae367cc1"
   },
 
-  "actual_version": "2.0.0"
+  "actual_version": "3.0.0"
 }

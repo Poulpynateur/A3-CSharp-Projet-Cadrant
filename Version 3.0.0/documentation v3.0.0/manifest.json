@@ -1,0 +1,824 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/Cesi/Annee 3/Long terme/Projet/Projet 2 - Cadrant 2019/EasySave/EasySave/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.App.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.App.html",
+          "hash": "f7cwuH+V5l/vs5JkaPu98Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Controller.Controller.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Controller.Controller.html",
+          "hash": "cL116MOHitF3fgZ+6XgFqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Controller.Parser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Controller.Parser.html",
+          "hash": "FRWLBGbiFu1D38NrqxoRlw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Controller.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Controller.html",
+          "hash": "5eDRbRsOTZquMg+a4/McBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Helpers.Files.JsonHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Helpers.Files.JsonHelper.html",
+          "hash": "PnWUu3KMKiqLzbfPGkMNGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Helpers.Files.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Helpers.Files.html",
+          "hash": "bcrhvMruQrwnw9FS5A19ZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Helpers.IDisplayable.DisplayUpdate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Helpers.IDisplayable.DisplayUpdate.html",
+          "hash": "Bn2C4ZNak71hUVg9DZu7bA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Helpers.IDisplayable.TaskProgressUpdate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Helpers.IDisplayable.TaskProgressUpdate.html",
+          "hash": "NFB3SYVYO43r2HMjnq/TtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Helpers.IDisplayable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Helpers.IDisplayable.html",
+          "hash": "TooI8vrgz/BJ2Ly3NfFV1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Helpers.Statut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Helpers.Statut.html",
+          "hash": "JCcVnY28+7OLXSfoqU/faw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Helpers.html",
+          "hash": "SOGguU83iRddhHnG4f1KCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.IData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.IData.html",
+          "hash": "0D0pL4U/NhGcgfe27TgftA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.IModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.IModel.html",
+          "hash": "uYuPMEPEzMczEorjMBunBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Job.BaseJob.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Job.BaseJob.html",
+          "hash": "VquBzRqkujqjbFL+aNEYMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Job.IJobManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Job.IJobManager.html",
+          "hash": "0qgePKOGVlZT8JVa1vYo3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Job.JobManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Job.JobManager.html",
+          "hash": "Pmq1nKRD7CosKoT8kSEHvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Job.Option.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Job.Option.html",
+          "hash": "qWh7cBt7154rCRmPbYj3hg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Job.Specialisation.SaveMirrorJob.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Job.Specialisation.SaveMirrorJob.html",
+          "hash": "QE8DbObcWBXWAtNfLwakeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Job.Specialisation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Job.Specialisation.html",
+          "hash": "VTxvdmrfd/oJwAkZJFLbWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Job.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Job.html",
+          "hash": "mIjJVOMDp+l9RxJct0jyVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Log.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Log.html",
+          "hash": "Ynhg/yqHMQp5a+79Ume7TA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.Config.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.Config.html",
+          "hash": "iimthpQm/hfc464Fa1nb9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.DataFormat.ThreadInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.DataFormat.ThreadInfo.html",
+          "hash": "eItoXiB9qjinWYAHGjNAGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.DataFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.DataFormat.html",
+          "hash": "HzvuU4eN8S10Mtj3J4eGDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.Displayable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.Displayable.html",
+          "hash": "Zp+PCqEyeH7Jf6jc6ElcDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.Encrypt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.Encrypt.html",
+          "hash": "SwLB3Q+FJiVTXeYNOrzDeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.Lang.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.Lang.html",
+          "hash": "InBzGrZ8jLlnI0EvR7RXIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.LangFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.LangFormat.html",
+          "hash": "kB+mAwZ56aKLRkcLI8/cow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.Logger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.Logger.html",
+          "hash": "PtavzkftXE81pHP9PgecKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.Management.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.Management.html",
+          "hash": "dfTUX7EoruYop1gL4DDjnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.Threads.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.Threads.html",
+          "hash": "D4PwFm5rvsI9+LOMmfjJqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Management.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Management.html",
+          "hash": "P6fRcLpkmzUyIsUqmPN9yw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Model.html",
+          "hash": "F91dSsT3uXm+jdLi3Q9v5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Progress.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Progress.html",
+          "hash": "8d9N98f8d1PJUqa2CWmyJg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Task.ITaskManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Task.ITaskManager.html",
+          "hash": "JLtjS/2bKduchulChgMyTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Task.Task.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Task.Task.html",
+          "hash": "G4nCwRi3nJ1lg9rQQmp0hw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Task.TaskManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Task.TaskManager.html",
+          "hash": "ud+e+nSMw6SkdfzLrR2pvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.Task.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.Task.html",
+          "hash": "HM/RO65e7CWb3t3/SdXRPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.Model.html",
+          "hash": "W5pMydCGGr54Odwxfmxndw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.Composants.Log.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.Composants.Log.html",
+          "hash": "n6FJ0/xqo9WssjqMUY9qgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.Composants.Multilang.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.Composants.Multilang.html",
+          "hash": "NuiW1QcWAbZxWItRGU4Jhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.Composants.ParamContexteWindow.ResultParam.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.Composants.ParamContexteWindow.ResultParam.html",
+          "hash": "Zu/K8x1TY/Yd+/RoC6tm8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.Composants.ParamContexteWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.Composants.ParamContexteWindow.html",
+          "hash": "BA2pFay+KeV2vik0xDNpOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.Composants.TaskInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.Composants.TaskInfo.html",
+          "hash": "qjwMTzns/MoIwo2kxeH9eA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.Composants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.Composants.html",
+          "hash": "UEZUDWyBAMOUnYgno/qaeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.IView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.IView.html",
+          "hash": "AUxFaa04BGQv59wejP0zrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.IWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.IWindow.html",
+          "hash": "Mi6aqbzaQA+0WJjmnlr23Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.MainWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.MainWindow.html",
+          "hash": "DsvYfQ5sLWM3Wtp+LeoHYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.ParamEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.ParamEventHandler.html",
+          "hash": "iNOUnilZ5a87NcyPWZq1PA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.ParamWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.ParamWindow.html",
+          "hash": "kTnEeIVDjHxdwsa1CCqLKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.QuickSaveAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.QuickSaveAction.html",
+          "hash": "K11wVHx+2ipXDbbPSHEyqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.QuickSaveEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.QuickSaveEventHandler.html",
+          "hash": "BfojfWENtgitubnCRaFtOw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.TaskAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.TaskAction.html",
+          "hash": "iDUEPvjMu6Ix5OxrsQaQuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.TaskEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.TaskEventHandler.html",
+          "hash": "qAEVf/egsUR2GBm4JHAbsA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.TaskWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.TaskWindow.html",
+          "hash": "kP8zhqHiihaE2kLhyRp+DA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.View.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.View.html",
+          "hash": "qN89uHr5N0BPyigkXRHuZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.View.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.View.html",
+          "hash": "q9n+lYm77oxu3in+uOar5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EasySave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EasySave.html",
+          "hash": "kxCgTdLfs3GrcGcQtcXdVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "apdB/1e+4Fu60K/zHeJj/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "e6NX8wUYlGws16UEg/HqTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "iBJOcTD1/VTQ2hJegN8aNQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "LnpFORLsglSMi7FrPbuQxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "+rHUkRZHZRi5gd1aTU6lJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 58,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
