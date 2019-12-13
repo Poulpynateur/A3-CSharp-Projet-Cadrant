@@ -53,7 +53,7 @@ namespace EasySave.Model.Management
 
             this.Encrypt = new Encrypt(Config.LoadEncryptFormat());
             this.ErpBlacklist = Config.LoadErpBlackList();
-            this.PriorityExtension = Config.LoadPriorityFormat();
+            this.PriorityExtension = Config.LoadPriorityExtension();
         }
 
         /// <summary>
