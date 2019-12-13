@@ -17,6 +17,10 @@ namespace EasySave.Model
         /// <returns>A command or null</returns>
         BaseJob GetJobByName(string name);
 
+        /// <summary>
+        /// Get the threads
+        /// </summary>
+        /// <returns>Threads object</returns>
         Threads GetThreads();
 
         void SetErpBlacklist(List<string> erp);

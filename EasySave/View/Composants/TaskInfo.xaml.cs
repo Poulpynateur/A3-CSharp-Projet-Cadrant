@@ -24,6 +24,11 @@ namespace EasySave.View.Composants
         private TaskEventHandler TaskEvent;
         private bool pause;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="task">Task object</param>
+        /// <param name="taskEvent">TaskEventHandler object</param>
         public TaskInfo(Task task, TaskEventHandler taskEvent)
         {
             this.pause = false;
@@ -38,6 +43,10 @@ namespace EasySave.View.Composants
             Target.Content = task.Options["target"];
         }
 
+        /// <summary>
+        /// Refresh the information of teh task
+        /// </summary>
+        /// <param name="progress">Progress object</param>
         public void Refresh(Progress progress)
         {
             if(pause == false)
@@ -57,6 +66,9 @@ namespace EasySave.View.Composants
             }
         }
 
+        /// <summary>
+        /// Start a task and gray out the start button
+        /// </summary>
         private void StartTask()
         {
             BtnPausePause.Visibility = Visibility.Visible;
@@ -64,6 +76,10 @@ namespace EasySave.View.Composants
             ProgressBar.Foreground = Brushes.SteelBlue;
             pause = false;
         }
+
+        /// <summary>
+        /// Pause a task and gray out the pause button
+        /// </summary>
         public void PauseTask()
         {
             BtnPausePause.Visibility = Visibility.Collapsed;
@@ -72,6 +88,11 @@ namespace EasySave.View.Composants
             pause = true;
         }
 
+        /// <summary>
+        /// When the Pause button is clicked on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
             if(pause)
@@ -92,6 +113,11 @@ namespace EasySave.View.Composants
             }
         }
 
+        /// <summary>
+        /// When the Stop button is clicked on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnStop_Click(object sender, RoutedEventArgs e)
         {
             TaskEvent(TaskAction.RESTART, new Dictionary<string, string>
@@ -105,6 +131,11 @@ namespace EasySave.View.Composants
             ProgressWrapper.Visibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// When the Name button is clicked on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Name_Click(object sender, RoutedEventArgs e)
         {
             if(TaskDetails.Visibility == Visibility.Collapsed)

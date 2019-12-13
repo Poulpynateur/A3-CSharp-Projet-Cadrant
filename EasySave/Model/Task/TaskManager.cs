@@ -11,10 +11,19 @@ namespace EasySave.Model.Task
     /// </summary>
     public sealed class TaskManager : ITaskManager
     {
+        /// <summary>
+        /// Config object
+        /// </summary>
         private Config config;
 
+        /// <summary>
+        /// List of the tasks
+        /// </summary>
         public List<Task> Map { get; set; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public TaskManager()
         {
             this.config = Management.Management.Instance.Config;

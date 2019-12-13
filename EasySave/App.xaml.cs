@@ -13,6 +13,10 @@ namespace EasySave
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// On the start of the application
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);

@@ -50,6 +50,7 @@ namespace EasySave.Model.Management
             }
             _port = 50000;
 
+            //Initialize the socket with certain parameters, bind it with the IP address and port, and then listens
             _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _socket.Bind(new IPEndPoint(IPAddress.Parse(_address), _port));
             _socket.Listen(100);
@@ -60,7 +61,6 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Accept the clients
         /// </summary>
-        /// <param name="objet"></param>
         public void ListenClient()
         {
             ThreadPool.QueueUserWorkItem((state)=>
@@ -79,10 +79,10 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Convert the progress of the task to a buffer containing the name of the task of its progress
         /// </summary>
-        /// <param name="nameTask"></param>
-        /// <param name="totalFiles"></param>
-        /// <param name="doneFiles"></param>
-        /// <returns></returns>
+        /// <param name="nameTask">Name of the task</param>
+        /// <param name="totalFiles">Total number of files</param>
+        /// <param name="doneFiles">Number of files already files</param>
+        /// <returns>Byte array containing the name of the task, the advancement of the task in fraction form and the file in progress</returns>
         public byte[] ConvertProgressToBuffer(string nameTask, int totalFiles, int doneFiles, string fileInProgress)
         {
             int ratioProgress = doneFiles * 100 / totalFiles;
@@ -92,7 +92,7 @@ namespace EasySave.Model.Management
         }
 
         /// <summary>
-        /// Send to clients the progress of all the works
+        /// Send to client the progress of the task
         /// </summary>
         public void SendProgress(byte[] progressBuffer)
         {

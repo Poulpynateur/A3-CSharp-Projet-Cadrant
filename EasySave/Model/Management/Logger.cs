@@ -12,9 +12,24 @@ namespace EasySave.Model.Management
     /// </summary>
     public class Logger
     {
+        /// <summary>
+        /// Folder name where to store the logs
+        /// </summary>
         private const string FOLDER_NAME = "log";
+
+        /// <summary>
+        /// ProgressSocket object
+        /// </summary>
         private ProgressSocket progressSocket;
+
+        /// <summary>
+        /// Path of where the folder "log" will be stored
+        /// </summary>
         private string logPath;
+
+        /// <summary>
+        /// Path where to store the progress log
+        /// </summary>
         private string progressPath;
 
         /// <summary>
@@ -33,6 +48,9 @@ namespace EasySave.Model.Management
             this.progressPath = Path.Combine(progressPath, "progress.json");
         }
 
+        /// <summary>
+        /// Dispose of the resources used by the progress socket
+        /// </summary>
         public void Close()
         {
             if(progressSocket._client != null)
@@ -44,7 +62,7 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Write a Json file for the log
         /// </summary>
-        /// <param name="log"></param>
+        /// <param name="log">Log object</param>
         public void WriteLog(Log log)
         {
             JsonHelper.WriteJson(log, Path.Combine( logPath, FilesHelper.GenerateName(log.TaskName)) + ".json");
@@ -53,7 +71,7 @@ namespace EasySave.Model.Management
         /// <summary>
         /// Write a Json File for the progress
         /// </summary>
-        /// <param name="progress"></param>
+        /// <param name="progress">Progress object</param>
         public void WriteProgress(Progress progress)
         {
             JsonHelper.WriteJson(progress, progressPath);

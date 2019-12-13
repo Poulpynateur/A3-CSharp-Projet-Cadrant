@@ -10,6 +10,9 @@ namespace EasySave.View
     /// </summary>
     public interface IView
     {
+        /// <summary>
+        /// Main window
+        /// </summary>
         IWindow Window { get; }
 
         /// <summary>

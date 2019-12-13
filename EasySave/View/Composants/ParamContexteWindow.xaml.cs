@@ -24,6 +24,11 @@ namespace EasySave.View.Composants
         private ResultParam result;
         private List<string> paramList;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="parameters">List of parameters</param>
+        /// <param name="result"></param>
         public ParamContexteWindow(List<string> parameters, ResultParam result)
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -34,6 +39,10 @@ namespace EasySave.View.Composants
             RefreshParam();
             ShowDialog();
         }
+
+        /// <summary>
+        /// Refresh the parameters 
+        /// </summary>
         private void RefreshParam()
         {
             ParamList.Children.Clear();
@@ -48,6 +57,10 @@ namespace EasySave.View.Composants
             result(paramList);
         }
 
+        /// <summary>
+        /// Get the list of parameters
+        /// </summary>
+        /// <returns>List of parameters</returns>
         public List<string> GetParamList()
         {
             var list = ParamList.Children.OfType<CheckBox>().Where(x => x.IsChecked == true);
@@ -59,6 +72,11 @@ namespace EasySave.View.Composants
             return paramList;
         }
 
+        /// <summary>
+        /// When clicking the button, add the parameter in the parameters list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             paramList.Add(ParamInput.Text);
@@ -66,6 +84,11 @@ namespace EasySave.View.Composants
             RefreshParam();
         }
 
+        /// <summary>
+        /// When clicking, remove the parameter in the parameters list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             var list = ParamList.Children.OfType<CheckBox>().Where(x => x.IsChecked == true);

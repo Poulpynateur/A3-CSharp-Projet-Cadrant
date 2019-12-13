@@ -22,13 +22,36 @@ namespace EasySave.View
     /// </summary>
     public partial class ParamWindow : Window
     {
+        /// <summary>
+        /// IData object
+        /// </summary>
         private IData data;
+
+        /// <summary>
+        /// Multilang object
+        /// </summary>
         private Multilang multilang;
+
+        /// <summary>
+        /// ParamEventHandler object
+        /// </summary>
         private ParamEventHandler paramEvent;
 
+        /// <summary>
+        /// List of the blacklisted ERP
+        /// </summary>
         private List<string> erpBlacklist;
+
+        /// <summary>
+        /// List of the extensions of the files to encrypt
+        /// </summary>
         private List<string> encryptExtension;
+
+        /// <summary>
+        /// List of the extensions of the files to be prioritized
+        /// </summary>
         private List<string> priorityExtension;
+
         /// <summary>
         /// Initialize the parameters window (ERP blacklist and format of the files to encrypt)
         /// </summary>
@@ -81,6 +104,11 @@ namespace EasySave.View
             this.Close();
         }
 
+        /// <summary>
+        /// On click, open the window to manage the extensions of the files to encrypt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EncryptFileModify_Click(object sender, RoutedEventArgs e)
         {
             this.IsEnabled = false;
@@ -91,6 +119,11 @@ namespace EasySave.View
             this.IsEnabled = true;
         }
 
+        /// <summary>
+        /// On click, open the window to manage the blacklisted ERP
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ErpBlacklistModify_Click(object sender, RoutedEventArgs e)
         {
             this.IsEnabled = false;
@@ -101,16 +134,31 @@ namespace EasySave.View
             this.IsEnabled = true;
         }
 
+        /// <summary>
+        /// On click, close the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Once the window, refresh the control texts
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             multilang.RefreshControlText(this, data);
         }
 
+        /// <summary>
+        /// On click, open the window to manage the extensions of the files to be prioritized
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PriorityExtensionsModify_Click(object sender, RoutedEventArgs e)
         {
             this.IsEnabled = false;
