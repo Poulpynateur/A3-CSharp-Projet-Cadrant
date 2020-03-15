@@ -1,0 +1,169 @@
+﻿{
+  "lang_parameters": {
+    "avaible": "eng;fr;рус"
+  },
+
+  "Title": {
+    "eng": "EasySave",
+    "fr": "EasySave",
+    "рус": "EasySave"
+  },
+  "QuickSaveTitle": {
+    "eng": "Quick Save",
+    "fr": "Sauvegarde rapide",
+    "рус": "Быстрая копировка"
+  },
+  "FileExtension": {
+    "eng": "Encrypt file extension",
+    "fr": "Extension des fichiers a encrypter",
+    "рус": "Шифрования файлов"
+  },
+
+  "Error": {
+    "eng": "Error on ",
+    "fr": "Erreur sur ",
+    "рус": "Поле "
+  },
+  "ErrorField": {
+    "eng": "Field not valid",
+    "fr": "Le champ n'est pas valide",
+    "рус": "Поле неверное"
+  },
+  "ErrorFolder": {
+    "eng": "Source folder doesn't exist",
+    "fr": "Le dossier source n'existe pas",
+    "рус": "Файл не бывает"
+  },
+  "ErrorEncryption": {
+    "eng": "Encryption error",
+    "fr": "Erreur d'encryption",
+    "рус": "Ошибка шифрования"
+  },
+  "Modify": {
+    "eng": "Modify",
+    "fr": "Modifier",
+    "рус": "Помеиять"
+  },
+  "Language": {
+    "eng": "Language",
+    "fr": "Langue",
+    "рус": "Язык"
+  },
+  "Ok": {
+    "eng": "Ok",
+    "fr": "Ok",
+    "рус": "Ок"
+  },
+  "Cancel": {
+    "eng": "Cancel",
+    "fr": "Annuler",
+    "рус": "Отменить"
+  },
+  "Name": {
+    "eng": "Name",
+    "fr": "Nom",
+    "рус": "Имя"
+  },
+  "SourcePath": {
+    "eng": "Source path",
+    "fr": "Dossier source",
+    "рус": "Файл источник"
+  },
+  "Choose": {
+    "eng": "Choose",
+    "fr": "Choisir",
+    "рус": "Выбрать"
+  },
+  "TargetPath": {
+    "fr": "Target path",
+    "fr": "Dossier cible",
+    "рус": "Файл цель"
+  },
+  "MirrorSave": {
+    "eng": "Mirror Save",
+    "fr": "Sauvegarde Miroir",
+    "рус": "Целая копировка"
+  },
+  "DifferencialSave": {
+    "eng": "Differencial Save",
+    "fr": "Sauvegarde Différentielle",
+    "рус": "Дифференциалная копировка"
+  },
+  "Encrypt": {
+    "eng": "Encrypt",
+    "fr": "Encrypter",
+    "рус": "Шифровать"
+  },
+  "Save": {
+    "eng": "Save",
+    "fr": "Sauvegarder",
+    "рус": "Сохранить"
+  },
+  "Execute": {
+    "eng": "Execute",
+    "fr": "Exécuter",
+    "рус": "Запустить"
+  },
+  "PauseAll": {
+    "eng": "Pause all",
+    "fr": "Tout pauser",
+    "рус": "Запустить"
+  },
+  "Remove": {
+    "eng": "Remove",
+    "fr": "Supprimer",
+    "рус": "Удалить"
+  },
+  "Add": {
+    "eng": "Add",
+    "fr": "Ajouter",
+    "рус": "Пребавить"
+  },
+  "TaskManager": {
+    "eng": "Task Manager",
+    "fr": "Contrôleur de tâches",
+    "рус": "Контроллер задач"
+  },
+  "ErpBlacklist": {
+    "eng": "ERP blacklist",
+    "fr": "Liste noire ERP",
+    "рус": "ERP черный список"
+  },
+  "PriorityExtensions": {
+    "eng": "Priority extensions",
+    "fr": "Priorité des extensions",
+    "рус": "Приоритетные расширения"
+  },
+  "TransfertSize": {
+    "eng": "Large transfert size (Byte)",
+    "fr": "Taille de transfert (Octet)",
+    "рус": "Размер передачи (Байт)"
+  },
+
+  "JobStart": {
+    "eng": "Job started",
+    "fr": "Travail commencé",
+    "рус": "Работа началась"
+  },
+  "Added": {
+    "eng": "Added",
+    "fr": "Ajouté",
+    "рус": "добавлено"
+  },
+  "Stop": {
+    "eng": " have stopped.",
+    "fr": " s'est arrêté.",
+    "рус": " остановился."
+  },
+  "IsSuccess": {
+    "eng": " is successfull.",
+    "fr": " s'est terminée avec succès.",
+    "рус": " закончилась успешно."
+  },
+  "AlreadyStarted": {
+    "eng": "is already started.",
+    "fr": " a déjà commencé.",
+    "рус": " уже началось."
+  }
+
+}

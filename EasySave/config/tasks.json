@@ -1,0 +1,24 @@
+[
+  {
+    "Name": "Test",
+    "CreatedAt": "2020-03-15T20:18:21.1335164+01:00",
+    "JobName": "save-mirror",
+    "Options": {
+      "name": "Test",
+      "encrypt": "no",
+      "source": "D:/Test",
+      "target": "D:/Test_target"
+    }
+  },
+  {
+    "Name": "Test 2",
+    "CreatedAt": "2020-03-15T20:22:54.8728981+01:00",
+    "JobName": "save-mirror",
+    "Options": {
+      "name": "Test 2",
+      "encrypt": "no",
+      "source": "",
+      "target": ""
+    }
+  }
+]
